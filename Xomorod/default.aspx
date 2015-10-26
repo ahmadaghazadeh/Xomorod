@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Xomorod._default" %>
 
+<%@ Import Namespace="Xomorod" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,10 +10,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Just for Zoomorod.Co software company">
+    <meta name="author" content="Mr. Behzad Khosravi far">
 
-    <title>Zoomorod.com</title>
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title><% LocalizationApi.GetValue("Zoomorod"); %></title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -42,13 +46,14 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <img src="img/favicon.png" class="CompanyMarker" alt="favicon">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Xomorod </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,6 +81,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
+                <img src="img/white-favicon.png" class="BigCompanyMarker" alt="favicon" />
                 <h1>Zoomorod</h1>
                 <hr>
                 <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
@@ -256,11 +262,11 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>123-456-6789</p>
+                    <p>+98 914 914 9202</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:info@Zoomorod.com">feedback@Zoomorod.com</a></p>
                 </div>
             </div>
         </div>
