@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8DA94677-28A2-4BB1-8550-D2AD4E81F074}</ProjectGuid>
+    <ProjectGuid>{68077FDF-8185-4D44-AC50-0E868093A525}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -47,6 +47,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -66,9 +67,85 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\creative.css" />
+    <Content Include="default.aspx" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
     <Content Include="img\fav.png" />
     <Content Include="img\favicon.png" />
+    <Content Include="img\header.jpg" />
+    <Content Include="img\portfolio\1.jpg" />
+    <Content Include="img\portfolio\2.jpg" />
+    <Content Include="img\portfolio\3.jpg" />
+    <Content Include="img\portfolio\4.jpg" />
+    <Content Include="img\portfolio\5.jpg" />
+    <Content Include="img\portfolio\6.jpg" />
     <Content Include="img\white-favicon.png" />
+    <Content Include="css\bootstrap-toggle.css" />
+    <Content Include="js\bootstrap-toggle.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\cbpAnimatedHeader.js" />
+    <Content Include="js\classie.js" />
+    <Content Include="js\cookies.js" />
+    <Content Include="js\creative.js" />
+    <None Include="js\jquery-2.1.4.intellisense.js" />
+    <Content Include="js\jquery-2.1.4.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.easing.min.js" />
+    <Content Include="js\jquery.fittext.js" />
+    <Content Include="js\angularAjaxApiCaller.js" />
+    <Content Include="js\wow.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\LocalizationController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Portfolio.cs" />
+    <Compile Include="Properties\localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>localization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\localization.fa-IR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>localization.fa-IR.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -108,59 +185,21 @@
     <Content Include="less\creative.less" />
     <Content Include="less\mixins.less" />
     <Content Include="less\variables.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\animate.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\creative.css" />
-    <Content Include="default.aspx" />
-    <Content Include="font-awesome\css\font-awesome.css" />
-    <Content Include="font-awesome\css\font-awesome.min.css" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="img\header.jpg" />
-    <Content Include="img\portfolio\1.jpg" />
-    <Content Include="img\portfolio\2.jpg" />
-    <Content Include="img\portfolio\3.jpg" />
-    <Content Include="img\portfolio\4.jpg" />
-    <Content Include="img\portfolio\5.jpg" />
-    <Content Include="img\portfolio\6.jpg" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\cbpAnimatedHeader.js" />
-    <Content Include="js\classie.js" />
-    <Content Include="js\creative.js" />
-    <Content Include="js\jquery.easing.min.js" />
-    <Content Include="js\jquery.fittext.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="js\wow.min.js" />
-    <Content Include="web.config" />
-    <None Include="Properties\PublishProfiles\xomorod.pubxml" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LocalizationAPI.cs" />
-    <Compile Include="Properties\localization.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>localization.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\localization.fa-IR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>localization.fa-IR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\localization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>localization.Designer.cs</LastGenOutput>
@@ -179,9 +218,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50996</DevelopmentServerPort>
+          <DevelopmentServerPort>54607</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50996/</IISUrl>
+          <IISUrl>http://localhost:54321/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

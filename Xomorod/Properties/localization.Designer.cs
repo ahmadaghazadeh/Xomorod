@@ -88,7 +88,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact Me.
+        ///   Looks up a localized string similar to Contact.
         /// </summary>
         internal static string Contact {
             get {
@@ -108,9 +108,9 @@ namespace Xomorod.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Products.
         /// </summary>
-        internal static string Portdolio {
+        internal static string Portfolio {
             get {
-                return ResourceManager.GetString("Portdolio", resourceCulture);
+                return ResourceManager.GetString("Portfolio", resourceCulture);
             }
         }
         
@@ -135,9 +135,9 @@ namespace Xomorod.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Zoomorod.
         /// </summary>
-        internal static string Zoomorod {
+        internal static string Title {
             get {
-                return ResourceManager.GetString("Zoomorod", resourceCulture);
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
     }

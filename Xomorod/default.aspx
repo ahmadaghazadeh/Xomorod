@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Xomorod._default" %>
 
-<%@ Import Namespace="Xomorod" %>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="" ng-controller="mainController">
 
 <head>
 
@@ -11,14 +9,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Just for Zoomorod.Co software company">
-    <meta name="author" content="Mr. Behzad Khosravi far">
+    <meta name="author" content="Mr. Behzad Khosravifar">
 
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title><% LocalizationApi.GetValue("Zoomorod"); %></title>
+    <title>Xomorod</title>
 
-    <!-- Bootstrap Core CSS -->
+    <%-- Angular JS --%>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.js"></script>
+
+    <%-- Cooki JS --%>
+    <script src="js/cookies.js"></script>
+
+    <%-- Title Angular JS --%>
+    <script src="js/angularAjaxApiCaller.js"></script>
+
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link href="css/bootstrap-toggle.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -30,17 +47,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="onLoad();">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -53,23 +62,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Xomorod </a>
+                <a class="navbar-brand page-scroll" href="#page-top">{{ xomorod.Title }} </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">{{ xomorod.About }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">{{ xomorod.Services }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#portfolio">{{ xomorod.Portfolio }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">{{ xomorod.Contact }}</a>
+                    </li>
+                    <li>
+                        <div style="padding: 10px;" width="50px" text-align="center">
+                            <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" onchange="changeLanguage()">
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -146,99 +160,33 @@
         </div>
     </section>
 
-    <section class="padding" id="portfolio">
+    <section class="padding" id="portfolio" ng-controller="productsController">
         <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
+            <div class="row <%--no-gutter--%>">
+
+                <div class="col-lg-4 col-sm-6" ng-repeat="portfolio in products">
+                    <div class="thumbnail">
+                        <a href="{{ portfolio.ProjectUrl }}" class="portfolio-box">
+                            <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        {{ portfolio.Category }}
+                                    </div>
+                                    <div class="project-name">
+                                        {{ portfolio.ProjectName }}
+                                    </div>
                                 </div>
                             </div>
+                        </a>
+                        <div class="caption">
+                            <h3>{{ portfolio.ProjectName }}</h3>
+                            <p>{{ portfolio.ProjectUrl }} ...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </div>
     </section>

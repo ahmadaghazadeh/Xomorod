@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>درباره</value>
   </data>
   <data name="AboutParagraph" xml:space="preserve">
-    <value>Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</value>
+    <value>توضیحات درباره سایت من</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>We've got what you need!</value>
+    <value>ما ارائه میدهیم هر چیزی که شما نیاز داشته باشید</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>ارتباط با ما</value>
   </data>
   <data name="GetStarted" xml:space="preserve">
-    <value>Get Started!</value>
+    <value>شروع کن!</value>
   </data>
   <data name="Portfolio" xml:space="preserve">
-    <value>Products</value>
+    <value>محصولات</value>
   </data>
   <data name="Services" xml:space="preserve">
-    <value>Services</value>
+    <value>سرویس ها</value>
   </data>
   <data name="TileParagraph" xml:space="preserve">
-    <value>Zoomorod Corporation is a small software company in the field of applications for Windows, Android and iOS!</value>
+    <value>شرکت زمرد یک شرکت نرم افزاری در زمینه برنامه های ویندوزی ، اندروید و اپل می باشد</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Zoomorod</value>
+    <value>Xomorod</value>
   </data>
 </root>
