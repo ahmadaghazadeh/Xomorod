@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Xomorod.Models;
 
@@ -11,12 +10,17 @@ namespace Xomorod.Controllers
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
-        // GET api/products
-        public IHttpActionResult Get()
-        {
-            var portfolios = new List<Portfolio>();
+        public static List<Portfolio> Portfolios = new List<Portfolio>();
 
-            portfolios.AddRange(new[]
+        // GET api/products
+        public async Task<IHttpActionResult> Get()
+        {
+            var data = await Core.HttpHelper.GetDataFrom(@"https://api.github.com/users/behzadkhosravifar/repos");
+
+            if (Portfolios.Any()) return Ok(Portfolios);
+
+
+            Portfolios.AddRange(new[]
             {
                 new Portfolio()
                 {
@@ -62,7 +66,7 @@ namespace Xomorod.Controllers
                 }
             });
 
-            return Ok(portfolios);
+            return Ok(Portfolios);
         }
 
         // GET api/products/5

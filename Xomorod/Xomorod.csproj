@@ -122,6 +122,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LocalizationController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Core\HttpHelper.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
