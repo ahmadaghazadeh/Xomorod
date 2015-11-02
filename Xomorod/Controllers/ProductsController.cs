@@ -15,8 +15,6 @@ namespace Xomorod.Controllers
         // GET api/products
         public async Task<IHttpActionResult> Get()
         {
-            var data = await Core.HttpHelper.GetDataFrom(@"https://api.github.com/users/behzadkhosravifar/repos");
-
             if (Portfolios.Any()) return Ok(Portfolios);
 
 
