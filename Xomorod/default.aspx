@@ -181,8 +181,8 @@
                         </a>
                         <div class="caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
-                            <p>{{ portfolio.ProjectUrl }} ...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            <p>{{ portfolio.Description }} ...</p>
+                            <p><a href="#" class="btn btn-primary" role="button" ng-show="{{ portfolio.OpenSource }}">Open Source</a></p>
                         </div>
                     </div>
                 </div>

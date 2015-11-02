@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -81,6 +82,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Xomorod.mdf" />
+    <Content Include="App_Data\Xomorod_log.ldf">
+      <DependentUpon>Xomorod.mdf</DependentUpon>
+    </Content>
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -132,7 +137,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Portfolio.cs" />
+    <Compile Include="Models\Xomorod.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Xomorod.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +196,11 @@
     <Content Include="less\creative.less" />
     <Content Include="less\mixins.less" />
     <Content Include="less\variables.less" />
+    <Content Include="Models\Xomorod.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Xomorod.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -196,10 +210,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Xomorod.dbml.layout">
+      <DependentUpon>Xomorod.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\localization.fa-IR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>localization.fa-IR.Designer.cs</LastGenOutput>
@@ -208,6 +224,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>localization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

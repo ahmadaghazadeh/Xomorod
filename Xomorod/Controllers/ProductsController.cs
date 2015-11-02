@@ -15,54 +15,11 @@ namespace Xomorod.Controllers
         // GET api/products
         public async Task<IHttpActionResult> Get()
         {
+            //https://api.github.com/users/behzadkhosravifar/repos
+
             if (Portfolios.Any()) return Ok(Portfolios);
 
-
-            Portfolios.AddRange(new[]
-            {
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/1.jpg",
-                    Category = "Web Applications",
-                    ProjectName = "Xomorod",
-                    ProjectUrl = "#"
-                },
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/2.jpg",
-                    Category = "Win32 Applications",
-                    ProjectName = "Make Class Schedule",
-                    ProjectUrl = "#"
-                },
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/3.jpg",
-                    Category = "Web Applications",
-                    ProjectName = "Fuzzy Logic",
-                    ProjectUrl = "#"
-                },
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/4.jpg",
-                    Category = "Web Applications",
-                    ProjectName = "Error Control System",
-                    ProjectUrl = "#"
-                },
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/5.jpg",
-                    Category = "Web Applications",
-                    ProjectName = "SignalR",
-                    ProjectUrl = "#"
-                },
-                new Portfolio()
-                {
-                    ImageSrc  = "img/portfolio/6.jpg",
-                    Category = "Web Applications",
-                    ProjectName = "WHOis",
-                    ProjectUrl = "#"
-                }
-            });
+            Portfolios = new XomorodDataContext().Portfolios.ToList();
 
             return Ok(Portfolios);
         }
