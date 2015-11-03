@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Xomorod" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Xomorod.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UsersManagements" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.LogHistory" Member="LogHistories">
     <Type Name="LogHistory">
       <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -29,6 +28,14 @@
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="OpenSource" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Role" Member="Role1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentRoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

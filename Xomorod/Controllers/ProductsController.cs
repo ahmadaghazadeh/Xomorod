@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Xomorod.Core;
 using Xomorod.Models;
 
 namespace Xomorod.Controllers
@@ -18,8 +19,8 @@ namespace Xomorod.Controllers
             //https://api.github.com/users/behzadkhosravifar/repos
 
             if (Portfolios.Any()) return Ok(Portfolios);
-
-            Portfolios = new XomorodDataContext().Portfolios.ToList();
+            
+            Portfolios = new XomorodDataContext(DatabaseHelper.ConnectionString).Portfolios.ToList();
 
             return Ok(Portfolios);
         }

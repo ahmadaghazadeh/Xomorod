@@ -2,22 +2,28 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Xomorod">
   <DataContextMoniker Name="/XomorodDataContext" />
   <nestedChildShapes>
-    <classShape Id="44e7e98e-0e4e-4063-af1d-e1e2250379b7" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
+    <classShape Id="5b2f7056-9357-4916-bce7-083d3c84eee9" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
       <DataClassMoniker Name="/XomorodDataContext/LogHistory" />
       <nestedChildShapes>
-        <elementListCompartment Id="8b96abf1-fc0c-4e15-9c0a-28270cc00cd8" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b8977585-2ae1-4b12-96ec-7ed9a54f24cf" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b69ca32e-1946-41cd-b740-875143e9df96" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
+    <classShape Id="564a0b87-da46-40e0-b82b-edbd769acf26" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
       <DataClassMoniker Name="/XomorodDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="fd1940e3-104f-4eb6-bfab-08615ff549ba" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="fbb1ec00-818d-4cf2-ba21-9485c48fc257" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e516509e-9baa-4de3-8473-149b4e3038a1" absoluteBounds="0.75, 3.75, 2, 2.347801106770834">
+    <classShape Id="abfaea70-be0e-4cfa-b5e8-fc4197a82265" absoluteBounds="0.75, 3.75, 2, 2.347801106770834">
       <DataClassMoniker Name="/XomorodDataContext/Portfolio" />
       <nestedChildShapes>
-        <elementListCompartment Id="5dda1311-15b0-4a2b-9db1-8e2685bcd5e5" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1d661678-d484-47cf-967d-d3faeb57f5e2" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32abb214-d489-4b62-b15b-a480289bc52d" absoluteBounds="3.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/XomorodDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5bbf967b-7c5e-4bf8-8015-e7445d93e67b" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

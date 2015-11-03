@@ -22,7 +22,7 @@ namespace Xomorod.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Xomorod")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="UsersManagements")]
 	public partial class XomorodDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,13 +36,10 @@ namespace Xomorod.Models
     partial void InsertPortfolio(Portfolio instance);
     partial void UpdatePortfolio(Portfolio instance);
     partial void DeletePortfolio(Portfolio instance);
+    partial void InsertRole(Role instance);
+    partial void UpdateRole(Role instance);
+    partial void DeleteRole(Role instance);
     #endregion
-		
-		public XomorodDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XomorodConnectionString"].ConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
 		
 		public XomorodDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -89,6 +86,14 @@ namespace Xomorod.Models
 			get
 			{
 				return this.GetTable<Portfolio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Role> Roles
+		{
+			get
+			{
+				return this.GetTable<Role>();
 			}
 		}
 	}
@@ -573,6 +578,140 @@ namespace Xomorod.Models
 					this._ModifyDate = value;
 					this.SendPropertyChanged("ModifyDate");
 					this.OnModifyDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles")]
+	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Role1;
+		
+		private string _Type;
+		
+		private System.Nullable<int> _ParentRoleId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnRole1Changing(string value);
+    partial void OnRole1Changed();
+    partial void OnTypeChanging(string value);
+    partial void OnTypeChanged();
+    partial void OnParentRoleIdChanging(System.Nullable<int> value);
+    partial void OnParentRoleIdChanged();
+    #endregion
+		
+		public Role()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Role", Storage="_Role1", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Role1
+		{
+			get
+			{
+				return this._Role1;
+			}
+			set
+			{
+				if ((this._Role1 != value))
+				{
+					this.OnRole1Changing(value);
+					this.SendPropertyChanging();
+					this._Role1 = value;
+					this.SendPropertyChanged("Role1");
+					this.OnRole1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentRoleId", DbType="Int")]
+		public System.Nullable<int> ParentRoleId
+		{
+			get
+			{
+				return this._ParentRoleId;
+			}
+			set
+			{
+				if ((this._ParentRoleId != value))
+				{
+					this.OnParentRoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._ParentRoleId = value;
+					this.SendPropertyChanged("ParentRoleId");
+					this.OnParentRoleIdChanged();
 				}
 			}
 		}

@@ -82,10 +82,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Xomorod.mdf" />
-    <Content Include="App_Data\Xomorod_log.ldf">
-      <DependentUpon>Xomorod.mdf</DependentUpon>
-    </Content>
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -99,12 +95,6 @@
     <Content Include="img\fav.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\header.jpg" />
-    <Content Include="img\portfolio\1.jpg" />
-    <Content Include="img\portfolio\2.jpg" />
-    <Content Include="img\portfolio\3.jpg" />
-    <Content Include="img\portfolio\4.jpg" />
-    <Content Include="img\portfolio\5.jpg" />
-    <Content Include="img\portfolio\6.jpg" />
     <Content Include="img\white-favicon.png" />
     <Content Include="css\bootstrap-toggle.css" />
     <Content Include="js\bootstrap-toggle.js" />
@@ -127,6 +117,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LocalizationController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Core\DatabaseHelper.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,7 +201,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Xomorod.dbml.layout">
