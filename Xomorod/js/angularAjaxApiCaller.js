@@ -1,16 +1,20 @@
-﻿var CookiekeyName = "Culture";
-
+﻿
 function onLoad() {
-    if (docCookies.hasItem(CookiekeyName)) {
-        var lang = docCookies.getItem(CookiekeyName);
+    if (docCookies.hasItem("Culture")) {
+        var lang = docCookies.getItem("Culture");
         if (lang === "fa-IR") {
             document.getElementById("chkLanguage").checked = false;
-            //$("#chkLanguage").checked = false;
         }
     }
+
+    var app = angular.module('xomorodApp', []);
+
+    app.controller('bodyController', function ($scope, $http) {
+        bodyController($scope, $http);
+    });
 }
 
-function mainController($scope, $http) {
+function bodyController($scope, $http) {
     $http.get("api/localization").success(function (response) {
         $scope.xomorod = response;
     }).error(function () {
@@ -31,7 +35,7 @@ function productsController($scope, $http) {
 function changeLanguage() {
     var language = $("#chkLanguage").checked ? "en-US" : "fa-IR";
 
-    docCookies.setItem(CookiekeyName, language);
+    docCookies.setItem("Culture", language);
 
     var app = window.angular.module('', []);
 

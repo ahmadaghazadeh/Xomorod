@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Xomorod._default" %>
 
 <!DOCTYPE html>
-<html lang="en" ng-app="" ng-controller="mainController">
+<html lang="en">
 
 <head>
 
@@ -15,31 +15,14 @@
 
     <title>Xomorod</title>
 
-    <%-- Angular JS --%>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
-    
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-toggle.js"></script>
-
-    <%-- Cooki JS --%>
-    <script src="js/cookies.js"></script>
-
-    <%-- Title Angular JS --%>
-    <script src="js/angularAjaxApiCaller.js"></script>
-
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link href="css/bootstrap-toggle.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
@@ -49,7 +32,7 @@
     <link rel="stylesheet" href="css/creative.css" type="text/css">
 </head>
 
-<body id="page-top" onload="onLoad();">
+<body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -162,7 +145,7 @@
 
     <section class="padding" id="portfolio" ng-controller="productsController">
         <div class="container-fluid">
-            <div class="row <%--no-gutter--%>">
+            <div class="row previews">
 
                 <div class="col-lg-4 col-sm-6" ng-repeat="portfolio in products">
                     <div class="thumbnail">
@@ -233,6 +216,25 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+
+    <!-- Angular JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.js"></script>
+
+    <!-- Cooki JS -->
+    <script src="js/cookies.js"></script>
+
+    <!-- Marked JS -->
+    <!-- https://github.com/chjj/marked -->
+    <script src="js/marked.min.js"></script>
+
+    <!-- Custom Angular JS Script -->
+    <script src="js/angularAjaxApiCaller.js"></script>
+
+    <script>onLoad();</script>
 
 </body>
 
