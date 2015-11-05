@@ -489,3 +489,9 @@ body {
     width: 120px;
     bottom: 40px;
 }
+
+.btn-social {
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #f1f0f0;
+}

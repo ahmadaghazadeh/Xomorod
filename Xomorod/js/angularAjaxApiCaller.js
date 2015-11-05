@@ -1,22 +1,23 @@
-﻿
-function onLoad() {
+﻿var app = angular.module("xomorodApp", []);
+var scope = null;
+var http = null;
+
+function bodyController($scope, $http) {
+    scope = $scope;
+    http = $http;
+
+    var lang = "en-US";
+
     if (docCookies.hasItem("Culture")) {
-        var lang = docCookies.getItem("Culture");
+        lang = docCookies.getItem("Culture");
         if (lang === "fa-IR") {
             document.getElementById("chkLanguage").checked = false;
         }
     }
 
-    var app = angular.module('xomorodApp', []);
-
-    app.controller('bodyController', function ($scope, $http) {
-        bodyController($scope, $http);
-    });
-}
-
-function bodyController($scope, $http) {
-    $http.get("api/localization").success(function (response) {
+    $http.get("api/localization/" + lang).success(function (response) {
         $scope.xomorod = response;
+        $scope.$apply();
     }).error(function () {
         alert("an unexcepted error ocurred!");
     });
@@ -24,28 +25,18 @@ function bodyController($scope, $http) {
 
 
 function productsController($scope, $http) {
-    //$http.get("https://api.github.com/users/behzadkhosravifar/repos").success(function (response) {
     $http.get("api/products").success(function (response) {
         $scope.products = response;
+        $scope.$apply();
     }).error(function () {
         alert("an unexcepted error ocurred!");
     });
 }
 
 function changeLanguage() {
-    var language = $("#chkLanguage").checked ? "en-US" : "fa-IR";
+    var language = document.getElementById("chkLanguage").checked ? "en-US" : "fa-IR";
 
     docCookies.setItem("Culture", language);
 
-    var app = window.angular.module('', []);
-
-    app.controller('mainController', ['$scope', '$http', function ($scope, $http) {
-  
-        $http.get("api/localization/" + language).success(function (response) {
-            $scope.xomorod = response;
-        }).error(function () {
-            alert("an unexcepted error ocurred!");
-        });
-
-    }]);
+    bodyController(scope, http);
 }

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Just for Zoomorod.Co software company">
+    <meta name="description" content="Just for Xomorod.Co software company">
     <meta name="author" content="Mr. Behzad Khosravifar">
 
     <link rel="shortcut icon" href="img/favicon.png">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">{{ xomorod.Title }} </a>
+                <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,7 +79,7 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <img src="img/white-favicon.png" class="BigCompanyMarker" alt="favicon" />
-                <h1>Zoomorod</h1>
+                <h1>Xomorod</h1>
                 <hr>
                 <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
@@ -165,7 +165,7 @@
                         <div class="caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
                             <p>{{ portfolio.Description }} ...</p>
-                            <p><a href="#" class="btn btn-primary" role="button" ng-show="{{ portfolio.OpenSource }}">Open Source</a></p>
+                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-github"></i>   Open Source</a></p>
                         </div>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:info@Zoomorod.com">feedback@Zoomorod.com</a></p>
+                    <p><a href="mailto:info@Xomorod.com">feedback@Xomorod.com</a></p>
                 </div>
             </div>
         </div>
@@ -233,9 +233,6 @@
 
     <!-- Custom Angular JS Script -->
     <script src="js/angularAjaxApiCaller.js"></script>
-
-    <script>onLoad();</script>
-
 </body>
 
 </html>
