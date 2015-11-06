@@ -92,11 +92,11 @@
     <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\fav.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\header.jpg" />
-    <Content Include="img\white-favicon.png" />
+    <Content Include="img\me.jpg" />
     <Content Include="css\bootstrap-toggle.css" />
+    <Content Include="img\partner.jpg" />
     <Content Include="js\angular.min.js" />
     <Content Include="js\bootstrap-toggle.js" />
     <Content Include="js\bootstrap.js" />

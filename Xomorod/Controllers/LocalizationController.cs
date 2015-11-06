@@ -34,7 +34,7 @@ namespace Xomorod.Controllers
             }
 
             //TODO change below code by Authotication systems
-            fBody.SignIn = id == "fa-IR" ? false : true;
+            fBody.SignState = Properties.localization.ResourceManager.GetString("SignIn", cultureInfo);
 
             return Ok(fBody);
         }

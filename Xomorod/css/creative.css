@@ -89,7 +89,7 @@ aside {
     transition: all .35s;
 }
 
-.navbar-default .navbar-header .navbar-brand {
+    .navbar-default .navbar-header .navbar-brand {
         text-transform: uppercase;
         font-family: 'Merkur';
         font-weight: 100;
@@ -132,12 +132,12 @@ aside {
         background-color: transparent;
     }
 
-    .navbar-default .navbar-header .navbar-brand {
+        .navbar-default .navbar-header .navbar-brand {
             color: #ffffff;
             color: rgba(255,255,255,.7);
         }
 
-    .navbar-default .navbar-header .navbar-brand:hover,
+            .navbar-default .navbar-header .navbar-brand:hover,
             .navbar-default .navbar-header .navbar-brand:focus {
                 color: #fff;
             }
@@ -148,7 +148,7 @@ aside {
             color: rgba(255,255,255,.7);
         }
 
-    .navbar-default .nav > li > a:hover,
+            .navbar-default .nav > li > a:hover,
             .navbar-default .nav > li > a:focus:hover {
                 color: #fff;
             }
@@ -159,7 +159,7 @@ aside {
             background-color: #fff;
         }
 
-    .navbar-default.affix .navbar-header .navbar-brand {
+            .navbar-default.affix .navbar-header .navbar-brand {
                 font-size: 30px;
                 color: #f05f40;
             }
@@ -229,7 +229,7 @@ header {
     }
 
         header .header-content {
-            position:absolute;
+            position: absolute;
             padding-top: 15vmin;
             overflow: hidden;
         }
@@ -245,6 +245,8 @@ header {
                     margin-left: auto;
                     max-width: 80%;
                     font-size: 18px;
+                    padding-left: 10%;
+                    padding-right: 10%;
                 }
 }
 
@@ -514,4 +516,36 @@ body {
 .btn {
     font-weight: 500;
     font-size: 18px;
+}
+
+
+ul.social-buttons li a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #f05f40;
+    outline: 0;
+}
+
+ul.social-buttons li a:hover {
+    background-color: #fed136;
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+
+.team-member img {
+    margin: 0 auto;
+    border: 7px solid #fff;
 }
