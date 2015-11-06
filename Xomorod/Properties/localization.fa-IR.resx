@@ -118,19 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>درباره</value>
+    <value>درباره ما</value>
   </data>
   <data name="AboutParagraph" xml:space="preserve">
     <value>توضیحات درباره سایت من</value>
   </data>
-  <data name="AboutTitle" xml:space="preserve">
-    <value>ما ارائه میدهیم هر چیزی که شما نیاز داشته باشید</value>
+  <data name="AtYourServie" xml:space="preserve">
+    <value>خدمات قابل ارائه</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>ارتباط با ما</value>
   </data>
+  <data name="FindOutMore" xml:space="preserve">
+    <value>اطلاعات بیشتر</value>
+  </data>
   <data name="GetStarted" xml:space="preserve">
-    <value>شروع کن!</value>
+    <value>شروع کن</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت وب سایت و برنامه های ویندوزی و موبایل میباشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
+  </data>
+  <data name="MoreInfoTitle" xml:space="preserve">
+    <value>ارائه می دهیم آنچه را که نیاز دارید</value>
   </data>
   <data name="Portfolio" xml:space="preserve">
     <value>محصولات</value>
@@ -138,8 +147,14 @@
   <data name="Services" xml:space="preserve">
     <value>سرویس ها</value>
   </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>ورود به سیستم</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>خروج از سیستم</value>
+  </data>
   <data name="TileParagraph" xml:space="preserve">
-    <value>شرکت زمرد یک شرکت نرم افزاری در زمینه برنامه های ویندوزی ، اندروید و اپل می باشد</value>
+    <value>شرکت نرم افزاری زمرد توسعه دهنده نرم افزارهای تحت ویندوز، وب، اندروید، و اپل</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Xomorod</value>

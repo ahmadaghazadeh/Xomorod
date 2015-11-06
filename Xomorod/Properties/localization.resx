@@ -123,14 +123,23 @@
   <data name="AboutParagraph" xml:space="preserve">
     <value>Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</value>
   </data>
-  <data name="AboutTitle" xml:space="preserve">
-    <value>We've got what you need!</value>
+  <data name="AtYourServie" xml:space="preserve">
+    <value>At Your Service</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="FindOutMore" xml:space="preserve">
+    <value>Find Out More</value>
+  </data>
   <data name="GetStarted" xml:space="preserve">
     <value>Get Started!</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>Xomorod has small company to provide what you need in field of website or windows or mobile! Most of the application on Xomorod are open source, free to download, and easy to use.</value>
+  </data>
+  <data name="MoreInfoTitle" xml:space="preserve">
+    <value>We've got what you need!</value>
   </data>
   <data name="Portfolio" xml:space="preserve">
     <value>Products</value>
@@ -138,10 +147,16 @@
   <data name="Services" xml:space="preserve">
     <value>Services</value>
   </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
   <data name="TileParagraph" xml:space="preserve">
-    <value>Zoomorod Corporation is a small software company in the field of applications for Windows, Android and iOS!</value>
+    <value>Xomorod Corporation is a small software company in the field of applications for Windows, Android and iOS</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Zoomorod</value>
+    <value>Xomorod</value>
   </data>
 </root>

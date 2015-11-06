@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Web.Http;
 
 namespace Xomorod.Controllers
@@ -24,14 +25,16 @@ namespace Xomorod.Controllers
             var cultureInfo = CultureInfo.GetCultureInfo(id);
 
             dynamic fBody = new ExpandoObject();
+            var dynamicFBody = (IDictionary<string, object>) fBody;
 
-            fBody.Title = Properties.localization.ResourceManager.GetString("Title", cultureInfo);
-            fBody.About = Properties.localization.ResourceManager.GetString("About", cultureInfo);
-            fBody.Portfolio = Properties.localization.ResourceManager.GetString("Portfolio", cultureInfo);
-            fBody.Services = Properties.localization.ResourceManager.GetString("Services", cultureInfo);
-            fBody.TileParagraph = Properties.localization.ResourceManager.GetString("TileParagraph", cultureInfo);
-            fBody.Contact = Properties.localization.ResourceManager.GetString("Contact", cultureInfo);
+            var localizeType = typeof(Properties.localization);
+            foreach (var prop in localizeType.GetProperties(BindingFlags.Static | BindingFlags.NonPublic).Where(x => x.PropertyType == typeof(string)))
+            {
+                dynamicFBody.Add(prop.Name, Properties.localization.ResourceManager.GetString(prop.Name, cultureInfo));
+            }
 
+            //TODO change below code by Authotication systems
+            fBody.SignIn = id == "fa-IR" ? false : true;
 
             return Ok(fBody);
         }

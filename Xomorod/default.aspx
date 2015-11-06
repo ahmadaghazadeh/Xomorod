@@ -21,8 +21,6 @@
 
 
     <!-- Custom Fonts -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
@@ -52,6 +50,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a ng-show="{{ xomorod.SignIn }}" href="/sign-in.html"><i class="fa fa-1x fa-sign-in"></i>  {{ xomorod.SignIn }}</a>
+                        <a ng-show="{{ xomorod.SignIn }} == false" href="/sign-out.html"><i class="fa fa-1x fa-sign-out"></i>  {{ xomorod.SignOut }}</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#about">{{ xomorod.About }}</a>
                     </li>
                     <li>
@@ -78,11 +80,10 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <img src="img/white-favicon.png" class="BigCompanyMarker" alt="favicon" />
                 <h1>Xomorod</h1>
                 <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <p>{{ xomorod.TileParagraph }}</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
             </div>
         </div>
     </header>
@@ -91,10 +92,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
+                    <h2 class="section-heading">{{ xomorod.MoreInfoTitle }}</h2>
                     <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+                    <p class="text-faded">{{ xomorod.MoreInfo }}</p>
+                    <a href="#" class="btn btn-default btn-xl">{{ xomorod.GetStarted }}</a>
                 </div>
             </div>
         </div>
@@ -104,7 +105,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">{{ xomorod.AtYourServie }}</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -113,29 +114,29 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                        <h3>Sturdy Templates</h3>
+                        <i class="fa fa-5x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Xomorod</h3>
                         <p class="text-muted">Our templates are updated regularly so they don't break.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Ready to Ship</h3>
+                        <i class="fa fa-5x fa-windows wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Windows</h3>
                         <p class="text-muted">You can use this theme as is, or you can make changes!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Up to Date</h3>
+                        <i class="fa fa-5x fa-android wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Android</h3>
                         <p class="text-muted">We update dependencies to keep things fresh.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Made with Love</h3>
+                        <i class="fa fa-5x fa-apple wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Apple</h3>
                         <p class="text-muted">You have to make your websites with love these days!</p>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                         <div class="caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
                             <p>{{ portfolio.Description }} ...</p>
-                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-github"></i>   Open Source</a></p>
+                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -218,21 +219,22 @@
     <script src="js/creative.js"></script>
 
     <!-- Angular JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script> -->
+    <script src="js/angular.min.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-toggle.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap-toggle.js" type="text/javascript"></script>
 
     <!-- Cooki JS -->
-    <script src="js/cookies.js"></script>
+    <script src="js/cookies.js" type="text/javascript"></script>
 
     <!-- Marked JS -->
     <!-- https://github.com/chjj/marked -->
-    <script src="js/marked.min.js"></script>
+    <script src="js/marked.min.js" type="text/javascript"></script>
 
     <!-- Custom Angular JS Script -->
-    <script src="js/angularAjaxApiCaller.js"></script>
+    <script src="js/angularAjaxApiCaller.js" type="text/javascript"></script>
 </body>
 
 </html>

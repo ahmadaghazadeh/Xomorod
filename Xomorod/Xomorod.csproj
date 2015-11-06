@@ -105,6 +105,7 @@
     <Content Include="js\classie.js" />
     <Content Include="js\cookies.js" />
     <Content Include="js\creative.js" />
+    <Content Include="fonts\Merkur.otf" />
     <None Include="js\jquery-2.1.4.intellisense.js" />
     <Content Include="js\jquery-2.1.4.js" />
     <Content Include="js\jquery.js" />

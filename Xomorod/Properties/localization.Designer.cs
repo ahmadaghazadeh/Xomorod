@@ -79,11 +79,11 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We&apos;ve got what you need!.
+        ///   Looks up a localized string similar to At Your Service.
         /// </summary>
-        internal static string AboutTitle {
+        internal static string AtYourServie {
             get {
-                return ResourceManager.GetString("AboutTitle", resourceCulture);
+                return ResourceManager.GetString("AtYourServie", resourceCulture);
             }
         }
         
@@ -97,11 +97,38 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Find Out More.
+        /// </summary>
+        internal static string FindOutMore {
+            get {
+                return ResourceManager.GetString("FindOutMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get Started!.
         /// </summary>
         internal static string GetStarted {
             get {
                 return ResourceManager.GetString("GetStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xomorod has small company to provide what you need in field of website or windows or mobile! Most of the application on Xomorod are open source, free to download, and easy to use..
+        /// </summary>
+        internal static string MoreInfo {
+            get {
+                return ResourceManager.GetString("MoreInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We&apos;ve got what you need!.
+        /// </summary>
+        internal static string MoreInfoTitle {
+            get {
+                return ResourceManager.GetString("MoreInfoTitle", resourceCulture);
             }
         }
         
@@ -124,7 +151,25 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zoomorod Corporation is a small software company in the field of applications for Windows, Android and iOS!.
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        internal static string SignIn {
+            get {
+                return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Out.
+        /// </summary>
+        internal static string SignOut {
+            get {
+                return ResourceManager.GetString("SignOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xomorod Corporation is a small software company in the field of applications for Windows, Android and iOS.
         /// </summary>
         internal static string TileParagraph {
             get {
@@ -133,7 +178,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zoomorod.
+        ///   Looks up a localized string similar to Xomorod.
         /// </summary>
         internal static string Title {
             get {

@@ -17,7 +17,6 @@ function bodyController($scope, $http) {
 
     $http.get("api/localization/" + lang).success(function (response) {
         $scope.xomorod = response;
-        $scope.$apply();
     }).error(function () {
         alert("an unexcepted error ocurred!");
     });
@@ -27,7 +26,6 @@ function bodyController($scope, $http) {
 function productsController($scope, $http) {
     $http.get("api/products").success(function (response) {
         $scope.products = response;
-        $scope.$apply();
     }).error(function () {
         alert("an unexcepted error ocurred!");
     });
