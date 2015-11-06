@@ -123,6 +123,18 @@
   <data name="AboutParagraph" xml:space="preserve">
     <value>توضیحات درباره سایت من</value>
   </data>
+  <data name="Android" xml:space="preserve">
+    <value>اندروید</value>
+  </data>
+  <data name="AndroidService" xml:space="preserve">
+    <value>We update dependencies to keep things fresh.</value>
+  </data>
+  <data name="Apple" xml:space="preserve">
+    <value>اپل</value>
+  </data>
+  <data name="AppleService" xml:space="preserve">
+    <value>You have to make your websites with love these days!</value>
+  </data>
   <data name="AtYourServie" xml:space="preserve">
     <value>خدمات قابل ارائه</value>
   </data>
@@ -136,7 +148,7 @@
     <value>شروع کن</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
-    <value>زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت وب سایت و برنامه های ویندوزی و موبایل میباشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
+    <value>زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت وب سایت و برنامه های ویندوزی و موبایل می باشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
   </data>
   <data name="MoreInfoTitle" xml:space="preserve">
     <value>ارائه می دهیم آنچه را که نیاز دارید</value>
@@ -154,9 +166,21 @@
     <value>خروج از سیستم</value>
   </data>
   <data name="TileParagraph" xml:space="preserve">
-    <value>شرکت نرم افزاری زمرد توسعه دهنده نرم افزارهای تحت ویندوز، وب، اندروید، و اپل</value>
+    <value>شرکت نرم افزاری زمرد توسعه دهنده نرم افزارهای تحت ویندوز، وب، اندروید و اپل</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Xomorod</value>
+  </data>
+  <data name="Windows" xml:space="preserve">
+    <value>ویندوز</value>
+  </data>
+  <data name="WindowsService" xml:space="preserve">
+    <value>You can use this theme as is, or you can make changes!</value>
+  </data>
+  <data name="Xomorod" xml:space="preserve">
+    <value>زمرد</value>
+  </data>
+  <data name="XomorodService" xml:space="preserve">
+    <value>Our templates are updated regularly so they don't break.</value>
   </data>
 </root>

@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link href="css/bootstrap-toggle.css" rel="stylesheet">
 
-
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
@@ -114,30 +113,30 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-5x fa-diamond wow bounceIn text-primary"></i>
-                        <h3>Xomorod</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <i class="fa fa-5x fa-diamond wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>{{ xomorod.Xomorod }}</h3>
+                        <p class="text-muted">{{ xomorod.XomorodService }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-5x fa-windows wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Windows</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <i class="fa fa-5x fa-windows wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>{{ xomorod.Windows }}</h3>
+                        <p class="text-muted">{{ xomorod.WindowsService }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-5x fa-android wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Android</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <i class="fa fa-5x fa-android wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>{{ xomorod.Android }}</h3>
+                        <p class="text-muted">{{ xomorod.AndroidService }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-5x fa-apple wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Apple</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <i class="fa fa-5x fa-apple wow bounceIn text-primary" data-wow-delay=".4s"></i>
+                        <h3>{{ xomorod.Apple }}</h3>
+                        <p class="text-muted">{{ xomorod.AppleService }}</p>
                     </div>
                 </div>
             </div>

@@ -79,6 +79,42 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Android.
+        /// </summary>
+        internal static string Android {
+            get {
+                return ResourceManager.GetString("Android", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We update dependencies to keep things fresh..
+        /// </summary>
+        internal static string AndroidService {
+            get {
+                return ResourceManager.GetString("AndroidService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apple.
+        /// </summary>
+        internal static string Apple {
+            get {
+                return ResourceManager.GetString("Apple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to make your websites with love these days!.
+        /// </summary>
+        internal static string AppleService {
+            get {
+                return ResourceManager.GetString("AppleService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to At Your Service.
         /// </summary>
         internal static string AtYourServie {
@@ -183,6 +219,42 @@ namespace Xomorod.Properties {
         internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows.
+        /// </summary>
+        internal static string Windows {
+            get {
+                return ResourceManager.GetString("Windows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use this theme as is, or you can make changes!.
+        /// </summary>
+        internal static string WindowsService {
+            get {
+                return ResourceManager.GetString("WindowsService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xomorod.
+        /// </summary>
+        internal static string Xomorod {
+            get {
+                return ResourceManager.GetString("Xomorod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our templates are updated regularly so they don&apos;t break..
+        /// </summary>
+        internal static string XomorodService {
+            get {
+                return ResourceManager.GetString("XomorodService", resourceCulture);
             }
         }
     }

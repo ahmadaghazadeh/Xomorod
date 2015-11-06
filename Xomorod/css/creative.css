@@ -11,7 +11,7 @@ body {
 }
 
 body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    font-family: 'Iranian Sans';
 }
 
 hr {
@@ -42,7 +42,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Iranian Sans';
 }
 
 p {
@@ -80,7 +80,7 @@ aside {
 .navbar-default {
     border-color: #222222;
     border-color: rgba(34,34,34,.05);
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Iranian Sans';
     background-color: #fff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
@@ -303,7 +303,7 @@ header {
             .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
             .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
                 padding: 0 15px;
-                font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+                font-family: 'Iranian Sans';
             }
 
             .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
@@ -454,7 +454,7 @@ header {
     border: 0;
     border-radius: 300px;
     text-transform: uppercase;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Iranian Sans';
     font-weight: 700;
 }
 
@@ -463,12 +463,14 @@ header {
 }
 
 ::-moz-selection {
+    -ms-text-shadow: none;
     text-shadow: none;
     color: #fff;
     background: #222;
 }
 
 ::selection {
+    -ms-text-shadow: none;
     text-shadow: none;
     color: #fff;
     background: #222;
