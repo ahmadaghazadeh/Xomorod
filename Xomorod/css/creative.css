@@ -10,9 +10,22 @@ body {
     height: 100%;
 }
 
+@font-face {
+  font-family: 'Iranian Sans';
+
+    src: url('../fonts/iransans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merkur';
+
+  src: url('../fonts/Merkur.otf') format('truetype');
+}
+
 body {
     font-family: 'Iranian Sans';
 }
+
 
 hr {
     max-width: 50px;
