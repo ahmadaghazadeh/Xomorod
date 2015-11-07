@@ -25,6 +25,8 @@
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
+    <link href="css/xomorod-dialog.css" rel="stylesheet" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/xomorod.css" type="text/css">
 </head>
@@ -143,48 +145,79 @@
         </div>
     </section>
 
-    <!-- Portfolio Grid Section -->
-    <section class="bg-light-gray" id="portfolio" ng-controller="productsController">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    <!-- Products -->
+    <div ng-controller="productsController">
+        <!-- Portfolio Grid Section -->
+        <section class="bg-light-gray" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Portfolio</h2>
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    </div>
                 </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
-                    <div class="thumbnail">
-                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                            <!--div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        {{ portfolio.Category }}
-                                    </div>
-                                    <div class="project-name">
-                                        {{ portfolio.ProjectName }}
+                <br />
+                <div class="row">
+                    <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
+                        <div class="thumbnail">
+                            <a href="{{ '#portfolioModal' + portfolio.Id }}" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
                                     </div>
                                 </div>
-                            </div>-->
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content">
-                                    <i class="fa fa-plus fa-3x"></i>
-                                </div>
+                                <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>{{ portfolio.ProjectName }}</h4>
+                                <p class="text-muted">{{ portfolio.Category }}</p>
+                                <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a></p>
                             </div>
-                            <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
-                        </a>
-                        <div class="portfolio-caption">
-                            <h4>{{ portfolio.ProjectName }}</h4>
-                            <p class="text-muted">{{ portfolio.Category }}</p>
-                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a></p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- Portfolio Modals -->
+        <!-- Use the modals below to showcase details about your portfolio projects! -->
+        <div ng-repeat="portfolio in products">
+            <!-- Portfolio Modal 1 -->
+            <div class="portfolio-modal modal fade" id="{{ 'portfolioModal' + portfolio.Id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2>{{ portfolio.ProjectName }}</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-responsive img-centered" src="{{ portfolio.ImageSrc }}" alt="">
+                                    <p>{{ portfolio.Description }}</p>
+                                    <p>
+                                        <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>Date: July 2014</li>
+                                        <li>Client: Round Icons</li>
+                                        <li>{{ 'Category: ' + portfolio.Category }}</li>
+                                    </ul>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>    Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+
+    </div>
 
     <aside class="bg-primary">
         <div class="container text-center">
@@ -272,75 +305,35 @@
         </div>
     </section>
 
-
-    <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-
-    <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="img/header.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <p>
-                                <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                            </p>
-                            <ul class="list-inline">
-                                <li>Date: July 2014</li>
-                                <li>Client: Round Icons</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap-toggle.js" type="text/javascript"></script>
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/wow.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+    <!-- Cooki JS -->
+    <script src="js/cookies.js" type="text/javascript"></script>
 
     <!-- Angular JS -->
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script> -->
     <script src="js/angular.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap-toggle.js" type="text/javascript"></script>
-
-    <!-- Cooki JS -->
-    <script src="js/cookies.js" type="text/javascript"></script>
-
     <!-- Marked JS -->
     <!-- https://github.com/chjj/marked -->
     <script src="js/marked.min.js" type="text/javascript"></script>
 
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+
     <!-- Custom Angular JS Script -->
     <script src="js/angularAjaxApiCaller.js" type="text/javascript"></script>
+
 </body>
 
 </html>

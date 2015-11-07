@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -103,8 +104,6 @@
     <Content Include="js\bootstrap-toggle.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\cbpAnimatedHeader.js" />
-    <Content Include="js\classie.js" />
     <Content Include="js\cookies.js" />
     <Content Include="js\creative.js" />
     <Content Include="fonts\Merkur.otf" />
