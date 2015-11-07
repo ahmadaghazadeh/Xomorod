@@ -80,7 +80,8 @@
             <div class="header-content-inner">
                 <h1>Xomorod</h1>
                 <hr>
-                <br/><br/>
+                <br />
+                <br />
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
             </div>
         </div>
@@ -143,15 +144,20 @@
     </section>
 
     <!-- Portfolio Grid Section -->
-    <section class="padding bg-light-gray" id="portfolio" ng-controller="productsController">
-        <div class="container-fluid">
-            <div class="row previews">
-
+    <section class="bg-light-gray" id="portfolio" ng-controller="productsController">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
                 <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
                     <div class="thumbnail">
-                        <a href="{{ portfolio.ProjectUrl }}" class="portfolio-box">
-                            <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
+                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                            <!--div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
                                     <div class="project-category text-faded">
                                         {{ portfolio.Category }}
@@ -160,11 +166,17 @@
                                         {{ portfolio.ProjectName }}
                                     </div>
                                 </div>
+                            </div>-->
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
                         </a>
-                        <div class="caption">
-                            <h3>{{ portfolio.ProjectName }}</h3>
-                            <p>{{ portfolio.Description }} ...</p>
+                        <div class="portfolio-caption">
+                            <h4>{{ portfolio.ProjectName }}</h4>
+                            <p class="text-muted">{{ portfolio.Category }}</p>
                             <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a></p>
                         </div>
                     </div>
@@ -173,7 +185,7 @@
             </div>
         </div>
     </section>
-    
+
     <aside class="bg-primary">
         <div class="container text-center">
             <div class="call-to-action">
@@ -259,6 +271,44 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Project Name</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <img class="img-responsive img-centered" src="img/header.jpg" alt="">
+                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                            <p>
+                                <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+                            </p>
+                            <ul class="list-inline">
+                                <li>Date: July 2014</li>
+                                <li>Client: Round Icons</li>
+                                <li>Category: Graphic Design</li>
+                            </ul>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
