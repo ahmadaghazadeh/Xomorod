@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/xomorod.css" type="text/css">
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
@@ -48,9 +48,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/sign-in.html"><i class="fa fa-1x fa-sign-in"></i>   {{ xomorod.SignState }}</a>
-                    </li>
+                    <!--<li>
+                        <a href="/sign-in.html"><i class="fa fa-1x fa-sign-in"></i>{{ "   " + xomorod.SignState }}</a>
+                    </li>-->
                     <li>
                         <a class="page-scroll" href="#about">{{ xomorod.About }}</a>
                     </li>
@@ -80,7 +80,7 @@
             <div class="header-content-inner">
                 <h1>Xomorod</h1>
                 <hr>
-                <p>{{ xomorod.TileParagraph }}</p>
+                <br/><br/>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
             </div>
         </div>
@@ -142,11 +142,12 @@
         </div>
     </section>
 
-    <section class="padding" id="portfolio" ng-controller="productsController">
+    <!-- Portfolio Grid Section -->
+    <section class="padding bg-light-gray" id="portfolio" ng-controller="productsController">
         <div class="container-fluid">
             <div class="row previews">
 
-                <div class="col-lg-4 col-sm-6" ng-repeat="portfolio in products">
+                <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
                     <div class="thumbnail">
                         <a href="{{ portfolio.ProjectUrl }}" class="portfolio-box">
                             <img src="{{ portfolio.ImageSrc }}" class="img-responsive" alt="">
@@ -172,6 +173,15 @@
             </div>
         </div>
     </section>
+    
+    <aside class="bg-primary">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Free Download at Xomorod!</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
+            </div>
+        </div>
+    </aside>
 
     <!-- Team Section -->
     <section id="team" class="bg-light-gray">
@@ -229,15 +239,6 @@
             </div>
         </div>
     </section>
-
-    <aside class="bg-primary">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Free Download at Xomorod!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
-            </div>
-        </div>
-    </aside>
 
     <section id="contact">
         <div class="container">

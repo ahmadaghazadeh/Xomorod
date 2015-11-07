@@ -70,15 +70,6 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!.
-        /// </summary>
-        internal static string AboutParagraph {
-            get {
-                return ResourceManager.GetString("AboutParagraph", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Android.
         /// </summary>
         internal static string Android {
@@ -151,7 +142,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xomorod has small company to provide what you need in field of website or windows or mobile! Most of the application on Xomorod are open source, free to download, and easy to use..
+        ///   Looks up a localized string similar to Xomorod Corporation has small software company to provide what you need in the field of web applications, Windows, Android and iOS. Most of the application on Xomorod are open source, free to download, and easy to use..
         /// </summary>
         internal static string MoreInfo {
             get {
@@ -201,15 +192,6 @@ namespace Xomorod.Properties {
         internal static string SignOut {
             get {
                 return ResourceManager.GetString("SignOut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Xomorod Corporation is a small software company in the field of applications for Windows, Android and iOS.
-        /// </summary>
-        internal static string TileParagraph {
-            get {
-                return ResourceManager.GetString("TileParagraph", resourceCulture);
             }
         }
         

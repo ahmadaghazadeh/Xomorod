@@ -120,9 +120,6 @@
   <data name="About" xml:space="preserve">
     <value>درباره ما</value>
   </data>
-  <data name="AboutParagraph" xml:space="preserve">
-    <value>توضیحات درباره سایت من</value>
-  </data>
   <data name="Android" xml:space="preserve">
     <value>اندروید</value>
   </data>
@@ -148,7 +145,7 @@
     <value>شروع کن</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
-    <value>زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت وب سایت و برنامه های ویندوزی و موبایل می باشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
+    <value>شرکت نرم افزاری زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت برنامه های تحت وب، ویندوز، اندروید، اپل می باشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
   </data>
   <data name="MoreInfoTitle" xml:space="preserve">
     <value>ارائه می دهیم آنچه را که نیاز دارید</value>
@@ -164,9 +161,6 @@
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>خروج از سیستم</value>
-  </data>
-  <data name="TileParagraph" xml:space="preserve">
-    <value>شرکت نرم افزاری زمرد توسعه دهنده نرم افزارهای تحت ویندوز، وب، اندروید و اپل</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Xomorod</value>

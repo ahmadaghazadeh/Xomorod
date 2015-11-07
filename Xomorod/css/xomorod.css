@@ -11,15 +11,13 @@ body {
 }
 
 @font-face {
-  font-family: 'Iranian Sans';
-
+    font-family: 'Iranian Sans';
     src: url('../fonts/iransans.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Merkur';
-
-  src: url('../fonts/Merkur.otf') format('truetype');
+    font-family: 'Merkur';
+    src: url('../fonts/Merkur.otf') format('truetype');
 }
 
 body {
@@ -28,7 +26,7 @@ body {
 
 
 hr {
-    max-width: 50px;
+    max-width: 80px;
     border-color: #f05f40;
     border-width: 3px;
 }
@@ -107,7 +105,7 @@ aside {
         font-family: 'Merkur';
         font-weight: 100;
         color: #f05f40;
-        font-size: 40px;
+        font-size: 50px;
     }
 
         .navbar-default .navbar-header .navbar-brand:hover,
@@ -118,7 +116,7 @@ aside {
     .navbar-default .nav > li > a,
     .navbar-default .nav > li > a:focus {
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 800;
         color: #222;
     }
 
@@ -173,7 +171,7 @@ aside {
         }
 
             .navbar-default.affix .navbar-header .navbar-brand {
-                font-size: 30px;
+                font-size: 35px;
                 color: #f05f40;
             }
 
@@ -211,29 +209,20 @@ header {
     header .header-content {
         position: relative;
         width: 100%;
-        padding: 100px 16px;
+        padding: 100px 18px;
         text-align: center;
     }
 
         header .header-content .header-content-inner h1 {
-            margin-top: 0;
+            margin-top: 5vmin;
             margin-bottom: 0;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 300;
             font-family: 'Merkur';
         }
 
         header .header-content .header-content-inner hr {
-            margin: 30px auto;
-        }
-
-        header .header-content .header-content-inner p {
-            margin-bottom: 25px;
-            font-size: 16px;
-            font-weight: 300;
-            color: #ffffff;
-            padding-left: 5%;
-            padding-right: 5%;
+            margin: 50px auto;
         }
 
 @media(min-width:768px) {
@@ -243,7 +232,7 @@ header {
 
         header .header-content {
             position: absolute;
-            padding-top: 15vmin;
+            padding-top: 16vmin;
             overflow: hidden;
         }
 
@@ -252,15 +241,6 @@ header {
                 margin-left: auto;
                 max-width: 1000px;
             }
-
-                header .header-content .header-content-inner p {
-                    margin-right: auto;
-                    margin-left: auto;
-                    max-width: 80%;
-                    font-size: 18px;
-                    padding-left: 10%;
-                    padding-right: 10%;
-                }
 }
 
 .section-heading {
@@ -510,15 +490,18 @@ body {
     position: relative;
     width: 35px;
     text-align: center;
-    top: 8px;
+    top: 10px;
 }
 
-.BigCompanyMarker {
-    position: relative;
-    text-align: center;
-    width: 120px;
-    bottom: 40px;
-}
+    .CompanyMarker:hover {
+        position: relative;
+        width: 45px;
+        text-align: center;
+        top: 8px;
+        transition: all ease .5s;
+        -webkit-transition: all ease .5s;
+        -moz-transition: all ease .5s;
+    }
 
 .btn-social {
     font-weight: 600;
@@ -545,9 +528,9 @@ ul.social-buttons li a {
     outline: 0;
 }
 
-ul.social-buttons li a:hover {
-    background-color: #fed136;
-}
+    ul.social-buttons li a:hover {
+        background-color: #fed136;
+    }
 
 .team-member {
     text-align: center;
@@ -561,4 +544,58 @@ ul.social-buttons li a:hover {
 .team-member img {
     margin: 0 auto;
     border: 7px solid #fff;
+}
+
+@media (min-width: 767px) {
+    #portfolio .portfolio-item {
+        margin: 0 0 30px;
+    }
+}
+
+#portfolio .portfolio-item {
+    margin: 0 0 15px;
+    right: 0;
+}
+
+    #portfolio .portfolio-item .portfolio-link {
+        display: block;
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+        #portfolio .portfolio-item .portfolio-link .portfolio-hover {
+            background: #fed136;
+            background: rgba(254,209,54,.9);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+            -moz-transition: all ease .5s;
+        }
+
+
+    #portfolio .portfolio-item .portfolio-caption h4 {
+        text-transform: none;
+        margin: 0;
+    }
+
+h4 {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+#portfolio * {
+    z-index: 2;
+}
+
+div {
+    display: block;
 }
