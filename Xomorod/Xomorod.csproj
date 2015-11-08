@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\style.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -101,6 +102,7 @@
     <Content Include="css\bootstrap-toggle.css" />
     <Content Include="img\partner.jpg" />
     <Content Include="js\angular.min.js" />
+    <Content Include="js\app.js" />
     <Content Include="js\bootstrap-toggle.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -108,6 +110,7 @@
     <Content Include="js\creative.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
+    <Content Include="assets\particlesjs-config.json" />
     <None Include="js\jquery-2.1.4.intellisense.js" />
     <Content Include="js\jquery-2.1.4.js" />
     <Content Include="js\jquery.js" />
@@ -115,6 +118,7 @@
     <Content Include="js\jquery.fittext.js" />
     <Content Include="js\angularAjaxApiCaller.js" />
     <Content Include="js\marked.min.js" />
+    <Content Include="js\particles.min.js" />
     <Content Include="js\wow.min.js" />
     <Content Include="Models\DatabaseCreateScript.sql" />
     <Content Include="Web.config" />

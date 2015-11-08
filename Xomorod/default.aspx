@@ -208,7 +208,7 @@
                                         <li>Client: Round Icons</li>
                                         <li>{{ 'Category: ' + portfolio.Category }}</li>
                                     </ul>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>    Close Project</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close Project</button>
                                 </div>
                             </div>
                         </div>
@@ -333,7 +333,6 @@
 
     <!-- Custom Angular JS Script -->
     <script src="js/angularAjaxApiCaller.js" type="text/javascript"></script>
-
 </body>
 
 </html>
