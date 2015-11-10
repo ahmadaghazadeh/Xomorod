@@ -60,27 +60,27 @@ a {
     }
 
 section {
-    padding: 100px 0;
+    padding: 15px 0;
 }
 
     section h2.section-heading {
         font-size: 40px;
         margin-top: 0;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     section h3.section-subheading {
-        font-size: 16px;
+        font-size: 20px;
         font-family: "Iranian Sans";
         text-transform: none;
         font-style: italic;
         font-weight: 400;
-        margin-bottom: 75px;
+        margin-bottom: 50px;
     }
 
 @media (min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 100px 0;
     }
 }
 
