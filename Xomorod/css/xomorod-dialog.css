@@ -89,16 +89,25 @@ section {
     text-transform: none;
 }
 
+.fix-frame {
+    height: auto;
+    max-height: 300px;
+    margin-top: auto;
+}
+
 #portfolio .portfolio-item {
-    margin: 0 0 15px;
+    margin: 15px;
     right: 0;
 }
 
     #portfolio .portfolio-item .portfolio-link {
         display: block;
         position: relative;
-        max-width: 400px;
-        margin: auto;
+        min-height: 300px;
+        margin: 3px;
+        padding: 3px;
+        max-height: 300px;
+        text-align: center;
     }
 
         #portfolio .portfolio-item .portfolio-link .portfolio-hover {
@@ -210,7 +219,7 @@ aside.clients img {
     text-align: center;
 }
 
-.portfolio-modal .modal-content h2 {
+    .portfolio-modal .modal-content h2 {
         margin-bottom: 15px;
         font-size: 3em;
     }
@@ -250,7 +259,7 @@ aside.clients img {
         opacity: .3;
     }
 
-.portfolio-modal .close-modal .lr {
+    .portfolio-modal .close-modal .lr {
         height: 75px;
         width: 1px;
         margin-left: 35px;
