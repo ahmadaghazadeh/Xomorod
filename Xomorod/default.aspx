@@ -11,7 +11,7 @@
     <meta name="description" content="Just for Xomorod.Co software company">
     <meta name="author" content="Mr. Behzad Khosravifar">
 
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/xomorod.svg">
 
     <title>Xomorod</title>
 
@@ -38,7 +38,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <img src="img/favicon.png" class="CompanyMarker" alt="favicon">
+                <img src="img/xomorod.svg" class="CompanyMarker" alt="favicon">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -51,9 +51,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <!--<li>
-                    <a href="/sign-in.html"><i class="fa fa-1x fa-sign-in"></i>{{ "   " + xomorod.SignState }}</a>
-                </li>-->
                     <li>
                         <a class="page-scroll" href="#about">{{ xomorod.About }}</a>
                     </li>
@@ -85,10 +82,8 @@
             <div class="header-content-inner">
                 <h1>Xomorod</h1>
                 <hr>
-                <br />
-                <br />
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
             </div>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
         </div>
     </header>
     <section class="bg-primary" id="about">
@@ -111,7 +106,7 @@
 
     <!-- Products -->
     <div ng-include="'html/products.html'"></div>
-    
+
 
     <!-- Download Ribbon -->
     <div ng-include="'html/download_ribbon.html'"></div>

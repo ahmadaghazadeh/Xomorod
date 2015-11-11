@@ -100,11 +100,11 @@
     <Content Include="html\products.html" />
     <Content Include="html\services.html" />
     <Content Include="html\team_section.html" />
-    <Content Include="img\favicon.png" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
     <Content Include="css\bootstrap-toggle.css" />
     <Content Include="img\partner.jpg" />
+    <Content Include="img\xomorod.svg" />
     <Content Include="js\angular.min.js" />
     <Content Include="js\bootstrap-toggle.js" />
     <Content Include="js\bootstrap.js" />
