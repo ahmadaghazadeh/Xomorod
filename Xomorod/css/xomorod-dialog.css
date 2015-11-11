@@ -173,7 +173,11 @@ section {
 
 @media (min-width:767px) {
     #portfolio .portfolio-item {
-        margin: 0 0 30px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
