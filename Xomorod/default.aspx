@@ -83,7 +83,7 @@
                 <h1>Xomorod</h1>
                 <hr>
             </div>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>
+            <%--<a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>--%>
         </div>
     </header>
     <section class="bg-primary" id="about">

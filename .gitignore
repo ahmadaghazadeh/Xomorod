@@ -13,7 +13,7 @@
 [Rr]elease/
 x64/
 build/
-[Bb]in/bin/
+[Bb]in/
 [Oo]bj/
 [Oo]ut/
 [Nn]uGetPackages/
@@ -98,6 +98,7 @@ publish/
 
 # Publish Web Output
 *.Publish.xml
+[Pp]ublishProfiles/
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
