@@ -1,30 +1,176 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Xomorod">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 20.25" name="Xomorod">
   <DataContextMoniker Name="/XomorodDataContext" />
   <nestedChildShapes>
-    <classShape Id="5b2f7056-9357-4916-bce7-083d3c84eee9" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
-      <DataClassMoniker Name="/XomorodDataContext/LogHistory" />
+    <classShape Id="ecf7f304-8868-4205-8f90-d881871aa39a" absoluteBounds="6.5, 4.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/XomorodDataContext/Category" />
       <nestedChildShapes>
-        <elementListCompartment Id="b8977585-2ae1-4b12-96ec-7ed9a54f24cf" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7420258d-7401-429f-95f1-fc09f8d87942" absoluteBounds="6.515, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="564a0b87-da46-40e0-b82b-edbd769acf26" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
+    <classShape Id="64d920dc-4f70-4db7-b9b0-92d3018fb9a3" absoluteBounds="0.75, 1, 2, 1.9631982421875003">
       <DataClassMoniker Name="/XomorodDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="fbb1ec00-818d-4cf2-ba21-9485c48fc257" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="479da77c-c7a0-4f41-9994-6f5553a96ce4" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="abfaea70-be0e-4cfa-b5e8-fc4197a82265" absoluteBounds="0.75, 3.75, 2, 2.347801106770834">
+    <classShape Id="9a42c7a0-d79c-4407-b248-95cc02393b42" absoluteBounds="3.5, 14.375, 2, 5.6169254557291666">
+      <DataClassMoniker Name="/XomorodDataContext/ErrorLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9860e644-df28-4e58-a789-21f50a1f9a49" absoluteBounds="3.515, 14.835, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="057c73b1-25ca-46af-8a03-80c04277cda8" absoluteBounds="3.5, 11.75, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/XomorodDataContext/LogHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81428c2d-cd65-419d-b1c6-19e9d01851a1" absoluteBounds="3.515, 12.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fadc70f0-913d-4496-add2-568871623533" absoluteBounds="9.25, 8.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/XomorodDataContext/PortfolioCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae93649c-cfdf-46df-8981-227ce8c3e67e" absoluteBounds="9.265, 8.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61e3e571-392b-4898-84fe-acc05714d571" absoluteBounds="6.25, 6.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/XomorodDataContext/PortfolioResource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f239e59f-0ba4-452e-9302-42ffd4a211eb" absoluteBounds="6.265, 7.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca56ebd0-ae0a-4910-8bc8-b078a862c470" absoluteBounds="3.5, 8, 2, 2.1554996744791666">
       <DataClassMoniker Name="/XomorodDataContext/Portfolio" />
       <nestedChildShapes>
-        <elementListCompartment Id="1d661678-d484-47cf-967d-d3faeb57f5e2" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9424ad26-95db-4a18-975b-4ab3484d2233" absoluteBounds="3.515, 8.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="32abb214-d489-4b62-b15b-a480289bc52d" absoluteBounds="3.75, 3.75, 2, 1.5785953776041666">
+    <classShape Id="07ecfeee-4f84-455e-9764-72bdd41a151c" absoluteBounds="0.75, 4.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/XomorodDataContext/Resource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28f9bb65-06dd-4542-aa70-67551da37fd2" absoluteBounds="0.765, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d27148d7-08c6-406a-841b-6331389ebacb" absoluteBounds="3.75, 0.875, 2, 1.5785953776041664">
       <DataClassMoniker Name="/XomorodDataContext/Role" />
       <nestedChildShapes>
-        <elementListCompartment Id="5bbf967b-7c5e-4bf8-8015-e7445d93e67b" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b56f4e3e-684a-4450-9a3c-faffc4952c41" absoluteBounds="3.765, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="ec2f8b54-b5cb-4bcd-b3ef-e725b38a8bf9" absoluteBounds="3.5, 4.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/XomorodDataContext/UserResource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7021c417-87f2-457b-8a5b-8b0e6856ed7f" absoluteBounds="3.515, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45020b9d-4b3c-4b5e-8156-51d7a9ce7176" absoluteBounds="6.5, 1.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/XomorodDataContext/UserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03eedc11-aad0-46b8-a5f6-7c874a03d284" absoluteBounds="6.515, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.19931705603966 : 5.7612939453125); (7.19931705603966 : 6.0112939453125); (7.81500117938702 : 6.0112939453125); (7.81500117938702 : 5.7612939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Category/Category_Category" />
+      <nodes>
+        <classShapeMoniker Id="ecf7f304-8868-4205-8f90-d881871aa39a" />
+        <classShapeMoniker Id="ecf7f304-8868-4205-8f90-d881871aa39a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.7182867976262 : 2.9631982421875); (3.125 : 3.3699114445613); (3.125 : 17.1834627278646); (3.5 : 17.1834627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/User/User_ErrorLog" />
+      <nodes>
+        <classShapeMoniker Id="64d920dc-4f70-4db7-b9b0-92d3018fb9a3" />
+        <classShapeMoniker Id="9a42c7a0-d79c-4407-b248-95cc02393b42" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.86805763506611); (3.3125 : 3.43055763506611); (3.3125 : 12.7315991210937); (3.5 : 12.7315991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/User/User_LogHistory" />
+      <nodes>
+        <classShapeMoniker Id="64d920dc-4f70-4db7-b9b0-92d3018fb9a3" />
+        <classShapeMoniker Id="057c73b1-25ca-46af-8a03-80c04277cda8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 5.7612939453125); (8.40625 : 9.09699625651042); (9.25 : 9.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Category/Category_PortfolioCategory" />
+      <nodes>
+        <classShapeMoniker Id="ecf7f304-8868-4205-8f90-d881871aa39a" />
+        <classShapeMoniker Id="fadc70f0-913d-4496-add2-568871623533" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.45799438476563); (9.25 : 9.45799438476563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_PortfolioCategory" />
+      <nodes>
+        <classShapeMoniker Id="ca56ebd0-ae0a-4910-8bc8-b078a862c470" />
+        <classShapeMoniker Id="fadc70f0-913d-4496-add2-568871623533" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.50762241861979); (6.75 : 8.50762241861979); (6.75 : 7.81899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_PortfolioResource" />
+      <nodes>
+        <classShapeMoniker Id="ca56ebd0-ae0a-4910-8bc8-b078a862c470" />
+        <classShapeMoniker Id="61e3e571-392b-4898-84fe-acc05714d571" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.82859537760417); (1.75 : 7.22199625651042); (6.25 : 7.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Resource/Resource_PortfolioResource" />
+      <nodes>
+        <classShapeMoniker Id="07ecfeee-4f84-455e-9764-72bdd41a151c" />
+        <classShapeMoniker Id="61e3e571-392b-4898-84fe-acc05714d571" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 5.82859537760417); (2.2812525 : 9.07774983723958); (3.04166666666667 : 9.07774983723958 : JumpStart); (3.20833333333333 : 9.07774983723958 : JumpEnd); (3.5 : 9.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Resource/Resource_Portfolio" />
+      <nodes>
+        <classShapeMoniker Id="07ecfeee-4f84-455e-9764-72bdd41a151c" />
+        <classShapeMoniker Id="ca56ebd0-ae0a-4910-8bc8-b078a862c470" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.45242346379207 : 2.45359537760417); (4.45242346379207 : 2.70359537760417); (5.06174684745593 : 2.70359537760417); (5.06174684745593 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Role/Role_Role" />
+      <nodes>
+        <classShapeMoniker Id="d27148d7-08c6-406a-841b-6331389ebacb" />
+        <classShapeMoniker Id="d27148d7-08c6-406a-841b-6331389ebacb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.06814697265625); (3.04166666666667 : 5.06814697265625 : JumpStart); (3.20833333333333 : 5.06814697265625 : JumpEnd); (3.5 : 5.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Resource/Resource_UserResource" />
+      <nodes>
+        <classShapeMoniker Id="07ecfeee-4f84-455e-9764-72bdd41a151c" />
+        <classShapeMoniker Id="ec2f8b54-b5cb-4bcd-b3ef-e725b38a8bf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.60984537760417); (3.59375 : 2.60984537760417); (3.59375 : 4.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/User/User_UserResource" />
+      <nodes>
+        <classShapeMoniker Id="64d920dc-4f70-4db7-b9b0-92d3018fb9a3" />
+        <classShapeMoniker Id="ec2f8b54-b5cb-4bcd-b3ef-e725b38a8bf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 1.91429768880208); (6.5 : 1.91429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/XomorodDataContext/Role/Role_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="d27148d7-08c6-406a-841b-6331389ebacb" />
+        <classShapeMoniker Id="45020b9d-4b3c-4b5e-8156-51d7a9ce7176" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.5425439453125); (4.36909013045874 : 2.5425439453125 : JumpStart); (4.5357567971254 : 2.5425439453125 : JumpEnd); (4.9784135141226 : 2.5425439453125 : JumpStart); (5.14508018078926 : 2.5425439453125 : JumpEnd); (6.5 : 2.5425439453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/User/User_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="64d920dc-4f70-4db7-b9b0-92d3018fb9a3" />
+        <classShapeMoniker Id="45020b9d-4b3c-4b5e-8156-51d7a9ce7176" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ff5fe5ea-43a6-460f-8e65-396988a38540" absoluteBounds="6.5, 11.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/XomorodDataContext/ExtraLink" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9207c66-dddb-4f40-849a-1031f7983fff" absoluteBounds="6.515, 11.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 9.8379995296224); (7.578125 : 9.8379995296224); (7.578125 : 11.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_ExtraLink" />
+      <nodes>
+        <classShapeMoniker Id="ca56ebd0-ae0a-4910-8bc8-b078a862c470" />
+        <classShapeMoniker Id="ff5fe5ea-43a6-460f-8e65-396988a38540" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -11,7 +12,8 @@ namespace Xomorod.Controllers
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
-        public static List<Portfolio> Portfolios = new List<Portfolio>();
+        public XomorodDataContext OrmDataContext = new XomorodDataContext(DatabaseHelper.ConnectionString);
+        public static List<object> Portfolios = new List<object>();
 
         // GET api/products
         public async Task<IHttpActionResult> Get()
@@ -19,8 +21,24 @@ namespace Xomorod.Controllers
             //https://api.github.com/users/behzadkhosravifar/repos
 
             if (Portfolios.Any()) return Ok(Portfolios);
-            
-            Portfolios = new XomorodDataContext(DatabaseHelper.ConnectionString).Portfolios.ToList();
+
+            var products = OrmDataContext.Portfolios.ToList();
+            foreach (var prod in products)
+            {
+                dynamic portfolio = new ExpandoObject();
+
+                portfolio.ProjectName = prod.ProjectName;
+                portfolio.Id = prod.Id;
+                portfolio.Image = prod.Resource.ImageResource;
+                portfolio.ContentType = prod.Resource.ContentType;
+                portfolio.Category = string.Join(" + ", prod.PortfolioCategories.Select(x => x.Category.Name));
+                portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.LinkName.ToLower() == "github"))?.Link;
+                portfolio.OpenSource = portfolio.ProjectUrl != null;
+                portfolio.Description = prod.Summary;
+
+                Portfolios.Add(portfolio);
+            }
+
 
             return Ok(Portfolios);
         }

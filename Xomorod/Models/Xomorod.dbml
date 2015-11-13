@@ -1,33 +1,110 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UsersManagements" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.LogHistory" Member="LogHistories">
-    <Type Name="LogHistory">
-      <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Success" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="TryUsername" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TryPassword" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LoginOrLogout" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Xomorod" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=Xomorod;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentCategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Category_Category" Member="Categories" ThisKey="Id" OtherKey="ParentCategoryId" Type="Category" />
+      <Association Name="Category_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="CategoryId" Type="PortfolioCategory" />
+      <Association Name="Category_Category" Member="Category1" ThisKey="ParentCategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="User_ErrorLog" Member="ErrorLogs" ThisKey="Id" OtherKey="UserId" Type="ErrorLog" />
+      <Association Name="User_LogHistory" Member="LogHistories" ThisKey="Id" OtherKey="UserId" Type="LogHistory" />
+      <Association Name="User_UserResource" Member="UserResources" ThisKey="Id" OtherKey="UserId" Type="UserResource" />
+      <Association Name="User_UserRole" Member="UserRoles" ThisKey="Id" OtherKey="UserId" Type="UserRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ErrorLog" Member="ErrorLogs">
+    <Type Name="ErrorLog">
+      <Column Name="ErrorId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServerDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Host" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsHandled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CurrentCulture" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CLRVersion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StackTrace" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModuleName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MemberType" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Method" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Processes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrorDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OS" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IPv4Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MACAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HResult" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Line" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Column]" Member="Column" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DuplicateNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_ErrorLog" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogHistory" Member="LogHistories">
+    <Type Name="LogHistory">
+      <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Success" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TryUsername" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TryPassword" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LoginOrLogout" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_LogHistory" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortfolioCategories" Member="PortfolioCategories">
+    <Type Name="PortfolioCategory">
+      <Column Name="PortfolioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Category_PortfolioCategory" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
+      <Association Name="Portfolio_PortfolioCategory" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortfolioResources" Member="PortfolioResources">
+    <Type Name="PortfolioResource">
+      <Column Name="PortfolioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResourceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Portfolio_PortfolioResource" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
+      <Association Name="Resource_PortfolioResource" Member="Resource" ThisKey="ResourceId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Portfolios" Member="Portfolios">
     <Type Name="Portfolio">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Category" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ImageSrc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="OpenSource" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MarkdownDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Icon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Portfolio_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioCategory" />
+      <Association Name="Portfolio_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioResource" />
+      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortofolioId" Type="ExtraLink" />
+      <Association Name="Resource_Portfolio" Member="Resource" ThisKey="Icon" OtherKey="Id" Type="Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Resources" Member="Resources">
+    <Type Name="Resource">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageResource" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Resource_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="ResourceId" Type="PortfolioResource" />
+      <Association Name="Resource_Portfolio" Member="Portfolios" ThisKey="Id" OtherKey="Icon" Type="Portfolio" />
+      <Association Name="Resource_UserResource" Member="UserResources" ThisKey="Id" OtherKey="ResourceId" Type="UserResource" />
     </Type>
   </Table>
   <Table Name="dbo.Roles" Member="Roles">
@@ -36,6 +113,71 @@
       <Column Name="Role" Member="Role1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ParentRoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Role_Role" Member="Roles" ThisKey="Id" OtherKey="ParentRoleId" Type="Role" />
+      <Association Name="Role_UserRole" Member="UserRoles" ThisKey="Id" OtherKey="RoleId" Type="UserRole" />
+      <Association Name="Role_Role" Member="Role2" ThisKey="ParentRoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.UserResources" Member="UserResources">
+    <Type Name="UserResource">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResourceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Resource_UserResource" Member="Resource" ThisKey="ResourceId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
+      <Association Name="User_UserResource" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRoles" Member="UserRoles">
+    <Type Name="UserRole">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Role_UserRole" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
+      <Association Name="User_UserRole" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExtraLinks" Member="ExtraLinks">
+    <Type Name="ExtraLink">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortofolioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Portfolio_ExtraLink" Member="Portfolio" ThisKey="PortofolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_CatchError" Method="sp_CatchError">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RaisError" Parameter="raisError" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ExtraData" Parameter="extraData" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ErrorId" Parameter="errorId" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertErrorLog" Method="sp_InsertErrorLog">
+    <Parameter Name="ServerDateTime" Parameter="serverDateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Host" Parameter="host" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="User" Parameter="user" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsHandled" Parameter="isHandled" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="AppName" Parameter="appName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="CurrentCulture" Parameter="currentCulture" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="CLRVersion" Parameter="cLRVersion" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Source" Parameter="source" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="StackTrace" Parameter="stackTrace" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ModuleName" Parameter="moduleName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="MemberType" Parameter="memberType" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Method" Parameter="method" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Processes" Parameter="processes" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ErrorDateTime" Parameter="errorDateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OS" Parameter="oS" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="IPv4Address" Parameter="iPv4Address" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="MACAddress" Parameter="mACAddress" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="HResult" Parameter="hResult" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Line" Parameter="line" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Column" Parameter="column" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Duplicate" Parameter="duplicate" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Data" Parameter="data" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="sp_InsertErrorLogResult">
+      <Column Name="" Member="Column1" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
