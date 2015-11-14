@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Xomorod" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=Xomorod;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Xomorod;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Categories" Member="Categories">
     <Type Name="Category">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -54,6 +54,15 @@
       <Association Name="User_ErrorLog" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ExtraLinks" Member="ExtraLinks">
+    <Type Name="ExtraLink">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortofolioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LinkName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Portfolio_ExtraLink" Member="Portfolio" ThisKey="PortofolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.LogHistory" Member="LogHistories">
     <Type Name="LogHistory">
       <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -90,18 +99,18 @@
       <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Icon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortofolioId" Type="ExtraLink" />
       <Association Name="Portfolio_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioCategory" />
       <Association Name="Portfolio_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioResource" />
-      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortofolioId" Type="ExtraLink" />
       <Association Name="Resource_Portfolio" Member="Resource" ThisKey="Icon" OtherKey="Id" Type="Resource" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Resources" Member="Resources">
     <Type Name="Resource">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ImageResource" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ImageResource" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="ResourceName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ResourceLink" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Resource_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="ResourceId" Type="PortfolioResource" />
       <Association Name="Resource_Portfolio" Member="Portfolios" ThisKey="Id" OtherKey="Icon" Type="Portfolio" />
       <Association Name="Resource_UserResource" Member="UserResources" ThisKey="Id" OtherKey="ResourceId" Type="UserResource" />
@@ -133,15 +142,6 @@
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Role_UserRole" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
       <Association Name="User_UserRole" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ExtraLinks" Member="ExtraLinks">
-    <Type Name="ExtraLink">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PortofolioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LinkName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Link" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Portfolio_ExtraLink" Member="Portfolio" ThisKey="PortofolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_CatchError" Method="sp_CatchError">

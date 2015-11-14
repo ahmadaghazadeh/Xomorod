@@ -18,7 +18,7 @@
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img src="data:{{ portfolio.ContentType }};base64,{{ portfolio.Image }}" class="img-responsive fix-frame" alt="" align="center" valign="center">
+                            <img src="{{ portfolio.ImageLink }}" class="img-responsive fix-frame" alt="" align="center" valign="center">
                         </a>
                         <div class="portfolio-caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
@@ -51,7 +51,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ portfolio.ProjectName }}</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-responsive img-centered" src="data:{{ portfolio.ContentType }};base64,{{ portfolio.Image }}" alt="">
+                                <img class="{{ portfolio.ImageLink }}" alt="">
                                 <p>{{ portfolio.Description }}</p>
                                 <p>
                                     <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.

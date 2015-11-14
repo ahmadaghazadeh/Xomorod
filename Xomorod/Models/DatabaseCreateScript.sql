@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [Xomorod]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Database [Xomorod]    Script Date: 11/14/2015 9:51:20 PM ******/
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
 BEGIN
 CREATE DATABASE [Xomorod] ON  PRIMARY 
@@ -73,7 +73,7 @@ EXEC sys.sp_db_vardecimal_storage_format N'Xomorod', N'ON'
 GO
 USE [Xomorod]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,7 +200,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -327,7 +327,7 @@ END
 ' 
 END
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -345,7 +345,7 @@ CREATE TABLE [dbo].[Categories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -389,7 +389,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -408,7 +408,7 @@ CREATE TABLE [dbo].[ExtraLinks](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -425,7 +425,7 @@ CREATE TABLE [dbo].[LogHistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -443,7 +443,7 @@ CREATE TABLE [dbo].[PortfolioCategories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioResources]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[PortfolioResources]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -461,7 +461,7 @@ CREATE TABLE [dbo].[PortfolioResources](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -483,7 +483,7 @@ CREATE TABLE [dbo].[Portfolios](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -492,9 +492,9 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Re
 BEGIN
 CREATE TABLE [dbo].[Resources](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[ImageResource] [image] NOT NULL,
+	[ImageResource] [image] NULL,
 	[ResourceName] [nvarchar](100) NOT NULL,
-	[ContentType] [nvarchar](50) NOT NULL,
+	[ResourceLink] [nvarchar](max) NULL,
  CONSTRAINT [PK_Resources] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -502,7 +502,7 @@ CREATE TABLE [dbo].[Resources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,7 +521,7 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserResources]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[UserResources]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -540,7 +540,7 @@ CREATE TABLE [dbo].[UserResources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserRoles]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[UserRoles]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -558,7 +558,7 @@ CREATE TABLE [dbo].[UserRoles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 12:31:22 AM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 9:51:20 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -652,12 +652,6 @@ GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Portfolio__Modif__15502E78]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF__Portfolio__Modif__15502E78]  DEFAULT (getdate()) FOR [ModifyDate]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Resources_ContentType]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Resources] ADD  CONSTRAINT [DF_Resources_ContentType]  DEFAULT (N'image/png') FOR [ContentType]
 END
 
 GO

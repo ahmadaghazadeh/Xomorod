@@ -39,6 +39,9 @@ namespace Xomorod.Models
     partial void InsertErrorLog(ErrorLog instance);
     partial void UpdateErrorLog(ErrorLog instance);
     partial void DeleteErrorLog(ErrorLog instance);
+    partial void InsertExtraLink(ExtraLink instance);
+    partial void UpdateExtraLink(ExtraLink instance);
+    partial void DeleteExtraLink(ExtraLink instance);
     partial void InsertPortfolioCategory(PortfolioCategory instance);
     partial void UpdatePortfolioCategory(PortfolioCategory instance);
     partial void DeletePortfolioCategory(PortfolioCategory instance);
@@ -60,13 +63,10 @@ namespace Xomorod.Models
     partial void InsertUserRole(UserRole instance);
     partial void UpdateUserRole(UserRole instance);
     partial void DeleteUserRole(UserRole instance);
-    partial void InsertExtraLink(ExtraLink instance);
-    partial void UpdateExtraLink(ExtraLink instance);
-    partial void DeleteExtraLink(ExtraLink instance);
     #endregion
 		
 		public XomorodDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XomorodConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XomorodConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -116,6 +116,14 @@ namespace Xomorod.Models
 			get
 			{
 				return this.GetTable<ErrorLog>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ExtraLink> ExtraLinks
+		{
+			get
+			{
+				return this.GetTable<ExtraLink>();
 			}
 		}
 		
@@ -180,14 +188,6 @@ namespace Xomorod.Models
 			get
 			{
 				return this.GetTable<UserRole>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ExtraLink> ExtraLinks
-		{
-			get
-			{
-				return this.GetTable<ExtraLink>();
 			}
 		}
 		
@@ -1383,6 +1383,181 @@ namespace Xomorod.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ExtraLinks")]
+	public partial class ExtraLink : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _PortofolioId;
+		
+		private string _LinkName;
+		
+		private string _Link;
+		
+		private EntityRef<Portfolio> _Portfolio;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnPortofolioIdChanging(int value);
+    partial void OnPortofolioIdChanged();
+    partial void OnLinkNameChanging(string value);
+    partial void OnLinkNameChanged();
+    partial void OnLinkChanging(string value);
+    partial void OnLinkChanged();
+    #endregion
+		
+		public ExtraLink()
+		{
+			this._Portfolio = default(EntityRef<Portfolio>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortofolioId", DbType="Int NOT NULL")]
+		public int PortofolioId
+		{
+			get
+			{
+				return this._PortofolioId;
+			}
+			set
+			{
+				if ((this._PortofolioId != value))
+				{
+					if (this._Portfolio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPortofolioIdChanging(value);
+					this.SendPropertyChanging();
+					this._PortofolioId = value;
+					this.SendPropertyChanged("PortofolioId");
+					this.OnPortofolioIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string LinkName
+		{
+			get
+			{
+				return this._LinkName;
+			}
+			set
+			{
+				if ((this._LinkName != value))
+				{
+					this.OnLinkNameChanging(value);
+					this.SendPropertyChanging();
+					this._LinkName = value;
+					this.SendPropertyChanged("LinkName");
+					this.OnLinkNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Link", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Link
+		{
+			get
+			{
+				return this._Link;
+			}
+			set
+			{
+				if ((this._Link != value))
+				{
+					this.OnLinkChanging(value);
+					this.SendPropertyChanging();
+					this._Link = value;
+					this.SendPropertyChanged("Link");
+					this.OnLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_Portfolio", ThisKey="PortofolioId", OtherKey="Id", IsForeignKey=true)]
+		public Portfolio Portfolio
+		{
+			get
+			{
+				return this._Portfolio.Entity;
+			}
+			set
+			{
+				Portfolio previousValue = this._Portfolio.Entity;
+				if (((previousValue != value) 
+							|| (this._Portfolio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Portfolio.Entity = null;
+						previousValue.ExtraLinks.Remove(this);
+					}
+					this._Portfolio.Entity = value;
+					if ((value != null))
+					{
+						value.ExtraLinks.Add(this);
+						this._PortofolioId = value.Id;
+					}
+					else
+					{
+						this._PortofolioId = default(int);
+					}
+					this.SendPropertyChanged("Portfolio");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LogHistory")]
 	public partial class LogHistory
 	{
@@ -1856,11 +2031,11 @@ namespace Xomorod.Models
 		
 		private System.Nullable<int> _Icon;
 		
+		private EntitySet<ExtraLink> _ExtraLinks;
+		
 		private EntitySet<PortfolioCategory> _PortfolioCategories;
 		
 		private EntitySet<PortfolioResource> _PortfolioResources;
-		
-		private EntitySet<ExtraLink> _ExtraLinks;
 		
 		private EntityRef<Resource> _Resource;
 		
@@ -1886,9 +2061,9 @@ namespace Xomorod.Models
 		
 		public Portfolio()
 		{
+			this._ExtraLinks = new EntitySet<ExtraLink>(new Action<ExtraLink>(this.attach_ExtraLinks), new Action<ExtraLink>(this.detach_ExtraLinks));
 			this._PortfolioCategories = new EntitySet<PortfolioCategory>(new Action<PortfolioCategory>(this.attach_PortfolioCategories), new Action<PortfolioCategory>(this.detach_PortfolioCategories));
 			this._PortfolioResources = new EntitySet<PortfolioResource>(new Action<PortfolioResource>(this.attach_PortfolioResources), new Action<PortfolioResource>(this.detach_PortfolioResources));
-			this._ExtraLinks = new EntitySet<ExtraLink>(new Action<ExtraLink>(this.attach_ExtraLinks), new Action<ExtraLink>(this.detach_ExtraLinks));
 			this._Resource = default(EntityRef<Resource>);
 			OnCreated();
 		}
@@ -2037,6 +2212,19 @@ namespace Xomorod.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_ExtraLinks", ThisKey="Id", OtherKey="PortofolioId")]
+		public EntitySet<ExtraLink> ExtraLinks
+		{
+			get
+			{
+				return this._ExtraLinks;
+			}
+			set
+			{
+				this._ExtraLinks.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_PortfolioCategory", Storage="_PortfolioCategories", ThisKey="Id", OtherKey="PortfolioId")]
 		public EntitySet<PortfolioCategory> PortfolioCategories
 		{
@@ -2060,19 +2248,6 @@ namespace Xomorod.Models
 			set
 			{
 				this._PortfolioResources.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_ExtraLinks", ThisKey="Id", OtherKey="PortofolioId")]
-		public EntitySet<ExtraLink> ExtraLinks
-		{
-			get
-			{
-				return this._ExtraLinks;
-			}
-			set
-			{
-				this._ExtraLinks.Assign(value);
 			}
 		}
 		
@@ -2130,6 +2305,18 @@ namespace Xomorod.Models
 			}
 		}
 		
+		private void attach_ExtraLinks(ExtraLink entity)
+		{
+			this.SendPropertyChanging();
+			entity.Portfolio = this;
+		}
+		
+		private void detach_ExtraLinks(ExtraLink entity)
+		{
+			this.SendPropertyChanging();
+			entity.Portfolio = null;
+		}
+		
 		private void attach_PortfolioCategories(PortfolioCategory entity)
 		{
 			this.SendPropertyChanging();
@@ -2153,18 +2340,6 @@ namespace Xomorod.Models
 			this.SendPropertyChanging();
 			entity.Portfolio = null;
 		}
-		
-		private void attach_ExtraLinks(ExtraLink entity)
-		{
-			this.SendPropertyChanging();
-			entity.Portfolio = this;
-		}
-		
-		private void detach_ExtraLinks(ExtraLink entity)
-		{
-			this.SendPropertyChanging();
-			entity.Portfolio = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Resources")]
@@ -2179,7 +2354,7 @@ namespace Xomorod.Models
 		
 		private string _ResourceName;
 		
-		private string _ContentType;
+		private string _ResourceLink;
 		
 		private EntitySet<PortfolioResource> _PortfolioResources;
 		
@@ -2197,8 +2372,8 @@ namespace Xomorod.Models
     partial void OnImageResourceChanged();
     partial void OnResourceNameChanging(string value);
     partial void OnResourceNameChanged();
-    partial void OnContentTypeChanging(string value);
-    partial void OnContentTypeChanged();
+    partial void OnResourceLinkChanging(string value);
+    partial void OnResourceLinkChanged();
     #endregion
 		
 		public Resource()
@@ -2229,7 +2404,7 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageResource", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageResource", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary ImageResource
 		{
 			get
@@ -2269,22 +2444,22 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="NVarChar(50)")]
-		public string ContentType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResourceLink", DbType="NVarChar(MAX)")]
+		public string ResourceLink
 		{
 			get
 			{
-				return this._ContentType;
+				return this._ResourceLink;
 			}
 			set
 			{
-				if ((this._ContentType != value))
+				if ((this._ResourceLink != value))
 				{
-					this.OnContentTypeChanging(value);
+					this.OnResourceLinkChanging(value);
 					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
+					this._ResourceLink = value;
+					this.SendPropertyChanged("ResourceLink");
+					this.OnResourceLinkChanged();
 				}
 			}
 		}
@@ -2951,181 +3126,6 @@ namespace Xomorod.Models
 						this._UserId = default(int);
 					}
 					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ExtraLinks")]
-	public partial class ExtraLink : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _PortofolioId;
-		
-		private string _LinkName;
-		
-		private string _Link;
-		
-		private EntityRef<Portfolio> _Portfolio;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnPortofolioIdChanging(int value);
-    partial void OnPortofolioIdChanged();
-    partial void OnLinkNameChanging(string value);
-    partial void OnLinkNameChanged();
-    partial void OnLinkChanging(string value);
-    partial void OnLinkChanged();
-    #endregion
-		
-		public ExtraLink()
-		{
-			this._Portfolio = default(EntityRef<Portfolio>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortofolioId", DbType="Int NOT NULL")]
-		public int PortofolioId
-		{
-			get
-			{
-				return this._PortofolioId;
-			}
-			set
-			{
-				if ((this._PortofolioId != value))
-				{
-					if (this._Portfolio.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPortofolioIdChanging(value);
-					this.SendPropertyChanging();
-					this._PortofolioId = value;
-					this.SendPropertyChanged("PortofolioId");
-					this.OnPortofolioIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string LinkName
-		{
-			get
-			{
-				return this._LinkName;
-			}
-			set
-			{
-				if ((this._LinkName != value))
-				{
-					this.OnLinkNameChanging(value);
-					this.SendPropertyChanging();
-					this._LinkName = value;
-					this.SendPropertyChanged("LinkName");
-					this.OnLinkNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Link", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Link
-		{
-			get
-			{
-				return this._Link;
-			}
-			set
-			{
-				if ((this._Link != value))
-				{
-					this.OnLinkChanging(value);
-					this.SendPropertyChanging();
-					this._Link = value;
-					this.SendPropertyChanged("Link");
-					this.OnLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_Portfolio", ThisKey="PortofolioId", OtherKey="Id", IsForeignKey=true)]
-		public Portfolio Portfolio
-		{
-			get
-			{
-				return this._Portfolio.Entity;
-			}
-			set
-			{
-				Portfolio previousValue = this._Portfolio.Entity;
-				if (((previousValue != value) 
-							|| (this._Portfolio.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Portfolio.Entity = null;
-						previousValue.ExtraLinks.Remove(this);
-					}
-					this._Portfolio.Entity = value;
-					if ((value != null))
-					{
-						value.ExtraLinks.Add(this);
-						this._PortofolioId = value.Id;
-					}
-					else
-					{
-						this._PortofolioId = default(int);
-					}
-					this.SendPropertyChanged("Portfolio");
 				}
 			}
 		}

@@ -29,8 +29,7 @@ namespace Xomorod.Controllers
 
                 portfolio.ProjectName = prod.ProjectName;
                 portfolio.Id = prod.Id;
-                portfolio.Image = prod.Resource.ImageResource;
-                portfolio.ContentType = prod.Resource.ContentType;
+                portfolio.ImageLink = prod.Resource.ResourceLink;
                 portfolio.Category = string.Join(" + ", prod.PortfolioCategories.Select(x => x.Category.Name));
                 portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.LinkName.ToLower() == "github"))?.Link;
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
