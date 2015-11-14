@@ -1,79 +1,177 @@
-﻿USE [master]
+﻿USE [Xomorod]
 GO
-/****** Object:  Database [Xomorod]    Script Date: 11/14/2015 9:51:20 PM ******/
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserInRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles] DROP CONSTRAINT [FK_UserInRoles_Users]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementRoles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles] DROP CONSTRAINT [FK_ElementRoles_Roles]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Roles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[Roles]'))
+ALTER TABLE [dbo].[Roles] DROP CONSTRAINT [FK_Roles_Roles]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Resources_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[Resources]'))
+ALTER TABLE [dbo].[Resources] DROP CONSTRAINT [FK_Resources_Portfolios]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Portfolios_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[Portfolios]'))
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [FK_Portfolios_Resources]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_PortfolioCategories_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]'))
+ALTER TABLE [dbo].[PortfolioCategories] DROP CONSTRAINT [FK_PortfolioCategories_Portfolios]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_PortfolioCategories_Categories]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]'))
+ALTER TABLE [dbo].[PortfolioCategories] DROP CONSTRAINT [FK_PortfolioCategories_Categories]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_LogHistory_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[LogHistory]'))
+ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [FK_LogHistory_Users]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ExtraLinks_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[ExtraLinks]'))
+ALTER TABLE [dbo].[ExtraLinks] DROP CONSTRAINT [FK_ExtraLinks_Portfolios]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ErrorLog_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[ErrorLog]'))
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [FK_ErrorLog_Users]
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Categories_Categories]') AND parent_object_id = OBJECT_ID(N'[dbo].[Categories]'))
+ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [FK_Categories_Categories]
+GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Users__ModifyDat__1A14E395]') AND type = 'D')
 BEGIN
-CREATE DATABASE [Xomorod] ON  PRIMARY 
-( NAME = N'Xomorod', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod.mdf' , SIZE = 17408KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'Xomorod_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod_log.ldf' , SIZE = 9216KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF__Users__ModifyDat__1A14E395]
 END
 
 GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Xomorod].[dbo].[sp_fulltext_database] @action = 'enable'
-end
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_UniqueId]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_UniqueId]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET ANSI_NULL_DEFAULT OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_Rank]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET ANSI_NULLS OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Portfolio__Modif__15502E78]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF__Portfolio__Modif__15502E78]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET ANSI_PADDING OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_UniqueId]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET ANSI_WARNINGS OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Login__117F9D94]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__Login__117F9D94]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET ARITHABORT OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Succe__108B795B]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__Succe__108B795B]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET AUTO_CLOSE OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__RunDa__0F975522]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__RunDa__0F975522]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET AUTO_CREATE_STATISTICS ON 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_MACAddress]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_MACAddress]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET AUTO_SHRINK OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IPv4Address]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_IPv4Address]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS ON 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_AppName]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_AppName]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET CURSOR_CLOSE_ON_COMMIT OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_Type]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_Type]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET CURSOR_DEFAULT  GLOBAL 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IsHandled]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_IsHandled]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET CONCAT_NULL_YIELDS_NULL OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrorHost]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrorHost]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET NUMERIC_ROUNDABORT OFF 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrTime]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrTime]
+END
+
 GO
-ALTER DATABASE [Xomorod] SET QUOTED_IDENTIFIER OFF 
+/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
+DROP TABLE [dbo].[Users]
 GO
-ALTER DATABASE [Xomorod] SET RECURSIVE_TRIGGERS OFF 
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
+DROP TABLE [dbo].[UserInRoles]
 GO
-ALTER DATABASE [Xomorod] SET  DISABLE_BROKER 
+/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
+DROP TABLE [dbo].[Roles]
 GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
+DROP TABLE [dbo].[Resources]
 GO
-ALTER DATABASE [Xomorod] SET DATE_CORRELATION_OPTIMIZATION OFF 
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
+DROP TABLE [dbo].[Portfolios]
 GO
-ALTER DATABASE [Xomorod] SET TRUSTWORTHY OFF 
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
+DROP TABLE [dbo].[PortfolioCategories]
 GO
-ALTER DATABASE [Xomorod] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
+DROP TABLE [dbo].[LogHistory]
 GO
-ALTER DATABASE [Xomorod] SET PARAMETERIZATION SIMPLE 
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
+DROP TABLE [dbo].[ExtraLinks]
 GO
-ALTER DATABASE [Xomorod] SET READ_COMMITTED_SNAPSHOT OFF 
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
+DROP TABLE [dbo].[ErrorLog]
 GO
-ALTER DATABASE [Xomorod] SET HONOR_BROKER_PRIORITY OFF 
+/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
+DROP TABLE [dbo].[Categories]
 GO
-ALTER DATABASE [Xomorod] SET RECOVERY FULL 
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[sp_InsertErrorLog]
 GO
-ALTER DATABASE [Xomorod] SET  MULTI_USER 
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 11:53:04 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[sp_CatchError]
 GO
-ALTER DATABASE [Xomorod] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [Xomorod] SET DB_CHAINING OFF 
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'Xomorod', N'ON'
-GO
-USE [Xomorod]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -197,10 +295,11 @@ BEGIN
 	
 	RETURN
 END
+
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -324,10 +423,11 @@ BEGIN
 		     @ErrorId = NULL
 	END CATCH
 END
+
 ' 
 END
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -345,12 +445,10 @@ CREATE TABLE [dbo].[Categories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
 BEGIN
@@ -358,7 +456,6 @@ CREATE TABLE [dbo].[ErrorLog](
 	[ErrorId] [bigint] IDENTITY(1,1) NOT NULL,
 	[ServerDateTime] [datetime] NULL,
 	[Host] [nvarchar](200) NULL,
-	[UserId] [int] NULL,
 	[IsHandled] [bit] NULL,
 	[Type] [varchar](200) NULL,
 	[AppName] [nvarchar](200) NULL,
@@ -380,6 +477,7 @@ CREATE TABLE [dbo].[ErrorLog](
 	[Line] [int] NULL,
 	[Column] [int] NULL,
 	[DuplicateNo] [int] NULL,
+	[UserId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_ErrorLog] PRIMARY KEY CLUSTERED 
 (
 	[ErrorId] ASC
@@ -387,9 +485,7 @@ CREATE TABLE [dbo].[ErrorLog](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -398,17 +494,18 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ex
 BEGIN
 CREATE TABLE [dbo].[ExtraLinks](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[PortofolioId] [int] NOT NULL,
-	[LinkName] [nvarchar](200) NOT NULL,
+	[PortfolioId] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
 	[Link] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_ExtraLinks] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[Id] ASC,
+	[PortfolioId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -417,7 +514,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Lo
 BEGIN
 CREATE TABLE [dbo].[LogHistory](
 	[RunDate] [datetime] NOT NULL,
-	[UserId] [int] NOT NULL,
+	[UserId] [uniqueidentifier] NULL,
 	[Success] [bit] NOT NULL,
 	[TryUsername] [nvarchar](max) NULL,
 	[TryPassword] [nvarchar](max) NULL,
@@ -425,7 +522,7 @@ CREATE TABLE [dbo].[LogHistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -433,7 +530,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[PortfolioCategories](
-	[PortfolioId] [int] NOT NULL,
+	[PortfolioId] [uniqueidentifier] NOT NULL,
 	[CategoryId] [int] NOT NULL,
  CONSTRAINT [PK_PortfolioCategories] PRIMARY KEY CLUSTERED 
 (
@@ -443,25 +540,7 @@ CREATE TABLE [dbo].[PortfolioCategories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioResources]    Script Date: 11/14/2015 9:51:20 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioResources]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PortfolioResources](
-	[PortfolioId] [int] NOT NULL,
-	[ResourceId] [int] NOT NULL,
- CONSTRAINT [PK_ElementResources] PRIMARY KEY CLUSTERED 
-(
-	[PortfolioId] ASC,
-	[ResourceId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -469,13 +548,14 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Portfolios](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id] [uniqueidentifier] NOT NULL,
 	[ProjectName] [nvarchar](100) NOT NULL,
 	[Summary] [nvarchar](max) NULL,
 	[MarkdownDescription] [nvarchar](max) NULL,
 	[ModifyDate] [date] NOT NULL,
 	[ProjectUrl] [nvarchar](max) NULL,
-	[Icon] [int] NULL,
+	[IconId] [int] NULL,
+	[Rank] [smallint] NULL,
  CONSTRAINT [PK__Portfoli__3214EC07957343EF] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -483,7 +563,7 @@ CREATE TABLE [dbo].[Portfolios](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -492,17 +572,17 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Re
 BEGIN
 CREATE TABLE [dbo].[Resources](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[ImageResource] [image] NULL,
+	[ElementUniqueId] [uniqueidentifier] NOT NULL,
 	[ResourceName] [nvarchar](100) NOT NULL,
 	[ResourceLink] [nvarchar](max) NULL,
- CONSTRAINT [PK_Resources] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Resources_1] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,36 +601,17 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserResources]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserResources]') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
 BEGIN
-CREATE TABLE [dbo].[UserResources](
-	[UserId] [int] NOT NULL,
-	[ResourceId] [int] NOT NULL,
-	[Description] [nvarchar](max) NULL,
- CONSTRAINT [PK_UserResources] PRIMARY KEY CLUSTERED 
-(
-	[UserId] ASC,
-	[ResourceId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[UserRoles]    Script Date: 11/14/2015 9:51:20 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserRoles]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[UserRoles](
-	[UserId] [int] NOT NULL,
+CREATE TABLE [dbo].[UserInRoles](
+	[UserId] [uniqueidentifier] NOT NULL,
 	[RoleId] [int] NOT NULL,
- CONSTRAINT [PK_UserRoles] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_UserInRoles] PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC,
 	[RoleId] ASC
@@ -558,30 +619,26 @@ CREATE TABLE [dbo].[UserRoles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 9:51:20 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 11:53:04 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-SET ANSI_PADDING ON
-GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Users](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id] [uniqueidentifier] NOT NULL,
 	[FullName] [nvarchar](100) NOT NULL,
 	[Username] [nvarchar](100) NOT NULL,
 	[Password] [nvarchar](max) NOT NULL,
 	[ModifyDate] [date] NOT NULL,
 	[Email] [varchar](100) NULL,
- CONSTRAINT [PK__Users__3214EC0708F33B3E] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
-GO
-SET ANSI_PADDING OFF
 GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrTime]') AND type = 'D')
 BEGIN
@@ -592,12 +649,6 @@ GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrorHost]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_ErrorHost]  DEFAULT (host_name()) FOR [Host]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrorSystemUser]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_ErrorSystemUser]  DEFAULT (suser_sname()) FOR [UserId]
 END
 
 GO
@@ -639,7 +690,7 @@ END
 GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Succe__108B795B]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Succe__108B795B]  DEFAULT ((1)) FOR [Success]
+ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Succe__108B795B]  DEFAULT ((0)) FOR [Success]
 END
 
 GO
@@ -649,9 +700,27 @@ ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Login__117F9D94] 
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_UniqueId]  DEFAULT (newid()) FOR [Id]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Portfolio__Modif__15502E78]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF__Portfolio__Modif__15502E78]  DEFAULT (getdate()) FOR [ModifyDate]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_Rank]  DEFAULT ((0)) FOR [Rank]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_UniqueId]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_UniqueId]  DEFAULT (newid()) FOR [Id]
 END
 
 GO
@@ -676,7 +745,7 @@ IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[
 ALTER TABLE [dbo].[ErrorLog] CHECK CONSTRAINT [FK_ErrorLog_Users]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ExtraLinks_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[ExtraLinks]'))
-ALTER TABLE [dbo].[ExtraLinks]  WITH CHECK ADD  CONSTRAINT [FK_ExtraLinks_Portfolios] FOREIGN KEY([PortofolioId])
+ALTER TABLE [dbo].[ExtraLinks]  WITH CHECK ADD  CONSTRAINT [FK_ExtraLinks_Portfolios] FOREIGN KEY([PortfolioId])
 REFERENCES [dbo].[Portfolios] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ExtraLinks_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[ExtraLinks]'))
@@ -703,26 +772,19 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_PortfolioCategories_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]'))
 ALTER TABLE [dbo].[PortfolioCategories] CHECK CONSTRAINT [FK_PortfolioCategories_Portfolios]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementResources_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioResources]'))
-ALTER TABLE [dbo].[PortfolioResources]  WITH CHECK ADD  CONSTRAINT [FK_ElementResources_Resources] FOREIGN KEY([ResourceId])
-REFERENCES [dbo].[Resources] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementResources_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioResources]'))
-ALTER TABLE [dbo].[PortfolioResources] CHECK CONSTRAINT [FK_ElementResources_Resources]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_PortfolioResources_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioResources]'))
-ALTER TABLE [dbo].[PortfolioResources]  WITH CHECK ADD  CONSTRAINT [FK_PortfolioResources_Portfolios] FOREIGN KEY([PortfolioId])
-REFERENCES [dbo].[Portfolios] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_PortfolioResources_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[PortfolioResources]'))
-ALTER TABLE [dbo].[PortfolioResources] CHECK CONSTRAINT [FK_PortfolioResources_Portfolios]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Portfolios_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[Portfolios]'))
-ALTER TABLE [dbo].[Portfolios]  WITH CHECK ADD  CONSTRAINT [FK_Portfolios_Resources] FOREIGN KEY([Icon])
+ALTER TABLE [dbo].[Portfolios]  WITH CHECK ADD  CONSTRAINT [FK_Portfolios_Resources] FOREIGN KEY([IconId])
 REFERENCES [dbo].[Resources] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Portfolios_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[Portfolios]'))
 ALTER TABLE [dbo].[Portfolios] CHECK CONSTRAINT [FK_Portfolios_Resources]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Resources_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[Resources]'))
+ALTER TABLE [dbo].[Resources]  WITH CHECK ADD  CONSTRAINT [FK_Resources_Portfolios] FOREIGN KEY([ElementUniqueId])
+REFERENCES [dbo].[Portfolios] ([Id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Resources_Portfolios]') AND parent_object_id = OBJECT_ID(N'[dbo].[Resources]'))
+ALTER TABLE [dbo].[Resources] CHECK CONSTRAINT [FK_Resources_Portfolios]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Roles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[Roles]'))
 ALTER TABLE [dbo].[Roles]  WITH CHECK ADD  CONSTRAINT [FK_Roles_Roles] FOREIGN KEY([ParentRoleId])
@@ -731,35 +793,17 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Roles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[Roles]'))
 ALTER TABLE [dbo].[Roles] CHECK CONSTRAINT [FK_Roles_Roles]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserResources_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserResources]'))
-ALTER TABLE [dbo].[UserResources]  WITH CHECK ADD  CONSTRAINT [FK_UserResources_Resources] FOREIGN KEY([ResourceId])
-REFERENCES [dbo].[Resources] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserResources_Resources]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserResources]'))
-ALTER TABLE [dbo].[UserResources] CHECK CONSTRAINT [FK_UserResources_Resources]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserResources_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserResources]'))
-ALTER TABLE [dbo].[UserResources]  WITH CHECK ADD  CONSTRAINT [FK_UserResources_Users] FOREIGN KEY([UserId])
-REFERENCES [dbo].[Users] ([Id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserResources_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserResources]'))
-ALTER TABLE [dbo].[UserResources] CHECK CONSTRAINT [FK_UserResources_Users]
-GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementRoles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRoles]'))
-ALTER TABLE [dbo].[UserRoles]  WITH CHECK ADD  CONSTRAINT [FK_ElementRoles_Roles] FOREIGN KEY([RoleId])
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementRoles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles]  WITH CHECK ADD  CONSTRAINT [FK_ElementRoles_Roles] FOREIGN KEY([RoleId])
 REFERENCES [dbo].[Roles] ([Id])
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementRoles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRoles]'))
-ALTER TABLE [dbo].[UserRoles] CHECK CONSTRAINT [FK_ElementRoles_Roles]
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ElementRoles_Roles]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles] CHECK CONSTRAINT [FK_ElementRoles_Roles]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRoles]'))
-ALTER TABLE [dbo].[UserRoles]  WITH CHECK ADD  CONSTRAINT [FK_UserRoles_Users] FOREIGN KEY([UserId])
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserInRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles]  WITH CHECK ADD  CONSTRAINT [FK_UserInRoles_Users] FOREIGN KEY([UserId])
 REFERENCES [dbo].[Users] ([Id])
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRoles]'))
-ALTER TABLE [dbo].[UserRoles] CHECK CONSTRAINT [FK_UserRoles_Users]
-GO
-USE [master]
-GO
-ALTER DATABASE [Xomorod] SET  READ_WRITE 
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserInRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
+ALTER TABLE [dbo].[UserInRoles] CHECK CONSTRAINT [FK_UserInRoles_Users]
 GO

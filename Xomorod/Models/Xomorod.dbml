@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Xomorod" Class="XomorodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Xomorod;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=Xomorod;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XomorodConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Categories" Member="Categories">
     <Type Name="Category">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -12,7 +12,7 @@
   </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
@@ -20,8 +20,7 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="User_ErrorLog" Member="ErrorLogs" ThisKey="Id" OtherKey="UserId" Type="ErrorLog" />
       <Association Name="User_LogHistory" Member="LogHistories" ThisKey="Id" OtherKey="UserId" Type="LogHistory" />
-      <Association Name="User_UserResource" Member="UserResources" ThisKey="Id" OtherKey="UserId" Type="UserResource" />
-      <Association Name="User_UserRole" Member="UserRoles" ThisKey="Id" OtherKey="UserId" Type="UserRole" />
+      <Association Name="User_UserInRole" Member="UserInRoles" ThisKey="Id" OtherKey="UserId" Type="UserInRole" />
     </Type>
   </Table>
   <Table Name="dbo.ErrorLog" Member="ErrorLogs">
@@ -29,7 +28,6 @@
       <Column Name="ErrorId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ServerDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Host" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IsHandled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Type" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="AppName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -51,22 +49,23 @@
       <Column Name="Line" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="[Column]" Member="Column" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DuplicateNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Association Name="User_ErrorLog" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ExtraLinks" Member="ExtraLinks">
     <Type Name="ExtraLink">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PortofolioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LinkName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="PortfolioId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Link" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Portfolio_ExtraLink" Member="Portfolio" ThisKey="PortofolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
+      <Association Name="Portfolio_ExtraLink" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LogHistory" Member="LogHistories">
     <Type Name="LogHistory">
       <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="Success" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="TryUsername" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="TryPassword" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
@@ -76,44 +75,36 @@
   </Table>
   <Table Name="dbo.PortfolioCategories" Member="PortfolioCategories">
     <Type Name="PortfolioCategory">
-      <Column Name="PortfolioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortfolioId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Category_PortfolioCategory" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
       <Association Name="Portfolio_PortfolioCategory" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PortfolioResources" Member="PortfolioResources">
-    <Type Name="PortfolioResource">
-      <Column Name="PortfolioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ResourceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Portfolio_PortfolioResource" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
-      <Association Name="Resource_PortfolioResource" Member="Resource" ThisKey="ResourceId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Portfolios" Member="Portfolios">
     <Type Name="Portfolio">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ProjectName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="MarkdownDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Icon" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortofolioId" Type="ExtraLink" />
+      <Column Name="IconId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rank" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortfolioId" Type="ExtraLink" />
       <Association Name="Portfolio_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioCategory" />
-      <Association Name="Portfolio_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioResource" />
-      <Association Name="Resource_Portfolio" Member="Resource" ThisKey="Icon" OtherKey="Id" Type="Resource" IsForeignKey="true" />
+      <Association Name="Portfolio_Resource" Member="Resources" ThisKey="Id" OtherKey="ElementUniqueId" Type="Resource" />
+      <Association Name="Resource_Portfolio" Member="Resource" ThisKey="IconId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Resources" Member="Resources">
     <Type Name="Resource">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ImageResource" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ElementUniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="ResourceName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="ResourceLink" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="Resource_PortfolioResource" Member="PortfolioResources" ThisKey="Id" OtherKey="ResourceId" Type="PortfolioResource" />
-      <Association Name="Resource_Portfolio" Member="Portfolios" ThisKey="Id" OtherKey="Icon" Type="Portfolio" />
-      <Association Name="Resource_UserResource" Member="UserResources" ThisKey="Id" OtherKey="ResourceId" Type="UserResource" />
+      <Association Name="Resource_Portfolio" Member="Portfolios" ThisKey="Id" OtherKey="IconId" Type="Portfolio" />
+      <Association Name="Portfolio_Resource" Member="Portfolio" ThisKey="ElementUniqueId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Roles" Member="Roles">
@@ -123,25 +114,16 @@
       <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ParentRoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Role_Role" Member="Roles" ThisKey="Id" OtherKey="ParentRoleId" Type="Role" />
-      <Association Name="Role_UserRole" Member="UserRoles" ThisKey="Id" OtherKey="RoleId" Type="UserRole" />
+      <Association Name="Role_UserInRole" Member="UserInRoles" ThisKey="Id" OtherKey="RoleId" Type="UserInRole" />
       <Association Name="Role_Role" Member="Role2" ThisKey="ParentRoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserResources" Member="UserResources">
-    <Type Name="UserResource">
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ResourceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="Resource_UserResource" Member="Resource" ThisKey="ResourceId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
-      <Association Name="User_UserResource" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserRoles" Member="UserRoles">
-    <Type Name="UserRole">
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+  <Table Name="dbo.UserInRoles" Member="UserInRoles">
+    <Type Name="UserInRole">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Role_UserRole" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
-      <Association Name="User_UserRole" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Role_UserInRole" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
+      <Association Name="User_UserInRole" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_CatchError" Method="sp_CatchError">

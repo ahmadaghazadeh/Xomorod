@@ -22,7 +22,7 @@ namespace Xomorod.Controllers
 
             if (Portfolios.Any()) return Ok(Portfolios);
 
-            var products = OrmDataContext.Portfolios.ToList();
+            var products = OrmDataContext.Portfolios.ToList().OrderByDescending(x => x.Rank);
             foreach (var prod in products)
             {
                 dynamic portfolio = new ExpandoObject();
@@ -31,7 +31,7 @@ namespace Xomorod.Controllers
                 portfolio.Id = prod.Id;
                 portfolio.ImageLink = prod.Resource.ResourceLink;
                 portfolio.Category = string.Join(" + ", prod.PortfolioCategories.Select(x => x.Category.Name));
-                portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.LinkName.ToLower() == "github"))?.Link;
+                portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.Name.ToLower() == "github"))?.Link;
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
                 portfolio.Description = prod.Summary;
 

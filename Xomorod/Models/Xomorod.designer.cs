@@ -45,9 +45,6 @@ namespace Xomorod.Models
     partial void InsertPortfolioCategory(PortfolioCategory instance);
     partial void UpdatePortfolioCategory(PortfolioCategory instance);
     partial void DeletePortfolioCategory(PortfolioCategory instance);
-    partial void InsertPortfolioResource(PortfolioResource instance);
-    partial void UpdatePortfolioResource(PortfolioResource instance);
-    partial void DeletePortfolioResource(PortfolioResource instance);
     partial void InsertPortfolio(Portfolio instance);
     partial void UpdatePortfolio(Portfolio instance);
     partial void DeletePortfolio(Portfolio instance);
@@ -57,16 +54,13 @@ namespace Xomorod.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
-    partial void InsertUserResource(UserResource instance);
-    partial void UpdateUserResource(UserResource instance);
-    partial void DeleteUserResource(UserResource instance);
-    partial void InsertUserRole(UserRole instance);
-    partial void UpdateUserRole(UserRole instance);
-    partial void DeleteUserRole(UserRole instance);
+    partial void InsertUserInRole(UserInRole instance);
+    partial void UpdateUserInRole(UserInRole instance);
+    partial void DeleteUserInRole(UserInRole instance);
     #endregion
 		
 		public XomorodDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XomorodConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XomorodConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -143,14 +137,6 @@ namespace Xomorod.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<PortfolioResource> PortfolioResources
-		{
-			get
-			{
-				return this.GetTable<PortfolioResource>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Portfolio> Portfolios
 		{
 			get
@@ -175,19 +161,11 @@ namespace Xomorod.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<UserResource> UserResources
+		public System.Data.Linq.Table<UserInRole> UserInRoles
 		{
 			get
 			{
-				return this.GetTable<UserResource>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserRole> UserRoles
-		{
-			get
-			{
-				return this.GetTable<UserRole>();
+				return this.GetTable<UserInRole>();
 			}
 		}
 		
@@ -444,7 +422,7 @@ namespace Xomorod.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private System.Guid _Id;
 		
 		private string _FullName;
 		
@@ -458,15 +436,13 @@ namespace Xomorod.Models
 		
 		private EntitySet<ErrorLog> _ErrorLogs;
 		
-		private EntitySet<UserResource> _UserResources;
-		
-		private EntitySet<UserRole> _UserRoles;
+		private EntitySet<UserInRole> _UserInRoles;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
+    partial void OnIdChanging(System.Guid value);
     partial void OnIdChanged();
     partial void OnFullNameChanging(string value);
     partial void OnFullNameChanged();
@@ -483,13 +459,12 @@ namespace Xomorod.Models
 		public User()
 		{
 			this._ErrorLogs = new EntitySet<ErrorLog>(new Action<ErrorLog>(this.attach_ErrorLogs), new Action<ErrorLog>(this.detach_ErrorLogs));
-			this._UserResources = new EntitySet<UserResource>(new Action<UserResource>(this.attach_UserResources), new Action<UserResource>(this.detach_UserResources));
-			this._UserRoles = new EntitySet<UserRole>(new Action<UserRole>(this.attach_UserRoles), new Action<UserRole>(this.detach_UserRoles));
+			this._UserInRoles = new EntitySet<UserInRole>(new Action<UserInRole>(this.attach_UserInRoles), new Action<UserInRole>(this.detach_UserInRoles));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
 		{
 			get
 			{
@@ -621,29 +596,16 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserResource", Storage="_UserResources", ThisKey="Id", OtherKey="UserId")]
-		public EntitySet<UserResource> UserResources
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserInRole", Storage="_UserInRoles", ThisKey="Id", OtherKey="UserId")]
+		public EntitySet<UserInRole> UserInRoles
 		{
 			get
 			{
-				return this._UserResources;
+				return this._UserInRoles;
 			}
 			set
 			{
-				this._UserResources.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserRole", Storage="_UserRoles", ThisKey="Id", OtherKey="UserId")]
-		public EntitySet<UserRole> UserRoles
-		{
-			get
-			{
-				return this._UserRoles;
-			}
-			set
-			{
-				this._UserRoles.Assign(value);
+				this._UserInRoles.Assign(value);
 			}
 		}
 		
@@ -679,25 +641,13 @@ namespace Xomorod.Models
 			entity.User = null;
 		}
 		
-		private void attach_UserResources(UserResource entity)
+		private void attach_UserInRoles(UserInRole entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = this;
 		}
 		
-		private void detach_UserResources(UserResource entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_UserRoles(UserRole entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserRoles(UserRole entity)
+		private void detach_UserInRoles(UserInRole entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
@@ -715,8 +665,6 @@ namespace Xomorod.Models
 		private System.Nullable<System.DateTime> _ServerDateTime;
 		
 		private string _Host;
-		
-		private System.Nullable<int> _UserId;
 		
 		private System.Nullable<bool> _IsHandled;
 		
@@ -760,6 +708,8 @@ namespace Xomorod.Models
 		
 		private System.Nullable<int> _DuplicateNo;
 		
+		private System.Nullable<System.Guid> _UserId;
+		
 		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
@@ -772,8 +722,6 @@ namespace Xomorod.Models
     partial void OnServerDateTimeChanged();
     partial void OnHostChanging(string value);
     partial void OnHostChanged();
-    partial void OnUserIdChanging(System.Nullable<int> value);
-    partial void OnUserIdChanged();
     partial void OnIsHandledChanging(System.Nullable<bool> value);
     partial void OnIsHandledChanged();
     partial void OnTypeChanging(string value);
@@ -816,6 +764,8 @@ namespace Xomorod.Models
     partial void OnColumnChanged();
     partial void OnDuplicateNoChanging(System.Nullable<int> value);
     partial void OnDuplicateNoChanged();
+    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
+    partial void OnUserIdChanged();
     #endregion
 		
 		public ErrorLog()
@@ -880,30 +830,6 @@ namespace Xomorod.Models
 					this._Host = value;
 					this.SendPropertyChanged("Host");
 					this.OnHostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
-		public System.Nullable<int> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
 				}
 			}
 		}
@@ -1328,6 +1254,30 @@ namespace Xomorod.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_ErrorLog", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
 		public User User
 		{
@@ -1355,7 +1305,7 @@ namespace Xomorod.Models
 					}
 					else
 					{
-						this._UserId = default(Nullable<int>);
+						this._UserId = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -1391,9 +1341,9 @@ namespace Xomorod.Models
 		
 		private int _Id;
 		
-		private int _PortofolioId;
+		private System.Guid _PortfolioId;
 		
-		private string _LinkName;
+		private string _Name;
 		
 		private string _Link;
 		
@@ -1405,10 +1355,10 @@ namespace Xomorod.Models
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnPortofolioIdChanging(int value);
-    partial void OnPortofolioIdChanged();
-    partial void OnLinkNameChanging(string value);
-    partial void OnLinkNameChanged();
+    partial void OnPortfolioIdChanging(System.Guid value);
+    partial void OnPortfolioIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
     partial void OnLinkChanging(string value);
     partial void OnLinkChanged();
     #endregion
@@ -1439,46 +1389,46 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortofolioId", DbType="Int NOT NULL")]
-		public int PortofolioId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortfolioId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid PortfolioId
 		{
 			get
 			{
-				return this._PortofolioId;
+				return this._PortfolioId;
 			}
 			set
 			{
-				if ((this._PortofolioId != value))
+				if ((this._PortfolioId != value))
 				{
 					if (this._Portfolio.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnPortofolioIdChanging(value);
+					this.OnPortfolioIdChanging(value);
 					this.SendPropertyChanging();
-					this._PortofolioId = value;
-					this.SendPropertyChanged("PortofolioId");
-					this.OnPortofolioIdChanged();
+					this._PortfolioId = value;
+					this.SendPropertyChanged("PortfolioId");
+					this.OnPortfolioIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string LinkName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Name
 		{
 			get
 			{
-				return this._LinkName;
+				return this._Name;
 			}
 			set
 			{
-				if ((this._LinkName != value))
+				if ((this._Name != value))
 				{
-					this.OnLinkNameChanging(value);
+					this.OnNameChanging(value);
 					this.SendPropertyChanging();
-					this._LinkName = value;
-					this.SendPropertyChanged("LinkName");
-					this.OnLinkNameChanged();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
@@ -1503,7 +1453,7 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_Portfolio", ThisKey="PortofolioId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_Portfolio", ThisKey="PortfolioId", OtherKey="Id", IsForeignKey=true)]
 		public Portfolio Portfolio
 		{
 			get
@@ -1526,11 +1476,11 @@ namespace Xomorod.Models
 					if ((value != null))
 					{
 						value.ExtraLinks.Add(this);
-						this._PortofolioId = value.Id;
+						this._PortfolioId = value.Id;
 					}
 					else
 					{
-						this._PortofolioId = default(int);
+						this._PortfolioId = default(System.Guid);
 					}
 					this.SendPropertyChanged("Portfolio");
 				}
@@ -1564,7 +1514,7 @@ namespace Xomorod.Models
 		
 		private System.DateTime _RunDate;
 		
-		private int _UserId;
+		private System.Nullable<System.Guid> _UserId;
 		
 		private bool _Success;
 		
@@ -1594,8 +1544,8 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UserId
 		{
 			get
 			{
@@ -1681,7 +1631,7 @@ namespace Xomorod.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _PortfolioId;
+		private System.Guid _PortfolioId;
 		
 		private int _CategoryId;
 		
@@ -1693,7 +1643,7 @@ namespace Xomorod.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnPortfolioIdChanging(int value);
+    partial void OnPortfolioIdChanging(System.Guid value);
     partial void OnPortfolioIdChanged();
     partial void OnCategoryIdChanging(int value);
     partial void OnCategoryIdChanged();
@@ -1706,8 +1656,8 @@ namespace Xomorod.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortfolioId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PortfolioId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortfolioId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid PortfolioId
 		{
 			get
 			{
@@ -1815,177 +1765,9 @@ namespace Xomorod.Models
 					}
 					else
 					{
-						this._PortfolioId = default(int);
+						this._PortfolioId = default(System.Guid);
 					}
 					this.SendPropertyChanged("Portfolio");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PortfolioResources")]
-	public partial class PortfolioResource : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PortfolioId;
-		
-		private int _ResourceId;
-		
-		private EntityRef<Portfolio> _Portfolio;
-		
-		private EntityRef<Resource> _Resource;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPortfolioIdChanging(int value);
-    partial void OnPortfolioIdChanged();
-    partial void OnResourceIdChanging(int value);
-    partial void OnResourceIdChanged();
-    #endregion
-		
-		public PortfolioResource()
-		{
-			this._Portfolio = default(EntityRef<Portfolio>);
-			this._Resource = default(EntityRef<Resource>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortfolioId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PortfolioId
-		{
-			get
-			{
-				return this._PortfolioId;
-			}
-			set
-			{
-				if ((this._PortfolioId != value))
-				{
-					if (this._Portfolio.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPortfolioIdChanging(value);
-					this.SendPropertyChanging();
-					this._PortfolioId = value;
-					this.SendPropertyChanged("PortfolioId");
-					this.OnPortfolioIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResourceId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResourceId
-		{
-			get
-			{
-				return this._ResourceId;
-			}
-			set
-			{
-				if ((this._ResourceId != value))
-				{
-					if (this._Resource.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnResourceIdChanging(value);
-					this.SendPropertyChanging();
-					this._ResourceId = value;
-					this.SendPropertyChanged("ResourceId");
-					this.OnResourceIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_PortfolioResource", Storage="_Portfolio", ThisKey="PortfolioId", OtherKey="Id", IsForeignKey=true)]
-		public Portfolio Portfolio
-		{
-			get
-			{
-				return this._Portfolio.Entity;
-			}
-			set
-			{
-				Portfolio previousValue = this._Portfolio.Entity;
-				if (((previousValue != value) 
-							|| (this._Portfolio.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Portfolio.Entity = null;
-						previousValue.PortfolioResources.Remove(this);
-					}
-					this._Portfolio.Entity = value;
-					if ((value != null))
-					{
-						value.PortfolioResources.Add(this);
-						this._PortfolioId = value.Id;
-					}
-					else
-					{
-						this._PortfolioId = default(int);
-					}
-					this.SendPropertyChanged("Portfolio");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_PortfolioResource", Storage="_Resource", ThisKey="ResourceId", OtherKey="Id", IsForeignKey=true)]
-		public Resource Resource
-		{
-			get
-			{
-				return this._Resource.Entity;
-			}
-			set
-			{
-				Resource previousValue = this._Resource.Entity;
-				if (((previousValue != value) 
-							|| (this._Resource.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Resource.Entity = null;
-						previousValue.PortfolioResources.Remove(this);
-					}
-					this._Resource.Entity = value;
-					if ((value != null))
-					{
-						value.PortfolioResources.Add(this);
-						this._ResourceId = value.Id;
-					}
-					else
-					{
-						this._ResourceId = default(int);
-					}
-					this.SendPropertyChanged("Resource");
 				}
 			}
 		}
@@ -2017,7 +1799,7 @@ namespace Xomorod.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private System.Guid _Id;
 		
 		private string _ProjectName;
 		
@@ -2029,13 +1811,15 @@ namespace Xomorod.Models
 		
 		private string _ProjectUrl;
 		
-		private System.Nullable<int> _Icon;
+		private System.Nullable<int> _IconId;
+		
+		private System.Nullable<short> _Rank;
 		
 		private EntitySet<ExtraLink> _ExtraLinks;
 		
 		private EntitySet<PortfolioCategory> _PortfolioCategories;
 		
-		private EntitySet<PortfolioResource> _PortfolioResources;
+		private EntitySet<Resource> _Resources;
 		
 		private EntityRef<Resource> _Resource;
 		
@@ -2043,7 +1827,7 @@ namespace Xomorod.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
+    partial void OnIdChanging(System.Guid value);
     partial void OnIdChanged();
     partial void OnProjectNameChanging(string value);
     partial void OnProjectNameChanged();
@@ -2055,21 +1839,23 @@ namespace Xomorod.Models
     partial void OnModifyDateChanged();
     partial void OnProjectUrlChanging(string value);
     partial void OnProjectUrlChanged();
-    partial void OnIconChanging(System.Nullable<int> value);
-    partial void OnIconChanged();
+    partial void OnIconIdChanging(System.Nullable<int> value);
+    partial void OnIconIdChanged();
+    partial void OnRankChanging(System.Nullable<short> value);
+    partial void OnRankChanged();
     #endregion
 		
 		public Portfolio()
 		{
 			this._ExtraLinks = new EntitySet<ExtraLink>(new Action<ExtraLink>(this.attach_ExtraLinks), new Action<ExtraLink>(this.detach_ExtraLinks));
 			this._PortfolioCategories = new EntitySet<PortfolioCategory>(new Action<PortfolioCategory>(this.attach_PortfolioCategories), new Action<PortfolioCategory>(this.detach_PortfolioCategories));
-			this._PortfolioResources = new EntitySet<PortfolioResource>(new Action<PortfolioResource>(this.attach_PortfolioResources), new Action<PortfolioResource>(this.detach_PortfolioResources));
+			this._Resources = new EntitySet<Resource>(new Action<Resource>(this.attach_Resources), new Action<Resource>(this.detach_Resources));
 			this._Resource = default(EntityRef<Resource>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
 		{
 			get
 			{
@@ -2188,31 +1974,51 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Icon", DbType="Int")]
-		public System.Nullable<int> Icon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IconId", DbType="Int")]
+		public System.Nullable<int> IconId
 		{
 			get
 			{
-				return this._Icon;
+				return this._IconId;
 			}
 			set
 			{
-				if ((this._Icon != value))
+				if ((this._IconId != value))
 				{
 					if (this._Resource.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIconChanging(value);
+					this.OnIconIdChanging(value);
 					this.SendPropertyChanging();
-					this._Icon = value;
-					this.SendPropertyChanged("Icon");
-					this.OnIconChanged();
+					this._IconId = value;
+					this.SendPropertyChanged("IconId");
+					this.OnIconIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_ExtraLinks", ThisKey="Id", OtherKey="PortofolioId")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rank", DbType="SmallInt")]
+		public System.Nullable<short> Rank
+		{
+			get
+			{
+				return this._Rank;
+			}
+			set
+			{
+				if ((this._Rank != value))
+				{
+					this.OnRankChanging(value);
+					this.SendPropertyChanging();
+					this._Rank = value;
+					this.SendPropertyChanged("Rank");
+					this.OnRankChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_ExtraLink", Storage="_ExtraLinks", ThisKey="Id", OtherKey="PortfolioId")]
 		public EntitySet<ExtraLink> ExtraLinks
 		{
 			get
@@ -2238,20 +2044,20 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_PortfolioResource", Storage="_PortfolioResources", ThisKey="Id", OtherKey="PortfolioId")]
-		public EntitySet<PortfolioResource> PortfolioResources
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_Resource", Storage="_Resources", ThisKey="Id", OtherKey="ElementUniqueId")]
+		public EntitySet<Resource> Resources
 		{
 			get
 			{
-				return this._PortfolioResources;
+				return this._Resources;
 			}
 			set
 			{
-				this._PortfolioResources.Assign(value);
+				this._Resources.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_Portfolio", Storage="_Resource", ThisKey="Icon", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_Portfolio", Storage="_Resource", ThisKey="IconId", OtherKey="Id", IsForeignKey=true)]
 		public Resource Resource
 		{
 			get
@@ -2274,11 +2080,11 @@ namespace Xomorod.Models
 					if ((value != null))
 					{
 						value.Portfolios.Add(this);
-						this._Icon = value.Id;
+						this._IconId = value.Id;
 					}
 					else
 					{
-						this._Icon = default(Nullable<int>);
+						this._IconId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Resource");
 				}
@@ -2329,13 +2135,13 @@ namespace Xomorod.Models
 			entity.Portfolio = null;
 		}
 		
-		private void attach_PortfolioResources(PortfolioResource entity)
+		private void attach_Resources(Resource entity)
 		{
 			this.SendPropertyChanging();
 			entity.Portfolio = this;
 		}
 		
-		private void detach_PortfolioResources(PortfolioResource entity)
+		private void detach_Resources(Resource entity)
 		{
 			this.SendPropertyChanging();
 			entity.Portfolio = null;
@@ -2350,17 +2156,15 @@ namespace Xomorod.Models
 		
 		private int _Id;
 		
-		private System.Data.Linq.Binary _ImageResource;
+		private System.Guid _ElementUniqueId;
 		
 		private string _ResourceName;
 		
 		private string _ResourceLink;
 		
-		private EntitySet<PortfolioResource> _PortfolioResources;
-		
 		private EntitySet<Portfolio> _Portfolios;
 		
-		private EntitySet<UserResource> _UserResources;
+		private EntityRef<Portfolio> _Portfolio;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2368,8 +2172,8 @@ namespace Xomorod.Models
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnImageResourceChanging(System.Data.Linq.Binary value);
-    partial void OnImageResourceChanged();
+    partial void OnElementUniqueIdChanging(System.Guid value);
+    partial void OnElementUniqueIdChanged();
     partial void OnResourceNameChanging(string value);
     partial void OnResourceNameChanged();
     partial void OnResourceLinkChanging(string value);
@@ -2378,9 +2182,8 @@ namespace Xomorod.Models
 		
 		public Resource()
 		{
-			this._PortfolioResources = new EntitySet<PortfolioResource>(new Action<PortfolioResource>(this.attach_PortfolioResources), new Action<PortfolioResource>(this.detach_PortfolioResources));
 			this._Portfolios = new EntitySet<Portfolio>(new Action<Portfolio>(this.attach_Portfolios), new Action<Portfolio>(this.detach_Portfolios));
-			this._UserResources = new EntitySet<UserResource>(new Action<UserResource>(this.attach_UserResources), new Action<UserResource>(this.detach_UserResources));
+			this._Portfolio = default(EntityRef<Portfolio>);
 			OnCreated();
 		}
 		
@@ -2404,22 +2207,26 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageResource", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ImageResource
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElementUniqueId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid ElementUniqueId
 		{
 			get
 			{
-				return this._ImageResource;
+				return this._ElementUniqueId;
 			}
 			set
 			{
-				if ((this._ImageResource != value))
+				if ((this._ElementUniqueId != value))
 				{
-					this.OnImageResourceChanging(value);
+					if (this._Portfolio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnElementUniqueIdChanging(value);
 					this.SendPropertyChanging();
-					this._ImageResource = value;
-					this.SendPropertyChanged("ImageResource");
-					this.OnImageResourceChanged();
+					this._ElementUniqueId = value;
+					this.SendPropertyChanged("ElementUniqueId");
+					this.OnElementUniqueIdChanged();
 				}
 			}
 		}
@@ -2464,20 +2271,7 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_PortfolioResource", Storage="_PortfolioResources", ThisKey="Id", OtherKey="ResourceId")]
-		public EntitySet<PortfolioResource> PortfolioResources
-		{
-			get
-			{
-				return this._PortfolioResources;
-			}
-			set
-			{
-				this._PortfolioResources.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_Portfolio", Storage="_Portfolios", ThisKey="Id", OtherKey="Icon")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_Portfolio", Storage="_Portfolios", ThisKey="Id", OtherKey="IconId")]
 		public EntitySet<Portfolio> Portfolios
 		{
 			get
@@ -2490,16 +2284,37 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_UserResource", Storage="_UserResources", ThisKey="Id", OtherKey="ResourceId")]
-		public EntitySet<UserResource> UserResources
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Portfolio_Resource", Storage="_Portfolio", ThisKey="ElementUniqueId", OtherKey="Id", IsForeignKey=true)]
+		public Portfolio Portfolio
 		{
 			get
 			{
-				return this._UserResources;
+				return this._Portfolio.Entity;
 			}
 			set
 			{
-				this._UserResources.Assign(value);
+				Portfolio previousValue = this._Portfolio.Entity;
+				if (((previousValue != value) 
+							|| (this._Portfolio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Portfolio.Entity = null;
+						previousValue.Resources.Remove(this);
+					}
+					this._Portfolio.Entity = value;
+					if ((value != null))
+					{
+						value.Resources.Add(this);
+						this._ElementUniqueId = value.Id;
+					}
+					else
+					{
+						this._ElementUniqueId = default(System.Guid);
+					}
+					this.SendPropertyChanged("Portfolio");
+				}
 			}
 		}
 		
@@ -2523,18 +2338,6 @@ namespace Xomorod.Models
 			}
 		}
 		
-		private void attach_PortfolioResources(PortfolioResource entity)
-		{
-			this.SendPropertyChanging();
-			entity.Resource = this;
-		}
-		
-		private void detach_PortfolioResources(PortfolioResource entity)
-		{
-			this.SendPropertyChanging();
-			entity.Resource = null;
-		}
-		
 		private void attach_Portfolios(Portfolio entity)
 		{
 			this.SendPropertyChanging();
@@ -2542,18 +2345,6 @@ namespace Xomorod.Models
 		}
 		
 		private void detach_Portfolios(Portfolio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Resource = null;
-		}
-		
-		private void attach_UserResources(UserResource entity)
-		{
-			this.SendPropertyChanging();
-			entity.Resource = this;
-		}
-		
-		private void detach_UserResources(UserResource entity)
 		{
 			this.SendPropertyChanging();
 			entity.Resource = null;
@@ -2576,7 +2367,7 @@ namespace Xomorod.Models
 		
 		private EntitySet<Role> _Roles;
 		
-		private EntitySet<UserRole> _UserRoles;
+		private EntitySet<UserInRole> _UserInRoles;
 		
 		private EntityRef<Role> _Role2;
 		
@@ -2597,7 +2388,7 @@ namespace Xomorod.Models
 		public Role()
 		{
 			this._Roles = new EntitySet<Role>(new Action<Role>(this.attach_Roles), new Action<Role>(this.detach_Roles));
-			this._UserRoles = new EntitySet<UserRole>(new Action<UserRole>(this.attach_UserRoles), new Action<UserRole>(this.detach_UserRoles));
+			this._UserInRoles = new EntitySet<UserInRole>(new Action<UserInRole>(this.attach_UserInRoles), new Action<UserInRole>(this.detach_UserInRoles));
 			this._Role2 = default(EntityRef<Role>);
 			OnCreated();
 		}
@@ -2699,16 +2490,16 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UserRole", Storage="_UserRoles", ThisKey="Id", OtherKey="RoleId")]
-		public EntitySet<UserRole> UserRoles
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UserInRole", Storage="_UserInRoles", ThisKey="Id", OtherKey="RoleId")]
+		public EntitySet<UserInRole> UserInRoles
 		{
 			get
 			{
-				return this._UserRoles;
+				return this._UserInRoles;
 			}
 			set
 			{
-				this._UserRoles.Assign(value);
+				this._UserInRoles.Assign(value);
 			}
 		}
 		
@@ -2778,218 +2569,26 @@ namespace Xomorod.Models
 			entity.Role2 = null;
 		}
 		
-		private void attach_UserRoles(UserRole entity)
+		private void attach_UserInRoles(UserInRole entity)
 		{
 			this.SendPropertyChanging();
 			entity.Role = this;
 		}
 		
-		private void detach_UserRoles(UserRole entity)
+		private void detach_UserInRoles(UserInRole entity)
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserResources")]
-	public partial class UserResource : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserInRoles")]
+	public partial class UserInRole : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _UserId;
-		
-		private int _ResourceId;
-		
-		private string _Description;
-		
-		private EntityRef<Resource> _Resource;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIdChanging(int value);
-    partial void OnUserIdChanged();
-    partial void OnResourceIdChanging(int value);
-    partial void OnResourceIdChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    #endregion
-		
-		public UserResource()
-		{
-			this._Resource = default(EntityRef<Resource>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResourceId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResourceId
-		{
-			get
-			{
-				return this._ResourceId;
-			}
-			set
-			{
-				if ((this._ResourceId != value))
-				{
-					if (this._Resource.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnResourceIdChanging(value);
-					this.SendPropertyChanging();
-					this._ResourceId = value;
-					this.SendPropertyChanged("ResourceId");
-					this.OnResourceIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Resource_UserResource", Storage="_Resource", ThisKey="ResourceId", OtherKey="Id", IsForeignKey=true)]
-		public Resource Resource
-		{
-			get
-			{
-				return this._Resource.Entity;
-			}
-			set
-			{
-				Resource previousValue = this._Resource.Entity;
-				if (((previousValue != value) 
-							|| (this._Resource.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Resource.Entity = null;
-						previousValue.UserResources.Remove(this);
-					}
-					this._Resource.Entity = value;
-					if ((value != null))
-					{
-						value.UserResources.Add(this);
-						this._ResourceId = value.Id;
-					}
-					else
-					{
-						this._ResourceId = default(int);
-					}
-					this.SendPropertyChanged("Resource");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserResource", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.UserResources.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.UserResources.Add(this);
-						this._UserId = value.Id;
-					}
-					else
-					{
-						this._UserId = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserRoles")]
-	public partial class UserRole : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserId;
+		private System.Guid _UserId;
 		
 		private int _RoleId;
 		
@@ -3001,21 +2600,21 @@ namespace Xomorod.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanging(System.Guid value);
     partial void OnUserIdChanged();
     partial void OnRoleIdChanging(int value);
     partial void OnRoleIdChanged();
     #endregion
 		
-		public UserRole()
+		public UserInRole()
 		{
 			this._Role = default(EntityRef<Role>);
 			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid UserId
 		{
 			get
 			{
@@ -3062,7 +2661,7 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UserRole", Storage="_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UserInRole", Storage="_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
 		public Role Role
 		{
 			get
@@ -3079,12 +2678,12 @@ namespace Xomorod.Models
 					if ((previousValue != null))
 					{
 						this._Role.Entity = null;
-						previousValue.UserRoles.Remove(this);
+						previousValue.UserInRoles.Remove(this);
 					}
 					this._Role.Entity = value;
 					if ((value != null))
 					{
-						value.UserRoles.Add(this);
+						value.UserInRoles.Add(this);
 						this._RoleId = value.Id;
 					}
 					else
@@ -3096,7 +2695,7 @@ namespace Xomorod.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserRole", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserInRole", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
 		public User User
 		{
 			get
@@ -3113,17 +2712,17 @@ namespace Xomorod.Models
 					if ((previousValue != null))
 					{
 						this._User.Entity = null;
-						previousValue.UserRoles.Remove(this);
+						previousValue.UserInRoles.Remove(this);
 					}
 					this._User.Entity = value;
 					if ((value != null))
 					{
-						value.UserRoles.Add(this);
+						value.UserInRoles.Add(this);
 						this._UserId = value.Id;
 					}
 					else
 					{
-						this._UserId = default(int);
+						this._UserId = default(System.Guid);
 					}
 					this.SendPropertyChanged("User");
 				}
