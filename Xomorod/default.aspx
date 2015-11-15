@@ -16,7 +16,7 @@
     <title>Xomorod</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link href="css/bootstrap-toggle.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -29,6 +29,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/xomorod.css" type="text/css">
+
+    <!-- Load Angular.JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
@@ -121,26 +124,23 @@
 
 </body>
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <!-- Bootstrap JS -->
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="js/bootstrap-toggle.js" type="text/javascript"></script>
 
 <!-- Plugin JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/wow.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
 <!-- Cooki JS -->
-<script src="js/cookies.js" type="text/javascript"></script>
-
-<!-- Angular JS -->
-<script src="js/angular.min.js"></script>
+<script src="js/cookies.min.js" type="text/javascript"></script>
 
 <!-- Marked JS -->
 <!-- https://github.com/chjj/marked -->
-<script src="js/marked.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="text/javascript"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="js/xomorod.js"></script>

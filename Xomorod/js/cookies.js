@@ -1,6 +1,8 @@
 ﻿/*\
 |*|
 |*|  :: cookies.js ::
+|*|  https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+|*|
 |*|
 |*|  A complete cookies reader/writer framework with full unicode support.
 |*|
