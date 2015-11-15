@@ -114,6 +114,7 @@
     <Content Include="html\products.html" />
     <Content Include="html\services.html" />
     <Content Include="html\team_section.html" />
+    <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
     <Content Include="css\bootstrap-toggle.css" />

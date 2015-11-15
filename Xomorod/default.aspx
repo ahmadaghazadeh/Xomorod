@@ -11,7 +11,7 @@
     <meta name="description" content="Just for Xomorod.Co software company">
     <meta name="author" content="Mr. Behzad Khosravifar">
 
-    <link rel="shortcut icon" href="img/xomorod.svg">
+    <link rel="shortcut icon" href="img/favicon.jpg">
 
     <title>Xomorod</title>
 
