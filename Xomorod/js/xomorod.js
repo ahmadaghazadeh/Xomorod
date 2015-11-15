@@ -1,4 +1,8 @@
-(function($) {
+/* Use below link to convert to min version */
+/* http://jscompress.com/                   */
+/*******************************************/
+
+(function ($) {
     "use strict"; // Start of use strict
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -40,3 +44,47 @@
     new WOW().init();
 
 })(jQuery); // End of use strict
+
+
+
+function swing(id) {
+    $(id).removeClass().addClass('swing animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+        $(this).removeClass();
+    });
+}
+
+
+$("#animationSandbox").hover(
+    function () {
+        swing('#animationSandbox');
+    }, function () {
+    }
+);
+
+$("#animationAbout").hover(
+    function () {
+        swing('#animationAbout');
+    }, function () {
+    }
+);
+
+$("#animationServices").hover(
+    function () {
+        swing('#animationServices');
+    }, function () {
+    }
+);
+
+$("#animationPortfolio").hover(
+    function () {
+        swing('#animationPortfolio');
+    }, function () {
+    }
+);
+
+$("#animationContact").hover(
+    function () {
+        swing('#animationContact');
+    }, function () {
+    }
+);

@@ -99,14 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\xomorod-dialog.css" />
-    <Content Include="css\animate.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="default.aspx" />
-    <Content Include="font-awesome\css\font-awesome.css" />
-    <Content Include="font-awesome\css\font-awesome.min.css" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="html\contact.html" />
@@ -117,12 +111,8 @@
     <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
-    <Content Include="css\bootstrap-toggle.css" />
     <Content Include="img\partner.jpg" />
     <Content Include="img\xomorod.svg" />
-    <Content Include="js\bootstrap-toggle.js" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\cookies.js" />
     <Content Include="js\cookies.min.js" />
     <Content Include="js\xomorod.js" />
@@ -169,37 +159,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="font-awesome\less\animated.less" />
-    <Content Include="font-awesome\less\bordered-pulled.less" />
-    <Content Include="font-awesome\less\core.less" />
-    <Content Include="font-awesome\less\fixed-width.less" />
-    <Content Include="font-awesome\less\font-awesome.less" />
-    <Content Include="font-awesome\less\icons.less" />
-    <Content Include="font-awesome\less\larger.less" />
-    <Content Include="font-awesome\less\list.less" />
-    <Content Include="font-awesome\less\mixins.less" />
-    <Content Include="font-awesome\less\path.less" />
-    <Content Include="font-awesome\less\rotated-flipped.less" />
-    <Content Include="font-awesome\less\stacked.less" />
-    <Content Include="font-awesome\less\variables.less" />
-    <Content Include="font-awesome\scss\font-awesome.scss" />
-    <Content Include="font-awesome\scss\_animated.scss" />
-    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="font-awesome\scss\_core.scss" />
-    <Content Include="font-awesome\scss\_fixed-width.scss" />
-    <Content Include="font-awesome\scss\_icons.scss" />
-    <Content Include="font-awesome\scss\_larger.scss" />
-    <Content Include="font-awesome\scss\_list.scss" />
-    <Content Include="font-awesome\scss\_mixins.scss" />
-    <Content Include="font-awesome\scss\_path.scss" />
-    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="font-awesome\scss\_stacked.scss" />
-    <Content Include="font-awesome\scss\_variables.scss" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
