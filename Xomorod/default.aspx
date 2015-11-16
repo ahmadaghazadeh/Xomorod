@@ -32,7 +32,6 @@
     <!-- Plugin CSS -->
     <!-- Test Link: https://daneden.github.io/animate.css/ -->
     <link href="https://daneden.github.io/animate.css/animate.min.css" rel="stylesheet">
-    <%--<link href="http://cdn.jsdelivr.net/animatecss/2.1.0/animate.min.css" rel="stylesheet">--%>
 
     <!-- load animate -->
 
@@ -100,7 +99,7 @@
                     <h2 class="section-heading">{{ xomorod.MoreInfoTitle }}</h2>
                     <hr class="light">
                     <p class="text-faded">{{ xomorod.MoreInfo }}</p>
-                    <a href="#head" class="btn btn-default btn-xl page-scroll wow tada">{{ xomorod.GetStarted }}</a>
+                    <a href="#head" class="btn btn-warning btn-xl page-scroll wow tada">{{ xomorod.GetStarted }}</a>
                 </div>
             </div>
         </div>

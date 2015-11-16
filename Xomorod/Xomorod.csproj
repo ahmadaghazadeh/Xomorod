@@ -163,9 +163,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="less\creative.less" />
-    <Content Include="less\mixins.less" />
-    <Content Include="less\variables.less" />
     <Content Include="Models\Xomorod.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Xomorod.designer.cs</LastGenOutput>
@@ -179,9 +176,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Models\Xomorod.dbml.layout">
       <DependentUpon>Xomorod.dbml</DependentUpon>

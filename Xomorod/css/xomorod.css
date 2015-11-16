@@ -430,15 +430,20 @@ header {
 
     .btn-primary .badge {
         color: #f05f40;
-        background-color: #fff;
+        background-color: #b9a9a9;
     }
 
 .btn {
-    border: 0;
-    border-radius: 300px;
+    border: 1px;
+    border-radius: 3px;
     text-transform: uppercase;
     font-family: 'Iranian Sans';
     font-weight: 700;
+}
+
+.btn-warning {
+    border: 1px;
+    border-radius: 300px;
 }
 
 .btn-xl {
