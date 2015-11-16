@@ -111,7 +111,7 @@
     <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
-    <Content Include="img\partner.jpg" />
+    <Content Include="img\partner.png" />
     <Content Include="img\xomorod.svg" />
     <Content Include="js\cookies.js" />
     <Content Include="js\cookies.min.js" />

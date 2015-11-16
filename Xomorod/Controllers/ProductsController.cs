@@ -13,14 +13,15 @@ namespace Xomorod.Controllers
     public class ProductsController : ApiController
     {
         public XomorodDataContext OrmDataContext = new XomorodDataContext(DatabaseHelper.ConnectionString);
-        public static List<object> Portfolios = new List<object>();
-
+        
         // GET api/products
         public async Task<IHttpActionResult> Get()
         {
             //https://api.github.com/users/behzadkhosravifar/repos
 
-            if (Portfolios.Any()) return Ok(Portfolios);
+            var portfolios = new List<object>();
+
+            if (portfolios.Any()) return Ok(portfolios);
 
             var products = OrmDataContext.Portfolios.ToList().OrderByDescending(x => x.Rank);
             foreach (var prod in products)
@@ -35,11 +36,11 @@ namespace Xomorod.Controllers
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
                 portfolio.Description = prod.Summary;
 
-                Portfolios.Add(portfolio);
+                portfolios.Add(portfolio);
             }
 
 
-            return Ok(Portfolios);
+            return Ok(portfolios);
         }
 
         // GET api/products/5
