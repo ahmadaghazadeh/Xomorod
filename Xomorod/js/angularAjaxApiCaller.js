@@ -1,7 +1,6 @@
 ﻿var app = angular.module('xomorodApp', ['hc.marked']);
 app.controller('bodyController', bodyController);
 app.controller('productsController', productsController);
-app.controller('modalsController', modalsController);
 
 function bodyController($scope, $http) {
 
