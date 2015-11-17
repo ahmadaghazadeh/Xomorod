@@ -5,39 +5,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Xomorod.Core;
-using Xomorod.Models;
 
 namespace Xomorod.Controllers
 {
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
-    {
-        public XomorodDataContext OrmDataContext = new XomorodDataContext(DatabaseHelper.ConnectionString);
-        
+    {        
         // GET api/products
         public async Task<IHttpActionResult> Get()
         {
-            //https://api.github.com/users/behzadkhosravifar/repos
-
             var portfolios = new List<object>();
 
-            if (portfolios.Any()) return Ok(portfolios);
-
-            var products = OrmDataContext.Portfolios.ToList().OrderByDescending(x => x.Rank);
-            foreach (var prod in products)
+            await Task.Run(() =>
             {
-                dynamic portfolio = new ExpandoObject();
+                var products = DatabaseHelper.OrmDataContext.Portfolios.ToList().OrderByDescending(x => x.Rank);
+                foreach (var prod in products)
+                {
+                    dynamic portfolio = new ExpandoObject();
 
-                portfolio.ProjectName = prod.ProjectName;
-                portfolio.Id = prod.Id;
-                portfolio.ImageLink = prod.Resource.ResourceLink;
-                portfolio.Category = string.Join(" + ", prod.PortfolioCategories.Select(x => x.Category.Name));
-                portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.Name.ToLower() == "github"))?.Link;
-                portfolio.OpenSource = portfolio.ProjectUrl != null;
-                portfolio.Description = prod.Summary;
+                    portfolio.ProjectName = prod.ProjectName;
+                    portfolio.Id = prod.Id;
+                    portfolio.ImageLink = prod.Resource.ResourceLink;
+                    portfolio.Category = string.Join(" + ", prod.PortfolioCategories.Select(x => x.Category.Name));
+                    portfolio.ProjectUrl = prod.ExtraLinks.First((x => x.Name.ToLower() == "github"))?.Link;
+                    portfolio.OpenSource = portfolio.ProjectUrl != null;
+                    portfolio.Description = prod.Summary;
+                    portfolio.Markdown = prod.MarkdownDescription;
+                    portfolio.ModifyDate = prod.ModifyDate.ToString("Y");
+                    portfolio.Creator = "Behzad Khosravifar";
 
-                portfolios.Add(portfolio);
-            }
+                    portfolios.Add(portfolio);
+                }
+            });
 
 
             return Ok(portfolios);

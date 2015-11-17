@@ -1,36 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xomorod.Models;
 
 namespace Xomorod.Core
 {
 
-    public class DatabaseHelper
+    public static class DatabaseHelper
     {
         private static string _connectionString = null;
         public static string ConnectionString
         {
             get
             {
-                if (string.IsNullOrEmpty(_connectionString))
-                {
+                if (!string.IsNullOrEmpty(_connectionString)) return _connectionString;
 #if DEBUG
-                    string connStrName = "XomorodConnectionString";
+                string connStrName = "XomorodConnectionString";
 #else
                     string connStrName = "XomorodServerConnectionString";
 #endif
-                    ConnectionStringSettings mySetting = ConfigurationManager.ConnectionStrings[connStrName];
-                    if (mySetting == null || string.IsNullOrEmpty(mySetting.ConnectionString))
-                    {
-                        throw new Exception("Fatal error: missing connecting string in web.config file");
-                    }
-                    _connectionString = mySetting.ConnectionString;
+                ConnectionStringSettings mySetting = ConfigurationManager.ConnectionStrings[connStrName];
+                if (string.IsNullOrEmpty(mySetting?.ConnectionString))
+                {
+                    throw new Exception("Fatal error: missing connecting string in web.config file");
                 }
+                _connectionString = mySetting.ConnectionString;
                 return _connectionString;
             }
         }
+
+        private static XomorodDataContext _ormDataContext = null;
+        public static XomorodDataContext OrmDataContext => _ormDataContext ?? (_ormDataContext = new XomorodDataContext(ConnectionString));
     }
 }

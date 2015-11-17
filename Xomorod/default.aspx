@@ -30,11 +30,18 @@
     <!-- Test Link: https://daneden.github.io/animate.css/ -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
 
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <!-- Load Angular.JS -->
+    <!-- Angular.JS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <!-- Marked JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="text/javascript"></script>
+
+    <!-- Angular-Marked JS -->
+    <script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js" type="text/javascript"></script>
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
@@ -112,9 +119,7 @@
 
     <!-- Products -->
     <div ng-include="'html/products.html'"></div>
-
-    <!-- Products -->
-    <%--<div ng-include="'html/products_content.html'"></div>--%>
+    
 
     <!-- Download Ribbon -->
     <div ng-include="'html/download_ribbon.html'"></div>
@@ -140,10 +145,6 @@
 
 <!-- Cooki JS -->
 <script src="js/cookies.min.js" type="text/javascript"></script>
-
-<!-- Marked JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="text/javascript"></script>
-<script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js" type="text/javascript"></script>
 
 <!-- Animation Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>

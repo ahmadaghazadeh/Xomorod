@@ -8,23 +8,24 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
-            <br />
+            <br/>
             <div class="row">
                 <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
                     <div class="thumbnail">
-                        <a href="{{ '#portfolioModal' + portfolio.Id }}" class="portfolio-link" data-toggle="modal">
+                        <a href="{{ '#portfolioModal' + portfolio.Id }}" ng-click="convertMarked(this)" class="portfolio-link" data-toggle="modal">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content">
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img src="{{ portfolio.ImageLink }}" class="img-responsive fix-frame" alt="" align="center" valign="center">
+                            <img src="{{ portfolio.ImageLink }}" class="img-responsive fix-frame" alt="" align="middle" valign="center">
                         </a>
                         <div class="portfolio-caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
                             <p class="text-muted">{{ portfolio.Category }}</p>
-                            <br />
-                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a></p>
+                            <br/>
+                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +33,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
     <div ng-repeat="portfolio in products">
         <!-- Portfolio Modal 1 -->
@@ -49,19 +49,16 @@
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2>{{ portfolio.ProjectName }}</h2>
+                                <a href="{{ portfolio.ProjectUrl }}"><h2>{{ portfolio.ProjectName }}</h2></a>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img src="{{ portfolio.ImageLink }}" alt="">
-                                <p>{{ portfolio.Description }}</p>
-                                <p>
-                                    <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                                </p>
+                                <br />
+                                <div id="{{ portfolio.Id }}" marked="readme_markdown"></div>
                                 <ul class="list-inline">
-                                    <li>Date: July 2014</li>
-                                    <li>Client: Round Icons</li>
+                                    <li>Date: {{ portfolio.ModifyDate }}</li>
+                                    <li>Creator: {{ portfolio.Creator }}</li>
                                     <li>{{ 'Category: ' + portfolio.Category }}</li>
                                 </ul>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close Project</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>  Close Project</button>
                             </div>
                         </div>
                     </div>

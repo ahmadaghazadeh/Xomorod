@@ -1,7 +1,9 @@
-﻿var app = angular.module("xomorodApp", []);
+﻿var app = angular.module('xomorodApp', ['hc.marked']);
+app.controller('bodyController', bodyController);
+app.controller('productsController', productsController);
+app.controller('modalsController', modalsController);
 
-
-app.controller('bodyController', function ($scope, $http) {
+function bodyController($scope, $http) {
 
     var lang = "en-US";
 
@@ -25,21 +27,24 @@ app.controller('bodyController', function ($scope, $http) {
         $http.get("api/localization/" + lang).success(function (response) {
             $scope.xomorod = response;
         }).error(function () {
-            alert("an unexcepted error ocurred!");
+            alert("an unexcepted error ocurred at changeLanguage at bodyController!");
         });
     }
 
     changeLanguage(lang);
-});
+}
 
-app.controller('productsController',
-        function ($scope, $http) {
-            $http.get("api/products").success(function (response) {
-                $scope.products = response;
-            }).error(function () {
-                alert("an unexcepted error ocurred!");
-            });
-        });
+function productsController($scope, $http) {
+    $http.get("api/products").success(function (response) {
+        $scope.products = response;
+        $scope.convertMarked = function (data) {
+            //document.getElementById('content').innerHTML = marked(response);
+            $scope.readme_markdown = marked(data.portfolio.Markdown);
+        }
+    }).error(function () {
+        alert("an unexcepted error ocurred at productsController");
+    });
+}
 
 function OnLanguageChanged() {
     var checked = $("#chkLanguage").prop('checked');
@@ -48,7 +53,7 @@ function OnLanguageChanged() {
     docCookies.setItem("Culture", language);
 
     var sc = angular.element($("#chkLanguage")).scope();
-    sc.$apply(function () {
+    sc.$apply(function() {
         sc.isEnglish = checked;
-    })
+    });
 }
