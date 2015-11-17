@@ -15,9 +15,6 @@
 
     <title>Xomorod</title>
 
-    <!-- Load Angular.JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
-
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -31,10 +28,13 @@
 
     <!-- Plugin CSS -->
     <!-- Test Link: https://daneden.github.io/animate.css/ -->
-    <link href="https://daneden.github.io/animate.css/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
 
-    <!-- load animate -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+    <!-- Load Angular.JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
@@ -71,7 +71,7 @@
                     </li>
                     <li>
                         <div style="padding: 10px;" width="50px" text-align="center">
-                            <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" onchange="changeLanguage()">
+                            <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged();">
                         </div>
                     </li>
                 </ul>
@@ -113,6 +113,8 @@
     <!-- Products -->
     <div ng-include="'html/products.html'"></div>
 
+    <!-- Products -->
+    <%--<div ng-include="'html/products_content.html'"></div>--%>
 
     <!-- Download Ribbon -->
     <div ng-include="'html/download_ribbon.html'"></div>
@@ -126,9 +128,6 @@
     <div ng-include="'html/contact.html'"></div>
 
 </body>
-
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -144,7 +143,7 @@
 
 <!-- Marked JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="text/javascript"></script>
-
+<script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js" type="text/javascript"></script>
 
 <!-- Animation Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>

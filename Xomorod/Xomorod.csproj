@@ -106,6 +106,7 @@
     <Content Include="html\contact.html" />
     <Content Include="html\download_ribbon.html" />
     <Content Include="html\products.html" />
+    <Content Include="html\products_content.html" />
     <Content Include="html\services.html" />
     <Content Include="html\team_section.html" />
     <Content Include="img\favicon.jpg" />

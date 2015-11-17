@@ -1,40 +1,54 @@
 ﻿var app = angular.module("xomorodApp", []);
-var scope = null;
-var http = null;
 
-function bodyController($scope, $http) {
-    scope = $scope;
-    http = $http;
+
+app.controller('bodyController', function ($scope, $http) {
 
     var lang = "en-US";
 
+    // Read client cookie for culture
     if (docCookies.hasItem("Culture")) {
         lang = docCookies.getItem("Culture");
-        if (lang === "fa-IR") {
-            document.getElementById("chkLanguage").checked = false;
-        }
+    }
+    //
+    // Set model:
+    $scope.isEnglish = (lang === "en-US");
+    document.getElementById("chkLanguage").checked = (lang === "en-US");
+
+    // Add listener for isEnglish property changed event
+    $scope.$watch(function (sc) {
+        return sc.isEnglish;
+    }, function (newVal, oldVal) {
+        changeLanguage(newVal ? "en-US" : "fa-IR");
+    });
+
+    function changeLanguage(lang) {
+        $http.get("api/localization/" + lang).success(function (response) {
+            $scope.xomorod = response;
+        }).error(function () {
+            alert("an unexcepted error ocurred!");
+        });
     }
 
-    $http.get("api/localization/" + lang).success(function (response) {
-        $scope.xomorod = response;
-    }).error(function () {
-        alert("an unexcepted error ocurred!");
-    });
-}
+    changeLanguage(lang);
+});
 
+app.controller('productsController',
+        function ($scope, $http) {
+            $http.get("api/products").success(function (response) {
+                $scope.products = response;
+            }).error(function () {
+                alert("an unexcepted error ocurred!");
+            });
+        });
 
-function productsController($scope, $http) {
-    $http.get("api/products").success(function (response) {
-        $scope.products = response;
-    }).error(function () {
-        alert("an unexcepted error ocurred!");
-    });
-}
-
-function changeLanguage() {
-    var language = document.getElementById("chkLanguage").checked ? "en-US" : "fa-IR";
+function OnLanguageChanged() {
+    var checked = $("#chkLanguage").prop('checked');
+    var language = checked ? "en-US" : "fa-IR";
 
     docCookies.setItem("Culture", language);
 
-    bodyController(scope, http);
+    var sc = angular.element($("#chkLanguage")).scope();
+    sc.$apply(function () {
+        sc.isEnglish = checked;
+    })
 }
