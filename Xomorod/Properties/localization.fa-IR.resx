@@ -124,13 +124,13 @@
     <value>اندروید</value>
   </data>
   <data name="AndroidService" xml:space="preserve">
-    <value>We update dependencies to keep things fresh.</value>
+    <value>محقق شدن ایده های شما در قالب برنامه های اندرویدی در کمترین زمان ممکن</value>
   </data>
   <data name="Apple" xml:space="preserve">
     <value>اپل</value>
   </data>
   <data name="AppleService" xml:space="preserve">
-    <value>You have to make your websites with love these days!</value>
+    <value>ساخت برنامه های مالتی پلتفرم با تکنولوژی زامارین برای اپل و دیگر سیستم عامل ها</value>
   </data>
   <data name="AtYourServie" xml:space="preserve">
     <value>خدمات قابل ارائه</value>
@@ -169,12 +169,12 @@
     <value>ویندوز</value>
   </data>
   <data name="WindowsService" xml:space="preserve">
-    <value>You can use this theme as is, or you can make changes!</value>
+    <value>تمام نرم افزارهای پلتفرم ویندوز دسکتاپ و وب پشتیبانی می شود</value>
   </data>
   <data name="Xomorod" xml:space="preserve">
     <value>زمرد</value>
   </data>
   <data name="XomorodService" xml:space="preserve">
-    <value>Our templates are updated regularly so they don't break.</value>
+    <value>راه حل مشکلاتتان را از ما بخواهید</value>
   </data>
 </root>

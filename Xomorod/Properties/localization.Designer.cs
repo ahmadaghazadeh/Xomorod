@@ -79,7 +79,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We update dependencies to keep things fresh..
+        ///   Looks up a localized string similar to Realize your ideas in the form of Android apps at the least possible time.
         /// </summary>
         internal static string AndroidService {
             get {
@@ -97,7 +97,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have to make your websites with love these days!.
+        ///   Looks up a localized string similar to Build multi-platform applications with Xamarin technology for iOS and other platforms.
         /// </summary>
         internal static string AppleService {
             get {
@@ -214,7 +214,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can use this theme as is, or you can make changes!.
+        ///   Looks up a localized string similar to All software of Xomorod are supported for windows desktop and web platforms.
         /// </summary>
         internal static string WindowsService {
             get {
@@ -232,7 +232,7 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Our templates are updated regularly so they don&apos;t break..
+        ///   Looks up a localized string similar to Our broad tool-set enables us to partner with you to create and integrate custom solutions that streamline efficiency..
         /// </summary>
         internal static string XomorodService {
             get {

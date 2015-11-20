@@ -124,13 +124,13 @@
     <value>Android</value>
   </data>
   <data name="AndroidService" xml:space="preserve">
-    <value>We update dependencies to keep things fresh.</value>
+    <value>Realize your ideas in the form of Android apps at the least possible time</value>
   </data>
   <data name="Apple" xml:space="preserve">
     <value>Apple</value>
   </data>
   <data name="AppleService" xml:space="preserve">
-    <value>You have to make your websites with love these days!</value>
+    <value>Build multi-platform applications with Xamarin technology for iOS and other platforms</value>
   </data>
   <data name="AtYourServie" xml:space="preserve">
     <value>At Your Service</value>
@@ -169,12 +169,12 @@
     <value>Windows</value>
   </data>
   <data name="WindowsService" xml:space="preserve">
-    <value>You can use this theme as is, or you can make changes!</value>
+    <value>All software of Xomorod are supported for windows desktop and web platforms</value>
   </data>
   <data name="Xomorod" xml:space="preserve">
     <value>Xomorod</value>
   </data>
   <data name="XomorodService" xml:space="preserve">
-    <value>Our templates are updated regularly so they don't break.</value>
+    <value>Our broad tool-set enables us to partner with you to create and integrate custom solutions that streamline efficiency.</value>
   </data>
 </root>
