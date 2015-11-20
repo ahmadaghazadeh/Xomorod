@@ -8,7 +8,7 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
-            <br/>
+            <br />
             <div class="row">
                 <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
                     <div class="thumbnail">
@@ -23,8 +23,9 @@
                         <div class="portfolio-caption">
                             <h3>{{ portfolio.ProjectName }}</h3>
                             <p class="text-muted">{{ portfolio.Category }}</p>
-                            <br/>
-                            <p><a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a>
+                            <br />
+                            <p>
+                                <a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a>
                             </p>
                         </div>
                     </div>
@@ -49,16 +50,15 @@
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <a href="{{ portfolio.ProjectUrl }}"><h2>{{ portfolio.ProjectName }}</h2></a>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <a align="center" href="{{ portfolio.ProjectUrl }}"><h2>{{ portfolio.ProjectName }}</h2></a>
+                                <p align="center" class="item-intro text-muted">{{ portfolio.Category }}</p>
+                                <p align="center" class="item-intro text-muted">{{ portfolio.ModifyDate }}</p>
                                 <br />
-                                <div id="{{ portfolio.Id }}" marked="readme_markdown"></div>
-                                <ul class="list-inline">
-                                    <li>Date: {{ portfolio.ModifyDate }}</li>
-                                    <li>Creator: {{ portfolio.Creator }}</li>
-                                    <li>{{ 'Category: ' + portfolio.Category }}</li>
-                                </ul>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>  Close Project</button>
+                                <div id="{{ portfolio.Id }}" marked="readme_markdown" class="markdown-body"></div>
+
+                                <button type="button" class="btn btn-primary btn-close" data-dismiss="modal">
+                                    <i class="fa fa-times"></i> Close Project
+                                </button>
                             </div>
                         </div>
                     </div>
