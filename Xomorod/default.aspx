@@ -51,7 +51,8 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <img src="img/xomorod.svg" class="CompanyMarker wow tada" alt="favicon">
+                <img src="img/xomorod.svg" class="CompanyMarker wow tada" onerror="this.onerror = null; this.src = 'img/favicon.jpg'" />
+                <%--<object data="img/xomorod.svg" class="CompanyMarker wow tada" alt="favicon"></object>--%>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -93,8 +94,8 @@
     <header id="head">
         <div class="header-content">
             <div class="header-content-inner">
+                <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo" class="animated bounce"></object>
                 <h1 id="animationSandbox" class="site__title mega animated bounce">Xomorod</h1>
-                <hr>
             </div>
             <%--<a href="#about" class="btn btn-primary btn-xl page-scroll">{{ xomorod.FindOutMore }}</a>--%>
         </div>
@@ -119,7 +120,7 @@
 
     <!-- Products -->
     <div ng-include="'html/products.html'"></div>
-    
+
 
     <!-- Download Ribbon -->
     <div ng-include="'html/download_ribbon.html'"></div>
@@ -131,7 +132,7 @@
 
     <!-- Contact Section -->
     <div ng-include="'html/contact.html'"></div>
-    
+
     <a href="#head" id="toTop" class="toTop fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>
 

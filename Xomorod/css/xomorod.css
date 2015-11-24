@@ -95,7 +95,7 @@ aside {
         font-family: 'Merkur';
         font-weight: 100;
         color: #f05f40;
-        font-size: 50px;
+        font-size: 40px;
     }
 
         .navbar-default .navbar-header .navbar-brand:hover,
@@ -199,17 +199,18 @@ header {
     header .header-content {
         position: relative;
         width: 100%;
-        padding: 100px 18px;
+        padding-top: 17vmin;
         text-align: center;
+        padding-bottom: 50%;
     }
 
         header .header-content .header-content-inner h1 {
-            margin-top: 5vmin;
-            margin-bottom: 0;
+            /*margin-top: vmin;*/
+            /*margin-bottom: 0;*/
             text-transform: uppercase;
             font-weight: 200;
             font-family: 'Merkur';
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             color: #f05f40;
         }
 
@@ -217,21 +218,23 @@ header {
             margin: 50px auto;
         }
 
-@media(min-width:768px) {
+@media(min-width:870px) {
     header {
         min-height: 100%;
     }
 
         header .header-content {
             position: absolute;
-            padding-top: 16vmin;
+            padding-top: 15vmin;
             overflow: hidden;
+            padding-bottom: 100%;
+            margin-top: 10px;
         }
 
             header .header-content .header-content-inner {
                 margin-right: auto;
                 margin-left: auto;
-                max-width: 1000px;
+                /*max-width: 1000px;*/
             }
 }
 
@@ -488,9 +491,9 @@ img::-moz-selection {
         width: 45px;
         text-align: center;
         top: 8px;
-        transition: all ease .5s;
-        -webkit-transition: all ease .5s;
-        -moz-transition: all ease .5s;
+        transition: all ease .3s;
+        -webkit-transition: all ease .3s;
+        -moz-transition: all ease .3s;
     }
 
 .btn-social {
@@ -560,11 +563,24 @@ ul.social-buttons {
 }
 
 
-.toTop:hover {
-    background: #3f3f3f;
+    .toTop:hover {
+        background: #3f3f3f;
+        text-decoration: none;
+    }
+
+A:link {
     text-decoration: none;
 }
 
-A:link {text-decoration: none}
-A:visited {text-decoration: none}
-A:active {text-decoration: none}
+A:visited {
+    text-decoration: none;
+}
+
+A:active {
+    text-decoration: none;
+}
+
+
+#svg-logo {
+    width: 8%;
+}
