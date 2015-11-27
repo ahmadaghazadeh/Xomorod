@@ -133,7 +133,7 @@
     <!-- Contact Section -->
     <div ng-include="'html/contact.html'"></div>
 
-    <a href="#head" id="toTop" class="toTop fa fa-angle-up page-scroll" style="display: none;"></a>
+    <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>
 
 <!-- Bootstrap JS -->
