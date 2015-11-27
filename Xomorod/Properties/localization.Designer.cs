@@ -133,11 +133,47 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Free Download at Xomorod!.
+        /// </summary>
+        internal static string FreeDownload {
+            get {
+                return ResourceManager.GetString("FreeDownload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s Get In Touch!.
+        /// </summary>
+        internal static string GetInTouch {
+            get {
+                return ResourceManager.GetString("GetInTouch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready to start your next project with us? That&apos;s great! Give us a call or send us an email and we will get back to you as soon as possible!.
+        /// </summary>
+        internal static string GetInTouchP {
+            get {
+                return ResourceManager.GetString("GetInTouchP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get Started!.
         /// </summary>
         internal static string GetStarted {
             get {
                 return ResourceManager.GetString("GetStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More Download Now!.
+        /// </summary>
+        internal static string MoreDownload {
+            get {
+                return ResourceManager.GetString("MoreDownload", resourceCulture);
             }
         }
         
@@ -160,11 +196,29 @@ namespace Xomorod.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
+        ///   Looks up a localized string similar to Portfolios.
         /// </summary>
-        internal static string Portfolio {
+        internal static string Portfolios {
             get {
-                return ResourceManager.GetString("Portfolio", resourceCulture);
+                return ResourceManager.GetString("Portfolios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The best of our products..
+        /// </summary>
+        internal static string PortfoliosTitle {
+            get {
+                return ResourceManager.GetString("PortfoliosTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ltr.
+        /// </summary>
+        internal static string RightToLeft {
+            get {
+                return ResourceManager.GetString("RightToLeft", resourceCulture);
             }
         }
         
@@ -192,6 +246,33 @@ namespace Xomorod.Properties {
         internal static string SignOut {
             get {
                 return ResourceManager.GetString("SignOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To contact the team members can follow them on social networks or via email if you communicate with them..
+        /// </summary>
+        internal static string TeamContact {
+            get {
+                return ResourceManager.GetString("TeamContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xomorod company programmer and designers..
+        /// </summary>
+        internal static string TeamSubTitle {
+            get {
+                return ResourceManager.GetString("TeamSubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Amazing Team.
+        /// </summary>
+        internal static string TeamTitle {
+            get {
+                return ResourceManager.GetString("TeamTitle", resourceCulture);
             }
         }
         

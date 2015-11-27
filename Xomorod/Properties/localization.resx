@@ -141,8 +141,20 @@
   <data name="FindOutMore" xml:space="preserve">
     <value>Find Out More</value>
   </data>
+  <data name="FreeDownload" xml:space="preserve">
+    <value>Free Download at Xomorod!</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>Let's Get In Touch!</value>
+  </data>
+  <data name="GetInTouchP" xml:space="preserve">
+    <value>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</value>
+  </data>
   <data name="GetStarted" xml:space="preserve">
     <value>Get Started!</value>
+  </data>
+  <data name="MoreDownload" xml:space="preserve">
+    <value>More Download Now!</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
     <value>Xomorod Corporation has small software company to provide what you need in the field of web applications, Windows, Android and iOS. Most of the application on Xomorod are open source, free to download, and easy to use.</value>
@@ -150,8 +162,14 @@
   <data name="MoreInfoTitle" xml:space="preserve">
     <value>We've got what you need!</value>
   </data>
-  <data name="Portfolio" xml:space="preserve">
-    <value>Products</value>
+  <data name="Portfolios" xml:space="preserve">
+    <value>Portfolios</value>
+  </data>
+  <data name="PortfoliosTitle" xml:space="preserve">
+    <value>The best of our products.</value>
+  </data>
+  <data name="RightToLeft" xml:space="preserve">
+    <value>ltr</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>Services</value>
@@ -161,6 +179,15 @@
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Sign Out</value>
+  </data>
+  <data name="TeamContact" xml:space="preserve">
+    <value>To contact the team members can follow them on social networks or via email if you communicate with them.</value>
+  </data>
+  <data name="TeamSubTitle" xml:space="preserve">
+    <value>Xomorod company programmer and designers.</value>
+  </data>
+  <data name="TeamTitle" xml:space="preserve">
+    <value>Our Amazing Team</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Xomorod</value>

@@ -10,7 +10,7 @@ namespace Xomorod.Controllers
 {
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
-    {        
+    {
         // GET api/products
         public async Task<IHttpActionResult> Get()
         {
@@ -18,7 +18,8 @@ namespace Xomorod.Controllers
 
             await Task.Run(() =>
             {
-                var products = DatabaseHelper.OrmDataContext.Portfolios.ToList().OrderByDescending(x => x.Rank);
+                var products = DatabaseHelper.OrmDataContext.Portfolios.Where(x => x.Rank > 0).OrderByDescending(x => x.Rank);
+
                 foreach (var prod in products)
                 {
                     dynamic portfolio = new ExpandoObject();

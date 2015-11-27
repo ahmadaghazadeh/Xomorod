@@ -81,22 +81,6 @@
       <Association Name="Portfolio_PortfolioCategory" Member="Portfolio" ThisKey="PortfolioId" OtherKey="Id" Type="Portfolio" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Portfolios" Member="Portfolios">
-    <Type Name="Portfolio">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="MarkdownDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="IconId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Rank" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortfolioId" Type="ExtraLink" />
-      <Association Name="Portfolio_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioCategory" />
-      <Association Name="Portfolio_Resource" Member="Resources" ThisKey="Id" OtherKey="ElementUniqueId" Type="Resource" />
-      <Association Name="Resource_Portfolio" Member="Resource" ThisKey="IconId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Resources" Member="Resources">
     <Type Name="Resource">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -124,6 +108,22 @@
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Role_UserInRole" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" />
       <Association Name="User_UserInRole" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Portfolios" Member="Portfolios">
+    <Type Name="Portfolio">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MarkdownDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IconId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rank" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Portfolio_ExtraLink" Member="ExtraLinks" ThisKey="Id" OtherKey="PortfolioId" Type="ExtraLink" />
+      <Association Name="Portfolio_PortfolioCategory" Member="PortfolioCategories" ThisKey="Id" OtherKey="PortfolioId" Type="PortfolioCategory" />
+      <Association Name="Portfolio_Resource" Member="Resources" ThisKey="Id" OtherKey="ElementUniqueId" Type="Resource" />
+      <Association Name="Resource_Portfolio" Member="Resource" ThisKey="IconId" OtherKey="Id" Type="Resource" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_CatchError" Method="sp_CatchError">

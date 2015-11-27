@@ -38,12 +38,6 @@
         <elementListCompartment Id="cb6c7980-4aa5-4d39-a767-d40569aef963" absoluteBounds="3.515, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="67d5d636-4923-447b-b79c-494a891ca1d1" absoluteBounds="0.75, 3.25, 2, 2.3478011067708344">
-      <DataClassMoniker Name="/XomorodDataContext/Portfolio" />
-      <nestedChildShapes>
-        <elementListCompartment Id="9203b888-53dd-419b-a699-af30dcdcec0b" absoluteBounds="0.765, 3.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="33dfded2-d4dd-4955-bbf4-4cf84bf82582" absoluteBounds="3.5, 6.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/XomorodDataContext/Resource" />
       <nestedChildShapes>
@@ -69,14 +63,14 @@
         <classShapeMoniker Id="a97e3e98-410a-492c-b4db-6ca10f355620" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.75 : 6.7131982421875); (7.75 : 9.35256234895833); (9.5 : 9.35256234895833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.75 : 6.7131982421875); (7.75 : 9.35256234895833); (9.5 : 9.35256234895833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/XomorodDataContext/User/User_ErrorLog" />
       <nodes>
         <classShapeMoniker Id="d86451d1-e16f-4239-a536-4f32fe844b74" />
         <classShapeMoniker Id="846b513d-d693-4be9-9f61-e69fbacbd4e3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 5.16909912109375); (9.5 : 5.16909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 5.16909912109375); (9.5 : 5.16909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/XomorodDataContext/User/User_LogHistory" />
       <nodes>
         <classShapeMoniker Id="d86451d1-e16f-4239-a536-4f32fe844b74" />
@@ -90,34 +84,6 @@
         <classShapeMoniker Id="55f6b748-31d2-407c-9a96-ee3196d306b1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.98640055338542); (3.5 : 4.98640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_ExtraLink" />
-      <nodes>
-        <classShapeMoniker Id="67d5d636-4923-447b-b79c-494a891ca1d1" />
-        <classShapeMoniker Id="f39a54d0-e532-474c-b670-763d78201274" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.25); (3.125 : 2.875); (3.125 : 3.44399251302083); (3.5 : 3.06899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_PortfolioCategory" />
-      <nodes>
-        <classShapeMoniker Id="67d5d636-4923-447b-b79c-494a891ca1d1" />
-        <classShapeMoniker Id="55f6b748-31d2-407c-9a96-ee3196d306b1" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 7.53929768880208); (1.75 : 7.53929768880208); (1.75 : 5.59780110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/XomorodDataContext/Resource/Resource_Portfolio" />
-      <nodes>
-        <classShapeMoniker Id="33dfded2-d4dd-4955-bbf4-4cf84bf82582" />
-        <classShapeMoniker Id="67d5d636-4923-447b-b79c-494a891ca1d1" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 5.59780110677083); (2.2812525 : 7.11339634440104); (3.5 : 7.11339634440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_Resource" />
-      <nodes>
-        <classShapeMoniker Id="67d5d636-4923-447b-b79c-494a891ca1d1" />
-        <classShapeMoniker Id="33dfded2-d4dd-4955-bbf4-4cf84bf82582" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(7.45242346379207 : 2.82859537760417); (7.45242346379207 : 3.07859537760417); (8.06174684745593 : 3.07859537760417); (8.06174684745593 : 2.82859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/XomorodDataContext/Role/Role_Role" />
       <nodes>
@@ -125,18 +91,52 @@
         <classShapeMoniker Id="877043a0-1197-4cf6-a6b0-92bd6ca93c3e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 2.09699625651042); (9.5 : 2.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 2.09699625651042); (9.5 : 2.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/XomorodDataContext/Role/Role_UserInRole" />
       <nodes>
         <classShapeMoniker Id="877043a0-1197-4cf6-a6b0-92bd6ca93c3e" />
         <classShapeMoniker Id="adc7ba79-06d8-4e6c-88ea-77eada431c57" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 4.75); (9.125 : 4.375); (9.125 : 2.42674638476563); (9.5 : 2.42674638476563)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 4.75); (9.125 : 4.375); (9.125 : 2.42674638476563); (9.5 : 2.42674638476563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/XomorodDataContext/User/User_UserInRole" />
       <nodes>
         <classShapeMoniker Id="d86451d1-e16f-4239-a536-4f32fe844b74" />
         <classShapeMoniker Id="adc7ba79-06d8-4e6c-88ea-77eada431c57" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="413db753-12fb-425f-9867-3c180334b233" absoluteBounds="0.625, 3.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/XomorodDataContext/Portfolio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bf43118-d2cf-45ed-a20c-ecea0fc6cc2f" absoluteBounds="0.64000000000000012, 3.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 5.04890055338542); (3.5 : 5.04890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_ExtraLink" />
+      <nodes>
+        <classShapeMoniker Id="413db753-12fb-425f-9867-3c180334b233" />
+        <classShapeMoniker Id="f39a54d0-e532-474c-b670-763d78201274" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.65625 : 3.375); (0.65625 : 2.72764322916667); (3.5 : 2.72764322916667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_PortfolioCategory" />
+      <nodes>
+        <classShapeMoniker Id="413db753-12fb-425f-9867-3c180334b233" />
+        <classShapeMoniker Id="55f6b748-31d2-407c-9a96-ee3196d306b1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.625 : 5.72280110677083); (1.625 : 7.53929768880208); (3.5 : 7.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/Portfolio/Portfolio_Resource" />
+      <nodes>
+        <classShapeMoniker Id="413db753-12fb-425f-9867-3c180334b233" />
+        <classShapeMoniker Id="33dfded2-d4dd-4955-bbf4-4cf84bf82582" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 7.11339634440104); (2.1562525 : 7.11339634440104); (2.1562525 : 5.72280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/XomorodDataContext/Resource/Resource_Portfolio" />
+      <nodes>
+        <classShapeMoniker Id="33dfded2-d4dd-4955-bbf4-4cf84bf82582" />
+        <classShapeMoniker Id="413db753-12fb-425f-9867-3c180334b233" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

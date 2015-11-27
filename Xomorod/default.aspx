@@ -72,7 +72,7 @@
                         <a id="animationServices" class="page-scroll" href="#services">{{ xomorod.Services }}</a>
                     </li>
                     <li>
-                        <a id="animationPortfolio" class="page-scroll" href="#portfolio">{{ xomorod.Portfolio }}</a>
+                        <a id="animationPortfolio" class="page-scroll" href="#portfolio">{{ xomorod.Portfolios }}</a>
                     </li>
                     <li>
                         <a id="animationContact" class="page-scroll" href="#team">{{ xomorod.Contact }}</a>
@@ -103,7 +103,7 @@
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <div class="col-lg-8 col-lg-offset-2 text-center" dir="{{xomorod.RightToLeft}}">
                     <h2 class="section-heading">{{ xomorod.MoreInfoTitle }}</h2>
                     <hr class="light">
                     <p class="text-faded">{{ xomorod.MoreInfo }}</p>

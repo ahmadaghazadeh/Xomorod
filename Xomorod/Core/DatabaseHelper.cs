@@ -28,7 +28,6 @@ namespace Xomorod.Core
             }
         }
 
-        private static XomorodDataContext _ormDataContext = null;
-        public static XomorodDataContext OrmDataContext => _ormDataContext ?? (_ormDataContext = new XomorodDataContext(ConnectionString));
+        public static XomorodDataContext OrmDataContext => new XomorodDataContext(ConnectionString);
     }
 }

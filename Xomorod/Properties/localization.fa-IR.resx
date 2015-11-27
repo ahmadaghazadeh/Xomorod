@@ -141,17 +141,35 @@
   <data name="FindOutMore" xml:space="preserve">
     <value>اطلاعات بیشتر</value>
   </data>
+  <data name="FreeDownload" xml:space="preserve">
+    <value>در زمرد رایگان دانلود کنید!</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>در تماس باشید!</value>
+  </data>
+  <data name="GetInTouchP" xml:space="preserve">
+    <value>برای شروع پروژه بعدی با ما آماده هستید؟ عالیه! با ما تماس بگیرید ویا ایمیل بفرستید، ما در کمترین زمان ممکن به شما خواهیم پیوست!</value>
+  </data>
   <data name="GetStarted" xml:space="preserve">
     <value>شروع کن</value>
+  </data>
+  <data name="MoreDownload" xml:space="preserve">
+    <value>بیشتر دانلود کنید</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
     <value>شرکت نرم افزاری زمرد یک شرکت کوچک جهت فراهم کردن نیازهای شما در زمینه ساخت برنامه های تحت وب، ویندوز، اندروید، اپل می باشد. اکثر برنامه ها در زمرد بصورت کد باز بوده و می توان آن را رایگان دانلود نموده و به راحتی استفاده کرد</value>
   </data>
   <data name="MoreInfoTitle" xml:space="preserve">
-    <value>ارائه می دهیم آنچه را که نیاز دارید</value>
+    <value>ارائه می دهیم آنچه را که نیاز دارید!</value>
   </data>
-  <data name="Portfolio" xml:space="preserve">
+  <data name="Portfolios" xml:space="preserve">
     <value>محصولات</value>
+  </data>
+  <data name="PortfoliosTitle" xml:space="preserve">
+    <value>بهترین های محصولات ما</value>
+  </data>
+  <data name="RightToLeft" xml:space="preserve">
+    <value>rtl</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>سرویس ها</value>
@@ -161,6 +179,15 @@
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>خروج از سیستم</value>
+  </data>
+  <data name="TeamContact" xml:space="preserve">
+    <value>برای تماس با اعضای تیم می توانید آنها را در شبکه های اجتماعی دنبال کنید و یا از طریق ایمیل با آنها ارتباط بر قرار کنید.</value>
+  </data>
+  <data name="TeamSubTitle" xml:space="preserve">
+    <value>برنامه نویس و طراحان شرکت زمرد.</value>
+  </data>
+  <data name="TeamTitle" xml:space="preserve">
+    <value>تیم شگفت انگیز ما</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Xomorod</value>
