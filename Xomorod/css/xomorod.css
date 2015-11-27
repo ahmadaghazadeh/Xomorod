@@ -78,36 +78,35 @@ aside {
     padding: 0;
 }
 
+
 .navbar-default {
-    border-color: #222222;
-    border-color: rgba(34,34,34,.05);
+    border-color: #ffffff;
+    border-color: rgba(255,255,255,.3);
+    background-color: transparent;
     font-family: 'Iranian Sans';
-    background-color: #fff;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    -ms-transition: all .35s;
-    -o-transition: all .35s;
-    transition: all .35s;
+    direction: rtl;
 }
 
     .navbar-default .navbar-header .navbar-brand {
+        color: #ffffff;
+        color: rgba(255,255,255,.7);
         text-transform: uppercase;
         font-family: 'Merkur';
         font-weight: 100;
-        color: #f05f40;
         font-size: 40px;
     }
 
         .navbar-default .navbar-header .navbar-brand:hover,
         .navbar-default .navbar-header .navbar-brand:focus {
-            color: #eb3812;
+            color: #fff;
         }
 
     .navbar-default .nav > li > a,
     .navbar-default .nav > li > a:focus {
+        color: #ffffff;
+        color: rgba(255,255,255,.7);
         font-size: 18px;
         font-weight: 800;
-        color: #222;
     }
 
         .navbar-default .nav > li > a:hover,
@@ -126,60 +125,31 @@ aside {
             background-color: transparent;
         }
 
-@media(min-width:768px) {
-    .navbar-default {
-        border-color: #ffffff;
-        border-color: rgba(255,255,255,.3);
-        background-color: transparent;
+    .navbar-default.affix {
+        border-color: #222222;
+        border-color: rgba(34,34,34,.05);
+        background-color: #fff;
     }
 
-        .navbar-default .navbar-header .navbar-brand {
-            color: #ffffff;
-            color: rgba(255,255,255,.7);
+        .navbar-default.affix .navbar-header .navbar-brand {
+            font-size: 35px;
+            color: #f05f40;
         }
 
-            .navbar-default .navbar-header .navbar-brand:hover,
-            .navbar-default .navbar-header .navbar-brand:focus {
-                color: #fff;
+            .navbar-default.affix .navbar-header .navbar-brand:hover,
+            .navbar-default.affix .navbar-header .navbar-brand:focus {
+                color: #eb3812;
             }
 
-        .navbar-default .nav > li > a,
-        .navbar-default .nav > li > a:focus {
-            color: #ffffff;
-            color: rgba(255,255,255,.7);
+        .navbar-default.affix .nav > li > a,
+        .navbar-default.affix .nav > li > a:focus {
+            color: #222;
         }
 
-            .navbar-default .nav > li > a:hover,
-            .navbar-default .nav > li > a:focus:hover {
-                color: #fff;
-            }
-
-        .navbar-default.affix {
-            border-color: #222222;
-            border-color: rgba(34,34,34,.05);
-            background-color: #fff;
-        }
-
-            .navbar-default.affix .navbar-header .navbar-brand {
-                font-size: 35px;
+            .navbar-default.affix .nav > li > a:hover,
+            .navbar-default.affix .nav > li > a:focus:hover {
                 color: #f05f40;
             }
-
-                .navbar-default.affix .navbar-header .navbar-brand:hover,
-                .navbar-default.affix .navbar-header .navbar-brand:focus {
-                    color: #eb3812;
-                }
-
-            .navbar-default.affix .nav > li > a,
-            .navbar-default.affix .nav > li > a:focus {
-                color: #222;
-            }
-
-                .navbar-default.affix .nav > li > a:hover,
-                .navbar-default.affix .nav > li > a:focus:hover {
-                    color: #f05f40;
-                }
-}
 
 header {
     position: relative;
@@ -568,15 +538,15 @@ ul.social-buttons {
         text-decoration: none;
     }
 
-.toTop:link, .toTop:visited { 
-    color: #ffffff;
-    text-decoration: none;
-    cursor: auto;
-}
+    .toTop:link, .toTop:visited {
+        color: #ffffff;
+        text-decoration: none;
+        cursor: auto;
+    }
 
-.toTop:link:active, .toTop:visited:active { 
-    color: #ffffff;
-}
+        .toTop:link:active, .toTop:visited:active {
+            color: #ffffff;
+        }
 
 
 #svg-logo {
@@ -590,4 +560,9 @@ ul.social-buttons {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.toggle .btn-primary {
+        width: 113px;
+    height: 37px;
 }

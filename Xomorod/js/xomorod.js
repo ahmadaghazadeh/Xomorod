@@ -46,9 +46,10 @@
 })(jQuery); // End of use strict
 
 
+// http://daneden.github.io/animate.css/
 
-function swing(id) {
-    $(id).removeClass().addClass('swing animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+function animate(id, animateName) {
+    $(id).removeClass().addClass(animateName + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
         $(this).removeClass();
     });
 }
@@ -56,35 +57,35 @@ function swing(id) {
 
 $("#animationSandbox").hover(
     function () {
-        swing('#animationSandbox');
+        animate('#animationSandbox', 'swing');
     }, function () {
     }
 );
 
 $("#animationAbout").hover(
     function () {
-        swing('#animationAbout');
+        animate('#animationAbout', 'pulse');
     }, function () {
     }
 );
 
 $("#animationServices").hover(
     function () {
-        swing('#animationServices');
+        animate('#animationServices', 'pulse');
     }, function () {
     }
 );
 
 $("#animationPortfolio").hover(
     function () {
-        swing('#animationPortfolio');
+        animate('#animationPortfolio', 'pulse');
     }, function () {
     }
 );
 
 $("#animationContact").hover(
     function () {
-        swing('#animationContact');
+        animate('#animationContact', 'pulse');
     }, function () {
     }
 );

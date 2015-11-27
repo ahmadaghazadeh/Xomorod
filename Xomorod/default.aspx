@@ -51,8 +51,6 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <img src="img/xomorod.svg" class="CompanyMarker wow tada" onerror="this.onerror = null; this.src = 'img/favicon.jpg'" />
-                <%--<object data="img/xomorod.svg" class="CompanyMarker wow tada" alt="favicon"></object>--%>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -63,7 +61,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow: hidden">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a id="animationAbout" class="page-scroll" href="#about">{{ xomorod.About }}</a>
@@ -78,7 +76,7 @@
                         <a id="animationContact" class="page-scroll" href="#team">{{ xomorod.Contact }}</a>
                     </li>
                     <li>
-                        <div style="padding: 10px;" width="50px" text-align="center">
+                        <div style="padding: 10px;" width="130px" text-align="center">
                             <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged();">
                         </div>
                     </li>
