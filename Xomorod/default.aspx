@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,18 +29,28 @@
     <!-- Test Link: https://daneden.github.io/animate.css/ -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
 
-
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Marked JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
 
     <!-- Angular.JS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-    <!-- Marked JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="text/javascript"></script>
+    <!-- Angular Cookies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
 
     <!-- Angular-Marked JS -->
-    <script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js" type="text/javascript"></script>
+    <script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js"></script>
+
+    <!-- Angular Translate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+
+    <!-- Angular Translate Url Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
+
+    <script src="js/app.js"></script>
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
@@ -64,20 +73,20 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow: hidden">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="animationAbout" class="page-scroll" href="#about">{{ xomorod.About }}</a>
+                        <a id="animationAbout" class="page-scroll" href="#about" translate>About</a>
                     </li>
                     <li>
-                        <a id="animationServices" class="page-scroll" href="#services">{{ xomorod.Services }}</a>
+                        <a id="animationServices" class="page-scroll" href="#services" translate>Services</a>
                     </li>
                     <li>
-                        <a id="animationPortfolio" class="page-scroll" href="#portfolio">{{ xomorod.Portfolios }}</a>
+                        <a id="animationPortfolio" class="page-scroll" href="#portfolio" translate>Portfolios</a>
                     </li>
                     <li>
-                        <a id="animationContact" class="page-scroll" href="#team">{{ xomorod.Contact }}</a>
+                        <a id="animationContact" class="page-scroll" href="#team" translate>Contact</a>
                     </li>
                     <li>
                         <div style="padding: 10px;" width="130px" text-align="center">
-                            <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged();">
+                            <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged(checked);">
                         </div>
                     </li>
                 </ul>
@@ -101,11 +110,11 @@
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center" dir="{{xomorod.RightToLeft}}">
-                    <h2 class="section-heading">{{ xomorod.MoreInfoTitle }}</h2>
+                <div class="col-lg-8 col-lg-offset-2 text-center" dir="{{ 'RightToLeft' | translate }}">
+                    <h2 class="section-heading" translate>MoreInfoTitle</h2>
                     <hr class="light">
-                    <p class="text-faded">{{ xomorod.MoreInfo }}</p>
-                    <a href="#head" class="btn btn-warning btn-xl page-scroll wow tada">{{ xomorod.GetStarted }}</a>
+                    <p class="text-faded" translate>MoreInfo</p>
+                    <a href="#head" class="btn btn-warning btn-xl page-scroll wow tada" translate>GetStarted</a>
                 </div>
             </div>
         </div>
@@ -138,21 +147,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 
+<!-- Respond IE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+
 <!-- Plugin JavaScript -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js"></script>
-
-
-<!-- Cooki JS -->
-<script src="js/cookies.min.js" type="text/javascript"></script>
 
 <!-- Animation Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="js/xomorod.js"></script>
-
-<!-- Custom Angular JS Script -->
-<script src="js/angularAjaxApiCaller.js" type="text/javascript"></script>
-
 </html>

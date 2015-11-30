@@ -1,0 +1,64 @@
+﻿var app = angular.module(
+            'xomorodApp', // Name of our application
+            [
+                // Dependencies:
+                'ngCookies',
+                'hc.marked',
+                'pascalprecht.translate' // angular-translate
+            ]
+         );
+
+app.config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.useUrlLoader('/api/translations');
+    $translateProvider.useSanitizeValueStrategy(null);
+}]);
+
+app.controller('productsController', [
+    '$scope', '$http', function ($scope, $http) {
+        $http.get("api/products").success(function (response) {
+            $scope.products = response;
+            $scope.convertMarked = function (data) {
+                //document.getElementById('content').innerHTML = marked(response);
+                $scope.readme_markdown = marked(data.portfolio.Markdown);
+            }
+        }).error(function () {
+            alert("an unexcepted error ocurred at productsController");
+        });
+    }
+]);
+
+
+app.controller('bodyController', ['$scope', '$cookieStore', '$translate', function ($scope, $cookieStore, $translate) {
+    $scope.changeLanguage = setLanguage;
+
+    function setLanguage(lang) {
+        $cookieStore.put('APPLICATION_LANGUAGE', lang);
+        $translate.use(lang);
+    }
+
+    function init() {
+        var lang = $cookieStore.get('APPLICATION_LANGUAGE') || 'en';
+        setLanguage(lang);
+    }
+
+    init();
+
+    ////
+    //// Set model:
+    $scope.isEnglish = ($cookieStore.get('APPLICATION_LANGUAGE') === 'en');
+    document.getElementById("chkLanguage").checked = $scope.isEnglish;
+
+    // Add listener for isEnglish property changed event
+    $scope.$watch(function (sc) {
+        return sc.isEnglish;
+    }, function (newVal, oldVal) {
+        setLanguage(newVal ? "en" : "fa");
+    });
+}]);
+
+function OnLanguageChanged(checked) {
+    var sc = angular.element($("#chkLanguage")).scope();
+    sc.$apply(function () {
+        sc.isEnglish = checked;
+    });
+}

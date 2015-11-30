@@ -114,20 +114,18 @@
     <Content Include="img\me.jpg" />
     <Content Include="img\partner.png" />
     <Content Include="img\xomorod.svg" />
-    <Content Include="js\cookies.js" />
-    <Content Include="js\cookies.min.js" />
+    <Content Include="js\app.js" />
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
-    <Content Include="js\angularAjaxApiCaller.js" />
     <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\LocalizationController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TranslationsController.cs" />
     <Compile Include="Core\DatabaseHelper.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -144,16 +142,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Xomorod.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\localization.Designer.cs">
+    <Compile Include="Resources\localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>localization.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\localization.fa-IR.Designer.cs">
+    <Compile Include="Resources\localization.fa.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>localization.fa-IR.resx</DependentUpon>
+      <DependentUpon>localization.fa.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -182,11 +180,11 @@
     <None Include="Models\Xomorod.dbml.layout">
       <DependentUpon>Xomorod.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="Properties\localization.fa-IR.resx">
+    <EmbeddedResource Include="Resources\localization.fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>localization.fa-IR.Designer.cs</LastGenOutput>
+      <LastGenOutput>localization.fa.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\localization.resx">
+    <EmbeddedResource Include="Resources\localization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>localization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
