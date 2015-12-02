@@ -98,6 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\pre-load.css" />
+    <Content Include="css\pre-load.min.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
@@ -109,17 +111,22 @@
     <Content Include="html\products.html" />
     <Content Include="html\services.html" />
     <Content Include="html\team_section.html" />
+    <Content Include="img\3793.GIF" />
     <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
     <Content Include="img\partner.png" />
+    <Content Include="img\spinner.gif" />
     <Content Include="img\xomorod.svg" />
     <Content Include="js\app.js" />
+    <Content Include="js\css_live_reload_init.js" />
+    <Content Include="js\pre-load.js" />
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
     <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
+    <Content Include="SolutionItems\Help.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -32,12 +32,12 @@ app.controller('bodyController', ['$scope', '$cookieStore', '$translate', functi
     $scope.changeLanguage = setLanguage;
 
     function setLanguage(lang) {
-        $cookieStore.put('APPLICATION_LANGUAGE', lang);
+        $cookieStore.put('Xomorod_LANGUAGE', lang);
         $translate.use(lang);
     }
 
     function init() {
-        var lang = $cookieStore.get('APPLICATION_LANGUAGE') || 'en';
+        var lang = $cookieStore.get('Xomorod_LANGUAGE') || 'en';
         setLanguage(lang);
     }
 
@@ -45,7 +45,7 @@ app.controller('bodyController', ['$scope', '$cookieStore', '$translate', functi
 
     ////
     //// Set model:
-    $scope.isEnglish = ($cookieStore.get('APPLICATION_LANGUAGE') === 'en');
+    $scope.isEnglish = ($cookieStore.get('Xomorod_LANGUAGE') === 'en');
     document.getElementById("chkLanguage").checked = $scope.isEnglish;
 
     // Add listener for isEnglish property changed event

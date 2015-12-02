@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Just for Xomorod.Co software company">
     <meta name="author" content="Mr. Behzad Khosravifar">
 
@@ -14,46 +15,27 @@
 
     <title>Xomorod</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/xomorod-dialog.css" rel="stylesheet" />
-    <link href="css/xomorod.css" rel="stylesheet">
-
-    <!-- Plugin CSS -->
-    <!-- Test Link: https://daneden.github.io/animate.css/ -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <!-- Marked JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-
-    <!-- Angular.JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-
-    <!-- Angular Cookies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
-
-    <!-- Angular-Marked JS -->
-    <script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js"></script>
-
-    <!-- Angular Translate -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
-
-    <!-- Angular Translate Url Loader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
-
-    <script src="js/app.js"></script>
+    <!---------- PreLoader Animate ----------->
+    <link href="css/pre-load.css" rel="stylesheet" />
+    <script src="js/pre-load.js"></script>
+    <!---------------------------------------->
 </head>
 
 <body ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
+
+    <!---------- PreLoader Animate ----------->
+    <div class="loader" id="loader">
+        <div id='c'>
+            <div class='s'></div>
+            <div class='s'></div>
+            <div class='s'></div>
+            <div class='s'></div>
+            <div class='s'></div>
+            <div class='s'></div>
+        </div>
+    </div>
+    <script src="//js/css_live_reload_init.js"></script>
+    <!---------------------------------------->
 
     <!-- Menu -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -143,6 +125,46 @@
     <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>
 
+<!------------------- Load Scripts and Styles ----------------------------------------->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/xomorod-dialog.css" rel="stylesheet" />
+<link href="css/xomorod.css" rel="stylesheet">
+
+<!-- Plugin CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+
+
+<!-- Marked JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+
+<!-- Angular.JS -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+<!-- Angular Cookies -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+
+<!-- Angular-Marked JS -->
+<script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js"></script>
+
+<!-- Angular Translate -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+
+<!-- Angular Translate Url Loader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
+
+<script src="js/app.js"></script>
+
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
@@ -159,4 +181,5 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/xomorod.js"></script>
+
 </html>
