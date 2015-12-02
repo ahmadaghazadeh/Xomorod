@@ -185,10 +185,14 @@
     <Content Include="..\README.md">
       <Link>SolutionItems\README.md</Link>
     </Content>
+    <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Xomorod.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>

@@ -97,6 +97,7 @@ DocProject/Help/html
 publish/
 
 # Publish Web Output
+[Ss]ecurityFiles/
 *.Publish.xml
 [Pp]ublishProfiles/
 [Pp]roperties/[Pp]ublishProfiles/
