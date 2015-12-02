@@ -22,7 +22,7 @@ namespace Xomorod.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class localization {
+    internal class localization {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -313,7 +313,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Our broad tool-set enables us to partner with you to create and integrate custom solutions that streamline efficiency..
+        ///   Looks up a localized string similar to Our broad tool-set enables us to partner with you to create and integrate custom solutions..
         /// </summary>
         internal static string XomorodService {
             get {

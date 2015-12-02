@@ -26,15 +26,15 @@
     <!---------- PreLoader Animate ----------->
     <div class="loader" id="loader">
         <div id='c'>
-            <div class='s'></div>
-            <div class='s'></div>
-            <div class='s'></div>
-            <div class='s'></div>
-            <div class='s'></div>
-            <div class='s'></div>
+            <div class='s' id="s1"></div>
+            <div class='s' id="s2"></div>
+            <div class='s' id="s3"></div>
+            <div class='s' id="s4"></div>
+            <div class='s' id="s5"></div>
+            <div class='s' id="s6"></div>
         </div>
     </div>
-    <script src="//js/css_live_reload_init.js"></script>
+    <%--<script src="//js/css_live_reload_init.js"></script>--%>
     <!---------------------------------------->
 
     <!-- Menu -->
