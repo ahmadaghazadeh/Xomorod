@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.gitattributes">
+      <Link>SolutionItems\.gitattributes</Link>
+    </Content>
+    <Content Include="..\.gitignore">
+      <Link>SolutionItems\.gitignore</Link>
+    </Content>
     <Content Include="css\pre-load.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
@@ -125,9 +131,7 @@
     <Content Include="fonts\iransans.ttf" />
     <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
-    <Content Include="SolutionItems\.gitattributes" />
-    <Content Include="SolutionItems\.gitignore" />
-    <Content Include="SolutionItems\Help.txt" />
+    <Content Include="SolutionItems\Helpfull_Links.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +179,13 @@
       <LastGenOutput>Xomorod.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="..\LICENSE">
+      <Link>SolutionItems\LICENSE</Link>
+    </Content>
+    <Content Include="..\README.md">
+      <Link>SolutionItems\README.md</Link>
+    </Content>
     <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
-    <Content Include="SolutionItems\LICENSE" />
-    <Content Include="SolutionItems\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

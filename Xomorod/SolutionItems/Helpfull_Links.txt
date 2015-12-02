@@ -1,4 +1,4 @@
-﻿Pre load page: http://bradsknutson.com/blog/display-loading-image-while-page-loads/
+﻿﻿Pre load page: http://bradsknutson.com/blog/display-loading-image-while-page-loads/
 Preload Gif images: http://preloaders.net/en/circular
 30 Best Creative CSS3 Animation Examples: http://designscrazed.org/css3-animation-examples/
 My Preload Creative: http://codepen.io/Raphael/pen/fqweF
