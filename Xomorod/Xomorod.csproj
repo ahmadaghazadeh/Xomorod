@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\pre-load.css" />
-    <Content Include="css\pre-load.min.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
@@ -126,6 +125,8 @@
     <Content Include="fonts\iransans.ttf" />
     <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
+    <Content Include="SolutionItems\.gitattributes" />
+    <Content Include="SolutionItems\.gitignore" />
     <Content Include="SolutionItems\Help.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -175,6 +176,8 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
+    <Content Include="SolutionItems\LICENSE" />
+    <Content Include="SolutionItems\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
