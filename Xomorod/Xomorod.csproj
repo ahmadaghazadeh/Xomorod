@@ -104,7 +104,7 @@
     <Content Include="..\.gitignore">
       <Link>SolutionItems\.gitignore</Link>
     </Content>
-    <Content Include="css\pre-load.css" />
+    <Content Include="css\loader.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
@@ -124,8 +124,7 @@
     <Content Include="img\spinner.gif" />
     <Content Include="img\xomorod.svg" />
     <Content Include="js\app.js" />
-    <Content Include="js\css_live_reload_init.js" />
-    <Content Include="js\pre-load.js" />
+    <Content Include="js\loader.js" />
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />

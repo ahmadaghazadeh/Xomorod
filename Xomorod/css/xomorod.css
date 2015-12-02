@@ -180,7 +180,7 @@ header {
             text-transform: uppercase;
             font-weight: 200;
             font-family: 'Merkur';
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             color: #f05f40;
         }
 
@@ -188,7 +188,7 @@ header {
             margin: 50px auto;
         }
 
-@media(min-width:870px) {
+@media(min-width:880px) {
     header {
         min-height: 100%;
     }
@@ -469,7 +469,6 @@ img::-moz-selection {
 .btn-social {
     font-weight: 600;
     font-size: 20px;
-    background-color: #f1f0f0;
 }
 
 .btn {
@@ -563,6 +562,11 @@ ul.social-buttons {
 }
 
 .toggle .btn-primary {
-        width: 113px;
+    width: 113px;
     height: 37px;
+}
+
+.emails {
+    color: #333;
+    text-decoration: none;
 }
