@@ -232,7 +232,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign In.
+        ///   Looks up a localized string similar to Sign-in.
         /// </summary>
         internal static string SignIn {
             get {
@@ -241,7 +241,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign Out.
+        ///   Looks up a localized string similar to Sign-Out.
         /// </summary>
         internal static string SignOut {
             get {

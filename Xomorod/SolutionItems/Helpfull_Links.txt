@@ -10,3 +10,5 @@ CSS Compressor: http://csscompressor.com/
 JS Compressor: http://jscompress.com/
 
 Trianglify Pattern: http://qrohlf.com/trianglify/
+
+Login Demo: http://tympanus.net/codrops/2012/10/16/custom-login-form-styling/

@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
-                <a id="loginLink" data-toggle="tooltip" data-placement="right" title="sign-in" class="navbar-brand" href="./loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
+                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}"  class="navbar-brand" href="./loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -84,7 +84,7 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo" class="animated bounce"></object>
-                <h1 class="site__title mega animated bounce">Xomorod</h1>
+                <h1 id="animationSandbox" class="site__title mega animated bounce">Xomorod</h1>
             </div>
         </div>
         <a class="arrow-down fa fa-angle-down page-scroll" href="#about"></a>
