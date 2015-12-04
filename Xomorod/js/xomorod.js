@@ -54,14 +54,6 @@ function animate(id, animateName) {
     });
 }
 
-
-$("#animationSandbox").hover(
-    function () {
-        animate('#animationSandbox', 'swing');
-    }, function () {
-    }
-);
-
 $("#animationAbout").hover(
     function () {
         animate('#animationAbout', 'pulse');

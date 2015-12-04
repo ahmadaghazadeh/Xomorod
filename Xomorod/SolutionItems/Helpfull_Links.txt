@@ -8,3 +8,5 @@ Wow Animation.js samples: https://daneden.github.io/animate.css/
 CSS Compressor: http://csscompressor.com/
 
 JS Compressor: http://jscompress.com/
+
+Trianglify Pattern: http://qrohlf.com/trianglify/

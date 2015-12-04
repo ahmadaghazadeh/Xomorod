@@ -105,6 +105,7 @@
       <Link>SolutionItems\.gitignore</Link>
     </Content>
     <Content Include="css\loader.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
@@ -116,20 +117,20 @@
     <Content Include="html\products.html" />
     <Content Include="html\services.html" />
     <Content Include="html\team_section.html" />
-    <Content Include="img\3793.GIF" />
     <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
     <Content Include="img\partner.png" />
-    <Content Include="img\spinner.gif" />
     <Content Include="img\xomorod.svg" />
     <Content Include="js\app.js" />
     <Content Include="js\loader.js" />
+    <Content Include="js\TrianglifyCreator.js" />
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
     <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
+    <Content Include="loginPage.aspx" />
     <Content Include="SolutionItems\Helpfull_Links.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="loginPage.aspx.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginPage.aspx.designer.cs">
+      <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Xomorod.designer.cs">
       <AutoGen>True</AutoGen>
