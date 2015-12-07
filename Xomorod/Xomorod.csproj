@@ -105,6 +105,7 @@
       <Link>SolutionItems\.gitignore</Link>
     </Content>
     <Content Include="css\loader.css" />
+    <Content Include="css\login\login.css" />
     <Content Include="css\login\particles\style.css" />
     <Content Include="css\login\trianglify.css" />
     <Content Include="css\xomorod-dialog.css" />

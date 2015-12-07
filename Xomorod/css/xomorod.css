@@ -162,6 +162,7 @@ header {
     -ms-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    text-shadow: gold 0px 0px 90px;
 }
 
     header .header-content {
@@ -545,6 +546,9 @@ ul.social-buttons {
 
 #svg-logo {
     width: 8%;
+    text-shadow: gold 0px 0px 90px;
+    -webkit-filter: drop-shadow( 0px 0px 10px gold );
+    filter: drop-shadow( 0px 0px 10px gold ); /* Same syntax as box-shadow */
 }
 
 .unselectable {
@@ -630,7 +634,7 @@ ul.social-buttons {
     padding-left: 10px;
 }
 
-#loginLink:hover {
-    font-size: 30px;
-    top: 1px;
-}
+    #loginLink:hover {
+        font-size: 30px;
+        top: 1px;
+    }

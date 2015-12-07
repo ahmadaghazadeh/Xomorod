@@ -14,6 +14,9 @@
     <link rel="shortcut icon" href="img/favicon.jpg">
     <title>Login</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- trianglify js and css -->
     <link href="css/login/trianglify.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
@@ -21,14 +24,20 @@
     <!-- particles style CSS -->
     <link rel="stylesheet" media="screen" href="css/login/particles/style.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- login form css -->
+    <link href="css/login/login.css" rel="stylesheet" />
+
 </head>
 <body>
+    <!-- Trianglify container -->
     <canvas id="headerCanvas"></canvas>
     <script src="js/login/TrianglifyCreator.js"></script>
 
-    <%--    <div class="container">
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- login form container -->
+    <div class="container">
 
         <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 
@@ -44,7 +53,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="panel-title text-center">Bootsnipp.com</div>
+                    <div class="panel-title text-center">Xomorod.com</div>
                 </div>
 
                 <div class="panel-body">
@@ -64,7 +73,7 @@
                         <div class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">
-                                <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i>Log in</button>
+                                <button type="submit" id="btn-submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>
                             </div>
                         </div>
 
@@ -73,11 +82,7 @@
                 </div>
             </div>
         </div>
-    </div>--%>
-
-    <!-- particles.js container -->
-    <div id="particles-js"></div>
-
+    </div>
 
 </body>
 
