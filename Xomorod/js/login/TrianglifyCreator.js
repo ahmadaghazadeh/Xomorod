@@ -10,11 +10,11 @@ function createCustomTrianglify() {
     var pattern = Trianglify({
         height: y,
         width: x,
-        //cell_size: 30 + Math.random() * 100,
-        cell_size: 60,
+        cell_size: 40 + Math.random() * 100,
+        //cell_size: 60,
         variance: "0.73",
-        x_colors: 'PuOr',
-        seed: 'pfoz2'
+        x_colors: 'random' //'PuOr',
+        // seed: 'pfoz2'
     });
     // canvas
     pattern.canvas(document.getElementById('headerCanvas'));

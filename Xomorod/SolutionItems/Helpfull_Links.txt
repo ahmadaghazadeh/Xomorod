@@ -11,4 +11,6 @@ JS Compressor: http://jscompress.com/
 
 Trianglify Pattern: http://qrohlf.com/trianglify/
 
-Login Demo: http://tympanus.net/codrops/2012/10/16/custom-login-form-styling/
+Particles JS: https://github.com/VincentGarreau/particles.js/
+
+Particles Login Form: http://bootsnipp.com/snippets/featured/particle-background-login-form

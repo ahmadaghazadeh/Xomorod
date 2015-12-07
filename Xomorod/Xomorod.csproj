@@ -105,8 +105,8 @@
       <Link>SolutionItems\.gitignore</Link>
     </Content>
     <Content Include="css\loader.css" />
-    <Content Include="css\login\login.css" />
-    <Content Include="css\login\style.css" />
+    <Content Include="css\login\particles\style.css" />
+    <Content Include="css\login\trianglify.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
@@ -125,6 +125,7 @@
     <Content Include="img\xomorod.svg" />
     <Content Include="js\app.js" />
     <Content Include="js\loader.js" />
+    <Content Include="js\login\particles\app.js" />
     <Content Include="js\login\TrianglifyCreator.js" />
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
