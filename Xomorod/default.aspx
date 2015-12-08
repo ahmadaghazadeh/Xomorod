@@ -4,12 +4,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Just for Xomorod.Co software company"/>
-    <meta name="author" content="Mr. Behzad Khosravifar"/>
+    <meta name="description" content="Just for Xomorod.Co software company" />
+    <meta name="author" content="Mr. Behzad Khosravifar" />
     <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business" />
 
     <link rel="shortcut icon" href="img/favicon.jpg">
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
-                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}"  class="navbar-brand" href="./loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
+                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}" class="navbar-brand" href="./loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -180,10 +180,26 @@
 <!-- Custom Theme JavaScript -->
 <script src="js/xomorod.js"></script>
 
+<!-- Tooltips loader -->
 <script>
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<!-- Google Analystics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-71146450-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
 <!---------------------------------------------->
 </html>
