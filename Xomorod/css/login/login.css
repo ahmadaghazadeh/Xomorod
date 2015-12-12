@@ -1,4 +1,9 @@
-﻿#loginbox {
+﻿@font-face {
+    font-family: 'Merkur';
+    src: url('../../fonts/Merkur.otf') format('truetype');
+}
+
+#loginbox {
     padding-top: 10vh;
 }
 
@@ -69,7 +74,6 @@
     -webkit-filter: drop-shadow( 0px 0px 15px white );
     filter: drop-shadow( 0px 0px 8px white ); 
     text-decoration: none;
-    -webkit-font-smoothing: antialiased;
 }
 
 @media(max-height: 500px) {
