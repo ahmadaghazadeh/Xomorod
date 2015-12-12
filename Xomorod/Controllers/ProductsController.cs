@@ -44,10 +44,10 @@ namespace Xomorod.Controllers
         }
 
         // GET api/products/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         //// POST api/<controller>
         //public void Post([FromBody]string value)
