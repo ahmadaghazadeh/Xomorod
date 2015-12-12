@@ -16,3 +16,5 @@ Particles JS: https://github.com/VincentGarreau/particles.js/
 Particles Login Form: http://bootsnipp.com/snippets/featured/particle-background-login-form
 
 Header responsive padding: https://css-tricks.com/viewport-sized-typography/
+
+Complete Example for Error Handlers: https://msdn.microsoft.com/en-us/library/bb397417.aspx

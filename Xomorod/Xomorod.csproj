@@ -104,6 +104,7 @@
     <Content Include="..\.gitignore">
       <Link>SolutionItems\.gitignore</Link>
     </Content>
+    <Content Include="css\errorPages\404.css" />
     <Content Include="css\loader.css" />
     <Content Include="css\login\login.css" />
     <Content Include="css\login\particles\style.css" />
@@ -112,6 +113,7 @@
     <Content Include="css\xomorod.css" />
     <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
     <Content Include="default.aspx" />
+    <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="html\contact.html" />
@@ -148,6 +150,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

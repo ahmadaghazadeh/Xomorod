@@ -162,7 +162,7 @@ header {
     -ms-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    text-shadow: white 0px 0px 120px;
+    text-shadow: white 0px 0px 100px;
 }
 
     header .header-content {
