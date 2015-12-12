@@ -14,3 +14,5 @@ Trianglify Pattern: http://qrohlf.com/trianglify/
 Particles JS: https://github.com/VincentGarreau/particles.js/
 
 Particles Login Form: http://bootsnipp.com/snippets/featured/particle-background-login-form
+
+Header responsive padding: https://css-tricks.com/viewport-sized-typography/

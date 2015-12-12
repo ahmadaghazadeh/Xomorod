@@ -68,7 +68,7 @@
                         <a id="animationContact" class="page-scroll" href="#team" translate>Contact</a>
                     </li>
                     <li>
-                        <div style="padding: 10px;" width="130px" text-align="center">
+                        <div style="padding: 10px;" >
                             <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged(checked);">
                         </div>
                     </li>
