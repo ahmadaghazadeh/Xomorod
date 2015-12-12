@@ -68,7 +68,7 @@
                         <a id="animationContact" class="page-scroll" href="#team" translate>Contact</a>
                     </li>
                     <li>
-                        <div style="padding: 10px;" >
+                        <div style="padding: 10px;" class="unselectable" >
                             <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged(checked);">
                         </div>
                     </li>
@@ -84,8 +84,8 @@
     <header id="head">
         <div class="header-content">
             <div class="header-content-inner">
-                <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo" class="animated bounce"></object>
-                <h1 id="animationSandbox" class="site__title mega animated bounce">Xomorod</h1>
+                <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo"></object>
+                <h1 id="animationSandbox" class="site__title mega unselectable">Xomorod</h1>
             </div>
         </div>
         <a class="arrow-down fa fa-angle-down page-scroll" href="#about"></a>

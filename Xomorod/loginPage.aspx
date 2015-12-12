@@ -43,17 +43,13 @@
 
             <div class="row">
                 <div class="iconmelon">
-                    <svg viewBox="0 0 32 32">
-                        <g filter="">
-                            <use xlink:href="#git"></use>
-                        </g>
-                    </svg>
+                    <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo"></object>
                 </div>
             </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="panel-title text-center">Xomorod.com</div>
+                    <div class="panel-title text-center">Xomorod</div>
                 </div>
 
                 <div class="panel-body">
@@ -62,7 +58,7 @@
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">
+                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="Username">
                         </div>
 
                         <div class="input-group">

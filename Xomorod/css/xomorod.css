@@ -81,7 +81,7 @@ aside {
     border-color: #ffffff;
     border-color: rgba(255,255,255,.3);
     background-color: transparent;
-    font-family: 'Iranian Sans';
+    font-family: "Iranian Sans", "Open Sans", sans-serif, Helvetica, Arial;
     direction: rtl;
 }
 
@@ -168,7 +168,7 @@ header {
     header .header-content {
         position: relative;
         width: 100%;
-        padding-top: 24vmin;
+        padding-top: 20vmin;
         text-align: center;
         padding-bottom: 70%;
     }
@@ -195,7 +195,6 @@ header {
             padding-top: 15vh;
             overflow: hidden;
             padding-bottom: 100%;
-            /*margin-top: 10px;*/
         }
 
             header .header-content .header-content-inner {
@@ -214,7 +213,6 @@ header {
             padding-top: 10vh;
             overflow: hidden;
             padding-bottom: 100%;
-            /*margin-top: 10px;*/
         }
 
             header .header-content .header-content-inner {
@@ -568,6 +566,8 @@ ul.social-buttons {
     text-shadow: white 0px 0px 8px;
     -webkit-filter: drop-shadow( 0px 0px 15px white );
     filter: drop-shadow( 0px 0px 8px white ); /* Same syntax as box-shadow */
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
 }
 
 @media(max-width:1100px) {
