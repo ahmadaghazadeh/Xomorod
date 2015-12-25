@@ -1,4 +1,22 @@
-﻿USE [Xomorod]
+﻿-- How to create this Script:
+-- 1. Right click on Xomorod database
+-- 2. Go on [Tasks] and click on [Generate Scripts...]
+-- 3. In the opened [Generate and Publish Scripts] form click on [Next >]
+-- 4. Select first option [Script entire database and all database objects] then click on [Next >]
+-- 5. Click on [Advanced] button to open [Advanced Scripting Options] and in the opened form:
+-- 6. Set [ANSI Padding] to 'False'
+-- 7. Set [Check for object existance] to True
+-- 8. Set [Script DROP and CREATE] to 'Script DROP and CREATE'
+-- 9. Set [Script Server Version] to 'SQL Server 2008'
+-- 10. Click on [OK] in [Advanced Scripting Options] to close that
+-- 11. Click on the [Save to new query window] option to checked that
+-- 12. Click on the [Next >] to finish job!
+-- 13. Search this sentence [CREATE DATABASE [Xomorod] ON  PRIMARY] ~~ LINE: 183
+-- 14. Check NAME of database in this paragraph codes, that is must 'Xomorod'
+-- Finish
+
+
+USE [Xomorod]
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserInRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
 ALTER TABLE [dbo].[UserInRoles] DROP CONSTRAINT [FK_UserInRoles_Users]
@@ -123,55 +141,134 @@ ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrTime]
 END
 
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
 DROP TABLE [dbo].[Users]
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
 DROP TABLE [dbo].[UserInRoles]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
 DROP TABLE [dbo].[Roles]
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
 DROP TABLE [dbo].[Resources]
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 DROP TABLE [dbo].[Portfolios]
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
 DROP TABLE [dbo].[PortfolioCategories]
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
 DROP TABLE [dbo].[LogHistory]
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
 DROP TABLE [dbo].[ExtraLinks]
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
 DROP TABLE [dbo].[ErrorLog]
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
 DROP TABLE [dbo].[Categories]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_InsertErrorLog]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 12/25/2015 6:36:26 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_CatchError]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 11/14/2015 11:53:04 PM ******/
+USE [master]
+GO
+/****** Object:  Database [Xomorod]    Script Date: 12/25/2015 6:36:26 PM ******/
+IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
+DROP DATABASE [Xomorod]
+GO
+/****** Object:  Database [Xomorod]    Script Date: 12/25/2015 6:36:26 PM ******/
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
+BEGIN
+CREATE DATABASE [Xomorod] ON  PRIMARY 
+( NAME = N'Xomorod', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod.mdf' , SIZE = 17408KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Xomorod_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod_log.ldf' , SIZE = 9216KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+END
+
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Xomorod].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Xomorod] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Xomorod] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Xomorod] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Xomorod] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Xomorod] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Xomorod] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Xomorod] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [Xomorod] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Xomorod] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Xomorod] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Xomorod] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Xomorod] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Xomorod] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Xomorod] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Xomorod] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Xomorod] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Xomorod] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Xomorod] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Xomorod] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Xomorod] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Xomorod] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Xomorod] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Xomorod] SET  MULTI_USER 
+GO
+ALTER DATABASE [Xomorod] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Xomorod] SET DB_CHAINING OFF 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Xomorod', N'ON'
+GO
+USE [Xomorod]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -299,7 +396,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -427,7 +524,7 @@ END
 ' 
 END
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -445,7 +542,7 @@ CREATE TABLE [dbo].[Categories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -485,7 +582,7 @@ CREATE TABLE [dbo].[ErrorLog](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -505,7 +602,7 @@ CREATE TABLE [dbo].[ExtraLinks](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -522,7 +619,7 @@ CREATE TABLE [dbo].[LogHistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -540,7 +637,7 @@ CREATE TABLE [dbo].[PortfolioCategories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -555,7 +652,7 @@ CREATE TABLE [dbo].[Portfolios](
 	[ModifyDate] [date] NOT NULL,
 	[ProjectUrl] [nvarchar](max) NULL,
 	[IconId] [int] NULL,
-	[Rank] [smallint] NULL,
+	[Rank] [float] NULL,
  CONSTRAINT [PK__Portfoli__3214EC07957343EF] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -563,7 +660,7 @@ CREATE TABLE [dbo].[Portfolios](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -582,7 +679,7 @@ CREATE TABLE [dbo].[Resources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -601,7 +698,7 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -619,7 +716,7 @@ CREATE TABLE [dbo].[UserInRoles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 11/14/2015 11:53:04 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 12/25/2015 6:36:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -806,4 +903,8 @@ REFERENCES [dbo].[Users] ([Id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserInRoles_Users]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserInRoles]'))
 ALTER TABLE [dbo].[UserInRoles] CHECK CONSTRAINT [FK_UserInRoles_Users]
+GO
+USE [master]
+GO
+ALTER DATABASE [Xomorod] SET  READ_WRITE 
 GO

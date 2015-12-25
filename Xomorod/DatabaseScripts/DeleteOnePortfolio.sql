@@ -1,4 +1,5 @@
-﻿DECLARE @Id UNIQUEIDENTIFIER = N'0A78F7F6-A45E-45CC-BDFD-9FB958CEBF72' -- Portfolio Id 
+﻿-- Set Portfolio ID in below property:
+DECLARE @Id UNIQUEIDENTIFIER = N'0A78F7F6-A45E-45CC-BDFD-9FB958CEBF72' -- Portfolio Id 
 
 DELETE FROM Xomorod.dbo.PortfolioCategories
 WHERE PortfolioId = @id

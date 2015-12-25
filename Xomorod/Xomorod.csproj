@@ -133,7 +133,7 @@
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
-    <Content Include="DatabaseScripts\DatabaseCreateScript.sql" />
+    <Content Include="DatabaseScripts\DatabaseReCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
     <Content Include="loginPage.aspx" />
     <Content Include="SolutionItems\Helpfull_Links.txt" />
