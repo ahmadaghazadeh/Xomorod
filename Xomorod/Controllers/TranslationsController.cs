@@ -15,32 +15,58 @@ namespace Xomorod.Controllers
             Localizations = new Dictionary<string, JObject>();
         }
 
-        // GET domain/api/translations
+        // GET domain/api/translations/
         public IHttpActionResult Get()
         {
-            return Get("en");
+            return Get(new { pageName = "default", lang = "en" });
         }
 
         // GET domain/api/translations?lang=en
         public IHttpActionResult Get(string lang)
         {
-            if (Localizations.ContainsKey(lang))
+            return Get(new { pageName = "default", lang = lang });
+        }
+
+        // GET domain/api/translations/[pageName]/?lang=en
+        [Route("api/Translations/{pageName}")]
+        public IHttpActionResult Get(string pageName, string lang)
+        {
+            return Get(new { pageName, lang });
+        }
+
+        // GET domain/api/translations?pageName=login&&lang=en
+        public IHttpActionResult Get([FromUri] dynamic query)
+        {
+            string lang = query.lang;
+            string pageName = query.pageName;
+
+            string key = pageName + lang;
+            if (Localizations.ContainsKey(key))
             {
-                return Ok(Localizations[lang]);
+                return Ok(Localizations[key]);
             }
 
             var resourceObject = new JObject();
 
-            var resourceSet = Resources.localization.ResourceManager.GetResourceSet(new CultureInfo(lang), true, true);
+            var resourceSet = GetResourceController(pageName, lang);
             IDictionaryEnumerator enumerator = resourceSet.GetEnumerator();
             while (enumerator.MoveNext())
             {
                 resourceObject.Add(enumerator.Key.ToString(), enumerator.Value.ToString());
             }
 
-            Localizations[lang] = resourceObject;
+            Localizations[key] = resourceObject;
 
             return Ok(resourceObject);
+        }
+
+        private System.Resources.ResourceSet GetResourceController(string name, string lang)
+        {
+            switch (name)
+            {
+                case "login": return Resources.login_Localization.ResourceManager.GetResourceSet(new CultureInfo(lang), true, true);
+                default: return Resources.localization.ResourceManager.GetResourceSet(new CultureInfo(lang), true, true);
+            }
         }
     }
 }

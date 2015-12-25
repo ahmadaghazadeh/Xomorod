@@ -19,6 +19,14 @@ namespace Xomorod
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //config.Routes.MapHttpRoute(
+            //     name: "ApiByName",
+            //     routeTemplate: "api/{controller}/{name}/{id}",
+            //    defaults: new { controller = "Translations", id = RouteParameter.Optional },
+            //    constraints: new { name = @"^[a-z]+$" }
+            //);
+
         }
     }
 }

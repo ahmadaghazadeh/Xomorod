@@ -29,12 +29,13 @@ app.controller('productsController', [
 
 
 app.controller('bodyController', ['$scope', '$cookieStore', '$translate', function ($scope, $cookieStore, $translate) {
-    $scope.changeLanguage = setLanguage;
 
     function setLanguage(lang) {
         $cookieStore.put('Xomorod_LANGUAGE', lang);
         $translate.use(lang);
     }
+
+    $scope.changeLanguage = setLanguage;
 
     function init() {
         var lang = $cookieStore.get('Xomorod_LANGUAGE') || 'en';

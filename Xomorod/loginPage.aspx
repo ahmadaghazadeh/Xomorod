@@ -28,7 +28,7 @@
     <link href="css/login/login.css" rel="stylesheet" />
 
 </head>
-<body>
+<body ng-app="xomorodApp" ng-controller="bodyController">
     <!-- Trianglify container -->
     <canvas id="headerCanvas"></canvas>
     <script src="js/login/TrianglifyCreator.js"></script>
@@ -58,18 +58,19 @@
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="Username">
+                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="{{ 'Username' | translate }}">
                         </div>
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                            <input id="password" type="password" class="form-control" name="password" placeholder="{{ 'Password' | translate }}">
                         </div>
 
                         <div class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">
-                                <button type="submit" id="btn-submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>
+                                <button id="btn-sign-up" href="#" class="btn btn-primary pull-left"><i class="glyphicon glyphicon-user btn-gly"></i>{{ 'Signup' | translate }}</button>
+                                <button type="submit" id="btn-submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in btn-gly"></i>{{ 'Login' | translate }}</button>
                             </div>
                         </div>
 
@@ -85,5 +86,20 @@
 <!-- scripts -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="js/login/particles/app.js"></script>
+
+
+<!-- Angular.JS -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+<!-- Angular Cookies -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+
+<!-- Angular Translate -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+
+<!-- Angular Translate Url Loader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
+
+<script src="js/login/translator.js"></script>
 
 </html>

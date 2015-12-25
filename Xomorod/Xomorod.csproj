@@ -128,6 +128,7 @@
     <Content Include="img\xomorod.svg" />
     <Content Include="js\app.js" />
     <Content Include="js\loader.js" />
+    <Content Include="js\login\translator.js" />
     <Content Include="js\login\particles\app.js" />
     <Content Include="js\login\TrianglifyCreator.js" />
     <Content Include="js\xomorod.js" />
@@ -144,6 +145,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TranslationsController.cs" />
     <Compile Include="Core\DatabaseHelper.cs" />
+    <Compile Include="Core\SessionController.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -184,6 +186,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>localization.fa.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\login_Localization.fa.Designer.cs">
+      <DependentUpon>login_Localization.fa.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\login_Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>login_Localization.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -217,6 +229,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Resources\login_Localization.fa.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>login_Localization.fa.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\login_Localization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>login_Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Models\Xomorod.dbml.layout">
       <DependentUpon>Xomorod.dbml</DependentUpon>
     </None>
