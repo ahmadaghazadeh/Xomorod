@@ -34,7 +34,7 @@ namespace Xomorod.Controllers
             return Get(new { pageName, lang });
         }
 
-        // GET domain/api/translations?pageName=login&&lang=en
+        // GET domain/api/translations?pageName=login&lang=en
         public IHttpActionResult Get([FromUri] dynamic query)
         {
             string lang = query.lang;
