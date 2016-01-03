@@ -1,7 +1,9 @@
-# Xomorod.com
-# Zoomorod.com
-# Zoomorod.ir
-# Xomorod.ir
+![Xomorod.xom Favicon](http://xomorod.com/img/favicon.jpg)
+
+## Xomorod.com
+## Zoomorod.com
+## Zoomorod.ir
+## Xomorod.ir
 
 ## Getting Started
 
