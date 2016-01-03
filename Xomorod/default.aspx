@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
-                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}" class="navbar-brand" href="./WebForms/loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
+                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}" class="navbar-brand" href="./pages/loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -105,23 +105,23 @@
 
 
     <!-- Header Section -->
-    <div ng-include="'WebForms/html/services.html'"></div>
+    <div ng-include="'pages/html/services.html'"></div>
 
 
     <!-- Products -->
-    <div ng-include="'WebForms/html/products.html'"></div>
+    <div ng-include="'pages/html/products.html'"></div>
 
 
     <!-- Download Ribbon -->
-    <div ng-include="'WebForms/html/download_ribbon.html'"></div>
+    <div ng-include="'pages/html/download_ribbon.html'"></div>
 
 
     <!-- Team Section -->
-    <div ng-include="'WebForms/html/team_section.html'"></div>
+    <div ng-include="'pages/html/team_section.html'"></div>
 
 
     <!-- Contact Section -->
-    <div ng-include="'WebForms/html/contact.html'"></div>
+    <div ng-include="'pages/html/contact.html'"></div>
 
     <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>

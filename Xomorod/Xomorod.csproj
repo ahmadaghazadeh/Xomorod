@@ -116,11 +116,11 @@
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="WebForms\html\contact.html" />
-    <Content Include="WebForms\html\download_ribbon.html" />
-    <Content Include="WebForms\html\products.html" />
-    <Content Include="WebForms\html\services.html" />
-    <Content Include="WebForms\html\team_section.html" />
+    <Content Include="pages\html\contact.html" />
+    <Content Include="pages\html\download_ribbon.html" />
+    <Content Include="pages\html\products.html" />
+    <Content Include="pages\html\services.html" />
+    <Content Include="pages\html\team_section.html" />
     <Content Include="img\favicon.jpg" />
     <Content Include="img\header.jpg" />
     <Content Include="img\me.jpg" />
@@ -136,7 +136,7 @@
     <Content Include="fonts\iransans.ttf" />
     <Content Include="DatabaseScripts\DatabaseReCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
-    <Content Include="WebForms\loginPage.aspx" />
+    <Content Include="pages\loginPage.aspx" />
     <Content Include="SolutionItems\Helpfull_Links.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -163,11 +163,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="WebForms\loginPage.aspx.cs">
+    <Compile Include="pages\loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForms\loginPage.aspx.designer.cs">
+    <Compile Include="pages\loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Xomorod.designer.cs">
