@@ -56,14 +56,21 @@
 
                     <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="{{ 'Username' | translate }}">
+                        <div class="has-success has-feedback col-sm-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="user" type="text" class="form-control" name="user" value="" placeholder="{{ 'Username' | translate }}">
+                            </div>
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" placeholder="{{ 'Password' | translate }}">
+                        <div class="has-error has-feedback col-sm-12">
+                            <div class="input-group ">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="{{ 'Password' | translate }}">
+                            </div>
+                            <span class="glyphicon glyphicon-remove  form-control-feedback" aria-hidden="true"></span>
+                            <span class="help-block" style="margin: 10px; font-size: 1.5em; display: block">Something may have gone wrong</span>
                         </div>
 
                         <div class="form-group">
@@ -101,5 +108,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
 
 <script src="../js/login/translator.js"></script>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="../js/login/loginForm.js"></script>
+
 
 </html>

@@ -116,6 +116,7 @@
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="js\login\loginForm.js" />
     <Content Include="pages\html\contact.html" />
     <Content Include="pages\html\download_ribbon.html" />
     <Content Include="pages\html\products.html" />
