@@ -18,3 +18,8 @@ Particles Login Form: http://bootsnipp.com/snippets/featured/particle-background
 Header responsive padding: https://css-tricks.com/viewport-sized-typography/
 
 Complete Example for Error Handlers: https://msdn.microsoft.com/en-us/library/bb397417.aspx
+
+SSL: 
+https://www.macaw.nl/weblog/2013/6/configuring-an-asp-net-project-for-development-with-ssl
+and
+http://www.asp.net/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal#SSLWebForms
