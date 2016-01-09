@@ -70,7 +70,7 @@
                                 <input id="password" type="password" class="form-control" name="password" placeholder="{{ 'Password' | translate }}">
                             </div>
                             <span class="glyphicon glyphicon-remove  form-control-feedback" aria-hidden="true"></span>
-                            <span class="help-block" style="margin: 10px; font-size: 1.5em; display: block">Something may have gone wrong</span>
+                            <span class="help-inline error" style="margin: 10px; font-size: 1.5em; display: block">Something may have gone wrong</span>
                         </div>
 
                         <div class="form-group">

@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Xomorod</a>
-                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}" class="navbar-brand" href="./pages/loginPage.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
+                <a id="loginLink" data-toggle="tooltip" data-placement="right" data-original-title="{{ 'SignIn' | translate }}" class="navbar-brand" href="./pages/controlPanel.aspx"><i class="fa fa-1x fa-sign-in"></i></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
