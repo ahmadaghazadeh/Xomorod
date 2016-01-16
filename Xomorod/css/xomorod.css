@@ -596,64 +596,39 @@ ul.social-buttons {
     text-decoration: none;
 }
 
-
-.arrow-down {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    display: block;
-    transition: all .2s ease;
-    margin-left: -1.5rem;
-    opacity: 0.8;
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
-    line-height: 45px;
-    color: #ffffff;
-    background: #fed136;
+a.scroll-arrow {
+    font-size: 35px;
+    color: white;
+    width: 50px;
+    line-height: 52px;
     border-radius: 50%;
-    -webkit-box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
-    text-align: center;
-    z-index: 20;
-    -ms-text-rendering: auto;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    text-decoration: none;
+    height: 50px;
+    border: 1px solid white;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 1029;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: .9;
 }
 
-    .arrow-down:hover {
+    .scroll-arrow:hover {
         box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
-        -webkit-transform: scale(1.06);
-        transform: scale(1.06);
         opacity: 1;
     }
 
-    .arrow-down:visited {
-        text-decoration: none;
-        cursor: pointer;
-        transition: color .2s ease;
-    }
-
-    .arrow-down:-webkit-any-link {
-        color: #ffffff;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .arrow-down:after {
+    .scroll-arrow:after {
         display: inline-block;
         background-size: 100%;
         opacity: .8;
     }
-
+    
 
 #loginLink {
     font-size: 25px;

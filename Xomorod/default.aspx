@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Xomorod._default" %>
+
 <%@ Import Namespace="Xomorod.Core" %>
 
 <!DOCTYPE html>
@@ -89,8 +90,7 @@
                 <h1 id="animationSandbox" class="site__title mega unselectable">Xomorod</h1>
             </div>
         </div>
-        <%--<a class="arrow-down fa fa-angle-down page-scroll" href="#about"></a>--%>
-        <a href="#about" data-scroll="true" data-id="#whoWeAre" class="scroll-arrow hidden-xs hidden-sm">
+        <a href="#about" data-scroll="true" class="scroll-arrow hidden-xs hidden-sm page-scroll">
             <i class="fa fa-angle-down"></i>
         </a>
     </header>
@@ -127,7 +127,9 @@
     <!-- Contact Section -->
     <div ng-include="'pages/html/contact.html'"></div>
 
-    <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
+    <a href="#head" id="toTop" class="toTop hidden-xs hidden-sm page-scroll" style="display: none;">
+        <i class="fa fa-angle-up"></i>
+    </a>
 </body>
 <!---------- Load Scripts and Styles ----------->
 <!-- jQuery -->
