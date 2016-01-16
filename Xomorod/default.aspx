@@ -13,13 +13,13 @@
     <meta name="author" content="Mr. Behzad Khosravifar" />
     <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business" />
 
-    <link rel="shortcut icon" href="img/favicon.jpg">
+    <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
 
     <title>Xomorod</title>
 
     <!---------- PreLoader Animate ----------->
-    <link href="css/loader.css" rel="stylesheet" />
-    <script src="js/loader.js"></script>
+    <link href="<%= CdnHelper.GetCdn("loader_css") %>" rel="stylesheet" />
+    <script src="<%= CdnHelper.GetCdn("loader_js") %>"></script>
     <!---------------------------------------->
 </head>
 
@@ -130,8 +130,6 @@
     <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>
 <!---------- Load Scripts and Styles ----------->
-<%--<%= SetScriptsAddresses(); %>--%>
-
 <!-- jQuery -->
 <script src="<%= CdnHelper.GetCdn("jquery_min_js") %>"></script>
 
@@ -197,9 +195,10 @@
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
+            (i[r].q = i[r].q || []).push(arguments);
         }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+        m.parentNode.insertBefore(a, m);
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-71146450-1', 'auto');

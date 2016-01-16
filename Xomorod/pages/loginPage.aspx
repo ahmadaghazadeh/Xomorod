@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="loginPage.aspx.cs" Inherits="Xomorod.loginPage" %>
 
+<%@ Import Namespace="Xomorod.Core" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -8,30 +10,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Xomorod web site login form" />
-    <meta name="keywords" content="xomorod, zoomorod, login, form" />
+    <meta name="keywords" content="xomorod, zoomorod, zomorod, login, form" />
     <meta name="author" content="Vincent Garreau" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="../img/favicon.jpg">
+    <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg", 1) %>">
     <title>Login</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= CdnHelper.GetCdn("bootstrap_min_css", 1) %>" rel="stylesheet">
 
     <!-- trianglify js and css -->
-    <link href="../css/login/trianglify.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <link href="<%= CdnHelper.GetCdn("trianglify_css", 1) %>" rel="stylesheet" />
+    <script src="<%= CdnHelper.GetCdn("trianglify_min_js", 1) %>"></script>
 
     <!-- particles style CSS -->
-    <link rel="stylesheet" media="screen" href="../css/login/particles/style.css">
+    <link rel="stylesheet" media="screen" href="<%= CdnHelper.GetCdn("particles_style_css", 1) %>">
 
     <!-- login form css -->
-    <link href="../css/login/login.css" rel="stylesheet" />
+    <link href="<%= CdnHelper.GetCdn("login_css", 1) %>" rel="stylesheet" />
 
 </head>
 <body ng-app="xomorodApp" ng-controller="bodyController">
     <!-- Trianglify container -->
     <canvas id="headerCanvas"></canvas>
-    <script src="../js/login/TrianglifyCreator.js"></script>
+    <script src="<%= CdnHelper.GetCdn("trianglifyCreator_js", 1) %>"></script>
 
     <!-- particles.js container -->
     <div id="particles-js"></div>
@@ -43,7 +45,7 @@
 
             <div class="row">
                 <div class="iconmelon">
-                    <object data="../img/xomorod.svg" type="image/svg+xml" id="svg-logo"></object>
+                    <object data="<%= CdnHelper.GetCdn("xomorod_svg", 1) %>" type="image/svg+xml" id="svg-logo"></object>
                 </div>
             </div>
 
@@ -91,28 +93,28 @@
 </body>
 
 <!-- scripts -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="../js/login/particles/app.js"></script>
+<script src="<%= CdnHelper.GetCdn("particles_min_js", 1) %>"></script>
+<script src="<%= CdnHelper.GetCdn("particles_app_js", 1) %>"></script>
 
 
 <!-- Angular.JS -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_min_js", 1) %>"></script>
 
 <!-- Angular Cookies -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_cookies_min_js", 1) %>"></script>
 
 <!-- Angular Translate -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_translate_min_js", 1) %>"></script>
 
 <!-- Angular Translate Url Loader -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_translate_loader_url_min_js", 1) %>"></script>
 
-<script src="../js/login/translator.js"></script>
+<script src="<%= CdnHelper.GetCdn("translator_js", 1) %>"></script>
 
 <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("jquery_min_js", 1) %>"></script>
 
-<script src="../js/login/loginForm.js"></script>
+<script src="<%= CdnHelper.GetCdn("loginForm_js", 1) %>"></script>
 
 
 </html>

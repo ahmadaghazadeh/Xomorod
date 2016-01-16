@@ -8,42 +8,21 @@ namespace Xomorod.Core
     public static class CdnHelper
     {
         [WebMethod]
-        public static string GetCdn(string lib)
+        public static string GetCdn(string lib, int backTrackPathCount = 0)
         {
-            //try
-            //{
+            if (Resources.cdn_changer.ResourceManager.GetString(lib) == "cdn")
+            {
+                return Resources.cdn_Resources.ResourceManager.GetString(lib);
+            }
 
-            //    //#if DEBUG
-            //    //            return Resources.local_Resources.ResourceManager.GetString(lib);
-            //    //#else
-            //    //            return Resources.cdn_Resources.ResourceManager.GetString(lib);
-            //    //#endif
-
-            //    var cdn = Resources.cdn_Resources.ResourceManager.GetString(lib);
-            //    var local = Resources.local_Resources.ResourceManager.GetString(lib);
-            //    string localFullPath = Path.Combine(@"D:\Projecting\Xomorod\Xomorod\", local.Replace(@"/", @"\"));
-
-            //    System.Net.WebClient wc = new System.Net.WebClient();
-
-            //    string cdnWebData = wc.DownloadString(cdn);
-            //    string localWebData = File.ReadAllText(localFullPath);
-
-            //    if (!string.IsNullOrEmpty(cdnWebData) && cdnWebData != localWebData)
-            //    {
-            //        //File.WriteAllText(@"D:\NewCDN\" + local.Replace(@"/", @"\"), cdnWebData);
-            //        File.WriteAllText(localFullPath, cdnWebData);
-
-            //    }
-
-            //    return cdn;
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
-            return Resources.cdn_changer.ResourceManager.GetString(lib) == "cdn" 
-                ? Resources.cdn_Resources.ResourceManager.GetString(lib) 
-                : Resources.local_Resources.ResourceManager.GetString(lib);
+            // else: local loaded
+            string path = "";
+            while (backTrackPathCount-- > 0)
+            {
+                path += @"../";
+            }
+            path += Resources.local_Resources.ResourceManager.GetString(lib);
+            return path;
         }
     }
 

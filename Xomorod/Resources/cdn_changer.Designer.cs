@@ -160,6 +160,15 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string favicon_jpg {
+            get {
+                return ResourceManager.GetString("favicon_jpg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to cdn.
         /// </summary>
         internal static string font_awesome_min_css {
@@ -198,6 +207,42 @@ namespace Xomorod.Resources {
         /// <summary>
         ///   Looks up a localized string similar to local.
         /// </summary>
+        internal static string loader_css {
+            get {
+                return ResourceManager.GetString("loader_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string loader_js {
+            get {
+                return ResourceManager.GetString("loader_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string login_css {
+            get {
+                return ResourceManager.GetString("login_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string loginForm_js {
+            get {
+                return ResourceManager.GetString("loginForm_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
         internal static string marked_min_js {
             get {
                 return ResourceManager.GetString("marked_min_js", resourceCulture);
@@ -207,9 +252,90 @@ namespace Xomorod.Resources {
         /// <summary>
         ///   Looks up a localized string similar to local.
         /// </summary>
+        internal static string me_jpg {
+            get {
+                return ResourceManager.GetString("me_jpg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string particles_app_js {
+            get {
+                return ResourceManager.GetString("particles_app_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cdn.
+        /// </summary>
+        internal static string particles_min_js {
+            get {
+                return ResourceManager.GetString("particles_min_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string particles_style_css {
+            get {
+                return ResourceManager.GetString("particles_style_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string partner_png {
+            get {
+                return ResourceManager.GetString("partner_png", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
         internal static string respond_min_js {
             get {
                 return ResourceManager.GetString("respond_min_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string translator_js {
+            get {
+                return ResourceManager.GetString("translator_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string trianglify_css {
+            get {
+                return ResourceManager.GetString("trianglify_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string trianglify_min_js {
+            get {
+                return ResourceManager.GetString("trianglify_min_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string trianglifyCreator_js {
+            get {
+                return ResourceManager.GetString("trianglifyCreator_js", resourceCulture);
             }
         }
         
@@ -246,6 +372,15 @@ namespace Xomorod.Resources {
         internal static string xomorod_js {
             get {
                 return ResourceManager.GetString("xomorod_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to local.
+        /// </summary>
+        internal static string xomorod_svg {
+            get {
+                return ResourceManager.GetString("xomorod_svg", resourceCulture);
             }
         }
     }

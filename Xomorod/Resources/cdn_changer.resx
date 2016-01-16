@@ -150,6 +150,9 @@
   <data name="bootstrap_toggle_min_js" xml:space="preserve">
     <value>cdn</value>
   </data>
+  <data name="favicon_jpg" xml:space="preserve">
+    <value>local</value>
+  </data>
   <data name="font_awesome_min_css" xml:space="preserve">
     <value>cdn</value>
   </data>
@@ -162,10 +165,49 @@
   <data name="jquery_min_js" xml:space="preserve">
     <value>cdn</value>
   </data>
+  <data name="loader_css" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="loader_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="loginForm_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="login_css" xml:space="preserve">
+    <value>local</value>
+  </data>
   <data name="marked_min_js" xml:space="preserve">
     <value>local</value>
   </data>
+  <data name="me_jpg" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="particles_app_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="particles_min_js" xml:space="preserve">
+    <value>cdn</value>
+  </data>
+  <data name="particles_style_css" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="partner_png" xml:space="preserve">
+    <value>local</value>
+  </data>
   <data name="respond_min_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="translator_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="trianglifyCreator_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="trianglify_css" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="trianglify_min_js" xml:space="preserve">
     <value>local</value>
   </data>
   <data name="wow_min_js" xml:space="preserve">
@@ -178,6 +220,9 @@
     <value>local</value>
   </data>
   <data name="xomorod_js" xml:space="preserve">
+    <value>local</value>
+  </data>
+  <data name="xomorod_svg" xml:space="preserve">
     <value>local</value>
   </data>
 </root>
