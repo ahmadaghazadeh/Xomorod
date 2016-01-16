@@ -227,8 +227,6 @@
       <Link>SolutionItems\README.md</Link>
     </Content>
     <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
-    <Content Include="SolutionItems\xomorod.local.com.cer" />
-    <Content Include="SolutionItems\xomorod.local.com.pfx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
