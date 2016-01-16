@@ -107,6 +107,10 @@
     </Content>
     <Content Include="css\errorPages\404.css" />
     <Content Include="css\loader.css" />
+    <Content Include="css\local_resources\animate-3.4.0.min.css" />
+    <Content Include="css\local_resources\bootstrap-3.3.5.min.css" />
+    <Content Include="css\local_resources\bootstrap-toggle-2.2.0.min.css" />
+    <Content Include="css\local_resources\font-awesome-4.4.0.min.css" />
     <Content Include="css\login\login.css" />
     <Content Include="css\login\particles\style.css" />
     <Content Include="css\login\trianglify.css" />
@@ -117,6 +121,19 @@
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="js\local_resources\angular-1.4.7.min.js" />
+    <Content Include="js\local_resources\angular-cookies-1.4.8.min.js" />
+    <Content Include="js\local_resources\angular-marked.js" />
+    <Content Include="js\local_resources\angular-translate-2.8.1.min.js" />
+    <Content Include="js\local_resources\angular-translate-loader-url-2.8.1.min.js" />
+    <Content Include="js\local_resources\bootstrap-3.3.5.min.js" />
+    <Content Include="js\local_resources\bootstrap-toggle-2.2.0.min.js" />
+    <Content Include="js\local_resources\jquery-2.1.4.min.js" />
+    <Content Include="js\local_resources\jquery.easing-1.3.min.js" />
+    <Content Include="js\local_resources\jquery.fittext-1.1.min.js" />
+    <Content Include="js\local_resources\marked-0.3.5.min.js" />
+    <Content Include="js\local_resources\respond-1.4.2.min.js" />
+    <Content Include="js\local_resources\wow-1.1.2.min.js" />
     <Content Include="js\login\loginForm.js" />
     <Content Include="pages\controlPanel.aspx" />
     <Content Include="pages\html\contact.html" />
@@ -147,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TranslationsController.cs" />
+    <Compile Include="Core\CdnHelper.cs" />
     <Compile Include="Core\DatabaseHelper.cs" />
     <Compile Include="Core\SessionController.cs" />
     <Compile Include="default.aspx.cs">
@@ -185,6 +203,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Xomorod.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\cdn_changer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cdn_changer.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\local_Resources.Designer.cs">
+      <DependentUpon>local_Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,6 +233,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>login_Localization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\cdn_Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cdn_Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +272,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Resources\cdn_changer.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>cdn_changer.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\local_Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>local_Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\login_Localization.fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>login_Localization.fa.Designer.cs</LastGenOutput>
@@ -246,6 +287,10 @@
     <EmbeddedResource Include="Resources\login_Localization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>login_Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\cdn_Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>cdn_Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Models\Xomorod.dbml.layout">
       <DependentUpon>Xomorod.dbml</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Xomorod._default" %>
+<%@ Import Namespace="Xomorod.Core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +69,7 @@
                         <a id="animationContact" class="page-scroll" href="#team" translate>Contact</a>
                     </li>
                     <li>
-                        <div style="padding: 10px;" class="unselectable" >
+                        <div style="padding: 10px;" class="unselectable">
                             <input id="chkLanguage" type="checkbox" checked data-toggle="toggle" data-on="English" data-off="فارسی" value="{{ isEnglish }}" onchange="OnLanguageChanged(checked);">
                         </div>
                     </li>
@@ -88,7 +89,10 @@
                 <h1 id="animationSandbox" class="site__title mega unselectable">Xomorod</h1>
             </div>
         </div>
-        <a class="arrow-down fa fa-angle-down page-scroll" href="#about"></a>
+        <%--<a class="arrow-down fa fa-angle-down page-scroll" href="#about"></a>--%>
+        <a href="#about" data-scroll="true" data-id="#whoWeAre" class="scroll-arrow hidden-xs hidden-sm">
+            <i class="fa fa-angle-down"></i>
+        </a>
     </header>
     <section class="bg-primary" id="about">
         <div class="container">
@@ -126,59 +130,61 @@
     <a href="#head" id="toTop" class="toTop unselectable fa fa-angle-up page-scroll" style="display: none;"></a>
 </body>
 <!---------- Load Scripts and Styles ----------->
+<%--<%= SetScriptsAddresses(); %>--%>
+
 <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("jquery_min_js") %>"></script>
 
 <!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<link href="<%= CdnHelper.GetCdn("bootstrap_min_css") %>" rel="stylesheet">
+<link href="<%= CdnHelper.GetCdn("bootstrap_toggle_min_css") %>" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="<%= CdnHelper.GetCdn("font_awesome_min_css") %>" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="css/xomorod-dialog.css" rel="stylesheet" />
-<link href="css/xomorod.css" rel="stylesheet">
+<link href="<%= CdnHelper.GetCdn("xomorod_dialog_css") %>" rel="stylesheet" />
+<link href="<%= CdnHelper.GetCdn("xomorod_css") %>" rel="stylesheet" />
 
 <!-- Plugin CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+<link href="<%= CdnHelper.GetCdn("animate_min_css") %>" rel="stylesheet">
 
 <!-- Marked JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("marked_min_js") %>"></script>
 
 <!-- Angular.JS -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_min_js") %>"></script>
 
 <!-- Angular Cookies -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_cookies_min_js") %>"></script>
 
 <!-- Angular-Marked JS -->
-<script src="http://hypercubed.github.io/angular-marked/grunt-scripts/angular-marked.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_marked_js") %>"></script>
 
 <!-- Angular Translate -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_translate_min_js") %>"></script>
 
 <!-- Angular Translate Url Loader -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.1/angular-translate-loader-url.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("angular_translate_loader_url_min_js") %>"></script>
 
-<script src="js/app.js"></script>
+<script src="<%= CdnHelper.GetCdn("app_js") %>"></script>
 
 <!-- Bootstrap JS -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("bootstrap_min_js") %>"></script>
+<script src="<%= CdnHelper.GetCdn("bootstrap_toggle_min_js") %>"></script>
 
 <!-- Respond IE -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("respond_min_js") %>"></script>
 
 <!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("jquery_easing_min_js") %>"></script>
+<script src="<%= CdnHelper.GetCdn("jquery_fittext_min_js") %>"></script>
 
 <!-- Animation Plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="<%= CdnHelper.GetCdn("wow_min_js") %>"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/xomorod.js"></script>
+<script src="<%= CdnHelper.GetCdn("xomorod_js") %>"></script>
 
 <!-- Tooltips loader -->
 <script>
@@ -198,8 +204,6 @@
 
     ga('create', 'UA-71146450-1', 'auto');
     ga('send', 'pageview');
-
 </script>
-
 <!---------------------------------------------->
 </html>
