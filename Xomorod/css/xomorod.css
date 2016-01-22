@@ -632,10 +632,9 @@ a.scroll-arrow {
 
 #loginLink {
     font-size: 25px;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
     #loginLink:hover {
-        font-size: 30px;
-        top: 1px;
+        padding-left: 22px;
     }
