@@ -10,25 +10,29 @@
             </div>
             <br />
             <div class="row">
-                <div class="col-md-4 col-sm-6  portfolio-item" ng-repeat="portfolio in products">
-                    <div class="thumbnail">
-                        <a href="{{ '#portfolioModal' + portfolio.Id }}" ng-click="convertMarked(this)" class="portfolio-link" data-toggle="modal">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
+                <div ng-repeat="portfolio in products">
+                    <div ng-if="$index % 3 == 0" class="clearfix"></div>
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        <div class=" thumbnail">
+                            <a href="{{ '#portfolioModal' + portfolio.Id }}" ng-click="convertMarked(this)" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
+                                    </div>
                                 </div>
+                                <img src="{{ portfolio.ImageLink }}" class="img-responsive fix-frame" alt="" align="middle" valign="center">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h3>{{ portfolio.ProjectName }}</h3>
+                                <p class="text-muted">{{ portfolio.Category }}</p>
+                                <br/>
+                                <p>
+                                    <a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a>
+                                </p>
                             </div>
-                            <img src="{{ portfolio.ImageLink }}" class="img-responsive fix-frame" alt="" align="middle" valign="center">
-                        </a>
-                        <div class="portfolio-caption">
-                            <h3>{{ portfolio.ProjectName }}</h3>
-                            <p class="text-muted">{{ portfolio.Category }}</p>
-                            <br />
-                            <p>
-                                <a href="{{ portfolio.ProjectUrl }}" class="btn btn-social" role="button" ng-show="{{ portfolio.OpenSource }}"><i class="fa fa-2x fa-github"></i></a>
-                            </p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
