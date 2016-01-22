@@ -13,10 +13,9 @@
     <meta name="description" content="Just for Xomorod.Co software company" />
     <meta name="author" content="Mr. Behzad Khosravifar" />
     <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business" />
+    <title>Xomorod</title>
 
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
-
-    <title>Xomorod</title>
 
     <!---------- PreLoader Animate ----------->
     <link href="<%= CdnHelper.GetCdn("loader_css") %>" rel="stylesheet" />
@@ -131,7 +130,9 @@
         <i class="fa fa-angle-up"></i>
     </a>
 </body>
+
 <!---------- Load Scripts and Styles ----------->
+
 <!-- jQuery -->
 <script src="<%= CdnHelper.GetCdn("jquery_min_js") %>"></script>
 
@@ -193,7 +194,7 @@
     });
 </script>
 
-<!-- Google Analystics -->
+<!-- Google Analytics -->
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -206,5 +207,7 @@
     ga('create', 'UA-71146450-1', 'auto');
     ga('send', 'pageview');
 </script>
+<!-- End Google Analytics -->
+
 <!---------------------------------------------->
 </html>

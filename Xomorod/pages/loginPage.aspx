@@ -15,22 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg", 1) %>">
     <title>Login</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="<%= CdnHelper.GetCdn("bootstrap_min_css", 1) %>" rel="stylesheet">
-
-    <!-- trianglify js and css -->
-    <link href="<%= CdnHelper.GetCdn("trianglify_css", 1) %>" rel="stylesheet" />
-    <script src="<%= CdnHelper.GetCdn("trianglify_min_js", 1) %>"></script>
-
-    <!-- particles style CSS -->
-    <link rel="stylesheet" media="screen" href="<%= CdnHelper.GetCdn("particles_style_css", 1) %>">
-
-    <!-- login form css -->
-    <link href="<%= CdnHelper.GetCdn("login_css", 1) %>" rel="stylesheet" />
-
 </head>
 <body ng-app="xomorodApp" ng-controller="bodyController">
+    
     <!-- Trianglify container -->
     <canvas id="headerCanvas"></canvas>
     <script src="<%= CdnHelper.GetCdn("trianglifyCreator_js", 1) %>"></script>
@@ -91,6 +78,20 @@
     </div>
 
 </body>
+
+<!-- Bootstrap CSS -->
+<link href="<%= CdnHelper.GetCdn("bootstrap_min_css", 1) %>" rel="stylesheet">
+
+<!-- trianglify js and css -->
+<link href="<%= CdnHelper.GetCdn("trianglify_css", 1) %>" rel="stylesheet" />
+<script src="<%= CdnHelper.GetCdn("trianglify_min_js", 1) %>"></script>
+
+<!-- particles style CSS -->
+<link rel="stylesheet" media="screen" href="<%= CdnHelper.GetCdn("particles_style_css", 1) %>">
+
+<!-- login form css -->
+<link href="<%= CdnHelper.GetCdn("login_css", 1) %>" rel="stylesheet" />
+
 
 <!-- scripts -->
 <script src="<%= CdnHelper.GetCdn("particles_min_js", 1) %>"></script>

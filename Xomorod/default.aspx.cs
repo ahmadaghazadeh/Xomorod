@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Results;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,7 +13,15 @@ namespace Xomorod
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+#if DEBUG
+            return;
+#else
+            if (Request.Url.Host.ToLower() != "localhost" &&
+                Request.Url.Host.ToLower() != "xomorod.com")
+            {
+                Response.Redirect("http://xomorod.com");
+            }
+#endif
         }
     }
 }
