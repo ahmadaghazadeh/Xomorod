@@ -11,7 +11,7 @@
             <br />
             <div class="row">
                 <div ng-repeat="portfolio in products">
-                    <div ng-if="$index % 3 == 0" class="clearfix"></div>
+                    <!--<div ng-if="$index % 3 == 0" class="clearfix"></div>-->
                     <div class="col-md-4 col-sm-6 portfolio-item">
                         <div class=" thumbnail">
                             <a href="{{ '#portfolioModal' + portfolio.Id }}" ng-click="convertMarked(this)" class="portfolio-link" data-toggle="modal">

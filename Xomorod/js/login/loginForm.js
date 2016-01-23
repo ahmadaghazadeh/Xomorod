@@ -30,8 +30,7 @@ function remove_all_validation_markup(form) {
 $('form').each(function () {
     var form = $(this);
 
-    form
-        .validator({
+    form.validator({
         })
         .bind('reset.validator', function () {
             remove_all_validation_markup(form);
