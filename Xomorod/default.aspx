@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Just for Xomorod.Co software company" />
     <meta name="author" content="Mr. Behzad Khosravifar" />
-    <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business" />
+    <meta name="wot-verification" content="f56ce249532f51527774"/>
+    <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business, f56ce249532f51527774" />
     <title>Xomorod</title>
 
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
