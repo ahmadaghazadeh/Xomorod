@@ -121,6 +121,7 @@
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="google9ee3deff98d75d77.html" />
     <Content Include="js\local_resources\angular-1.4.7.min.js" />
     <Content Include="js\local_resources\angular-cookies-1.4.8.min.js" />
     <Content Include="js\local_resources\angular-marked.js" />

@@ -12,8 +12,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Just for Xomorod.Co software company" />
     <meta name="author" content="Mr. Behzad Khosravifar" />
-    <meta name="wot-verification" content="f56ce249532f51527774"/>
-    <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business, f56ce249532f51527774" />
+    <meta name="wot-verification" content="f56ce249532f51527774"/><!-- WOT SEO -->
+    <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business, 
+        znews, development, download, code free, free, news, technology, zomorod, fast book,  
+        ErrorControlSystem, ErrorLog, WPF, Win32, WinForm, Error Control System, Make Class Schedule, 
+        TSP, Genetic, GA, SignalR, Fox Robbit, Fuzzy Logic,
+        WHOis, who is, tic tac toe, snipping multiple screen, sudoku,
+        Amazing Team, Lets Get In Touch, f56ce249532f51527774" /><!-- WOT SEO -->
+    <meta name="keywords" content="زمرد, نرم افزار, اخبار, اخبار کامپیوتر, تکنولوژی, فناوری, کد باز, اندروید, اپل, ویندوز, موبایل, قابل حمل, فناوری اطلاعات, زوومرد, f56ce249532f51527774" /><!-- WOT SEO -->
+    <meta name=”google-site-verification” content=”9ee3deff98d75d77” /><!-- Google SEO -->
+    <meta name="msvalidate.01" content="27A3B78838E7E315F07577745A289624" /><!-- Bing SEO -->
+    <meta name="robots" content="index, follow" />    <meta name="googlebot" content="index">
+
     <title>Xomorod</title>
 
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
