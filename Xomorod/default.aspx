@@ -39,6 +39,10 @@
 
     <link rel="canonical" href="http://xomorod.com/" />
 
+    <!-- International Targeting by hreflang tags -->
+    <link rel="alternate" hreflang="x-default" href="http://xomorod.com" />
+    <link rel="alternate" href="http://xomorod.com?lang=fa" hreflang="fa" />
+    <link rel="alternate" href="http://xomorod.com?lang=en" hreflang="en" />
 
     <title>Xomorod</title>
 
@@ -50,7 +54,7 @@
     <!---------------------------------------->
 </head>
 
-<body onload="document.getElementById('loader').style.display='none';" ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
+<body onload="loadCompleted();" ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
 
     <!---------- PreLoader Animate ----------->
     <div class="loader" id="loader">
@@ -236,5 +240,20 @@
 </script>
 <!-- End Google Analytics -->
 
+<script>
+    loadCompleted = function () {
+        document.getElementById('loader').style.display = 'none';
+
+        var lang = '<%= GetQueryLanguage() %>';
+
+            if (lang === 'fa') {
+                OnLanguageChanged(false);
+                document.getElementById("chkLanguage").checked = true;
+            } else if (lang === 'en') {
+                OnLanguageChanged(true);
+                document.getElementById("chkLanguage").checked = false;
+            }
+        }
+</script>
 <!---------------------------------------------->
 </html>
