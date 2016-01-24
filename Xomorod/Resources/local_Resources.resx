@@ -151,7 +151,7 @@
     <value>js/local_resources/bootstrap-toggle-2.2.0.min.js</value>
   </data>
   <data name="favicon_jpg" xml:space="preserve">
-    <value>img/favicon.jpg</value>
+    <value>images/favicon.jpg</value>
   </data>
   <data name="font_awesome_min_css" xml:space="preserve">
     <value>css/local_resources/font-awesome-4.4.0.min.css</value>
@@ -181,7 +181,7 @@
     <value>js/local_resources/marked-0.3.5.min.js</value>
   </data>
   <data name="me_jpg" xml:space="preserve">
-    <value>img/me.jpg</value>
+    <value>images/me.jpg</value>
   </data>
   <data name="particles_app_js" xml:space="preserve">
     <value>js/login/particles/app.js</value>
@@ -193,7 +193,7 @@
     <value>css/login/particles/style.css</value>
   </data>
   <data name="partner_png" xml:space="preserve">
-    <value>img/partner.png</value>
+    <value>images/partner.png</value>
   </data>
   <data name="respond_min_js" xml:space="preserve">
     <value>js/local_resources/respond-1.4.2.min.js</value>
@@ -223,6 +223,6 @@
     <value>js/xomorod.js</value>
   </data>
   <data name="xomorod_svg" xml:space="preserve">
-    <value>img/xomorod.svg</value>
+    <value>images/xomorod.svg</value>
   </data>
 </root>

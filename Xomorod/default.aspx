@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Just for Xomorod.Co software company" />
+    <meta name="description" content="Xomorod Corporation a small software company to provide what you need in the field of web applications, Windows, Android and iOS." />
     <meta name="author" content="Mr. Behzad Khosravifar" />
-    
+
     <!-- WOT SEO -->
     <meta name="wot-verification" content="f56ce249532f51527774" />
     <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business, 
@@ -21,16 +21,17 @@
         TSP, Genetic, GA, SignalR, Fox Robbit, Fuzzy Logic,
         WHOis, who is, tic tac toe, snipping multiple screen, sudoku,
         Amazing Team, Lets Get In Touch, f56ce249532f51527774" />
-  
+
     <meta name="keywords" content="زمرد, نرم افزار, اخبار, اخبار کامپیوتر, تکنولوژی, فناوری, کد باز, اندروید, اپل, ویندوز, موبایل, قابل حمل, فناوری اطلاعات, زوومرد, f56ce249532f51527774" />
 
     <!-- Google SEO -->
-    <meta name="”google-site-verification”" content="”9ee3deff98d75d77”" />
+    <meta name="google-site-verification" content="VOSROjMO88irXCfK8DzPUxIff90VjdJhadLxc4XqWyk" />
+
     <!-- Bing SEO -->
     <meta name="msvalidate.01" content="27A3B78838E7E315F07577745A289624" />
-    
+
     <!-- Alexa SEO -->
-    <meta name="alexaVerifyID" content="xiqiCcGPB3tysfNYAwTR4myLH8Q"/>
+    <meta name="alexaVerifyID" content="xiqiCcGPB3tysfNYAwTR4myLH8Q" />
 
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index" />
@@ -111,7 +112,7 @@
     <header id="head">
         <div class="header-content">
             <div class="header-content-inner">
-                <object data="img/xomorod.svg" type="image/svg+xml" id="svg-logo"></object>
+                <object data="images/xomorod.svg" type="image/svg+xml" id="svg-logo"></object>
                 <h1 id="animationSandbox" class="site__title mega unselectable">Xomorod</h1>
             </div>
         </div>

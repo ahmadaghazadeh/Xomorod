@@ -160,7 +160,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to img/favicon.jpg.
+        ///   Looks up a localized string similar to images/favicon.jpg.
         /// </summary>
         internal static string favicon_jpg {
             get {
@@ -250,7 +250,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to img/me.jpg.
+        ///   Looks up a localized string similar to images/me.jpg.
         /// </summary>
         internal static string me_jpg {
             get {
@@ -286,7 +286,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to img/partner.png.
+        ///   Looks up a localized string similar to images/partner.png.
         /// </summary>
         internal static string partner_png {
             get {
@@ -376,7 +376,7 @@ namespace Xomorod.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to img/xomorod.svg.
+        ///   Looks up a localized string similar to images/xomorod.svg.
         /// </summary>
         internal static string xomorod_svg {
             get {

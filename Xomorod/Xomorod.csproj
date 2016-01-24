@@ -121,7 +121,6 @@
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="google9ee3deff98d75d77.html" />
     <Content Include="js\local_resources\angular-1.4.7.min.js" />
     <Content Include="js\local_resources\angular-cookies-1.4.8.min.js" />
     <Content Include="js\local_resources\angular-marked.js" />
@@ -144,11 +143,11 @@
     <Content Include="pages\html\products.html" />
     <Content Include="pages\html\services.html" />
     <Content Include="pages\html\team_section.html" />
-    <Content Include="img\favicon.jpg" />
-    <Content Include="img\header.jpg" />
-    <Content Include="img\me.jpg" />
-    <Content Include="img\partner.png" />
-    <Content Include="img\xomorod.svg" />
+    <Content Include="images\favicon.jpg" />
+    <Content Include="images\header.jpg" />
+    <Content Include="images\me.jpg" />
+    <Content Include="images\partner.png" />
+    <Content Include="images\xomorod.svg" />
     <Content Include="js\app.js" />
     <Content Include="js\loader.js" />
     <Content Include="js\login\translator.js" />
@@ -160,6 +159,7 @@
     <Content Include="DatabaseScripts\DatabaseReCreateScript.sql" />
     <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
     <Content Include="pages\loginPage.aspx" />
+    <Content Include="sitemap.xml" />
     <Content Include="SolutionItems\Helpfull_Links.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -282,6 +282,7 @@
     <EmbeddedResource Include="Resources\local_Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>local_Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\login_Localization.fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -294,6 +295,7 @@
     <EmbeddedResource Include="Resources\cdn_Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>cdn_Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Models\Xomorod.dbml.layout">
       <DependentUpon>Xomorod.dbml</DependentUpon>

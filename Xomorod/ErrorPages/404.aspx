@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title>Xomorod: Error 404</title>
     <meta content="Error" name="generator" />
-    <link rel="shortcut icon" href="../img/favicon.jpg">
+    <link rel="shortcut icon" href="../images/favicon.jpg">
     <link href="../css/errorPages/404.css" rel="stylesheet" />
 </head>
 <body>
