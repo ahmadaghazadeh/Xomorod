@@ -140,6 +140,7 @@
     <Content Include="pages\controlPanel.aspx" />
     <Content Include="pages\html\contact.html" />
     <Content Include="pages\html\download_ribbon.html" />
+    <Content Include="pages\html\google_search_engine.html" />
     <Content Include="pages\html\products.html" />
     <Content Include="pages\html\services.html" />
     <Content Include="pages\html\team_section.html" />

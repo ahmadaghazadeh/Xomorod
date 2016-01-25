@@ -160,6 +160,11 @@
     <a href="#head" id="toTop" class="toTop hidden-xs hidden-sm page-scroll" style="display: none;">
         <i class="fa fa-angle-up"></i>
     </a>
+
+    <!-- Team Section -->
+    <!-- <div ng-include="'pages/html/google_search_engine.html'"></div> -->
+
+
 </body>
 
 <!---------- Load Scripts and Styles ----------->
@@ -246,14 +251,14 @@
 
         var lang = '<%= GetQueryLanguage() %>';
 
-            if (lang === 'fa') {
-                OnLanguageChanged(false);
-                document.getElementById("chkLanguage").checked = true;
-            } else if (lang === 'en') {
-                OnLanguageChanged(true);
-                document.getElementById("chkLanguage").checked = false;
-            }
+        if (lang === 'fa') {
+            OnLanguageChanged(false);
+            document.getElementById("chkLanguage").checked = true;
+        } else if (lang === 'en') {
+            OnLanguageChanged(true);
+            document.getElementById("chkLanguage").checked = false;
         }
+    }
 </script>
 <!---------------------------------------------->
 </html>
