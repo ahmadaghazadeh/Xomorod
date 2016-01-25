@@ -41,8 +41,8 @@
 
     <!-- International Targeting by hreflang tags -->
     <link rel="alternate" hreflang="x-default" href="http://xomorod.com" />
-    <link rel="alternate" href="http://xomorod.com?lang=fa" hreflang="fa" />
-    <link rel="alternate" href="http://xomorod.com?lang=en" hreflang="en" />
+    <link rel="alternate" href="http://xomorod.com/default.aspx/fa" hreflang="fa" />
+    <link rel="alternate" href="http://xomorod.com/default.aspx/en" hreflang="en" />
 
     <title>Xomorod</title>
 
