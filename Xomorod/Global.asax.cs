@@ -63,7 +63,7 @@ namespace Xomorod
 
             // localization routes e.g:  http://Xomorod.com/en/
             routes.MapPageRoute("localRoutes",
-                "{local}/{*extrainfo}",
+                "{local}",
                 "~/default.aspx", true,
                 new RouteValueDictionary
                 {
