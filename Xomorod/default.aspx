@@ -45,8 +45,8 @@
 
     <!-- International Targeting by hreflang tags -->
     <link rel="alternate" hreflang="x-default" href="http://xomorod.com" />
-    <link rel="alternate" href="http://xomorod.com/default.aspx/fa" hreflang="fa" />
-    <link rel="alternate" href="http://xomorod.com/default.aspx/en" hreflang="en" />
+    <link rel="alternate" href="http://xomorod.com/fa" hreflang="fa" />
+    <link rel="alternate" href="http://xomorod.com/en" hreflang="en" />
 
     
 
@@ -254,6 +254,8 @@
         document.getElementById('loader').style.display = 'none';
 
         var lang = '<%= GetQueryLanguage() %>';
+
+        if (lang === ' ') return;
 
         if (lang === 'fa') {
             OnLanguageChanged(false);
