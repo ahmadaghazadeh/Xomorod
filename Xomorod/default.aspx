@@ -8,21 +8,25 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <title>Xomorod Corporation Free Applications & News</title>
+
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Xomorod Corporation a small software company to provide what you need in the field of web applications, Windows, Android and iOS." />
+    <meta name="description" content="Xomorod Co. is an Iranian multinational technology company specializing in Internet-related services and products. 
+        These include online advertising technologies, learning, cloud books, tech news, and system or phone software." />
     <meta name="author" content="Mr. Behzad Khosravifar" />
 
     <!-- WOT SEO -->
     <meta name="wot-verification" content="f56ce249532f51527774" />
-    <meta name="keywords" content="xomorod, zoomorod, form, software, company, small, business, 
-        znews, development, download, code free, free, news, technology, zomorod, fast book,  
+    <meta name="keywords" content="xomorod, zoomorod, form, software, company, business, 
+        znews, development, download, free, technology, zomorod, fast book,  
         ErrorControlSystem, ErrorLog, WPF, Win32, WinForm, Error Control System, Make Class Schedule, 
         TSP, Genetic, GA, SignalR, Fox Robbit, Fuzzy Logic,
         WHOis, who is, tic tac toe, snipping multiple screen, sudoku,
         Amazing Team, Lets Get In Touch, f56ce249532f51527774" />
 
-    <meta name="keywords" content="زمرد, نرم افزار, اخبار, اخبار کامپیوتر, تکنولوژی, فناوری, کد باز, اندروید, اپل, ویندوز, موبایل, قابل حمل, فناوری اطلاعات, زوومرد, f56ce249532f51527774" />
+    <meta name="keywords" content="زمرد, نرم افزار, تکنولوژی, فناوری, کد باز, اندروید, اپل, ویندوز, موبایل, f56ce249532f51527774" />
 
     <!-- Google SEO -->
     <meta name="google-site-verification" content="VOSROjMO88irXCfK8DzPUxIff90VjdJhadLxc4XqWyk" />
@@ -44,7 +48,7 @@
     <link rel="alternate" href="http://xomorod.com/default.aspx/fa" hreflang="fa" />
     <link rel="alternate" href="http://xomorod.com/default.aspx/en" hreflang="en" />
 
-    <title>Xomorod</title>
+    
 
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
 
