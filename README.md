@@ -1,4 +1,4 @@
-![Xomorod.xom Favicon](http://xomorod.com/img/favicon.jpg)
+![Xomorod.xom Favicon](http://xomorod.com/images/favicon.jpg)
 
 ## Xomorod.com
 ## Xomorod.ir
