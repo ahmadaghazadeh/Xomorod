@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <title>Xomorod Corporation Free Applications & News</title>
 
     <!--iOS -->
@@ -48,7 +48,7 @@
     <link rel="alternate" href="http://xomorod.com/fa" hreflang="fa" />
     <link rel="alternate" href="http://xomorod.com/en" hreflang="en" />
 
-    
+
 
     <link rel="shortcut icon" href="<%= CdnHelper.GetCdn("favicon_jpg") %>">
 
@@ -144,30 +144,28 @@
 
     <!-- Header Section -->
     <div ng-include="'pages/html/services.html'"></div>
-
+    <!--/ Header Section -->
 
     <!-- Products -->
     <div ng-include="'pages/html/products.html'"></div>
-
+    <!--/ Products -->
 
     <!-- Download Ribbon -->
     <div ng-include="'pages/html/download_ribbon.html'"></div>
-
+    <!--/ Download Ribbon -->
 
     <!-- Team Section -->
     <div ng-include="'pages/html/team_section.html'"></div>
 
-
     <!-- Contact Section -->
     <div ng-include="'pages/html/contact.html'"></div>
+    <!--/ Contact Section -->
 
     <a href="#head" id="toTop" class="toTop hidden-xs hidden-sm page-scroll" style="display: none;">
         <i class="fa fa-angle-up"></i>
     </a>
 
-    <!-- Team Section -->
-    <!-- <div ng-include="'pages/html/google_search_engine.html'"></div> -->
-
+    <!--/ Team Section -->
 
 </body>
 
