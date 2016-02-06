@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Xomorod.News.Models
+namespace Xomorod.News.Resources
 {
     public static class Hover
     {

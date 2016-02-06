@@ -122,7 +122,6 @@
     <Content Include="js\ng-inspector.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\weather.js" />
-    <Content Include="Models\DropCreateDatabaseScript.sql" />
     <Content Include="pages\errors\404.aspx" />
     <Content Include="pages\main\pageContent.html" />
     <Content Include="pages\main\pageFooter.html" />
@@ -151,7 +150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Hover.cs" />
+    <Compile Include="Resources\Hover.cs" />
     <Compile Include="pages\errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

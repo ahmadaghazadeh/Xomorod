@@ -16,6 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.News", "Xomorod.New
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.API", "Xomorod.API\Xomorod.API.csproj", "{588B75B9-D7AA-474E-AEC4-E371C97C2395}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{C7EF8AF5-8A5A-452B-8236-15F83FC64EEC}"
+	ProjectSection(SolutionItems) = preProject
+		Xomorod.News\Models\DropCreateDatabaseScript.sql = Xomorod.News\Models\DropCreateDatabaseScript.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
