@@ -5,18 +5,17 @@
 *.suo
 *.user
 *.sln.docstates
-.vs
 
 # Build results
 
-[Dd]ebug/
-[Rr]elease/
 x64/
 build/
-[Bb]in/
 [Oo]bj/
 [Oo]ut/
 [Nn]uGetPackages/
+[Dd][Bb]/
+[Bb]in/
+.vs/
 
 
 # Disable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
@@ -97,12 +96,7 @@ DocProject/Help/html
 publish/
 
 # Publish Web Output
-[Ss]ecurityFiles/
 *.Publish.xml
-[Pp]ublishProfiles/
-[Pp]roperties/[Pp]ublishProfiles/
-*.pubxml
-*.pubxml.user
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line

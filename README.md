@@ -1,7 +1,6 @@
 ![Xomorod.xom Favicon](http://xomorod.com/images/favicon.jpg)
 
-## Xomorod.com
-## Xomorod.ir
+## Xomorod.com / .ir
 
 ## Getting Started
 
@@ -25,3 +24,15 @@ Xomorod is based on the [Bootstrap](http://getbootstrap.com/) framework created 
 ## Copyright and License
 
 Copyright 2015-2016 Xomorod. Code released under the [Apache 2.0](https://raw.githubusercontent.com/Behzadkhosravifar/Xomorod/master/LICENSE) license.
+
+
+------------------------
+
+
+![rss](https://raw.githubusercontent.com/Xomorod/News/master/src/Xomorod.News/images/favicon.png)
+
+# Xomorod News
+
+[![Build status](https://ci.appveyor.com/api/projects/status/8hg5jwm88hyro6y6?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/news)
+
+The News channel web application for [Xomorod.com](http://Xomorod.com)
