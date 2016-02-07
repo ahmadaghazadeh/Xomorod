@@ -22,7 +22,7 @@ app.controller('productsController', [
                 $scope.readme_markdown = marked(data.portfolio.Markdown);
             }
         }).error(function () {
-            alert("an unexcepted error ocurred at productsController");
+            alert("an unexcepted error ocurred at products Controller");
         });
     }
 ]);

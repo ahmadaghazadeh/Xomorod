@@ -15,12 +15,6 @@
     <link rel="canonical" href="http://news.xomorod.com/" />
     <!--/ metas -->
 
-    <!-- scripts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="js/main/app.js"></script>
-    <!--/ scripts -->
-
     <!-- styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -28,8 +22,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/1.1.0/css/flag-icon.min.css" />
     <link href="css/weather.css" rel="stylesheet" />
     <!--/ styles -->
+    
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <!--/ scripts -->
 </head>
-<body ng-app="xomorodApp" ng-controller="bodyController">
+<body ng-app="xomorodApp">
     <!-- page -->
     <div class="page page-boxed">
 
@@ -302,8 +301,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.form.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/ng-inspector.js"></script>
+    <script src="js/main.js"></script>
     <script src="https://cdn.rawgit.com/monkeecreate/jquery.simpleWeather/master/jquery.simpleWeather.min.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/google.search.engine.js"></script>
