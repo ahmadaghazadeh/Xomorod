@@ -415,28 +415,27 @@
                 </div>
                 <!--/ widget poll -->
                 <!-- widget weather -->
-                <div id="weather">
-                    <div class="widget widget-weather" ng-controller="weatherController">
+                    <div  id="weather" class="widget widget-weather" ng-controller="weatherController">
                         <div class="head">{{ weather.city }}&nbsp;,&nbsp;{{ weather.country }}</div>
                         <div class="cont">
-                            <h1>
+                            <h2>
                                 <i class="icon-{{ weather.code }}"></i>
-                            </h1>
-                            <h2>{{weather.temp }}&deg;{{ weather.units.temp }}</h2>
-                            <p>
+                                {{weather.temp }}&deg;{{ weather.units.temp }}
+                            </h2>
+                            <p >
                                 {{ weather.forecast[0].text}}
-                                <br />
+                                <br/>
                                 {{weather.wind.direction}} &nbsp; {{ weather.wind.speed }} &nbsp;{{ weather.units.speed }}
                             </p>
                             <p>MIN:&nbsp;{{ weather.forecast[0].low }}&deg; {{weather.units.temp }} &nbsp;&nbsp;&nbsp; MAX:&nbsp; {{ weather.forecast[0].high }} &deg; {{ weather.units.temp }} </p>
-                            <br />
+                            <br/>
                             <p ng-if="errMsg != null" style="color: yellow">{{ errMsg }} </p>
-                            <br />
-                            <br />
+                            <br/>
+                            <br/>
                             <button type="button" id="geolocation" onclick="geolocationClick()" class=" {{ realPos ? 'hidden' : 'show' }}">use my location</button>
                         </div>
                     </div>
-                </div>
+                <!--/ widget weather -->
             </div>
         </div>
     </div>

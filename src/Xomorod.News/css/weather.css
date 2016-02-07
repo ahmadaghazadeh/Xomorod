@@ -20,13 +20,8 @@
     font-style: normal;
 }
 
-body {
-  padding: 45px 0;
-  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
 #weather {
-  width: 500px;
+  /*width: 500px;*/
   margin: 0px auto;
   text-align: center;
   text-transform: uppercase;
