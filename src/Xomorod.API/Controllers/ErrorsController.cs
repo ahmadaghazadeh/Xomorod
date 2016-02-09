@@ -8,11 +8,16 @@ using System.Web.Http;
 using System.Web.Mvc;
 using AdoManager;
 using Xomorod.API.Models;
+using Xomorod.API.Providers;
 
 namespace Xomorod.API.Controllers
 {
     public class ErrorsController : Controller
     {
+        /// <summary>
+        /// Default Error: HTTP Error 404
+        /// </summary>
+        /// <returns>A designed html page for error 404 Page Not Found</returns>
         public ActionResult Index()
         {
             ViewBag.Title = "Xomorod: Error";
@@ -27,36 +32,15 @@ namespace Xomorod.API.Controllers
             return View();
         }
 
-
-        // POST: api/RaiseError
+        /// <summary>
+        /// Send an error to send host mail
+        /// </summary>
+        /// <param name="value">Error Model Object</param>
         public void Post([FromBody]Error value)
         {
-            RaiseError(value);
+            value.RaiseError();
         }
 
-        /// <summary>
-        /// Send exception to mail box
-        /// </summary>
-        /// <param name="ex"></param>
-        protected void RaiseError(Error ex)
-        {
-            var mailPass = DataAccessObject.ExecuteScalar<string>(@"SELECT Xomorod.dbo.GetSettingByKey('xomorod.co@gmail.com_pass')");
-
-            
-            var mail = new MailMessage { From = new MailAddress("xomorod.bugs@gmail.com") };
-            mail.To.Add(new MailAddress("xomorod.co@gmail.com"));
-            mail.Subject = $"{ex.AppName} Error at {DateTime.Now} (auto-sys)";
-            mail.Body = "Error Description: " + ex.Message;
-            var server = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("xomorod.bugs@gmail.com", mailPass)
-            };
-            server.Send(mail);
-        }
+        
     }
 }

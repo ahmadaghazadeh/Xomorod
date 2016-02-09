@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
+using Xomorod.API.Providers;
 
 namespace Xomorod.API
 {
@@ -33,7 +34,7 @@ namespace Xomorod.API
 
             if (exc == null)
                 return;
-            goto test;
+    
             // Handle HTTP errors
             if (exc.GetType() == typeof(HttpException))
             {
@@ -49,8 +50,8 @@ namespace Xomorod.API
                 Response.Redirect("~/errors");
                 return;
             }
-            test:
-            //RaiseError(exc);
+           
+            exc.RaiseError();
 
             // Clear the error from the server
             Server.ClearError();
