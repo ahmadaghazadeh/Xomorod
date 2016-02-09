@@ -6,15 +6,20 @@ using System.Web.Mvc;
 
 namespace Xomorod.API.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorsController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Xomorod API";
+            ViewBag.Title = "Xomorod: Error";
 
             return View();
         }
 
+        public ActionResult err404()
+        {
+            ViewBag.Title = "Xomorod: Error 404";
 
+            return View();
+        }
     }
 }

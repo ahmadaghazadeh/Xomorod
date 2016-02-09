@@ -14,9 +14,9 @@ namespace Xomorod.News
             routes.Ignore("assets/*");
             routes.Ignore("images/*");
 
-            // The following code shows how to prevent routing from handling requests for .axd requests.
-            routes.Add(new System.Web.Routing.Route("{resource}.axd/{*pathInfo}",
-                new System.Web.Routing.StopRoutingHandler()));
+            //// The following code shows how to prevent routing from handling requests for .axd requests.
+            //routes.Add(new System.Web.Routing.Route("{resource}.axd/{*pathInfo}",
+            //    new System.Web.Routing.StopRoutingHandler()));
 
             // localization routes e.g:  http://ZNews.Xomorod.com/en/
             routes.MapPageRoute("localRoutes",
