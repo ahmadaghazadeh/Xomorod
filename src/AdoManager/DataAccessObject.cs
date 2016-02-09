@@ -35,16 +35,22 @@ namespace AdoManager
             return result;
         }
 
-        public static IEnumerable<dynamic> GetFromQuery(string query, ExpandoObject param)
+        public static IEnumerable<dynamic> GetFromQuery(string query, ExpandoObject param = null)
         {
             var result = Conn.SqlConn.Query<dynamic>(query, param);
 
             return result;
         }
 
+        public static T ExecuteScalar<T>(string query, ExpandoObject param = null)
+        {
+            var result = Conn.SqlConn.ExecuteScalar<T>(query, param);
+
+            return result;
+        }
 
         #endregion
-        
+
         #region Async Methods
 
         public static async Task<IEnumerable<dynamic>> GetFromAsync(string table, params Condition[] conditions)
@@ -68,16 +74,16 @@ namespace AdoManager
             return result;
         }
 
-        public static async Task<IEnumerable<dynamic>> GetFromQueryAsync(string query)
+        public static async Task<IEnumerable<dynamic>> GetFromQueryAsync(string query, ExpandoObject param = null)
         {
-            var result = await Conn.SqlConn.QueryAsync<dynamic>(query);
+            var result = await Conn.SqlConn.QueryAsync<dynamic>(query, param);
 
             return result;
         }
 
-        public static async Task<IEnumerable<dynamic>> GetFromQueryAsync(string query, ExpandoObject param)
+        public static async Task<T> ExecuteScalarAsync<T>(string query, ExpandoObject param = null)
         {
-            var result = await Conn.SqlConn.QueryAsync<dynamic>(query, param);
+            var result = await Conn.SqlConn.ExecuteScalarAsync<T>(query, param);
 
             return result;
         }

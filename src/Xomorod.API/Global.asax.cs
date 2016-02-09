@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AdoManager;
 
 namespace Xomorod.API
 {
@@ -27,6 +31,9 @@ namespace Xomorod.API
             // Get the exception object.
             Exception exc = Server.GetLastError();
 
+            if (exc == null)
+                return;
+            goto test;
             // Handle HTTP errors
             if (exc.GetType() == typeof(HttpException))
             {
@@ -40,22 +47,18 @@ namespace Xomorod.API
                 //Redirect HTTP errors to HttpError page
                 //Server.Transfer("~/Views/Errors");
                 Response.Redirect("~/errors");
+                return;
             }
-
-            // For other kinds of errors give the user some information
-            // but stay on the default page
-            Response.Write("<h2>Global Page Error</h2>\n");
-            Response.Write(
-                "<p>" + exc.Message + "</p>\n");
-            Response.Write("Return to the <a href='Default.aspx'>" +
-                "Default Page</a>\n");
-
-            // Log the exception and notify system operators
-            //ExceptionUtility.LogException(exc, "DefaultPage");
-            //ExceptionUtility.NotifySystemOps(exc);
+            test:
+            //RaiseError(exc);
 
             // Clear the error from the server
             Server.ClearError();
+
+            // Redirect to a landing page
+            Response.Redirect("~/home");
         }
+
+        
     }
 }
