@@ -16,5 +16,7 @@ namespace Xomorod.API.Models
         public string AppName { get; set; }
 
         public string Version { get; set; }
+
+        public string HeaderIcon { get; set; }
     }
 }

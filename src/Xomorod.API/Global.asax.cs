@@ -40,7 +40,7 @@ namespace Xomorod.API
 
             if (exc == null)
                 return;
-    
+
             // Handle HTTP errors
             if (exc.GetType() == typeof(HttpException))
             {
@@ -56,7 +56,7 @@ namespace Xomorod.API
                 Response.Redirect("~/errors");
                 return;
             }
-           
+
             exc.RaiseError();
 
             // Clear the error from the server
@@ -66,6 +66,6 @@ namespace Xomorod.API
             Response.Redirect("~/home");
         }
 
-        
+
     }
 }

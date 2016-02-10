@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using AdoManager;
 using Xomorod.API.Models;
@@ -39,9 +42,18 @@ namespace Xomorod.API.Controllers
         /// Send an error to send host mail
         /// </summary>
         /// <param name="value">Error Model Object</param>
-        public void Post([FromBody]Error value)
+        public async Task<HttpStatusCodeResult> Post([FromBody]Error value)
         {
-            value.RaiseError();
+            try
+            {
+                await value.RaiseError();
+            }
+            catch (Exception)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.ExpectationFailed);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.Created);
         }
 
         
