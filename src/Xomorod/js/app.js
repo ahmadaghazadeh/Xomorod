@@ -15,7 +15,7 @@ app.config(['$translateProvider', function ($translateProvider) {
 
 app.controller('productsController', [
     '$scope', '$http', function ($scope, $http) {
-        $http.get("api/products").success(function (response) {
+        $http.get("http://localhost:50543/products").success(function (response) {
             $scope.products = response;
             $scope.convertMarked = function (data) {
                 //document.getElementById('content').innerHTML = marked(response);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Web;
-using Xomorod.Models;
 using Xomorod.Resources;
 
 namespace Xomorod.Core
@@ -14,7 +13,7 @@ namespace Xomorod.Core
 
         public string MetaData { get; set; }
         public DateTime EntryTime { get; set; }
-        public User User { get; set; }
+        public string Username { get; set; }
         public CultureInfo Culture { get; set; }
         public Guid UserId { get; set; }
         public bool Expireable { get; set; }
@@ -87,7 +86,7 @@ namespace Xomorod.Core
 
         public bool IsTrustUser()
         {
-            return !string.IsNullOrEmpty(User?.Username) && !IsSessionExpired();
+            return !string.IsNullOrEmpty(Username) && !IsSessionExpired();
         }
 
         #endregion

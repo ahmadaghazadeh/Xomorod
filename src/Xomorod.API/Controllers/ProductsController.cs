@@ -1,39 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Xomorod.API.Controllers
 {
     public class ProductsController : ApiController
     {
-        // GET: api/Products
-        public IEnumerable<string> Get()
+        // GET api/products
+        /// <summary>
+        /// Get all products by default language (en)
+        /// </summary>
+        /// <returns>list of portfolios</returns>
+        [Route("Products")]
+        public async Task<IHttpActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
+            var portfolios = new List<object>();
 
-        // GET: api/Products/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST: api/Products
-        public void Post([FromBody]string value)
-        {
-        }
+            var products =
+                await AdoManager.DataAccessObject.GetFromQueryAsync("SELECT * FROM xomorod.dbo.udfv_PortfoliosView(1)");
 
-        // PUT: api/Products/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            products = products.OrderByDescending(x => x.Rank);
 
-        // DELETE: api/Products/5
-        public void Delete(int id)
-        {
+            foreach (var prod in products)
+            {
+                dynamic portfolio = new ExpandoObject();
+
+                portfolio.ProjectName = prod.ProjectName;
+                portfolio.Id = prod.PortfolioID;
+                portfolio.ImageLink = prod.Resource.ResourceLink;
+                portfolio.Category = prod.Categories;
+                portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT xomorod.dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')");
+                portfolio.OpenSource = portfolio.ProjectUrl != null;
+                portfolio.Description = prod.Summary;
+                portfolio.Markdown = prod.MarkdownDescription;
+                portfolio.ModifyDate = prod.ModifyDate.ToString("Y");
+
+                portfolios.Add(portfolio);
+            }
+
+
+            return Ok(portfolios);
         }
     }
 }

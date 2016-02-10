@@ -165,10 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TranslationsController.cs" />
     <Compile Include="Core\CdnHelper.cs" />
-    <Compile Include="Core\DatabaseHelper.cs" />
     <Compile Include="Core\SessionController.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -200,11 +198,6 @@
     </Compile>
     <Compile Include="pages\loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Xomorod.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Xomorod.dbml</DependentUpon>
     </Compile>
     <Compile Include="Resources\cdn_changer.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -251,11 +244,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Models\Xomorod.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Xomorod.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="..\LICENSE">
       <Link>SolutionItems\LICENSE</Link>
     </Content>
@@ -299,9 +287,6 @@
       <LastGenOutput>cdn_Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Models\Xomorod.dbml.layout">
-      <DependentUpon>Xomorod.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Resources\localization.fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>localization.fa.Designer.cs</LastGenOutput>
