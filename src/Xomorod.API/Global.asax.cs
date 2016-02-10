@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -23,6 +24,11 @@ namespace Xomorod.API
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Set Database Connetion from [Web.config]
+            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            ConnectionManager.LoadFromXml(data);
+            ConnectionManager.SetToDefaultConnection("Xomorod");
         }
 
         void Application_Error(object sender, EventArgs e)

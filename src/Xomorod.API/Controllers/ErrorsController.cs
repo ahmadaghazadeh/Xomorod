@@ -12,8 +12,11 @@ using Xomorod.API.Providers;
 
 namespace Xomorod.API.Controllers
 {
+    [System.Web.Http.RoutePrefix("api/Errors")]
     public class ErrorsController : Controller
     {
+
+
         /// <summary>
         /// Default Error: HTTP Error 404
         /// </summary>

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using AdoManager;
 
 namespace Xomorod
 {
@@ -14,6 +16,11 @@ namespace Xomorod
 
             // https://msdn.microsoft.com/en-us/library/dd329551.aspx
             RegisterRoutes(RouteTable.Routes);
+
+            // Set Database Connetion from [Web.config]
+            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            ConnectionManager.LoadFromXml(data);
+            ConnectionManager.SetToDefaultConnection("Xomorod");
         }
 
         void Application_Error(object sender, EventArgs e)
