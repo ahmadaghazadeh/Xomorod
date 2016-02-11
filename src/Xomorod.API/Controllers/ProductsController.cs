@@ -6,9 +6,11 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Xomorod.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : ApiController
     {
         // GET api/products
@@ -33,7 +35,7 @@ namespace Xomorod.API.Controllers
 
                 portfolio.ProjectName = prod.ProjectName;
                 portfolio.Id = prod.PortfolioID;
-                portfolio.ImageLink = prod.Resource.ResourceLink;
+                portfolio.ImageLink = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT xomorod.dbo.getResourceLinkByElementID('{prod.Id}')");
                 portfolio.Category = prod.Categories;
                 portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT xomorod.dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')");
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
