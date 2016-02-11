@@ -90,6 +90,12 @@ ALTER TABLE [dbo].[RssCategories] DROP CONSTRAINT [DF_RssCategories_LangID]
 END
 
 GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_IsActive]
+END
+
+GO
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_Rank]
@@ -105,6 +111,12 @@ GO
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_UniqueId]
+END
+
+GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_LangID]
 END
 
 GO
@@ -174,224 +186,185 @@ ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrTime]
 END
 
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ApiActions_IsActive]') AND type = 'D')
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[ApiActions] DROP CONSTRAINT [DF_ApiActions_IsActive]
+ALTER TABLE [dbo].[CategoriesChilds] DROP CONSTRAINT [DF_CategoriesChilds_IsActive]
 END
 
 GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_IsActive]
+END
+
+GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_LangID]
+END
+
+GO
+/****** Object:  Index [IX_RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
 DROP INDEX [IX_RssResources] ON [dbo].[RssResources]
 GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [TX_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
 DROP INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
 DROP INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [Au_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
 DROP INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udfv_PortfoliosView]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssResources]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[udft_RssResources]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[udft_RssCategories]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_ApiActions]    Script Date: 2/7/2016 7:14:40 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_ApiActions]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_ApiActions]
+/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_Portfolios]
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_CheckUserPass]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[fn_CheckUserPass]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[fn_GetCategoryChilds]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_CategoriesChilds]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_Categories]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
 DROP TABLE [dbo].[Users]
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
 DROP TABLE [dbo].[UserInRoles]
 GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources_ContentProviders]') AND type in (N'U'))
 DROP TABLE [dbo].[RssResources_ContentProviders]
 GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND type in (N'U'))
 DROP TABLE [dbo].[RssResources]
 GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND type in (N'U'))
 DROP TABLE [dbo].[RssFeeds]
 GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssContentProviders]') AND type in (N'U'))
 DROP TABLE [dbo].[RssContentProviders]
 GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssCategories]') AND type in (N'U'))
 DROP TABLE [dbo].[RssCategories]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
 DROP TABLE [dbo].[Roles]
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
 DROP TABLE [dbo].[Resources]
 GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfoliosComment]') AND type in (N'U'))
 DROP TABLE [dbo].[PortfoliosComment]
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 DROP TABLE [dbo].[Portfolios]
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
 DROP TABLE [dbo].[PortfolioCategories]
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
 DROP TABLE [dbo].[LogHistory]
 GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Languages]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Languages]') AND type in (N'U'))
 DROP TABLE [dbo].[Languages]
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
 DROP TABLE [dbo].[ExtraLinks]
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
 DROP TABLE [dbo].[ErrorLog]
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
+DROP TABLE [dbo].[CategoriesChilds]
+GO
+/****** Object:  Table [dbo].[Categories]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
 DROP TABLE [dbo].[Categories]
 GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AppSetting]') AND type in (N'U'))
 DROP TABLE [dbo].[AppSetting]
 GO
-/****** Object:  Table [dbo].[ApiActions]    Script Date: 2/7/2016 7:14:40 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ApiActions]') AND type in (N'U'))
-DROP TABLE [dbo].[ApiActions]
+/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetStringHashing]
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetStringHashing]    Script Date: 2/7/2016 7:14:40 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[fn_GetStringHashing]
+/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetSettingByKey]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetResourceLinkByElementID]
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/11/2016 10:47:36 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetExtraLinkByName]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Users_Insert]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Users_Insert]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_InsertErrorLog]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Insert_RssItem]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Insert_RssItem]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Increase_RssScore]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Increase_RssScore]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_CatchError]
 GO
-USE [master]
-GO
-/****** Object:  Database [Xomorod]    Script Date: 2/7/2016 7:14:40 PM ******/
-IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
-DROP DATABASE [Xomorod]
-GO
-/****** Object:  Database [Xomorod]    Script Date: 2/7/2016 7:14:40 PM ******/
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
-BEGIN
-CREATE DATABASE [Xomorod] ON  PRIMARY 
-( NAME = N'Xomorod', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod.mdf' , SIZE = 17408KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'Xomorod_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod_log.ldf' , SIZE = 16576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-END
-
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Xomorod].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [Xomorod] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [Xomorod] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_CREATE_STATISTICS ON 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [Xomorod] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [Xomorod] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [Xomorod] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [Xomorod] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [Xomorod] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [Xomorod] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [Xomorod] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [Xomorod] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [Xomorod] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [Xomorod] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [Xomorod] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [Xomorod] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [Xomorod] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [Xomorod] SET RECOVERY FULL 
-GO
-ALTER DATABASE [Xomorod] SET  MULTI_USER 
-GO
-ALTER DATABASE [Xomorod] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [Xomorod] SET DB_CHAINING OFF 
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'Xomorod', N'ON'
-GO
-USE [Xomorod]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -519,7 +492,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -543,7 +516,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -603,7 +576,7 @@ AS
     END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -734,7 +707,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -795,19 +768,109 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetStringHashing]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[GetExtraLinkByName]
+(
+	@PortfolioID     INT,
+	@LinkName        NVARCHAR(255)
+)
+RETURNS NVARCHAR(MAX)
+AS
+BEGIN
+	DECLARE @result NVARCHAR(MAX)
+	
+	SELECT TOP(1) @result = Link
+	FROM   xomorod.dbo.[ExtraLinks]
+	WHERE  LOWER(NAME) = lower(@LinkName)
+	       AND PortfolioId = @PortfolioID
+	
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+
+CREATE FUNCTION [dbo].[GetResourceLinkByElementID]
+(
+	@ElementUniqueID UNIQUEIDENTIFIER
+)
+RETURNS NVARCHAR(MAX)
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @result NVARCHAR(MAX)
+	
+	-- Add the T-SQL statements to compute the return value here
+	SELECT TOP(1) @result = r.ResourceLink
+	FROM   Xomorod.dbo.Resources r
+	WHERE  r.ElementUniqueId = @ElementUniqueID
+	
+	-- Return the result of the function
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+
+CREATE FUNCTION [dbo].[GetSettingByKey]
+(
+	@Key NVARCHAR(256)
+)
+RETURNS NVARCHAR(MAX)
+AS
+
+
+BEGIN
+	DECLARE @result NVARCHAR(MAX) = ''''; 
+	
+	SELECT @result = as1.[Value]
+	FROM   Xomorod.dbo.AppSetting as1
+	WHERE  LOWER(as1.[Key]) = LOWER(@Key)
+	
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date, ,>
 -- Description:	<Description, ,>
 -- =============================================
-CREATE FUNCTION [dbo].[fn_GetStringHashing]
+CREATE FUNCTION [dbo].[GetStringHashing]
 (
 	@Content NVARCHAR(MAX)
 )
@@ -824,25 +887,7 @@ END
 END
 
 GO
-/****** Object:  Table [dbo].[ApiActions]    Script Date: 2/7/2016 7:14:40 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ApiActions]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[ApiActions](
-	[ActionName] [varchar](200) NOT NULL,
-	[ActionUrl] [nvarchar](max) NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_ApiActions] PRIMARY KEY CLUSTERED 
-(
-	[ActionName] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -855,7 +900,7 @@ CREATE TABLE [dbo].[AppSetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -863,17 +908,38 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Categories](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[LangID] [int] NOT NULL,
 	[Name] [nvarchar](100) NOT NULL,
-	[ParentCategoryId] [int] NULL,
+	[IsActive] [bit] NOT NULL,
  CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[CategoryId] ASC,
+	[LangID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[CategoriesChilds](
+	[CategoryID] [int] NOT NULL,
+	[ChildCategoryID] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_CategoriesChilds] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC,
+	[ChildCategoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -913,7 +979,7 @@ CREATE TABLE [dbo].[ErrorLog](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -921,19 +987,19 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[ExtraLinks](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[PortfolioId] [uniqueidentifier] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[PortfolioID] [int] NOT NULL,
 	[Name] [nvarchar](200) NOT NULL,
 	[Link] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_ExtraLinks] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC,
-	[PortfolioId] ASC
+	[ID] ASC,
+	[PortfolioID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Languages]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -952,7 +1018,7 @@ CREATE TABLE [dbo].[Languages](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -969,7 +1035,7 @@ CREATE TABLE [dbo].[LogHistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -987,7 +1053,7 @@ CREATE TABLE [dbo].[PortfolioCategories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -995,7 +1061,8 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Portfolios](
-	[PortfolioID] [int] IDENTITY(1,1) NOT NULL,
+	[PortfolioID] [int] NOT NULL,
+	[LangID] [int] NOT NULL,
 	[Id] [uniqueidentifier] NOT NULL,
 	[ProjectName] [nvarchar](100) NOT NULL,
 	[Summary] [nvarchar](max) NULL,
@@ -1004,14 +1071,16 @@ CREATE TABLE [dbo].[Portfolios](
 	[ProjectUrl] [nvarchar](max) NULL,
 	[IconId] [int] NULL,
 	[Rank] [float] NULL,
- CONSTRAINT [PK__Portfoli__3214EC07957343EF] PRIMARY KEY CLUSTERED 
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_Portfolios] PRIMARY KEY CLUSTERED 
 (
-	[PortfolioID] ASC
+	[PortfolioID] ASC,
+	[LangID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1032,7 +1101,7 @@ CREATE TABLE [dbo].[PortfoliosComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1051,7 +1120,7 @@ CREATE TABLE [dbo].[Resources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1070,7 +1139,7 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1093,7 +1162,7 @@ CREATE TABLE [dbo].[RssCategories](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1113,7 +1182,7 @@ CREATE TABLE [dbo].[RssContentProviders](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1142,7 +1211,7 @@ CREATE TABLE [dbo].[RssFeeds](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1165,7 +1234,7 @@ CREATE TABLE [dbo].[RssResources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1183,7 +1252,7 @@ CREATE TABLE [dbo].[RssResources_ContentProviders](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1201,7 +1270,7 @@ CREATE TABLE [dbo].[UserInRoles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1232,7 +1301,80 @@ CREATE TABLE [dbo].[Users](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udft_Categories]
+(
+	@langID INT
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT c.CategoryId, c.Name
+	    FROM   Xomorod.dbo.Categories c
+	    WHERE  c.LangID = @langID
+	           AND c.IsActive = 1
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udft_CategoriesChilds]
+(
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT cc.CategoryID,
+	           cc.ChildCategoryID
+	    FROM   Xomorod.dbo.CategoriesChilds cc
+	    WHERE  cc.IsActive = 1
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[fn_GetCategoryChilds]
+(
+	@langID     INT,
+	@CateID     INT
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT c.CategoryId, c.Name
+	    FROM   dbo.udft_Categories(@langID) c,
+	           dbo.udft_CategoriesChilds() ucc
+	    WHERE  c.CategoryId = ucc.CategoryID
+	           AND ucc.CategoryId = @CateID
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1279,36 +1421,42 @@ AS
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_ApiActions]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_ApiActions]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE FUNCTION [dbo].[udft_ApiActions]
+CREATE FUNCTION [dbo].[udft_Portfolios]
 (
+	@langID INT
 )
 RETURNS TABLE
 AS
-
 	RETURN 
-(
-    SELECT aa.ActionName,
-           aa.ActionUrl
-    FROM   Xomorod.dbo.ApiActions aa
-    WHERE  aa.IsActive = 1
-)
-' 
+	(
+	    SELECT p.PortfolioID,
+	           p.ProjectName,
+	           p.Summary,
+	           p.MarkdownDescription,
+	           p.ModifyDate,
+	           p.ProjectUrl,
+	           p.IconId,
+	           p.[Rank]
+	    FROM   Xomorod.dbo.Portfolios p
+	    WHERE  p.LangID = @langID
+	           AND p.IsActive = 1
+	)' 
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1316,9 +1464,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Behzad Khosravifar
+-- Create date: 2016/02/08
+-- Description:	
 -- =============================================
 CREATE FUNCTION [dbo].[udft_RssCategories]
 (
@@ -1327,7 +1475,6 @@ CREATE FUNCTION [dbo].[udft_RssCategories]
 RETURNS TABLE
 AS
 
-
 RETURN 
 (
     SELECT rc.CategoryID,
@@ -1335,13 +1482,13 @@ RETURN
            rc.[Description],
            rc.[Order]
     FROM   Xomorod.dbo.RssCategories rc
-    WHERE  rc.IsActive = 1
-           AND rc.LangID = @langID
+    WHERE  rc.LangID = @langID
+           AND rc.IsActive = 1
 )' 
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1374,17 +1521,82 @@ AS
 END
 
 GO
+/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/11/2016 10:47:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udfv_PortfoliosView]
+(
+	@langID INT
+)
+RETURNS TABLE
+AS
+
+RETURN 
+(
+    SELECT p.PortfolioID,
+           p.Id,
+           p.ProjectName,
+           p.Summary,
+           p.MarkdownDescription,
+           p.ModifyDate,
+           p.ProjectUrl,
+           p.IconId,
+           p.[Rank],
+           Categoroies = STUFF(
+               (
+                   SELECT '',   '' + cc.Name
+                   FROM   dbo.PortfolioCategories pc
+                          INNER JOIN dbo.Categories cc
+                               ON  cc.CategoryID = pc.CategoryID
+                   WHERE  pc.PortfolioID = p.PortfolioID
+                          AND cc.IsActive = 1
+                          AND cc.LangID = @langID
+                              FOR XML PATH(''''), TYPE
+               ).value(''.'', ''NVARCHAR(MAX)''),
+               1,
+               1,
+               ''''
+           )
+    FROM   Xomorod.dbo.Portfolios p
+           INNER JOIN Xomorod.dbo.PortfolioCategories pc
+                ON  pc.PortfolioID = p.PortfolioID
+           INNER JOIN Xomorod.dbo.Categories c
+                ON  c.CategoryID = pc.CategoryID
+    WHERE  p.IsActive = 1
+           AND c.IsActive = 1
+           AND p.LangID = @langID
+           AND c.LangID = @langID
+    GROUP BY
+           p.PortfolioID,
+           p.Id,
+           p.ProjectName,
+           p.Summary,
+           p.MarkdownDescription,
+           p.ModifyDate,
+           p.ProjectUrl,
+           p.IconId,
+           p.[Rank]
+)
+' 
+END
+
+GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [Au_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
 CREATE NONCLUSTERED INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
 (
 	[Author] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
 CREATE NONCLUSTERED INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
 (
@@ -1394,23 +1606,35 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [TX_RssFeeds]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
 CREATE NONCLUSTERED INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
 (
 	[TitleHash] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/7/2016 7:14:40 PM ******/
+/****** Object:  Index [IX_RssResources]    Script Date: 2/11/2016 10:47:36 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
 CREATE NONCLUSTERED INDEX [IX_RssResources] ON [dbo].[RssResources]
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ApiActions_IsActive]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[ApiActions] ADD  CONSTRAINT [DF_ApiActions_IsActive]  DEFAULT ((1)) FOR [IsActive]
+ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_LangID]  DEFAULT ((1)) FOR [LangID]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_IsActive]  DEFAULT ((1)) FOR [IsActive]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[CategoriesChilds] ADD  CONSTRAINT [DF_CategoriesChilds_IsActive]  DEFAULT ((1)) FOR [IsActive]
 END
 
 GO
@@ -1480,6 +1704,12 @@ ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Login__117F9D94] 
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_LangID]  DEFAULT ((1)) FOR [LangID]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_UniqueId]  DEFAULT (newid()) FOR [Id]
@@ -1495,6 +1725,12 @@ GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_Rank]  DEFAULT ((0)) FOR [Rank]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_IsActive]  DEFAULT ((1)) FOR [IsActive]
 END
 
 GO
@@ -1587,8 +1823,4 @@ BEGIN
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_AccessFailedCount]  DEFAULT ((0)) FOR [AccessFailedCount]
 END
 
-GO
-USE [master]
-GO
-ALTER DATABASE [Xomorod] SET  READ_WRITE 
 GO

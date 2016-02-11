@@ -20,6 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "Database
 	ProjectSection(SolutionItems) = preProject
 		DatabaseScripts\CreateDatabase_only_schema.sql = DatabaseScripts\CreateDatabase_only_schema.sql
 		DatabaseScripts\CreateDatabase_schema_and_data.sql = DatabaseScripts\CreateDatabase_schema_and_data.sql
+		DatabaseScripts\DropAllDatabaseObjects.sql = DatabaseScripts\DropAllDatabaseObjects.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D8C7855-D53D-4249-A06B-E1699F3FEF16}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Helpfull_Links.txt = Solution Items\Helpfull_Links.txt
 	EndProjectSection
 EndProject
 Global

@@ -15,10 +15,7 @@ app.config(['$translateProvider', function ($translateProvider) {
 
 app.controller('productsController', [
     '$scope', '$http', function ($scope, $http) {
-        $http.post('/api/ApiAddress', JSON.stringify("products")).success(function (response) {
-
-            alert(response);
-
+        $http.get('/api/ApiAddress/?controller=products').success(function (response) {
             $http.get(response).success(function (response) {
                 $scope.products = response;
                 $scope.convertMarked = function (data) {
@@ -32,10 +29,9 @@ app.controller('productsController', [
         }).error(function () {
             alert("an unexcepted error ocurred at Get Api Url");
         });
-        
+
     }
 ]);
-
 
 app.controller('bodyController', ['$scope', '$cookieStore', '$translate', function ($scope, $cookieStore, $translate) {
 

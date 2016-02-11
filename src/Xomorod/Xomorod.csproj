@@ -99,12 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\.gitattributes">
-      <Link>SolutionItems\.gitattributes</Link>
-    </Content>
-    <Content Include="..\.gitignore">
-      <Link>SolutionItems\.gitignore</Link>
-    </Content>
     <Content Include="css\errorPages\404.css" />
     <Content Include="css\loader.css" />
     <Content Include="css\local_resources\animate-3.4.0.min.css" />
@@ -116,7 +110,6 @@
     <Content Include="css\login\trianglify.css" />
     <Content Include="css\xomorod-dialog.css" />
     <Content Include="css\xomorod.css" />
-    <Content Include="DatabaseScripts\DeleteOnePortfolio.sql" />
     <Content Include="default.aspx" />
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -156,11 +149,8 @@
     <Content Include="js\xomorod.js" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
-    <Content Include="DatabaseScripts\DatabaseReCreateScript.sql" />
-    <Content Include="DatabaseScripts\DropAllDatabaseObjects.sql" />
     <Content Include="pages\loginPage.aspx" />
     <Content Include="sitemap.xml" />
-    <Content Include="SolutionItems\Helpfull_Links.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -246,12 +236,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="..\LICENSE">
-      <Link>SolutionItems\LICENSE</Link>
-    </Content>
-    <Content Include="..\README.md">
-      <Link>SolutionItems\README.md</Link>
-    </Content>
     <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

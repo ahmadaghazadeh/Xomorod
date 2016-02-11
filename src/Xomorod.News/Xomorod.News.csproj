@@ -152,6 +152,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApiAddressController.cs" />
     <Compile Include="Controllers\DynamicsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Core\ExtensionsHelper.cs" />

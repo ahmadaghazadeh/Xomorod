@@ -90,6 +90,12 @@ ALTER TABLE [dbo].[RssCategories] DROP CONSTRAINT [DF_RssCategories_LangID]
 END
 
 GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_IsActive]
+END
+
+GO
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_Rank]
@@ -105,6 +111,12 @@ GO
 IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_UniqueId]
+END
+
+GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_LangID]
 END
 
 GO
@@ -174,228 +186,189 @@ ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrTime]
 END
 
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ApiActions_IsActive]') AND type = 'D')
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[ApiActions] DROP CONSTRAINT [DF_ApiActions_IsActive]
+ALTER TABLE [dbo].[CategoriesChilds] DROP CONSTRAINT [DF_CategoriesChilds_IsActive]
 END
 
 GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_IsActive]
+END
+
+GO
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_LangID]
+END
+
+GO
+/****** Object:  Index [IX_RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
 DROP INDEX [IX_RssResources] ON [dbo].[RssResources]
 GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [TX_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
 DROP INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
 DROP INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [Au_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
 DROP INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
 GO
-/****** Object:  Index [IX_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [IX_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'IX_RssFeeds')
 ALTER TABLE [dbo].[RssFeeds] DROP CONSTRAINT [IX_RssFeeds]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udfv_PortfoliosView]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssResources]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[udft_RssResources]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[udft_RssCategories]
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_ApiActions]    Script Date: 2/7/2016 7:16:23 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_ApiActions]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_ApiActions]
+/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_Portfolios]
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_CheckUserPass]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 DROP FUNCTION [dbo].[fn_CheckUserPass]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[fn_GetCategoryChilds]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_CategoriesChilds]
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[udft_Categories]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
 DROP TABLE [dbo].[Users]
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
 DROP TABLE [dbo].[UserInRoles]
 GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources_ContentProviders]') AND type in (N'U'))
 DROP TABLE [dbo].[RssResources_ContentProviders]
 GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND type in (N'U'))
 DROP TABLE [dbo].[RssResources]
 GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND type in (N'U'))
 DROP TABLE [dbo].[RssFeeds]
 GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssContentProviders]') AND type in (N'U'))
 DROP TABLE [dbo].[RssContentProviders]
 GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssCategories]') AND type in (N'U'))
 DROP TABLE [dbo].[RssCategories]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
 DROP TABLE [dbo].[Roles]
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
 DROP TABLE [dbo].[Resources]
 GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfoliosComment]') AND type in (N'U'))
 DROP TABLE [dbo].[PortfoliosComment]
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 DROP TABLE [dbo].[Portfolios]
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
 DROP TABLE [dbo].[PortfolioCategories]
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
 DROP TABLE [dbo].[LogHistory]
 GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Languages]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Languages]') AND type in (N'U'))
 DROP TABLE [dbo].[Languages]
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
 DROP TABLE [dbo].[ExtraLinks]
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
 DROP TABLE [dbo].[ErrorLog]
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
+DROP TABLE [dbo].[CategoriesChilds]
+GO
+/****** Object:  Table [dbo].[Categories]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
 DROP TABLE [dbo].[Categories]
 GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AppSetting]') AND type in (N'U'))
 DROP TABLE [dbo].[AppSetting]
 GO
-/****** Object:  Table [dbo].[ApiActions]    Script Date: 2/7/2016 7:16:23 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ApiActions]') AND type in (N'U'))
-DROP TABLE [dbo].[ApiActions]
+/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetStringHashing]
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetStringHashing]    Script Date: 2/7/2016 7:16:23 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[fn_GetStringHashing]
+/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetSettingByKey]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetResourceLinkByElementID]
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/11/2016 10:44:58 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+DROP FUNCTION [dbo].[GetExtraLinkByName]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Users_Insert]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Users_Insert]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_InsertErrorLog]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Insert_RssItem]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Insert_RssItem]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Increase_RssScore]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_Increase_RssScore]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[sp_CatchError]
 GO
-USE [master]
-GO
-/****** Object:  Database [Xomorod]    Script Date: 2/7/2016 7:16:23 PM ******/
-IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
-DROP DATABASE [Xomorod]
-GO
-/****** Object:  Database [Xomorod]    Script Date: 2/7/2016 7:16:23 PM ******/
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Xomorod')
-BEGIN
-CREATE DATABASE [Xomorod] ON  PRIMARY 
-( NAME = N'Xomorod', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod.mdf' , SIZE = 17408KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'Xomorod_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\Xomorod_log.ldf' , SIZE = 16576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-END
-
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Xomorod].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [Xomorod] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [Xomorod] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [Xomorod] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_CREATE_STATISTICS ON 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [Xomorod] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [Xomorod] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [Xomorod] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [Xomorod] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [Xomorod] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [Xomorod] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [Xomorod] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [Xomorod] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [Xomorod] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [Xomorod] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [Xomorod] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [Xomorod] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [Xomorod] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [Xomorod] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [Xomorod] SET RECOVERY FULL 
-GO
-ALTER DATABASE [Xomorod] SET  MULTI_USER 
-GO
-ALTER DATABASE [Xomorod] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [Xomorod] SET DB_CHAINING OFF 
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'Xomorod', N'ON'
-GO
-USE [Xomorod]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -523,7 +496,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -547,7 +520,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -607,7 +580,7 @@ AS
     END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -738,7 +711,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -799,19 +772,109 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetStringHashing]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[GetExtraLinkByName]
+(
+	@PortfolioID     INT,
+	@LinkName        NVARCHAR(255)
+)
+RETURNS NVARCHAR(MAX)
+AS
+BEGIN
+	DECLARE @result NVARCHAR(MAX)
+	
+	SELECT TOP(1) @result = Link
+	FROM   xomorod.dbo.[ExtraLinks]
+	WHERE  LOWER(NAME) = lower(@LinkName)
+	       AND PortfolioId = @PortfolioID
+	
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+
+CREATE FUNCTION [dbo].[GetResourceLinkByElementID]
+(
+	@ElementUniqueID UNIQUEIDENTIFIER
+)
+RETURNS NVARCHAR(MAX)
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @result NVARCHAR(MAX)
+	
+	-- Add the T-SQL statements to compute the return value here
+	SELECT TOP(1) @result = r.ResourceLink
+	FROM   Xomorod.dbo.Resources r
+	WHERE  r.ElementUniqueId = @ElementUniqueID
+	
+	-- Return the result of the function
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+
+CREATE FUNCTION [dbo].[GetSettingByKey]
+(
+	@Key NVARCHAR(256)
+)
+RETURNS NVARCHAR(MAX)
+AS
+
+
+BEGIN
+	DECLARE @result NVARCHAR(MAX) = ''''; 
+	
+	SELECT @result = as1.[Value]
+	FROM   Xomorod.dbo.AppSetting as1
+	WHERE  LOWER(as1.[Key]) = LOWER(@Key)
+	
+	RETURN @result;
+END
+' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date, ,>
 -- Description:	<Description, ,>
 -- =============================================
-CREATE FUNCTION [dbo].[fn_GetStringHashing]
+CREATE FUNCTION [dbo].[GetStringHashing]
 (
 	@Content NVARCHAR(MAX)
 )
@@ -828,25 +891,7 @@ END
 END
 
 GO
-/****** Object:  Table [dbo].[ApiActions]    Script Date: 2/7/2016 7:16:23 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ApiActions]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[ApiActions](
-	[ActionName] [varchar](200) NOT NULL,
-	[ActionUrl] [nvarchar](max) NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_ApiActions] PRIMARY KEY CLUSTERED 
-(
-	[ActionName] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -859,7 +904,7 @@ CREATE TABLE [dbo].[AppSetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Categories]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -867,17 +912,38 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Categories](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[LangID] [int] NOT NULL,
 	[Name] [nvarchar](100) NOT NULL,
-	[ParentCategoryId] [int] NULL,
+	[IsActive] [bit] NOT NULL,
  CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[CategoryId] ASC,
+	[LangID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[CategoriesChilds](
+	[CategoryID] [int] NOT NULL,
+	[ChildCategoryID] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_CategoriesChilds] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC,
+	[ChildCategoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -917,7 +983,7 @@ CREATE TABLE [dbo].[ErrorLog](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -925,19 +991,19 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[ExtraLinks](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[PortfolioId] [uniqueidentifier] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[PortfolioID] [int] NOT NULL,
 	[Name] [nvarchar](200) NOT NULL,
 	[Link] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_ExtraLinks] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC,
-	[PortfolioId] ASC
+	[ID] ASC,
+	[PortfolioID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Languages]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -956,7 +1022,7 @@ CREATE TABLE [dbo].[Languages](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -973,7 +1039,7 @@ CREATE TABLE [dbo].[LogHistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -991,7 +1057,7 @@ CREATE TABLE [dbo].[PortfolioCategories](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -999,7 +1065,8 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Portfolios](
-	[PortfolioID] [int] IDENTITY(1,1) NOT NULL,
+	[PortfolioID] [int] NOT NULL,
+	[LangID] [int] NOT NULL,
 	[Id] [uniqueidentifier] NOT NULL,
 	[ProjectName] [nvarchar](100) NOT NULL,
 	[Summary] [nvarchar](max) NULL,
@@ -1008,14 +1075,16 @@ CREATE TABLE [dbo].[Portfolios](
 	[ProjectUrl] [nvarchar](max) NULL,
 	[IconId] [int] NULL,
 	[Rank] [float] NULL,
- CONSTRAINT [PK__Portfoli__3214EC07957343EF] PRIMARY KEY CLUSTERED 
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_Portfolios] PRIMARY KEY CLUSTERED 
 (
-	[PortfolioID] ASC
+	[PortfolioID] ASC,
+	[LangID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1036,7 +1105,7 @@ CREATE TABLE [dbo].[PortfoliosComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Resources]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1055,7 +1124,7 @@ CREATE TABLE [dbo].[Resources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1074,7 +1143,7 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1097,7 +1166,7 @@ CREATE TABLE [dbo].[RssCategories](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1117,7 +1186,7 @@ CREATE TABLE [dbo].[RssContentProviders](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1142,7 +1211,7 @@ CREATE TABLE [dbo].[RssFeeds](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1165,7 +1234,7 @@ CREATE TABLE [dbo].[RssResources](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1183,7 +1252,7 @@ CREATE TABLE [dbo].[RssResources_ContentProviders](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1201,7 +1270,7 @@ CREATE TABLE [dbo].[UserInRoles](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1232,7 +1301,80 @@ CREATE TABLE [dbo].[Users](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udft_Categories]
+(
+	@langID INT
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT c.CategoryId, c.Name
+	    FROM   Xomorod.dbo.Categories c
+	    WHERE  c.LangID = @langID
+	           AND c.IsActive = 1
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udft_CategoriesChilds]
+(
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT cc.CategoryID,
+	           cc.ChildCategoryID
+	    FROM   Xomorod.dbo.CategoriesChilds cc
+	    WHERE  cc.IsActive = 1
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[fn_GetCategoryChilds]
+(
+	@langID     INT,
+	@CateID     INT
+)
+RETURNS TABLE
+AS
+	RETURN 
+	(
+	    SELECT c.CategoryId, c.Name
+	    FROM   dbo.udft_Categories(@langID) c,
+	           dbo.udft_CategoriesChilds() ucc
+	    WHERE  c.CategoryId = ucc.CategoryID
+	           AND ucc.CategoryId = @CateID
+	)' 
+END
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1279,36 +1421,42 @@ AS
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_ApiActions]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_ApiActions]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE FUNCTION [dbo].[udft_ApiActions]
+CREATE FUNCTION [dbo].[udft_Portfolios]
 (
+	@langID INT
 )
 RETURNS TABLE
 AS
-
 	RETURN 
-(
-    SELECT aa.ActionName,
-           aa.ActionUrl
-    FROM   Xomorod.dbo.ApiActions aa
-    WHERE  aa.IsActive = 1
-)
-' 
+	(
+	    SELECT p.PortfolioID,
+	           p.ProjectName,
+	           p.Summary,
+	           p.MarkdownDescription,
+	           p.ModifyDate,
+	           p.ProjectUrl,
+	           p.IconId,
+	           p.[Rank]
+	    FROM   Xomorod.dbo.Portfolios p
+	    WHERE  p.LangID = @langID
+	           AND p.IsActive = 1
+	)' 
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1316,9 +1464,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Behzad Khosravifar
+-- Create date: 2016/02/08
+-- Description:	
 -- =============================================
 CREATE FUNCTION [dbo].[udft_RssCategories]
 (
@@ -1327,7 +1475,6 @@ CREATE FUNCTION [dbo].[udft_RssCategories]
 RETURNS TABLE
 AS
 
-
 RETURN 
 (
     SELECT rc.CategoryID,
@@ -1335,13 +1482,13 @@ RETURN
            rc.[Description],
            rc.[Order]
     FROM   Xomorod.dbo.RssCategories rc
-    WHERE  rc.IsActive = 1
-           AND rc.LangID = @langID
+    WHERE  rc.LangID = @langID
+           AND rc.IsActive = 1
 )' 
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1374,21 +1521,76 @@ AS
 END
 
 GO
-INSERT [dbo].[ApiActions] ([ActionName], [ActionUrl], [IsActive]) VALUES (N'actions', N'{domain}/api/actions', 1)
+/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/11/2016 10:44:58 PM ******/
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[ApiActions] ([ActionName], [ActionUrl], [IsActive]) VALUES (N'dynamics', N'{domain}/api/dynamics/{query}', 1)
+SET QUOTED_IDENTIFIER ON
 GO
-INSERT [dbo].[ApiActions] ([ActionName], [ActionUrl], [IsActive]) VALUES (N'newsCategories', N'{domain}/api/v1/news/categories', 1)
-GO
-INSERT [dbo].[ApiActions] ([ActionName], [ActionUrl], [IsActive]) VALUES (N'oneFeed', N'{domain}/api/v1/news/feeds/{id}', 1)
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[udfv_PortfoliosView]
+(
+	@langID INT
+)
+RETURNS TABLE
+AS
+
+RETURN 
+(
+    SELECT p.PortfolioID,
+           p.Id,
+           p.ProjectName,
+           p.Summary,
+           p.MarkdownDescription,
+           p.ModifyDate,
+           p.ProjectUrl,
+           p.IconId,
+           p.[Rank],
+           Categoroies = STUFF(
+               (
+                   SELECT '',   '' + cc.Name
+                   FROM   dbo.PortfolioCategories pc
+                          INNER JOIN dbo.Categories cc
+                               ON  cc.CategoryID = pc.CategoryID
+                   WHERE  pc.PortfolioID = p.PortfolioID
+                          AND cc.IsActive = 1
+                          AND cc.LangID = @langID
+                              FOR XML PATH(''''), TYPE
+               ).value(''.'', ''NVARCHAR(MAX)''),
+               1,
+               1,
+               ''''
+           )
+    FROM   Xomorod.dbo.Portfolios p
+           INNER JOIN Xomorod.dbo.PortfolioCategories pc
+                ON  pc.PortfolioID = p.PortfolioID
+           INNER JOIN Xomorod.dbo.Categories c
+                ON  c.CategoryID = pc.CategoryID
+    WHERE  p.IsActive = 1
+           AND c.IsActive = 1
+           AND p.LangID = @langID
+           AND c.LangID = @langID
+    GROUP BY
+           p.PortfolioID,
+           p.Id,
+           p.ProjectName,
+           p.Summary,
+           p.MarkdownDescription,
+           p.ModifyDate,
+           p.ProjectUrl,
+           p.IconId,
+           p.[Rank]
+)
+' 
+END
+
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleProjectID', N'xomorod-1186')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleProjectNumber', N'351044961981')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'MailAccount', N'Zoomorod.ir@gmail.com')
-GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'MailPassword', N'H\,g,d@13')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'ApiAddress', N'http://api.xomorod.ir')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'UnobtrusiveJavaScriptEnabled', N'true')
 GO
@@ -1416,6 +1618,10 @@ INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_auth_provide
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_x509_cert_url', N'https://www.googleapis.com/robot/v1/metadata/x509/xomorod-963%40xomorod-1186.iam.gserviceaccount.com')
 GO
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerAddress', N'xomorod.co@gmail.com')
+GO
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerServicePassword', N'H\,g,d@13')
+GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiAccountKeysJson', N'{
   "type": "service_account",
   "project_id": "xomorod-1186",
@@ -1430,151 +1636,234 @@ INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiAccountKeysJs
 }
 ')
 GO
-SET IDENTITY_INSERT [dbo].[Categories] ON 
-
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerServiceAddress', N'xomorod.bugs@gmail.com')
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (1, N'Software', NULL)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (1, 1, N'Software', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (2, N'Win32 Library', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (1, 2, N'نرم افزار', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (3, N'WPF', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (2, 1, N'Win32 Library', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (4, N'WinForm', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (2, 2, N'کتابخوانه ویندوز', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (5, N'WCF', 44)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (3, 1, N'WPF', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (6, N'ASP', 16)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (3, 2, N'WPF', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (7, N'ASP.NET', 16)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (4, 1, N'WinForm', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (8, N'Node.js', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (4, 2, N'ویندوز فرم', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (9, N'JavaScript', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (5, 1, N'WCF', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (10, N'CSS', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (5, 2, N'WCF', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (11, N'CSS 3.0', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (6, 1, N'ASP', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (12, N'HTML', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (6, 2, N'وب', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (13, N'Socket Programming', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (7, 1, N'ASP.NET', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (14, N'Console Application', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (7, 2, N'ASP.NET', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (15, N'Web Application', 16)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (8, 1, N'Node.js', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (16, N'Web Site', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (8, 2, N'Node.js', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (17, N'C#', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (9, 1, N'JavaScript', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (18, N'C/C++', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (9, 2, N'جاوااسکریپت', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (19, N'Python', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (10, 1, N'CSS', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (20, N'Assembly', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (10, 2, N'سی اس اس', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (21, N'DirectX', 35)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (12, 1, N'HTML', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (22, N'XNA', 35)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (12, 2, N'اچ تی ام ال', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (23, N'OpenGL', 35)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (13, 1, N'Socket Programming', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (24, N'WebGL', 35)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (13, 2, N'برنامه نویسی سوکت', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (25, N'Game Engine', 41)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (14, 1, N'Console Application', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (26, N'Graphic', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (14, 2, N'برنامه کنسول ویندوز', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (27, N'Android', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (15, 1, N'Web Application', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (28, N'Mobile Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (15, 2, N'برنامه تحت وب', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (29, N'iOS', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (16, 1, N'Web Site', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (30, N'iPhone', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (16, 2, N'وب سایت', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (31, N'Windows Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (17, 1, N'C#', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (32, N'Windows Phone', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (17, 2, N'سی شارپ', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (33, N'Windows Phone 8.1', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (18, 1, N'C/C++', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (34, N'Windows Phone 10', 28)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (18, 2, N'سی', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (35, N'Graphic Engine', 41)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (19, 1, N'Python', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (36, N'Language', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (19, 2, N'پایتون', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (37, N'Test Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (20, 1, N'Assembly', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (38, N'Web Socket', 13)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (20, 2, N'اسمبلی', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (39, N'HTTP', 44)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (21, 1, N'DirectX', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (40, N'Win32', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (21, 2, N'دایرکت ایکس', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (41, N'Engine Software', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (22, 1, N'XNA', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (42, N'Unit Test', 36)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (22, 2, N'ایکس ان ای', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (43, N'Unity', 35)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (23, 1, N'OpenGL', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (44, N'Protocol', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (23, 2, N'اپن جی ال', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (45, N'Genetic Algorithm', 46)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (24, 1, N'WebGL', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (46, N'AI', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (24, 2, N'وب جی ال', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (47, N'Fuzzy Logic', 46)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (25, 1, N'Game Engine', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (48, N'Win Service', 31)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (25, 2, N'موتور گیم ساز', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (49, N'GIS', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (26, 1, N'Graphic', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (50, N'Game', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (26, 2, N'گرافیک', 1)
 GO
-INSERT [dbo].[Categories] ([Id], [Name], [ParentCategoryId]) VALUES (51, N'Educational Software', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (27, 1, N'Android', 1)
 GO
-SET IDENTITY_INSERT [dbo].[Categories] OFF
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (27, 2, N'اندروید', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (28, 1, N'Mobile Application', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (28, 2, N'برنامه موبایل', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (29, 1, N'iOS', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (29, 2, N'اپل', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (30, 1, N'iPhone', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (30, 2, N'آیفون', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (31, 1, N'Windows Application', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (31, 2, N'برنامه تحت ویندوز', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (32, 1, N'Windows Phone', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (32, 2, N'ویندوز فون', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (35, 1, N'Graphic Engine', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (35, 2, N'موتور گرافیک', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (37, 1, N'TDD', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (37, 2, N'تست', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (38, 1, N'Web Socket', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (38, 2, N'وب سوکت', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (40, 1, N'Win32', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (40, 2, N'تحت ویندوز', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (42, 1, N'Unit Test', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (42, 2, N'تست', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (43, 1, N'Unity', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (43, 2, N'یونیتی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (45, 1, N'Genetic Algorithm', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (45, 2, N'الگوریتم ژنتیک', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (46, 1, N'AI', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (46, 2, N'هوش مصنوعی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (47, 1, N'Fuzzy Logic', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (47, 2, N'منطق فازی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (48, 1, N'Win Service', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (48, 2, N'ویندوز سرویس', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (49, 1, N'GIS', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (49, 2, N'جغرافیایی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (50, 1, N'Game', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (50, 2, N'بازی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (51, 1, N'Educational Software', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (51, 2, N'نرم افزار آموزشی', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (52, 1, N'Utility', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (52, 2, N'سودمند', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (53, 1, N'News', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (53, 2, N'اخبار', 1)
+GO
+INSERT [dbo].[CategoriesChilds] ([CategoryID], [ChildCategoryID], [IsActive]) VALUES (27, 52, 1)
+GO
+INSERT [dbo].[CategoriesChilds] ([CategoryID], [ChildCategoryID], [IsActive]) VALUES (27, 53, 1)
 GO
 SET IDENTITY_INSERT [dbo].[ExtraLinks] ON 
 
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'GitHub', N'https://github.com/Behzadkhosravifar/ErrorControlSystem')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (1, 1, N'GitHub', N'https://github.com/Behzadkhosravifar/ErrorControlSystem')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (2, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'NugetPackageUrl', N'https://www.nuget.org/packages/errorcontrolsystem/')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (2, 1, N'NugetPackageUrl', N'https://www.nuget.org/packages/errorcontrolsystem/')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (3, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'NugetVersion', N'http://img.shields.io/nuget/v/errorcontrolsystem.svg')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (3, 1, N'NugetVersion', N'http://img.shields.io/nuget/v/errorcontrolsystem.svg')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (4, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'NugetDownloadCount', N'http://img.shields.io/nuget/dt/errorcontrolsystem.svg')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (4, 1, N'NugetDownloadCount', N'http://img.shields.io/nuget/dt/errorcontrolsystem.svg')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (5, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'GitHub', N'https://github.com/Behzadkhosravifar/MakeClassSchedule')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (5, 12, N'GitHub', N'https://github.com/Behzadkhosravifar/MakeClassSchedule')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (6, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'GitHub', N'https://github.com/Behzadkhosravifar/TSP')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (6, 13, N'GitHub', N'https://github.com/Behzadkhosravifar/TSP')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (7, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'GitHub', N'https://github.com/Behzadkhosravifar/SignalR')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (7, 15, N'GitHub', N'https://github.com/Behzadkhosravifar/SignalR')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (8, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'GitHub', N'https://github.com/Behzadkhosravifar/WHOis')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (8, 8, N'GitHub', N'https://github.com/Behzadkhosravifar/WHOis')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (9, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'GitHub', N'https://github.com/Behzadkhosravifar/FoxRabbit')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (9, 5, N'GitHub', N'https://github.com/Behzadkhosravifar/FoxRabbit')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (10, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'GitHub', N'https://github.com/Behzadkhosravifar/greatmaps')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (10, 14, N'GitHub', N'https://github.com/Behzadkhosravifar/greatmaps')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (11, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'GitHub', N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (11, 10, N'GitHub', N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (12, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'GitHub', N'https://github.com/Behzadkhosravifar/BlurMessageBox')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (12, 9, N'GitHub', N'https://github.com/Behzadkhosravifar/BlurMessageBox')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (14, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'GitHub', N'https://github.com/Behzadkhosravifar/TicTacToe')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (14, 11, N'GitHub', N'https://github.com/Behzadkhosravifar/TicTacToe')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (15, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'GitHub', N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (15, 6, N'GitHub', N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (17, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'GitHub', N'https://github.com/Behzadkhosravifar/Room-3D')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (17, 3, N'GitHub', N'https://github.com/Behzadkhosravifar/Room-3D')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (18, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'GitHub', N'https://github.com/Behzadkhosravifar/PingServer')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (18, 7, N'GitHub', N'https://github.com/Behzadkhosravifar/PingServer')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (19, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'GitHub', N'https://github.com/Behzadkhosravifar/NFA2DFA')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (19, 2, N'GitHub', N'https://github.com/Behzadkhosravifar/NFA2DFA')
 GO
-INSERT [dbo].[ExtraLinks] ([Id], [PortfolioId], [Name], [Link]) VALUES (20, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'GitHub', N'https://github.com/Behzadkhosravifar/8Queen')
+INSERT [dbo].[ExtraLinks] ([ID], [PortfolioID], [Name], [Link]) VALUES (20, 4, N'GitHub', N'https://github.com/Behzadkhosravifar/8Queen')
 GO
 SET IDENTITY_INSERT [dbo].[ExtraLinks] OFF
 GO
@@ -1651,10 +1940,7 @@ INSERT [dbo].[PortfolioCategories] ([PortfolioID], [CategoryID]) VALUES (15, 2)
 GO
 INSERT [dbo].[PortfolioCategories] ([PortfolioID], [CategoryID]) VALUES (15, 48)
 GO
-SET IDENTITY_INSERT [dbo].[Portfolios] ON 
-
-GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'Error Control System', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'Error Control System', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
 <div align="center">
 
 [![Error Control System.png](http://r.xomorod.ir/img/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
@@ -1856,9 +2142,213 @@ description to find out who it is (if it is not there it has to be on the commen
  
 
 * The task board is at [Huboard](http://huboard.com/BehzadKhosravifar/ErrorControlSystem/).
-* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10)
+* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (2, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA to DFA', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 2, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'سیستم مدیریت خطا', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
+<div align="center">
+
+[![Error Control System.png](http://r.xomorod.ir/img/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/lnjusej10c0451xw?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/errorcontrolsystem)
+[![Nuget count](http://img.shields.io/nuget/v/errorcontrolsystem.svg)](https://www.nuget.org/packages/errorcontrolsystem/)
+[![Nuget downloads](http://img.shields.io/nuget/dt/errorcontrolsystem.svg)](https://www.nuget.org/packages/errorcontrolsystem/)
+[![Source Browser](https://img.shields.io/badge/Browse-Source-green.svg)](http://sourcebrowser.io/Browse/Behzadkhosravifar/ErrorControlSystem)
+
+</div>
+---------------------
+---------------------
+### What Is This?
+
+This is a C#.Net project''s for manage __Exceptions__ of your .Net applications by handling and 
+logging that. This is a .dll modules to provide error handling worker on your app background''s.
+The modules strive to be simple, well documented and
+modification friendly, in order to help developers quickly learn their inner
+workings.
+
+NOTE: 
+>     This program is only for exception handling of 
+>     Windows-based applications (WinForms, WPF, Console)
+>     that are written by .NET languages such as C#, VB.NET, Visual F#
+
+---------------------
+### Settings
+
+In the initialize code snippet you''ve seen that, for the `ExceptionHandler.Engine` method should be an option. 
+This option is used to specify the error data, which includes the following values:
+
+*  None 
+*  DisplayUnhandledExceptions 
+*  ReportHandledExceptions 
+*  Snapshot 
+*  FetchServerDateTime 
+*  ResizeSnapshots 
+*  EnableNetworkSending 
+*  FilterExceptions 
+*  ExitApplicationImmediately 
+*  HandleProcessCorruptedStateExceptions 
+*  DisplayDeveloperUI 
+*  LogOnTheFly 
+*  All 
+*  Default = All - (ExitApplicationImmediately, HandleProcessCorruptedStateExceptions) 
+
+For example in above codes, this code means is:
+
+
+```C#
+ExceptionHandler.Engine.Start("localhost", "UsersManagements",
+                ErrorHandlingOptions.Default & ~ErrorHandlingOptions.ResizeSnapshots);
+```
+Select all options by excepted `ResizeSnapshots`
+
+By adding the our module starter code to the beginning of your program code, you can raise all exceptions history, including __Handled__ or __UnHandled__ exceptions on the your database.
+
+Note:
+>     In the new version 2.1.1.0 and later, the option set in from database at runtime, 
+>     and not necessary to set that from initial  Start  method
+
+
+--------------------------
+### How To Install The Modules
+
+
+
+1. Install examples for developers (unpacking it to your disk, and go to
+\ErrorControlSystem\out\ErrorControlSystem\... directory if you''re installing by hand, for example).
+
+ Note:
+>      If there is not any file in the out folders, 
+>      run the buildx86.bat (or buildx64 on 64bit Operation System) file 
+>      to compile project and create executable files.
+>      Or 
+>      please open project .sln file on Visual Studio 2013 
+>      and debug/release that to compile native files.
+
+
+2. In your project reference add this module dll file:  
+   References > Add Reference... > Browse to above path > Select ErrorControlSystem.dll
+
+3. Rebuild access permissions if you are prompted to.
+
+Now you can read the code and its comments and see the result, experiment with
+it, and hopefully quickly grasp how things work.
+
+If you find a problem, incorrect comment, obsolete or improper code or such,
+please search for an issue about it at [ECS Issue](https://github.com/Behzadkhosravifar/ErrorControlSystem/issues)
+If there isn''t already an issue for it, please create a new one.
+
+
+
+--------------------------
+### Creating SQL Server Database Manually
+
+
+The `ErrorControlSystem` project used from __UsersManagements __ database. So that is necessary for run this application.
+For Creating __UsersManagements__ database on your server or pc do below steps:
+
+Note:
+>     In the new version database and tables automatically created by ErrorControlSystem
+
+
+First open `SQL Server Management Studio` then connect to your Server instance.
+Next step''s, Create New Database by name __UsersManagements__ or any name of your choice.
+
+Only be carefully, in order to launch the program, enter the database name. For example: 
+
+```C#
+ExceptionHandler.Engine.Start(new Connection("Server", "Database", "User", "Pass"));
+
+// or simpler mode:
+ExceptionHandler.Engine.Start("Server", "Database", "User", "Pass");
+
+```
+
+Now, we need to create two table by names __ErrorLog__ and __Snapshots__ to save exceptions by screen captures.
+
+
+__ErrorLog Table:__
+
+| Column Name      | Data Type           | Description                                                   | Example																			|
+|:---------------- |:------------------- |:--------------------------------------------------------------|:---------------------------------------------------------------------------------|
+| ErrorId          |  `bigint`           | The unique identity number for exceptions by that location.	 | 51																				|
+| ServerDateTime   |  `datetime`         | Server system''s date and time when the error occurred.		 | 2015-04-11 17:23:08.170															|
+| Host             |  `varchar(200)`     | The client PC name.											 | KHOSRAVIFAR-B																	|
+| User             |  `varchar(200)`     | User Domain Name \ User name in operation system				 | DBI\khosravifar.b																|
+| IsHandled		   |  `bit`              | Determine this error whether handled or not ?				 | True																				|
+| Type             |  `varchar(200)`     | Type of specify exceptions.									 | NullReferenceException															|
+| AppName		   |  `varchar(200)`     | The application name, who that run this module on self.	 	 | Examples.WinForms v1.0.0															|
+| Data             |  `xml`              | Provide additional user-defined information.					 | `<ExtraProperties><Status>RequestCanceled</Status><Response/></ExtraProperties>` |
+| CurrentCulture   |  `nvarchar(200)`    | Current keyboard language, may change over the app lifetime.  | English (United States) (en-US)													|
+| CLRVersion	   |  `varchar(100)`     | Version of Common Language Runtime.							 | 4.0.30319.34014																	|
+| Message          |  `nvarchar(MAX)`    | Message of Exceptions.										 | Object reference not set to an instance of an object.							|
+| Source           |  `nvarchar(MAX)`    | Name of the application or the object that causes throw error.| mscorlib																			|
+| StackTrace       |  `nvarchar(MAX)`    | Representation of the immediate frames on the call stack.	 | N{namespace}.C{class}.M{method(parameters)} -> ...								|
+| ModuleName	   |  `varchar(200)`     | Name of the module that causes to throw exception.			 | Examples.WinForms.exe															|
+| MemberType	   |  `varchar(200)`     | Type of the member, include: Method, constructor, and so on.	 | Method																			|
+| Method           |  `nvarchar(500)`    | Name of the method that throws the exception.				 | Examples.WinForms.namespace.class.Void method(params)							|
+| Processes        |  `varchar(MAX)`     | List of all running process when exception occurred.			 | vmware-hostd, Idle, ...															|
+| ErrorDateTime	   |  `datetime`         | Client system''s date and time when the error occurred.		 | 2015-04-11 17:23:07.800															|
+| OS               |  `varchar(1000)`    | Information of the client operation system in `JSON` formats	 | Windows 8.1 64Bit v6.3.9600.0 - 64Bit Processor Architect - 32Bit Application	|
+| IPv4Address	   |  `varchar(50)`      | Network Internal IP Address									 | 192.168.30.40																	|
+| MACAddress	   |  `varchar(50)`      | Network Physical Address (MAC)								 | 74D435F250A0																		|
+| HResult          |  `int`              | Error Code - Use GetType().Name for define exception model.   | -2147467261																		|
+| Line			   |  `int`              | Line of exception occurrence code in file.					 | 125																				|
+| Column		   |  `int`              | Column of exception occurrence code in file.					 | 17																				|
+| DuplicateNo	   |  `int`              | Number of duplication for one exception''s.					 | 5																				|																			
+
+<br/>
+
+__Snapshots Table:__
+
+| Column Name      | Data Type            |
+|:---------------- |:---------------------|
+| ErrorLogId       |   `int`              |
+| ScreenCapture    |   `image`            |
+
+<br/>
+
+For easy way please go ahead and try [Wiki](https://github.com/Behzadkhosravifar/ErrorControlSystem/wiki) to use SQL Queries.
+There are __SQL Scripts__ to create tables and queries.
+
+
+--------------------------
+### Get it on NuGet       [![Nuget count](http://img.shields.io/nuget/v/errorcontrolsystem.svg)](https://www.nuget.org/packages/errorcontrolsystem/)
+
+You may use ErrorControlSystem as a library that you install with [Nuget](https://www.nuget.org/packages/ErrorControlSystem/) into your project or as a Visual Studio extension. 
+The way you want to use it depends on the scenario you are working on. You most likely want the [Nuget](https://www.nuget.org/packages/ErrorControlSystem/) package.
+
+To install Error Control System from [Nuget](https://www.nuget.org/packages/ErrorControlSystem/), 
+Run the following command in the [Package Manager Console](http://docs.nuget.org/consume/package-manager-console) :
+
+```powershell
+PM> Install-Package ErrorControlSystem
+```
+
+
+--------------------------
+### Contributing
+
+
+Questions, comments, bug reports, and pull requests are all welcome.
+Bug reports that include steps-to-reproduce (including code) are
+preferred. Even better, make them in the form of pull requests.
+Before you start to work on an existing issue, check if it is not assigned
+to anyone yet, and if it is, talk to that person.
+Also check the project [board](http://huboard.com/BehzadKhosravifar/ErrorControlSystem/board)
+and verify it is not being worked on (it will be tagged with the `Working` tag).
+If it is not being worked on, before you start check if the item is `Ready`.
+If the issue has the `Working` tag (working swimlane on Huboard) and has no Assignee
+then it is not being worked on by somebody on the core team. Check the issue''s
+description to find out who it is (if it is not there it has to be on the comments).
+
+
+--------------------------
+### Issues and task board
+ 
+
+* The task board is at [Huboard](http://huboard.com/BehzadKhosravifar/ErrorControlSystem/).
+* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (2, 1, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA to DFA', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
 
 ![NFA2DFA][19]
 
@@ -2001,17 +2491,170 @@ And if you click on Draw DFA Graph, then this form viewed:
 [25]: http://r.xomorod.ir/img/NFA2DFA/DFA-powerset-construction-example.svg.png
 [26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
 [27]: https://en.wikipedia.org/wiki/Worst-case_complexity
-[28]: http://r.xomorod.ir/img/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0)
+[28]: http://r.xomorod.ir/img/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (3, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'Room-3D', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (2, 2, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'تبدیل کننده ماشین غیر قطعی به قطعی', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
+
+![NFA2DFA][19]
+
+</div>
+
+--------------------
+
+[NFA][1] to [DFA][2] to convert a nondeterministic finite state automaton (**[NFA][1]**) to a deterministic finite state automaton (**[DFA][2]**).
+
+<div align="center">
+
+![screen][0]
+
+</div>
+
+<br/>
+
+--------------------
+
+In the [theory of computation][3] and [automata theory][4], the **powerset construction** or **subset construction** is a standard method for [converting][5] a [nondeterministic finite automaton][1] (NFA) into a [deterministic finite automaton][2] (DFA) which recognizes the same [formal language][6]. It is important in theory because it establishes that NFAs, despite their additional flexibility, are unable to recognize any language that cannot be recognized by some DFA. It is also important in practice for converting easier-to-construct NFAs into more efficiently executable DFAs. However, if the NFA has n states, the resulting DFA may have up to 2n states, an exponentially larger number, which sometimes makes the construction impractical for large NFAs.
+
+The construction, sometimes called the Rabin–Scott powerset construction (or subset construction) to distinguish it from similar constructions for other types of automata, was first published by [Michael O. Rabin][7] and [Dana Scott][8] in 1959.[`[1]`][9]
+
+-------------------------
+## Intuition
+
+To simulate the operation of a DFA on a given input string, one needs to keep track of a single state at any time: the state that the automaton will reach after seeing a [prefix][10] of the input. In contrast, to simulate an NFA, one needs to keep track of a set of states: all of the states that the automaton could reach after seeing the same prefix of the input, according to the nondeterministic choices made by the automaton. If, after a certain prefix of the input, a set S of states can be reached, then after the next input symbol x the set of reachable states is a deterministic function of S and x. Therefore, the sets of reachable NFA states play the same role in the NFA simulation as single DFA states play in the DFA simulation, and in fact the sets of NFA states appearing in this simulation may be re-interpreted as being states of a DFA.[`[2]`][11]
+
+
+-------------------------
+## Construction
+
+The powerset construction applies most directly to an NFA that does not allow state transformations without consuming input symbols (aka: "ε-moves"). Such an automaton may be defined as a [5-tuple][12] `(Q, Σ, T, q0, F)`, in which Q is the set of states, Σ is the set of input symbols, T is the transition function (mapping a state and an input symbol to a set of states), q0 is the initial state, and F is the set of accepting states. The corresponding DFA has states corresponding to subsets of Q. The initial state of the DFA is `{q0}`, the (one-element) set of initial states. The transition function of the DFA maps a state S (representing a subset of Q) and an input symbol x to the set `T(S,x) = ∪{T(q,x) | q ∈ S}`, the set of all states that can be reached by an x-transition from a state in S. A state S of the DFA is an accepting state if and only if at least one member of S is an accepting state of the NFA.[`[2]`][11][`[3]`][13]
+
+In the simplest version of the powerset construction, the set of all states of the DFA is the [powerset][14] of Q, the set of all possible subsets of Q. However, many states of the resulting DFA may be useless as they may be unreachable from the initial state. An alternative version of the construction creates only the states that are actually reachable.[`[4]`][15]
+
+### NFA with ε-moves
+
+For an NFA with ε-moves (also called an ε-NFA), the construction must be modified to deal with these by computing the ε-[closure][16] of states: the set of all states reachable from some given state using only ε-moves. Van Noord recognizes three possible ways of incorporating this closure computation in the powerset construction:[`[5]`][17]
+
+1. Compute the ε-closure of the entire automaton as a preprocessing step, producing an equivalent NFA without ε-moves, then apply the regular powerset construction. This version, also discussed by Hopcroft and Ullman,[`[6]`][18] is straightforward to implement, but impractical for automata with large numbers of ε-moves, as commonly arise in [natural language processing][22] application.[`[5]`][17]
+
+2. During the powerset computation, compute the ε-closure ![f1][20] of each state q that is considered by the algorithm (and cache the result).
+
+3. During the powerset computation, compute the ε-closure ![f2][21] of each subset of states Q'' that is considered by the algorithm, and add its elements to Q''.
+
+
+### Multiple initial states
+
+If NFAs are defined to allow for multiply initial states,[`[7]`][23] the initial state of the corresponding DFA is the set of all initial states of the NFA, or (if the NFA also has ε-moves) the set of all states reachable from initial states by ε-moves.
+
+
+-------------------------
+## Example
+
+The NFA below has four states; state 1 is initial, and states 3 and 4 are accepting. Its alphabet consists of the two symbols 0 and 1, and it has ε-moves.
+
+<div align="center">
+![NFA-powerset-construction-example][24]
+</div>
+
+The initial state of the DFA constructed from this NFA is the set of all NFA states that are reachable from state 1 by ε-moves; that is, it is the set `{1,2,3}`. A transition from `{1,2,3}` by input symbol 0 must follow either the arrow from state 1 to state 2, or the arrow from state 3 to state 4. Additionally, neither state 2 nor state 4 have outgoing ε-moves. Therefore, `T({1,2,3},0) = {2,4}`, and by the same reasoning the full DFA constructed from the NFA is as shown below.
+
+<div align="center">
+![DFA-powerset-construction-example][25]
+</div>
+
+As can be seen in this example, there are five states reachable from the start state of the DFA; the remaining 11 sets in the powerset of the set of NFA states are not reachable.
+
+
+-------------------------
+## Complexity
+
+Because the DFA states consist of sets of NFA states, an `n-state` NFA may be converted to a DFA with at most `2^n` states.[`[2]`][11] For every `n`, there exist `n-state` NFAs such that every subset of states is reachable from the initial subset, so that the converted DFA has exactly `2^n` states, giving `Θ(2n)` [worst-case][27] time complexity.[`[8]`][26] A simple example requiring nearly this many states is the language of strings over the alphabet `{0,1}` in which there are at least n characters, the nth from last of which is 1. It can be represented by an `(n + 1)-state` NFA, but it requires `2^n` DFA states, one for each `n-character` suffix of the input; cf. picture for `n=4`.[`[4]`][15]
+
+-------------------------
+## Application
+
+This is a sample NFA file:
+	
+	a b
+	3  
+	q1
+	q0 q1
+	q0 a q1
+	q1 b  q0 q1 q2
+	q1 a q2
+	q2 b q3
+	q7 b q9
+	
+Import this file and then you must see this result:
+
+	∑ = {a, b}
+	Vertex Name = {q0, q1, q2, q3, q4}
+	Final Vertex Name = {q1 , q2}
+	All Vector : 
+						q0  Arrow(a)  q1
+						q0  Arrow(b)  q2
+						q1  Arrow(a)  q3
+						q1  Arrow(b)  q2
+						q2  Arrow(a)  q1
+						q2  Arrow(b)  q2
+						q3  Arrow(a)  q4
+						q3  Arrow(b)  q4
+						q4  Arrow(a)  q4
+						q4  Arrow(b)  q4
+						
+And if you click on Draw DFA Graph, then this form viewed:
+
+<div align="center">
+![dfa][28]
+</div>
+
+-------------------------
+[0]: http://r.xomorod.ir/img/NFA2DFA/screen.png
+[1]: https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton	
+[2]: https://en.wikipedia.org/wiki/Deterministic_finite_automaton
+[3]: https://en.wikipedia.org/wiki/Theory_of_computation
+[4]: https://en.wikipedia.org/wiki/Automata_theory
+[5]: https://en.wikipedia.org/wiki/Automata_construction
+[6]: https://en.wikipedia.org/wiki/Formal_language
+[7]: https://en.wikipedia.org/wiki/Michael_O._Rabin
+[8]: https://en.wikipedia.org/wiki/Dana_Scott
+[9]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-1
+[10]: https://en.wikipedia.org/wiki/Substring#Prefix
+[11]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-sipser-2
+[12]: https://en.wikipedia.org/wiki/Tuple
+[13]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-hu-3
+[14]: https://en.wikipedia.org/wiki/Power_set
+[15]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-schneider-4
+[16]: https://en.wikipedia.org/wiki/Reflexive_transitive_closure
+[17]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-vannoord-5 
+[18]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-6
+[19]: http://r.xomorod.ir/img/NFA2DFA/LogoNFA-DFA.png
+[20]: http://r.xomorod.ir/img/NFA2DFA/f1.png
+[21]: http://r.xomorod.ir/img/NFA2DFA/f2.png
+[22]: https://en.wikipedia.org/wiki/Natural_language_processing
+[23]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-7
+[24]: http://r.xomorod.ir/img/NFA2DFA/NFA-powerset-construction-example.svg.png
+[25]: http://r.xomorod.ir/img/NFA2DFA/DFA-powerset-construction-example.svg.png
+[26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
+[27]: https://en.wikipedia.org/wiki/Worst-case_complexity
+[28]: http://r.xomorod.ir/img/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (3, 1, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'Room-3D', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
 
 <div align="center">
 
 ![sample](https://raw.githubusercontent.com/Behzadkhosravifar/Room-3D/master/img/sample.jpg)
 
-</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0)
+</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (4, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 Queen', N'8 Queen Puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (3, 2, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'اتاق سه بعدی', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
+
+<div align="center">
+
+![sample](https://raw.githubusercontent.com/Behzadkhosravifar/Room-3D/master/img/sample.jpg)
+
+</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (4, 1, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 Queen', N'8 Queen Puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/pc5fdjxbn6968oyt?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/8queen)
 </div>
 
@@ -2024,17 +2667,40 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [Markd
 
 <div align="center">
 ![Capture](http://r.xomorod.ir/img/8Queen/appScreen.jpg)
-</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0)
+</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (5, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'Fox Robbit', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (4, 2, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 وزیر', N'8 Queen Puzzle application', N'<div align="center">
+[![Build status](https://ci.appveyor.com/api/projects/status/pc5fdjxbn6968oyt?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/8queen)
+</div>
+
+--------------------------------
+
+8 Queen Puzzle application for WinFrom
+
+
+<br/>
+
+<div align="center">
+![Capture](http://r.xomorod.ir/img/8Queen/appScreen.jpg)
+</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (5, 1, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'Fox Robbit', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
 
 Fox Rabbit implemented by Fuzzy Logic algorithm
 
 ![icon](http://r.xomorod.ir/img/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
 
-<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6)
+<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (6, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'Sudoku 9×9', N'Sudoku 9×9 puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (5, 2, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'منطق فازی در تعقیب روباه و خرگوش', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
+
+Fox Rabbit implemented by Fuzzy Logic algorithm
+
+![icon](http://r.xomorod.ir/img/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
+
+<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (6, 1, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'Sudoku 9×9', N'Sudoku 9×9 puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/7742cq7k7pfydwat?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/sudoku)
 </div>
 
@@ -2044,9 +2710,21 @@ Sudoku 9×9 puzzle application designed in C# winForm.
 
 <div align="center">
 ![First Capture](http://r.xomorod.ir/img/Sudoku9/appScreenShut.png)
-</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2)
+</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (7, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'Ping Server', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (6, 2, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'سودوکو 9*9', N'Sudoku 9×9 puzzle application', N'<div align="center">
+[![Build status](https://ci.appveyor.com/api/projects/status/7742cq7k7pfydwat?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/sudoku)
+</div>
+
+--------------------
+
+Sudoku 9×9 puzzle application designed in C# winForm.
+
+<div align="center">
+![First Capture](http://r.xomorod.ir/img/Sudoku9/appScreenShut.png)
+</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (7, 1, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'Ping Server', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
 
 --------------------
 [![Build status](https://ci.appveyor.com/api/projects/status/9kxoig7qqna1yypq?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/pingserver)
@@ -2083,9 +2761,48 @@ either version 1.0.1 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0)
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (8, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'WHOis', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (7, 2, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'پینگ سرور', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
+
+--------------------
+[![Build status](https://ci.appveyor.com/api/projects/status/9kxoig7qqna1yypq?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/pingserver)
+
+Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs...
+
+--------------------------------
+### How To Use The Examples
+
+Before running app, set the host URL like this:
+
+![before](https://raw.githubusercontent.com/Behzadkhosravifar/PingServer/master/img/before.png)
+
+
+and then click on ping. When the server is not response then app being like this:
+
+![after](https://raw.githubusercontent.com/Behzadkhosravifar/PingServer/master/img/afterOff.png)
+
+* When you minimize the application, the app will going to System try mode and hidden from taskbar.
+
+--------------------------
+### LICENSE INFORMATION      [![OSI-Approved-License-100x137.png](http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png)](http://opensource.org/licenses/GPL-3.0.html)
+
+This software is open source, licensed under the GNU General Public License, Version 3.0.
+See [GPL-3.0](http://opensource.org/licenses/GPL-3.0.html) for details.
+This Class Library creates a way of handling structured exception handling,
+inheriting from the Exception class gives us access to many method
+we wouldn''t otherwise have access to
+                  
+Copyright (C) 2015-2016 [Behzad Khosravifar](mailto:Behzad.Khosravifar@Gmail.com)
+
+This program published by the Free Software Foundation,
+either version 1.0.1 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (8, 1, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'WHOis', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/t1k1cklv1q6ndymg?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/whois)
 </div>
 
@@ -2110,14 +2827,46 @@ Click on `Save Whois Result` to export whois data like below text file:
 |│|  Abbetina   |│|  Free        |│|  Free         |│|  Free |│|           
 |│|  Abbie      |│|  Reserved    |│|  Reserved     |│|  Free |│|           
 |│|  Abbigail   |│|  Reserved    |│|  Reserved     |│|  Free |│|           
-', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5)
+', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (9, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'Blur MessageBox', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (8, 2, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'چک کردن رزرو دامنه ها', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
+[![Build status](https://ci.appveyor.com/api/projects/status/t1k1cklv1q6ndymg?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/whois)
+</div>
+
+----------------------
+
+Whois **several domains** to know are reserved or not!
+
+<div align="center">
+![Capture](http://r.xomorod.ir/img/WHOis/screenshut.png)
+</div>
+
+Click on `Save Whois Result` to export whois data like below text file:
+
+
+|│|  Domain		|│|  .com        |│|  .net         |│|  .ir  |│|                	
+|-|:------------|-|:-------------|-|:--------------|-|:------|-|
+|│|  Aada		|│|  Reserved    |│|  Reserved     |│|  Free |│|           
+|│|  Aalia		|│|  Reserved    |│|  Reserved     |│|  Free |│|           
+|│|  Aaliyah    |│|  Reserved    |│|  Reserved     |│|  Free |│|           
+|│|  Aanisah    |│|  Reserved    |│|  Free         |│|  Free |│|                  	
+|│|  Abalina    |│|  Reserved    |│|  Free         |│|  Free |│|           
+|│|  Abbetina   |│|  Free        |│|  Free         |│|  Free |│|           
+|│|  Abbie      |│|  Reserved    |│|  Reserved     |│|  Free |│|           
+|│|  Abbigail   |│|  Reserved    |│|  Reserved     |│|  Free |│|           
+', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (9, 1, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'Blur MessageBox', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
 The MessageBox form for WPF and WinForms application by ability to blurring that parent form
 
-![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0)
+![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (10, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'Snipping Multiple Screen', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (9, 2, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'پنجره پیغام', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
+The MessageBox form for WPF and WinForms application by ability to blurring that parent form
+
+![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (10, 1, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'Snipping Multiple Screen', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/3ysq6ujt1lcmll26?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/snippingmultiplescreen)
 </div>
 
@@ -2140,9 +2889,34 @@ After save your output is like this:
 
 <div align="center">
 ![After Save](http://r.xomorod.ir/img/SnippingMultipleScreen/AppOutput.png)
-</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4)
+</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (11, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'Tic Tac Toe', N'Tic Tac Toe puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (10, 2, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'برش متعدد از دسکتاپ', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
+[![Build status](https://ci.appveyor.com/api/projects/status/3ysq6ujt1lcmll26?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/snippingmultiplescreen)
+</div>
+
+-------------------------
+
+Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.
+
+--------------------------------
+### How To Use The Examples
+
+First capture your snapshuts from display screen:
+
+<div align="center">
+![First Capture](http://r.xomorod.ir/img/SnippingMultipleScreen/AppScreenShot.jpg)
+</div>
+
+<br/>
+
+After save your output is like this:
+
+<div align="center">
+![After Save](http://r.xomorod.ir/img/SnippingMultipleScreen/AppOutput.png)
+</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 1, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'Tic Tac Toe', N'Tic Tac Toe puzzle application', N'<div align="center">
 ![ttt](http://r.xomorod.ir/img/TicTacToe/TicTacToe.png)
 
 <br/>
@@ -2157,9 +2931,26 @@ Tic Tac Toe puzzle application, designed in C# WinForm
 
 <div align="center">
 ![Capture](http://r.xomorod.ir/img/TicTacToe/screenshut.jpg)
-</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3)
+</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (12, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'Make Class Schedule', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 2, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'تیک تاک تو', N'Tic Tac Toe puzzle application', N'<div align="center">
+![ttt](http://r.xomorod.ir/img/TicTacToe/TicTacToe.png)
+
+<br/>
+
+[![Build status](https://ci.appveyor.com/api/projects/status/x9jsv7f99yarp1tg?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/tictactoe)
+</div>
+
+--------------------
+
+
+Tic Tac Toe puzzle application, designed in C# WinForm
+
+<div align="center">
+![Capture](http://r.xomorod.ir/img/TicTacToe/screenshut.jpg)
+</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 1, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'Make Class Schedule', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
 
 [![Make Class Schedule][4]][1]
 
@@ -2215,9 +3006,67 @@ Application main screen:
 [1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
 [2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
 [3]: http://r.xomorod.ir/img/MakeClassSchedule/MakeClassSchedule.jpg
-[4]: http://r.xomorod.ir/img/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5)
+[4]: http://r.xomorod.ir/img/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (13, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'TSP', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'زمانبندی کلاس های دانشگاه', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
+
+[![Make Class Schedule][4]][1]
+
+<br/>
+
+[![Build status](https://ci.appveyor.com/api/projects/status/4cjm8ir7bswf6nse?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/makeclassschedule)
+
+</div>
+
+--------------------
+
+### Welcome
+
+Thank you for choosing Make Class Schedule ! <br/>
+Make Class Schedule is one of those NP hard problems. The problem can be solved using a heuristic search algorithm to find the optimal solution, but it only works for simple cases. For more complex inputs and requirements, finding a considerably good solution can take a while, or it may be impossible. This is where genetic algorithms come in to the game. <br/>
+In this article, I assume that you are familiar with the basic concepts of genetic algorithms, and I won''t describe them in detail because it has been done so many times before.
+When you make a class schedule, you must take into consideration many requirements (number of professors, students, classes and classrooms, size of classroom, laboratory equipment in classroom, and many others). These requirements can be divided into several groups by their importance. Hard requirements (if you break one of these, then the schedule is infeasible):
+
+* A class can be placed only in a spare classroom.
+* No professor or student group can have more then one class at a time.
+* A classroom must have enough seats to accommodate all students.
+* To place a class in a classroom, the classroom must have laboratory equipment (computers, in our case) if the class requires it.
+
+Some soft requirements (can be broken, but the schedule is still feasible):
+
+* Preferred time of class by professors.
+* Preferred classroom by professors.
+* Distribution (in time or space) of classes for student groups or professors.
+
+Hard and soft requirements, of course, depend on the situation.
+
+
+**Algorithm**
+
+The genetic algorithm is fairly simple. For each generation, it performs two basic operations:
+
+1. Randomly selects N pairs of parents from the current population and produces N new chromosomes by performing a crossover operation on the pair of parents.
+2. Randomly selects N chromosomes from the current population and replaces them with new ones. The algorithm doesn''t select chromosomes for replacement if it is among the best chromosomes in the population.
+
+And, these two operations are repeated until the best chromosome reaches a fitness value equal to 1 (meaning that all classes in the schedule meet the requirement). As mentioned before, the genetic algorithm keeps track of the M best chromosomes in the population, and guarantees that they are not going to be replaced while they are among the best chromosomes.
+
+Application main screen:
+
+<div align="center">
+[![MakeClassSchedule.jpg][3]](https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule)
+</div>
+
+--------------------------------
+### For More Information
+
+### [Read Make Class Schedule WiKi][2]
+
+[1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
+[2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
+[3]: http://r.xomorod.ir/img/MakeClassSchedule/MakeClassSchedule.jpg
+[4]: http://r.xomorod.ir/img/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 1, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'TSP', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
 
 [![TSP](https://raw.githubusercontent.com/Behzadkhosravifar/TSP/master/src/TSP/Netclear.ico)][0]
 
@@ -2416,9 +3265,210 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 [3]: http://r.xomorod.ir/img/TSP/f3.jpg
 [4]: http://r.xomorod.ir/img/TSP/f4.jpg
 [5]: http://r.xomorod.ir/img/TSP/f5.jpg
-[6]: http://r.xomorod.ir/img/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9)
+[6]: http://r.xomorod.ir/img/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (14, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'Great Maps', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 2, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'مشکل فروشنده دوره گرد', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
+
+[![TSP](https://raw.githubusercontent.com/Behzadkhosravifar/TSP/master/src/TSP/Netclear.ico)][0]
+
+
+<h2>[Traveling Salesman Problem (TSP)][0]</h2>
+
+[![Build status](https://ci.appveyor.com/api/projects/status/rgk7q0cpuip0cbxy?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/tsp)
+
+</div>
+
+------------------------
+
+Travelling salesman problem (**TSP**) has been already mentioned in one of the previous chapters. To repeat it, there are cities and given distances between them.Travelling salesman has to visit all of them, but he does not to travel very much. Task is to find a sequence of cities to minimize travelled distance. In other words, find a minimal Hamiltonian tour in a complete graph of N nodes.
+
+<div align="center">
+[![screen](http://r.xomorod.ir/img/TSP/screenshut.png)][0]
+</div>
+
+**Note**:
+
+I do not have any degree in GA so this article can''t be used as GA book or GA tutorial. There aren''t any mathematics nor logic nor algebra about GA. It''s only a programmer''s view on Genetic Algorithms and only example of GA coding. Use it carefully! Any comments and criticism are highly appreciated.
+
+------------------------
+### Project Purpose
+
+**`Optimization Single Population Genetic Algorithm in Parallel Computing on TSP Example`**
+
+------------------------
+### Abstract
+
+The article investigates the efficiency of the parallel computation of the single population Genetic Algorithm approach on Travelling Salesman Problem examples and multiprocessing systems. For the parallel algorithm design functional decomposition of the parallel application has been made and the manager/workers paradigm is applied. Performance estimation and parallelism profiling have been made on the basis of multiTasking program implementation.
+
+------------------------
+### I.	INTRODUCTION
+
+The foundation of **P**arallel **G**enetic **A**lgorithm (**PGA**) is **G**enetic **A**lgorithm (**GA**), which is a class of global, adaptable, and probabilistic search optimization and revolution algorithm gleaned from the model of organic evolution and also simulates the genetics and evolution of biologic population in nature. GA adopts naturally evolutionary model such as selection, crossover, mutation, deletion and transference. Mathematically, this evolutionary process is a typical algorithm to find out the optimal solution via iteration search among multi-element in a **N**on-deterministic **P**olynomial-time (**NP**) set. **S**imple **G**enetic **A**lgorithm (**SGA**) can be defined as `SGA=(M, C, F, o, Ps, Pc, Pm, T)`, where `C` is a fixed bitstring code, `F` is a fitness evaluation function, `M` is an initial population of biologic colony and `Ps`, `Pc`, `Pm` are probabilities of selection, crossover and mutation respectively. 
+
+In solving NP problems by Series GA, a large sample space will increase the length of chromosomes. And this causes to increase in time complexity of the algorithm. `[1]` <br/>
+We''ve changed the serial genetic algorithm to be processed in Parallel. Finally, the time complexity is reduced.
+
+The PGA uses two major modifications compared to the genetic algorithm. Firstly, selection for mating is distributed. Individuals live in a 2-D world. Selection of a mate is done by each individual independently in its neighborhood (presented in Fig.1). Secondly, each individual may improve its fitness during its lifetime by e.g. local hill-climbing.
+
+<br/>
+<div align="center">
+
+![Figure 1][1]
+<br/>
+*Figure 1. 	The random search and inherently parallel of genetic algorithm*
+
+</div>
+
+<br/>
+The PGA is totally asynchronous, running with maximal efficiency on MIMD (Multiple Instruction, Multiple Data is a technique employed to achieve parallelism in computing) parallel computers. The search strategy of the PGA is based on a small number of active and intelligent individuals, whereas a GA uses a large population of passive individuals. Abstractly, a PGA is a parallel search with information exchange between the individuals in single population. We will investigate the PGA with deceptive problems and for example, implement it on the traveling salesman problem (TSP).
+
+Parallel Computing are widely used nowadays for solving time-consuming problems. The travelling salesman problem is a well known combinatorial problem. `[2]`
+
+The idea of the TSP is to find the shortest tour of a group of cities without visiting any town twice, but, practically, it implies the construction of a Hamiltonian cycle within a weighted fully connected undirected graph. Therefore, this is a problem of combinatorial graph search. The TSP is maybe one of the most explored problems in computer science. The applications of the TSP problem are numerous – in computer wiring, job scheduling, minimizing fuel consumption in aircraft, vehicle routing problem, robot learning, etc. `[3]`
+
+The purpose of this paper is to provide a method in which the genetic algorithm into a parallel algorithm and to be of such issues (NP) in the optimal time by use of parallel processing to solve.
+
+
+-----------------------------
+### II.	RESEARCH
+
+Generally 4 models for implementation of parallel genetic algorithms have been proposed:
+*	Single Population Master / Slave (fitness)
+*	Single Population Fine-Grained or Cellular PGA
+*	Multiple Population (with migration rate)
+*	Hierarchical
+
+In all the above methods of the parallel genetic algorithm, the purpose of design optimization in terms of genetics was considered a better answer, not for the computational speed. 
+Multiple population GAs are also widely used parallel methods, but they are more complex than single population methods. A key characteristic of multiple-population PGAs is the migration of individuals among sub populations. Each sub population is managed by an independent SGA except that the processors periodically exchange individuals. The computational burden in this size and span causes to reduce the speed of the system. 
+
+Single-population GAs are generally implemented using a master-slave model. In the master-slave model, a single population resides in the master processor and the master processor does the selection, crossover, and mutation; only evaluation of the fitness function is distributed among slave processors. The global single-population master-slave model that we use is illustrated in [Figure 2][2]. A portion of the population is distributed to each slave processor for evaluation of the fitness value of individuals. The master processor also retains a portion of the population so that it can carry out evaluation in parallel with the slave processors. Genetic operations other than evaluation are performed only by the master processor. The master processor assigns a fraction of the population to each slave processor for each generation. `[4]`
+
+<br/>
+<div align="center">
+
+![Figure 2][2]
+<br/>
+*Figure 2. 	Global single-population master-slave PGA. The master stores the population, executes GA operations, and sends subsets of the population to the slaves. Each slave only evaluates the fitness of the individuals in its subpopulation, and sends the fitness value back to master.*
+
+</div>
+
+<br/>
+In simpler problems (e.g.: TSP) the division of work between the processors just for evaluation is waste the CPU time and causes to be slower parallel trend of the series it.
+
+In this article, our methodology is so like method of Master/Slave, but with this difference that workers (slaves) in addition to the processing of chromosome fitness, should do the mutation and crossover. Finally new offspring created from worker tasks and put it with a certain formula in manager population array''s place. But to compute the genetic operands on the workers, we need an environment in which the genetic operands are able to work independently of other parts of the algorithm. Therefore, the chromosomes array should be stored globally in master until all worker tasks can use it concurrently.
+
+The manager (master) after making the randomize initial population, perform array to sort according to fitness, then the number of worse chromosomes (according by selection rate) in the array is deleted until allow to do their new children Replacement. Before the placement operates, the number of chromosomes that is to new production and placement, was determinate by the selected function; then by divide the replacement counts on the number of the system processors,  can know how many offspring each worker must produced and finally this parameter with start index of manager array parameters send to worker tasks.
+
+The most important part of our work was done at this stage, the workers must work independently and without reliance threads. And finally the generation process was done completely independently. So with the mutual exclusivity when parents split between workers and produce offspring, thereby increasing the independence of our processes. And just insertion of the produced children in the Global population array (which is located within the master) is in series state. But it can also be kept array as a sorted at any moment. Finally the array was always sorted and sorting algorithm in the manager is not required.
+
+For the parallel algorithm design functional decomposition of the parallel application has been made and the manager/workers paradigm is applied. Performance estimation and parallelism profiling have been made on the basis of multiTasking program implementation. The experimental parallel computer platform is a computer by multi Processors comprising eight workstations (Processor or Computer) communicating via Parent Task (Manager or Network Switch). <br/>
+Computation is presented in [Fig.3][3].
+
+<br/>
+<div align="center">
+
+![Figure 3][3]
+<br/>
+*Figure 3. 	The flat parallel model of computing the TSP by genetic algorithm*
+
+</div>
+
+<br/>
+The manager process (rank 0) performs all genetic operations for first population and distributes the computational load among the worker processes. It performs the following activities:
+
+1. Initializes population (randomize)
+2. Sort chromosomes by fitness value (the chromosome by lowest value is placed on first home of array)
+3. Chromosomes elitism and select worst chromosome for delete
+4. Define selection probability according chromosome fitness
+5. Construction workers to the number of cores for performs the genetic operators the along produce a new generation
+6. Wait for complete jobs of all workers
+7. Receives the evaluated offspring from workers and save new chromosomes by formula indexed in array
+8. Generates new population by combine any received offspring from workers in  array
+9. Check termination conditional for cut the loop
+10. Prints the computed shortest path
+
+The operations of a worker process are as follows:
+
+1. Performs roulette wheel selection
+2. Performs recombination (select 2 points for  crossover)
+3. Performs normal random mutation (two cities are chosen and exchanged)
+4. Evaluates the fitness of new chromosome
+5. Insert offspring from specified start index related
+
+
+---------------------------
+### III.	PARALLELISM PROFILING AND PERFORMANCE BENCHMARKING
+
+The parallel program (Visual C# + .Net 4 MultiTasking) implementation is run in the programming environment of Visual Studio 2010 Parallelism profiling is made for the case of 500 cities. The results of calculations in parallel and in series of three graphs: time-fitness, time-generation, fitness-generation.
+
+Obviously, that communication is quite intensive among the manager and the workers exchanging data about individuals (chromosomes and fitness). The communication transactions are performed via Task and so, the communication latency is very low. Formerly, the main shortcoming of the parallel genetic approach of computing the TSP with the manager/workers algorithmic paradigm is the sequential computation of the genetic operations – selection, mutation and reproduction – by the manager process. But now this operations run on workers.
+
+In evaluating the proposed parallel algorithm with a series algorithm, according to [Figure 4][4] and [Figure 5][5] can be seen that even the fitness  of elite chromosomes in sequential generations have improved faster. Because independence in reproduction processing (parental dissimilarity) the children is the lack of  convergence. The result is improved to reach the desired fitness quickly. Of course given the evaluation figures on the TSP example should be consider that the Fitness is the distance between cities, so how much lower, more efficient and better value.
+
+<br/>
+
+<div align="center">
+
+![Figure 4][4]
+<br/>
+*Figure 4. 	Compare best fitness of any generation in both state of series and parallel processing.*
+
+</div>
+
+<br/>
+
+<div align="center">
+
+![Figure 5][5]
+<br/>
+*Figure 5. 	Compare elite chromosome fitness in every moment for both state of series and parallel processing.*
+
+</div>
+
+<br/>
+
+Next harvest of result evaluations accordance by [Figure 6][6] is that the generation produce rates is much faster than the series state.
+
+<br/>
+
+<div align="center">
+
+![Figure 6][6]
+<br/>
+*Figure 6. 	Compare the number of generations produced in every moment of the series and parallel processing.*
+
+</div>
+
+<br/>
+
+--------------------------
+### IV.	CONCLUSIONS
+
+Based on the evaluation and comparison can be proved  that the mutual exclusivity and independence of the workers, the children will not converging. And therefore the optimal solution will be faster. And also undertake all tasks (genetic operations) of master by workers is a causes to increasing the speed of parallel processing. This paper attempts until have the present algorithm provides more parallelism, and  has not exist any series tasks for master.
+
+
+--------------------------
+### REFERENCES
+
+`[1]`	Zh. Shen and Y. Zhao, “Niche Pseudo-Parallel Genetic Algorithms for Path Optimization of Autonomous Mobile Robot - A Specific Application of TSP” unpublished.
+
+`[2]`	J. Hennesy, D. Patterson, Computer Architecture. A Quantative Approach, 3rd
+
+`[3]`	Borovska P., T. Ivanova, H. Salem. Efficient Parallel Computation of the Traveling Salesman Problem on Multicomputer Platform, Proceedings of the International Scientific Conference ‘Computer Science’2004, Sofia, Bulgaria, December 2004, pp. 74-7
+
+`[4]`	Cantú-Paz, Erick. 1998. A survey of parallel genetic algorithms. Calculateurs Paralleles. Vol. 10, No. 2. Paris: Hermes. http://www-illigal.ge.uiuc.edu/publications.php3 (Accessed 18 May 2000).
+
+
+
+[0]: https://github.com/Behzadkhosravifar/TSP
+[1]: http://r.xomorod.ir/img/TSP/f1.jpg
+[2]: http://r.xomorod.ir/img/TSP/f2.png
+[3]: http://r.xomorod.ir/img/TSP/f3.jpg
+[4]: http://r.xomorod.ir/img/TSP/f4.jpg
+[5]: http://r.xomorod.ir/img/TSP/f5.jpg
+[6]: http://r.xomorod.ir/img/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (14, 1, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'Great Maps', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
 
 GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
@@ -2434,9 +3484,27 @@ GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
 ### Map Print Preview
 
-![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0)
+![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank]) VALUES (15, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'SignalR', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (14, 2, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'نقشه های ماهواره ای با قابلیت چاپ', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
+
+GMap.NET - Great Maps for Windows Forms &amp; Presentation
+
+**Forked from [radioman](https://github.com/radioman/greatmaps)**
+
+### Added Features
+
+* Map Print Preview
+* Movable Marker Tooltips
+* Calculate route in OpenStreetMap ant map on GoogleMap overlayer
+* Support Persian language
+
+
+### Map Print Preview
+
+![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, 0)
+GO
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (15, 1, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'SignalR', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qs8hglln9b55nyk4?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/signalr)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/SignalR/blob/master/LICENSE)
@@ -2527,9 +3595,100 @@ Install Nuget packages for server project:
 
 Install Nuget packages for clients project:
 
-	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8)
+	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, 1)
 GO
-SET IDENTITY_INSERT [dbo].[Portfolios] OFF
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (15, 2, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'سیگنال آر', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
+
+[![Build status](https://ci.appveyor.com/api/projects/status/qs8hglln9b55nyk4?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/signalr)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/SignalR/blob/master/LICENSE)
+[![GitHub first friendly](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
+
+</div>
+
+---------------------------
+
+### What Is This?
+
+A reusable win32 API  for connect any client to server or each other clients. Send data or code from one client to other clients included.
+
+---------------------------
+### SignalR Server
+If you want to install or unistall a service for signalR server or just run the server without installing, do following commands:
+
+* Install signalR service: <br/>
+	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /i` <br/>
+	or <br/>
+	`$ SignalR\Solution Items\InstallSignalRService.bat`
+
+
+* Uninstall signalR service: <br/>
+	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /u` <br/>
+	or <br/>
+	`$ SignalR\Solution Items\UninstallSignalRService.bat`
+
+
+* Delete signalR service: <br/>
+	`$ SignalR\Solution Items\DeleteSignalRService.bat`
+
+
+* Execute signalR server (without install service): <br/>
+	`$ SignalR\Out\SignalR\Core.Server\SignalRServer.exe /d` <br/>
+	or <br/>
+	`$ SignalR\Solution Items\RunServiceOnWPF.bat`
+
+<div align="center">
+	![wpfServer](http://r.xomorod.ir/img/SignalR/wpfServer.PNG)
+</div>
+
+--------------------------
+### SignalR Clients
+A sample project in win32 for present signalR client
+
+<div align="center">
+![clients](http://r.xomorod.ir/img/SignalR/clients.PNG)
+</div>
+
+### SignalR Clients Controller
+The clients controller in fact is a signalR client, but this project can be controll all signalR clients in network.
+
+For e.x:
+
+<div align="center">
+![clientsController](http://r.xomorod.ir/img/SignalR/clientsController.png)
+</div>
+
+In this application you can fetch any events of server from server windows logs by clicking on `Show Server Event Logs`
+
+<div align="center">
+![logViewer](http://r.xomorod.ir/img/SignalR/logViewer.png)
+</div>
+
+And by selecting one client in from list you can to control that by this form:
+<div align="center">
+![ControlUser](http://r.xomorod.ir/img/SignalR/selectedUserController.png)
+</div>
+
+In `Control User` form you can to send a message to selected users or execute an stored procedure on that clients. <br/>
+By click on `Custom Procedure` you should see this form:
+<div align="center">
+![dynamicCodeExec](http://r.xomorod.ir/img/SignalR/dynamicCodeExec.PNG)
+</div>
+
+In `Runtime Dynamic Compiler` form you can type your c# codes to executed on selected users system.
+
+---------------------
+### Note
+
+For create your custom projects you must to know this package locations:
+
+Install Nuget packages for server project:
+
+	PM> Install-Package Microsoft.AspNet.SignalR.SelfHost
+	PM> Install-Package Microsoft.Owin.Cors
+
+Install Nuget packages for clients project:
+
+	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Resources] ON 
 
@@ -2927,7 +4086,7 @@ INSERT [dbo].[Users] ([UserID], [Id], [Username], [FirstName], [LastName], [Modi
 GO
 SET IDENTITY_INSERT [dbo].[Users] OFF
 GO
-/****** Object:  Index [IX_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [IX_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'IX_RssFeeds')
 ALTER TABLE [dbo].[RssFeeds] ADD  CONSTRAINT [IX_RssFeeds] UNIQUE NONCLUSTERED 
 (
@@ -2937,14 +4096,14 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [Au_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
 CREATE NONCLUSTERED INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
 (
 	[Author] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
 CREATE NONCLUSTERED INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
 (
@@ -2954,23 +4113,35 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [TX_RssFeeds]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
 CREATE NONCLUSTERED INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
 (
 	[TitleHash] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/7/2016 7:16:23 PM ******/
+/****** Object:  Index [IX_RssResources]    Script Date: 2/11/2016 10:44:58 PM ******/
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
 CREATE NONCLUSTERED INDEX [IX_RssResources] ON [dbo].[RssResources]
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ApiActions_IsActive]') AND type = 'D')
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
 BEGIN
-ALTER TABLE [dbo].[ApiActions] ADD  CONSTRAINT [DF_ApiActions_IsActive]  DEFAULT ((1)) FOR [IsActive]
+ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_LangID]  DEFAULT ((1)) FOR [LangID]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_IsActive]  DEFAULT ((1)) FOR [IsActive]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[CategoriesChilds] ADD  CONSTRAINT [DF_CategoriesChilds_IsActive]  DEFAULT ((1)) FOR [IsActive]
 END
 
 GO
@@ -3040,6 +4211,12 @@ ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Login__117F9D94] 
 END
 
 GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_LangID]  DEFAULT ((1)) FOR [LangID]
+END
+
+GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_UniqueId]  DEFAULT (newid()) FOR [Id]
@@ -3055,6 +4232,12 @@ GO
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_Rank]  DEFAULT ((0)) FOR [Rank]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_IsActive]  DEFAULT ((1)) FOR [IsActive]
 END
 
 GO
@@ -3147,8 +4330,4 @@ BEGIN
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_AccessFailedCount]  DEFAULT ((0)) FOR [AccessFailedCount]
 END
 
-GO
-USE [master]
-GO
-ALTER DATABASE [Xomorod] SET  READ_WRITE 
 GO
