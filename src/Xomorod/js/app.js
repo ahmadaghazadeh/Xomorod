@@ -15,15 +15,24 @@ app.config(['$translateProvider', function ($translateProvider) {
 
 app.controller('productsController', [
     '$scope', '$http', function ($scope, $http) {
-        $http.get("http://localhost:50543/products").success(function (response) {
-            $scope.products = response;
-            $scope.convertMarked = function (data) {
-                //document.getElementById('content').innerHTML = marked(response);
-                $scope.readme_markdown = marked(data.portfolio.Markdown);
-            }
+        $http.post('/api/ApiAddress', JSON.stringify("products")).success(function (response) {
+
+            alert(response);
+
+            $http.get(response).success(function (response) {
+                $scope.products = response;
+                $scope.convertMarked = function (data) {
+                    //document.getElementById('content').innerHTML = marked(response);
+                    $scope.readme_markdown = marked(data.portfolio.Markdown);
+                }
+            }).error(function () {
+                alert("an unexcepted error ocurred at products Controller");
+            });
+
         }).error(function () {
-            alert("an unexcepted error ocurred at products Controller");
+            alert("an unexcepted error ocurred at Get Api Url");
         });
+        
     }
 ]);
 

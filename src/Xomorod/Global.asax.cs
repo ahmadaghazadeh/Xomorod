@@ -13,9 +13,7 @@ namespace Xomorod
         {
             Error += Application_Error;
             GlobalConfiguration.Configure(WebApiConfig.Register);
-
-            // https://msdn.microsoft.com/en-us/library/dd329551.aspx
-            RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes); // Register Pages Routes
 
             // Set Database Connetion from [Web.config]
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
@@ -58,44 +56,6 @@ namespace Xomorod
 
             // Clear the error from the server
             Server.ClearError();
-        }
-
-
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            // ignore
-            // The following code shows how to prevent routing from handling requests for .axd requests.
-            routes.Add(new System.Web.Routing.Route("{resource}.axd/{*pathInfo}",
-                new System.Web.Routing.StopRoutingHandler()));
-
-            // localization routes e.g:  http://Xomorod.com/en/
-            routes.MapPageRoute("localRoutes",
-                "{local}",
-                "~/default.aspx", true,
-                new RouteValueDictionary
-                {
-                    {"local", "en"},
-                },
-                new RouteValueDictionary
-                {
-                    {"local", "[a-z]{2}"},
-                });
-
-            // localization routes e.g:  http://Xomorod.com/
-            routes.MapPageRoute("HomeRoutes",
-                "",
-                "~/default.aspx", true);
-
-
-            // catch all route
-            routes.MapPageRoute(
-                "All Pages",
-                "{*RequestedPage}",
-                "~/ErrorPages/404.aspx",
-                true,
-                new System.Web.Routing.RouteValueDictionary { { "RequestedPage", "home" } }
-                );
-
         }
     }
 }

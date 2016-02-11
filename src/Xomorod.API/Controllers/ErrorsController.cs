@@ -56,6 +56,6 @@ namespace Xomorod.API.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.Created);
         }
 
-        
+
     }
 }

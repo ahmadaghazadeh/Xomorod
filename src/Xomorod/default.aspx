@@ -59,7 +59,6 @@
 </head>
 
 <body onload="loadCompleted();" ng-app="xomorodApp" ng-controller="bodyController" id="page-top">
-
     <!---------- PreLoader Animate ----------->
     <div class="loader" id="loader">
         <div id='c'>

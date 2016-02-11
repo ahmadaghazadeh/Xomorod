@@ -164,7 +164,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApiAddressController.cs" />
     <Compile Include="Controllers\TranslationsController.cs" />
     <Compile Include="Core\CdnHelper.cs" />
     <Compile Include="Core\SessionController.cs" />

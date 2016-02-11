@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Routing;
 
 namespace Xomorod
 {
@@ -17,16 +18,8 @@ namespace Xomorod
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
-            //config.Routes.MapHttpRoute(
-            //     name: "ApiByName",
-            //     routeTemplate: "api/{controller}/{name}/{id}",
-            //    defaults: new { controller = "Translations", id = RouteParameter.Optional },
-            //    constraints: new { name = @"^[a-z]+$" }
-            //);
-
+                defaults: new {id = RouteParameter.Optional}
+                );
         }
     }
 }
