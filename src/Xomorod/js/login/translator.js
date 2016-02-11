@@ -8,7 +8,7 @@
          );
 
 app.config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.useUrlLoader('/api/translations/login/');
+    $translateProvider.useUrlLoader('/api/translate/login/');
     $translateProvider.useSanitizeValueStrategy(null);
 }]);
 

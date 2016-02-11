@@ -9,25 +9,25 @@
          );
 
 app.config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.useUrlLoader('/api/translations');
+    $translateProvider.useUrlLoader('/api/translate');
     $translateProvider.useSanitizeValueStrategy(null);
 }]);
 
 app.controller('productsController', [
     '$scope', '$http', function ($scope, $http) {
-        $http.get('/api/ApiAddress/?controller=products').success(function (response) {
+        $http.get('/api/apiaddress/?controller=products').success(function (response) {
             $http.get(response).success(function (response) {
                 $scope.products = response;
                 $scope.convertMarked = function (data) {
                     //document.getElementById('content').innerHTML = marked(response);
                     $scope.readme_markdown = marked(data.portfolio.Markdown);
                 }
-            }).error(function () {
-                alert("an unexcepted error ocurred at products Controller");
+            }).error(function (error) {
+                alert("an unexcepted error ocurred at products Controller" + "\n\n" + error.message);
             });
 
-        }).error(function () {
-            alert("an unexcepted error ocurred at Get Api Url");
+        }).error(function (error) {
+            alert("an unexcepted error ocurred at Get Api Url" + "\n\n" + error.message);
         });
 
     }

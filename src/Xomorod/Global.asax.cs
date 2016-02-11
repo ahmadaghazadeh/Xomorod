@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 using AdoManager;
+using Xomorod.API.Providers;
 
 namespace Xomorod
 {
@@ -11,7 +12,6 @@ namespace Xomorod
     {
         protected void Application_Start()
         {
-            Error += Application_Error;
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes); // Register Pages Routes
 
@@ -19,6 +19,8 @@ namespace Xomorod
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
             ConnectionManager.LoadFromXml(data);
             ConnectionManager.SetToDefaultConnection("Xomorod");
+
+            Error += Application_Error;
         }
 
         void Application_Error(object sender, EventArgs e)
@@ -27,6 +29,9 @@ namespace Xomorod
 
             // Get the exception object.
             Exception exc = Server.GetLastError();
+
+            if (exc == null)
+                return;
 
             // Handle HTTP errors
             if (exc.GetType() == typeof(HttpException))
@@ -39,23 +44,18 @@ namespace Xomorod
                     return;
 
                 //Redirect HTTP errors to HttpError page
-                Server.Transfer("Default.aspx");
+                //Server.Transfer("~/Views/Errors");
+                Response.Redirect("~/ErrorPages/404.aspx");
+                return;
             }
 
-            // For other kinds of errors give the user some information
-            // but stay on the default page
-            Response.Write("<h2>Global Page Error</h2>\n");
-            Response.Write(
-                "<p>" + exc.Message + "</p>\n");
-            Response.Write("Return to the <a href='Default.aspx'>" +
-                "Default Page</a>\n");
-
-            // Log the exception and notify system operators
-            //ExceptionUtility.LogException(exc, "DefaultPage");
-            //ExceptionUtility.NotifySystemOps(exc);
+            exc.RaiseError();
 
             // Clear the error from the server
             Server.ClearError();
+
+            // Redirect to a landing page
+            Response.Redirect("~/default.aspx");
         }
     }
 }

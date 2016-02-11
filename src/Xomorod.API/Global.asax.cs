@@ -29,6 +29,8 @@ namespace Xomorod.API
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
             ConnectionManager.LoadFromXml(data);
             ConnectionManager.SetToDefaultConnection("Xomorod");
+
+            Error += Application_Error;
         }
 
         void Application_Error(object sender, EventArgs e)
