@@ -38,7 +38,6 @@
 	4.15 - related posts
 	4.16 - add comment
 	4.17 - contacts map
-	4.18 - error-404
 	
 5.0 - WIDGETS
 	5.1 - widget
@@ -2937,121 +2936,6 @@ a {
 }
 
 
-/**/
-/* error-404 */
-/**/
-.error-404 {
-	margin-bottom: -90px;
-	background: #ffcc39;
-}
-.error-404 p {
-	position: absolute;
-	top: 40%;
-	right: 0;
-	width: 370px;
-	font-size: 1.28em;
-	line-height: 1.25;
-	font-weight: 700;
-	text-transform: uppercase;
-	opacity: 0.3;
-}
-.error-404 i {
-	position: absolute;
-	bottom: 62px;
-	left: 50%;
-	width: 42px;
-	margin-left: -415px;
-	font-size: 24px;
-	line-height: 42px;
-	text-align: center;
-	color: rgba(0,0,0,0.5);
-}
-.error-404 form {
-	position: relative;
-	padding-top: 38.8%;
-	background: url(../img/404.png);
-	background-size: cover;
-}
-.error-404 input {
-	position: absolute;
-	bottom: 60px;
-	left: 50%;
-	width: 830px;
-	margin-left: -415px;
-	padding-left: 52px;
-	border-bottom: 2px solid rgba(0,0,0,0.5);
-	box-sizing: border-box;
-	line-height: 3em;
-}
-.error-404 input::-moz-placeholder {
-	color: rgba(0,0,0,0.3);
-	opacity: 1;
-}
-.error-404 input:-ms-input-placeholder {
-	color: rgba(0,0,0,0.3);
-}
-.error-404 input::-webkit-input-placeholder {
-	color: rgba(0,0,0,0.3);
-}
-.error-404 .grid-cont {
-	padding-top: 15%;	
-}
-@media screen and (max-width: 1229px) { /* laptop */
-	.error-404 {
-		margin-bottom: -60px;
-	}
-	.error-404 p {
-		width: 280px;
-	}
-	.error-404 i {
-		bottom: 42px;
-		margin-left: -330px;
-	}
-	.error-404 input {
-		bottom: 40px;
-		width: 660px;
-		margin-left: -330px;
-	}
-}
-@media screen and (max-width: 979px) { /* pad */
-	.error-404 p {
-		width: 240px;
-	}
-	.error-404 i {
-		bottom: 32px;
-		width: 30px;
-		margin-left: -280px;
-		font-size: 20px;
-		line-height: 30px;
-	}
-	.error-404 input {
-		bottom: 30px;
-		width: 560px;
-		margin-left: -280px;
-		padding-left: 40px;
-	}
-}
-@media screen and (max-width: 767px) { /* phone */
-	.error-404 {
-		margin-right: -10px;
-		margin-left: -10px;
-	}
-	.error-404 p {
-		display: none;
-	}
-	.error-404 i {
-		bottom: 11px;
-		margin-left: -130px;
-	}
-	.error-404 input {
-		bottom: 9px;
-		width: 260px;
-		margin-left: -130px;
-	}
-}
-
-
-
 /*----------------------------------------------*/
 /*                    WIDGETS                   */
 /*----------------------------------------------*/
@@ -3148,6 +3032,7 @@ a {
 /**/
 .widget-socials {
 	background: #ffcc39;
+    color: #fff;
 }
 .widget-socials a {
 	width: 61px;
@@ -3166,6 +3051,9 @@ a {
 }
 .widget-socials .fa-twitter {
 	background: #56a3d9;
+}
+.widget-socials .fa-telegram {
+	background: #38B0E3;
 }
 .widget-socials .fa-facebook {
 	background: #3b5998;

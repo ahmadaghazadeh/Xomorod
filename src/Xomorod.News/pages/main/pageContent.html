@@ -361,18 +361,17 @@
                 <!--/ most posts -->
                 <!-- widget socials -->
                 <div class="widget widget-socials">
-                    <div class="head">socialize</div>
+                    <div class="head"><h3>Socialize</h3></div>
                     <div class="cont">
-                        <a href="#" class="fa fa-twitter"></a>
-                        <!--
-                        -->
+                        <a href="https://twitter.com/xomorod" class="fa fa-twitter"></a>
+
                         <a href="#" class="fa fa-linkedin"></a>
-                        <!--
-                        -->
-                        <a href="#" class="fa fa-instagram"></a>
-                        <!--
-                        -->
+
+                        <a href="https://instagram.com/xomorod" class="fa fa-instagram"></a>
+
                         <a href="#" class="fa fa-facebook"></a>
+
+                        <a href="http://telegram.me/xomorod" class="fa fa-paper-plane fa-telegram"></a>
                     </div>
                 </div>
                 <!--/ widget socials -->
@@ -415,26 +414,26 @@
                 </div>
                 <!--/ widget poll -->
                 <!-- widget weather -->
-                    <div  id="weather" class="widget widget-weather" ng-controller="weatherController">
-                        <div class="head">{{ weather.city }}&nbsp;,&nbsp;{{ weather.country }}</div>
-                        <div class="cont">
-                            <h2>
-                                <i class="icon-{{ weather.code }}"></i>
-                                {{weather.temp }}&deg;{{ weather.units.temp }}
-                            </h2>
-                            <p >
-                                {{ weather.forecast[0].text}}
-                                <br/>
-                                {{weather.wind.direction}} &nbsp; {{ weather.wind.speed }} &nbsp;{{ weather.units.speed }}
-                            </p>
-                            <p>MIN:&nbsp;{{ weather.forecast[0].low }}&deg; {{weather.units.temp }} &nbsp;&nbsp;&nbsp; MAX:&nbsp; {{ weather.forecast[0].high }} &deg; {{ weather.units.temp }} </p>
-                            <br/>
-                            <p ng-if="errMsg != null" style="color: yellow">{{ errMsg }} </p>
-                            <br/>
-                            <br/>
-                            <button type="button" id="geolocation" onclick="geolocationClick()" class=" {{ realPos ? 'hidden' : 'show' }}">use my location</button>
-                        </div>
+                <div id="weather" class="widget widget-weather" ng-controller="weatherController">
+                    <div class="head">{{ weather.city }}&nbsp;,&nbsp;{{ weather.country }}</div>
+                    <div class="cont">
+                        <h2>
+                            <i class="icon-{{ weather.code }}"></i>
+                            {{weather.temp }}&deg;{{ weather.units.temp }}
+                        </h2>
+                        <p>
+                            {{ weather.forecast[0].text}}
+                            <br />
+                            {{weather.wind.direction}} &nbsp; {{ weather.wind.speed }} &nbsp;{{ weather.units.speed }}
+                        </p>
+                        <p>MIN:&nbsp;{{ weather.forecast[0].low }}&deg; {{weather.units.temp }} &nbsp;&nbsp;&nbsp; MAX:&nbsp; {{ weather.forecast[0].high }} &deg; {{ weather.units.temp }} </p>
+                        <br />
+                        <p ng-if="errMsg != null" style="color: yellow">{{ errMsg }} </p>
+                        <br />
+                        <br />
+                        <button type="button" id="geolocation" onclick="geolocationClick()" class=" {{ realPos ? 'hidden' : 'show' }}">use my location</button>
                     </div>
+                </div>
                 <!--/ widget weather -->
             </div>
         </div>
