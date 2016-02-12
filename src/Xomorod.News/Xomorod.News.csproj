@@ -121,11 +121,10 @@
     <Content Include="css\main.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\rss_items_styles.css" />
-    <Content Include="css\socialsider-v1.0.css" />
+    <Content Include="css\socialsider.css" />
     <Content Include="css\weather.css" />
     <Content Include="default.aspx" />
     <Content Include="fonts\artill_clean_icons-webfont.svg" />
-    <Content Include="fonts\socicon-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\background.png" />
     <Content Include="images\favicon.png" />
@@ -211,9 +210,6 @@
     <Content Include="fonts\artill_clean_icons-webfont.eot" />
     <Content Include="fonts\artill_clean_icons-webfont.ttf" />
     <Content Include="fonts\artill_clean_icons-webfont.woff" />
-    <Content Include="fonts\socicon-webfont.eot" />
-    <Content Include="fonts\socicon-webfont.ttf" />
-    <Content Include="fonts\socicon-webfont.woff" />
     <None Include="Properties\PublishProfiles\Xomorod.News.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

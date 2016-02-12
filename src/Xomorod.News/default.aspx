@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/1.1.0/css/flag-icon.min.css" />
     <link href="css/weather.css" rel="stylesheet" />
-
-    <!-- Social Sider resource: http://codecanyon.net/item/socialsider-universal-social-sidebar/full_screen_preview/7033558 -->
-    <link rel="stylesheet" type="text/css" href="css/socialsider-v1.0.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/socialsider.css" media="screen" />
     <!--/ styles -->
 
     <!-- scripts -->
@@ -32,17 +30,19 @@
     <!--/ scripts -->
 </head>
 <body ng-app="xomorodApp">
-    <div class="socialsider socialsider_left_middle socialsider_fixed socialsider_bgcolor_white socialsider_radius socialsider_spacer socialsider_opacity ">
+    <nav class="social">
         <ul>
-            <li><a data-socialsider="facebook" href="#" title="Facebook"></a></li>
-            <li><a data-socialsider="twitter" href="#" title="Twitter"></a></li>
-            <li><a data-socialsider="google" href="#" title="Google"></a></li>
-            <li><a data-socialsider="linkedin" href="#" title="Linkedin"></a></li>
-            <li><a data-socialsider="instagram" href="#" title="Instagram"></a></li>
-            <li><a data-socialsider="github" href="#" title="GitHub"></a></li>
-            <li><a data-socialsider="rss" href="#" title="RSS"></a></li>
+            <li><a href="http://telegram.me/xomorod">Telegram <i class="fa fa-paper-plane"></i></a></li>
+            <li><a href="https://twitter.com/xomorod">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li><a href="http://facebook.com/xomorod">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://instagram.com/xomorod">Instagram <i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://plus.google.com/112166949009339498430">Google + <i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://ir.linkedin.com/in/xomorod-corporation-155017115">LinkedIn <i class="fa fa-linkedin"></i></a></li>
+            <li><a href="http://stackoverflow.com/jobs/companies/Xomorod">Stack Overflow <i class="fa fa-stack-overflow"></i></a></li>
+            <li><a href="https://github.com/Xomorod">GitHub <i class="fa fa-github"></i></a></li>
+            <li><a href="#">RSS <i class="fa fa-rss"></i></a></li>
         </ul>
-    </div>
+    </nav>
     <!-- page -->
     <div class="page page-boxed">
 
