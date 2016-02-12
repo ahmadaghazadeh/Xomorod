@@ -18,7 +18,11 @@ namespace Xomorod
             // Set Database Connetion from [Web.config]
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
             ConnectionManager.LoadFromXml(data);
-            ConnectionManager.SetToDefaultConnection("Xomorod");
+#if DEBUG
+            ConnectionManager.SetToDefaultConnection("Xomorod"); // local
+#else
+            ConnectionManager.SetToDefaultConnection("XomorodServerSide"); // server
+#endif
 
             Error += Application_Error;
         }
@@ -49,7 +53,7 @@ namespace Xomorod
                 return;
             }
 
-            exc.RaiseError();
+            exc.RaiseError("Xomorod.co");
 
             // Clear the error from the server
             Server.ClearError();

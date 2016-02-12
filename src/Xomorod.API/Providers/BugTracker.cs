@@ -78,7 +78,7 @@ namespace Xomorod.API.Providers
             }
             catch (Exception)
             {
-                //TODO store in local DB
+                // TODO store in local DB
             }
         }
 
@@ -91,7 +91,7 @@ namespace Xomorod.API.Providers
         {
             var err = new Error()
             {
-                AppName = appName ?? "Xomorod.API",
+                AppName = appName ?? Assembly.GetCallingAssembly().GetName().Name,
                 ErrorType = ex.GetType().ToString(),
                 Message = ex.Message,
                 ExtraData = ex.Data.Count > 0 ? ex.Data[0].ToString() : null,
