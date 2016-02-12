@@ -34,7 +34,7 @@
         <ul>
             <li><a href="http://telegram.me/xomorod">Telegram <i class="fa fa-paper-plane"></i></a></li>
             <li><a href="https://twitter.com/xomorod">Twitter <i class="fa fa-twitter"></i></a></li>
-            <li><a href="http://facebook.com/xomorod">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.facebook.com/Xomorod/">Facebook <i class="fa fa-facebook"></i></a></li>
             <li><a href="https://instagram.com/xomorod">Instagram <i class="fa fa-instagram"></i></a></li>
             <li><a href="https://plus.google.com/112166949009339498430">Google + <i class="fa fa-google-plus"></i></a></li>
             <li><a href="https://ir.linkedin.com/in/xomorod-corporation-155017115">LinkedIn <i class="fa fa-linkedin"></i></a></li>
