@@ -154,14 +154,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ApiAddressController.cs" />
-    <Compile Include="Controllers\DynamicsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Core\ExtensionsHelper.cs" />
     <Compile Include="Core\HtmlCreator.cs" />
     <Compile Include="Core\RssFeedsHelper.cs" />
     <Compile Include="Core\RssItem.cs" />
     <Compile Include="Core\RssResourcesContentProvider.cs" />
-    <Compile Include="Core\Security\ApiAuthorizeAttribute.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

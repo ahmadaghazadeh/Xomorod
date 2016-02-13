@@ -7,8 +7,11 @@ using System.Web.Http.Controllers;
 using System.Web.Security;
 using AdoManager;
 
-namespace Xomorod.News.Core.Security
+namespace Xomorod.API.Providers
 {
+    /// <summary>
+    /// AuthorizeAttribute Customized for xomorod user accounts and roles
+    /// </summary>
     public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
     {
         public dynamic User { get; private set; }

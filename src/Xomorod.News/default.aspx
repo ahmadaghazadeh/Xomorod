@@ -32,15 +32,15 @@
 <body ng-app="xomorodApp">
     <nav class="social">
         <ul>
-            <li><a href="http://telegram.me/xomorod">Telegram <i class="fa fa-paper-plane"></i></a></li>
-            <li><a href="https://twitter.com/xomorod">Twitter <i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://www.facebook.com/Xomorod/">Facebook <i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://instagram.com/xomorod">Instagram <i class="fa fa-instagram"></i></a></li>
-            <li><a href="https://plus.google.com/112166949009339498430">Google + <i class="fa fa-google-plus"></i></a></li>
-            <li><a href="https://ir.linkedin.com/in/xomorod-corporation-155017115">LinkedIn <i class="fa fa-linkedin"></i></a></li>
-            <li><a href="http://stackoverflow.com/jobs/companies/Xomorod">Stack Overflow <i class="fa fa-stack-overflow"></i></a></li>
-            <li><a href="https://github.com/Xomorod">GitHub <i class="fa fa-github"></i></a></li>
-            <li><a href="#">RSS <i class="fa fa-rss"></i></a></li>
+            <li><a target="_blank" href="http://telegram.me/xomorod">Telegram <i class="fa fa-paper-plane"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/xomorod">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/Xomorod/">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://instagram.com/xomorod">Instagram <i class="fa fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://plus.google.com/112166949009339498430">Google + <i class="fa fa-google-plus"></i></a></li>
+            <li><a target="_blank" href="https://ir.linkedin.com/in/xomorod-corporation-155017115">LinkedIn <i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank" href="http://stackoverflow.com/jobs/companies/Xomorod">Stack Overflow <i class="fa fa-stack-overflow"></i></a></li>
+            <li><a target="_blank" href="https://github.com/Xomorod">GitHub <i class="fa fa-github"></i></a></li>
+            <li><a target="_blank" href="#">RSS <i class="fa fa-rss"></i></a></li>
         </ul>
     </nav>
     <!-- page -->
