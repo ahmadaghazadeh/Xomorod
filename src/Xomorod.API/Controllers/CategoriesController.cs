@@ -3,40 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using AdoManager;
+using Xomorod.API.Providers;
+using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod.API.Controllers
 {
+    /// <summary>
+    /// Categories Web API
+    /// </summary>
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CategoriesController : ApiController
     {
-        // GET api/<controller>
-        [Route("Categories")]
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// Get all active Categories
+        /// </summary>
+        /// <returns>categories results as <see cref="IEnumerable{dynamic}"/></returns>
+        [Route("categories")]
+        public async Task<IHttpActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var results = await DataAccessObject.GetFromAsync("udft_Categories(1)");
+
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                await ex.RaiseErrorAsync("Xomorod.API");
+                return BadRequest(ex.Message);
+            }
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
+        ///// <summary>
+        ///// Get async data by dynamic query.
+        ///// Restrict by role: Administrators
+        ///// 
+        ///// GET api.xomorod.com/dynamics
+        ///// </summary>
+        ///// <returns>dynamic query results as <see cref="IEnumerable{dynamic}"/></returns>
+        //[ApiAuthorize(Roles = "Administrators")]
+        //[Route("dynamics")]
+        //public async Task<IHttpActionResult> GetDynamics()
+        //{
+        //    var queryParams = this.Request.GetQueryStrings();
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //    var query = queryParams["query"] ?? "";
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
+        //    var results = await DataAccessObject.GetFromQueryAsync(query);
+
+        //    return Ok(results);
+        //}
     }
 }

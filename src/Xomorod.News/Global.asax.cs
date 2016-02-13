@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Routing;
 using AdoManager;
 using Xomorod.API.Providers;
+using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod.News
 {

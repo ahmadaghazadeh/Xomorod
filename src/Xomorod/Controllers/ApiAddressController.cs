@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Xomorod.API.Providers;
+using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod.Controllers
 {
@@ -38,7 +39,7 @@ namespace Xomorod.Controllers
             catch (Exception ex)
             {
                 apiRout = $"Can not to find Controller, because: \n{ex.Message}";
-                ex.RaiseError();
+                await ex.RaiseErrorAsync();
             }
 
             return apiRout;

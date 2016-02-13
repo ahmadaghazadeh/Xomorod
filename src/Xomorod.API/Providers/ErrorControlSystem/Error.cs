@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Xomorod.API.Models
+namespace Xomorod.API.Providers.ErrorControlSystem
 {
     public class Error
     {
@@ -9,6 +8,15 @@ namespace Xomorod.API.Models
         public string Message { get; set; }
 
         public string ErrorType { get; set; }
+
+        public string ModuleName { get; set; }
+
+        public string Method { get; set; }
+
+        public string StackTrace { get; set; }
+
+        public string Line { get; set; }
+        public string Column { get; set; }
 
         public string ExtraData { get; set; }
 

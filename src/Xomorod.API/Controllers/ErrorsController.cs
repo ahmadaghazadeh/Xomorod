@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using AdoManager;
 using Xomorod.API.Models;
 using Xomorod.API.Providers;
+using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod.API.Controllers
 {
@@ -46,7 +47,7 @@ namespace Xomorod.API.Controllers
         {
             try
             {
-                await value.RaiseError();
+                await value.RaiseErrorAsync();
             }
             catch (Exception)
             {
