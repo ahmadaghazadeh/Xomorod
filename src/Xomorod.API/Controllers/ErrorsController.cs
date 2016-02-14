@@ -43,7 +43,7 @@ namespace Xomorod.API.Controllers
         /// Send an error to send host mail
         /// </summary>
         /// <param name="value">Error Model Object</param>
-        public async Task<HttpStatusCodeResult> Post([FromBody]Error value)
+        public async Task<HttpStatusCodeResult> Post([FromBody]ErrorModel value)
         {
             try
             {

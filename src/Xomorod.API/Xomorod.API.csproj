@@ -217,6 +217,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\DynamicsController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -226,13 +227,14 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Providers\ApiAuthorizeAttribute.cs" />
-    <Compile Include="Providers\ErrorControlSystem\Error.cs" />
+    <Compile Include="Models\ErrorModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Providers\ErrorControlSystem\BugTracker.cs" />
     <Compile Include="Providers\ErrorControlSystem\CodeScope.cs" />
     <Compile Include="Providers\ExtensionsHelper.cs" />
+    <Compile Include="Providers\ViewRenderer.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -244,6 +246,8 @@
     <Content Include="favicon.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\favicon.jpg" />
+    <Content Include="images\xomorod.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -293,10 +297,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Errors\err404.cshtml" />
     <Content Include="Views\Errors\Index.cshtml" />
-    <Content Include="Views\Email.cshtml" />
+    <Content Include="Views\Email\ErrorMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

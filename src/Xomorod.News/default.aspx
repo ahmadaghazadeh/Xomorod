@@ -45,7 +45,6 @@
     </nav>
     <!-- page -->
     <div class="page page-boxed">
-
         <!-- page header -->
         <header class="page-header">
             <!-- page header top -->

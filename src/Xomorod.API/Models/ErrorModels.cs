@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Xomorod.API.Providers.ErrorControlSystem
+namespace Xomorod.API.Models
 {
-    public class Error
+    /// <summary>
+    /// Error Model
+    /// </summary>
+    public class ErrorModel
     {
         [Required]
         public string Message { get; set; }
@@ -23,8 +26,9 @@ namespace Xomorod.API.Providers.ErrorControlSystem
         [Required]
         public string AppName { get; set; }
 
+        [Required]
         public string Version { get; set; }
 
-        public string HeaderIcon { get; set; }
+        public string HeaderIcon { get; set; } = "http://xomorod.com/images/favicon.jpg";
     }
 }
