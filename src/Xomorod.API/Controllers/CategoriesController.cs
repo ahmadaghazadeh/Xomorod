@@ -27,7 +27,7 @@ namespace Xomorod.API.Controllers
         {
             try
             {
-                var results = await DataAccessObject.GetFromAsync("udft_Categories()"); //TODO change to "udft_categories(1)"
+                var results = await DataAccessObject.GetFromAsync("udft_Categories(1)");
 
                 return Ok(results);
             }
