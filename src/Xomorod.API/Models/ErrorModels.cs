@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace Xomorod.API.Models
 {
@@ -30,5 +32,7 @@ namespace Xomorod.API.Models
         public string Version { get; set; }
 
         public string HeaderIcon { get; set; } = "http://xomorod.com/images/favicon.jpg";
+
+        public string ErrorTime { get; set; } = DateTime.Now.ToString(CultureInfo.InvariantCulture);
     }
 }
