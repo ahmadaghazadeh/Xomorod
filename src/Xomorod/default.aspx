@@ -29,7 +29,7 @@
     <meta name="keywords" content="زمرد, نرم افزار, تکنولوژی, فناوری, کد باز, اندروید, اپل, ویندوز, موبایل, f56ce249532f51527774" />
 
     <!-- Google SEO -->
-    <meta name="google-site-verification" content="VOSROjMO88irXCfK8DzPUxIff90VjdJhadLxc4XqWyk" />
+    <meta name="google-site-verification" content="AYP4KxNMI1VaPP5CRwnX7IGbL7ZmNWlspzwCHYlDgrw" />
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -51,6 +51,21 @@
     </noscript>
     <!-- End Facebook Pixel Code -->
 
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-73834244-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+
     <!-- Bing SEO -->
     <meta name="msvalidate.01" content="27A3B78838E7E315F07577745A289624" />
 
@@ -62,6 +77,7 @@
 
 
     <link rel="canonical" href="http://xomorod.com/" />
+    <link rel="amphtml" href="https://www.xomorod.com" />
 
     <!-- International Targeting by hreflang tags -->
     <link rel="alternate" hreflang="x-default" href="http://xomorod.com" />
@@ -250,21 +266,6 @@
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
-
-<!-- Google Analytics -->
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments);
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
-        m.parentNode.insertBefore(a, m);
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-71146450-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 <script>
     loadCompleted = function () {
