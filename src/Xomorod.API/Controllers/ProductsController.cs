@@ -13,7 +13,7 @@ namespace Xomorod.API.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : ApiController
     {
-        // GET api/products
+
         /// <summary>
         /// Get all products by default language (en)
         /// </summary>
@@ -25,7 +25,7 @@ namespace Xomorod.API.Controllers
 
 
             var products =
-                await AdoManager.DataAccessObject.GetFromQueryAsync("SELECT * FROM xomorod.dbo.udfv_PortfoliosView(1)");
+                await AdoManager.DataAccessObject.GetFromAsync("xomorod.dbo.udfv_PortfoliosView(1)");
 
             products = products.OrderByDescending(x => x.Rank);
 

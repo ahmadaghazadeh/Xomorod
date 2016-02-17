@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using AdoManager;
 using Xomorod.API.Providers;
 
@@ -19,6 +20,7 @@ namespace Xomorod.API.Controllers
         /// <returns>dynamic query results as <see cref="IEnumerable{dynamic}"/></returns>
         [ApiAuthorize(Roles = "Administrators")]
         [Route("dynamics")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IHttpActionResult> GetDynamics()
         {
             var queryParams = this.Request.GetQueryStrings();
