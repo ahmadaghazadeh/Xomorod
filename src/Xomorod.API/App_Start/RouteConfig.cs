@@ -23,6 +23,11 @@ namespace Xomorod.API
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
                 );
 
+
+            routes.MapRoute(
+                name: "APIs",
+                url: "{controller}/{*action}");
+
             routes.MapHttpRoute(
                     name: "errors",
                     routeTemplate: "errors/{id}",
