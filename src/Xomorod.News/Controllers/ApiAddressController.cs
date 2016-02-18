@@ -15,7 +15,7 @@ namespace Xomorod.News.Controllers
         /// <returns>api real rout to call them</returns>
         public async Task<string> Get(string controller)
         {
-            string apiRout = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>("SELECT xomorod.dbo.GetSettingByKey('ApiAddress')");
+            string apiRout = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>("SELECT dbo.GetSettingByKey('ApiAddress')");
 
 #if DEBUG
             apiRout = "http://localhost:50543";

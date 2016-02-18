@@ -1,1723 +1,70 @@
 ﻿USE [xomorod.com_xomorod]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_AccessFailedCount]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_AccessFailedCount]
-END
-
+DELETE FROM [dbo].[Users]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_LockoutEnable]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_LockoutEnable]
-END
-
+DELETE FROM [dbo].[UserInRoles]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_TwoFactorEnable]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_TwoFactorEnable]
-END
-
+DELETE FROM [dbo].[RssResources_ContentProviders]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_PhoneNumberConfirmed]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_PhoneNumberConfirmed]
-END
-
+DELETE FROM [dbo].[RssResources]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_EmailConfirmed]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_EmailConfirmed]
-END
-
+DELETE FROM [dbo].[RssFeeds]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Users__ModifyDat__1A14E395]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF__Users__ModifyDat__1A14E395]
-END
-
+DELETE FROM [dbo].[RssContentProviders]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_UniqueId]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] DROP CONSTRAINT [DF_Users_UniqueId]
-END
-
+DELETE FROM [dbo].[RssCategories]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssResources_Score]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] DROP CONSTRAINT [DF_RssResources_Score]
-END
-
+DELETE FROM [dbo].[Roles]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssResources_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] DROP CONSTRAINT [DF_RssResources_IsActive]
-END
-
+DELETE FROM [dbo].[Resources]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_NewsResources_Language]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] DROP CONSTRAINT [DF_NewsResources_Language]
-END
-
+DELETE FROM [dbo].[PortfoliosComment]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssFeeds_Score]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssFeeds] DROP CONSTRAINT [DF_RssFeeds_Score]
-END
-
+DELETE FROM [dbo].[Portfolios]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssFeeds_PublishDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssFeeds] DROP CONSTRAINT [DF_RssFeeds_PublishDate]
-END
-
+DELETE FROM [dbo].[PortfolioCategories]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssCategories_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] DROP CONSTRAINT [DF_RssCategories_IsActive]
-END
-
+DELETE FROM [dbo].[PolicyType]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_NewsCategory_Order]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] DROP CONSTRAINT [DF_NewsCategory_Order]
-END
-
+DELETE FROM [dbo].[PolicyQueries]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssCategories_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] DROP CONSTRAINT [DF_RssCategories_LangID]
-END
-
+DELETE FROM [dbo].[PolicyDetails]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_IsActive]
-END
-
+DELETE FROM [dbo].[LogHistory]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_Rank]
-END
-
+DELETE FROM [dbo].[Languages]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Portfolio__Modif__15502E78]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF__Portfolio__Modif__15502E78]
-END
-
+DELETE FROM [dbo].[ExtraLinks]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_UniqueId]
-END
-
+DELETE FROM [dbo].[ErrorLog]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] DROP CONSTRAINT [DF_Portfolios_LangID]
-END
-
+DELETE FROM [dbo].[CategoriesChilds]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Login__117F9D94]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__Login__117F9D94]
-END
-
+DELETE FROM [dbo].[Categories]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Succe__108B795B]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__Succe__108B795B]
-END
-
+DELETE FROM [dbo].[AppSetting]
 GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__RunDa__0F975522]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] DROP CONSTRAINT [DF__LogHistor__RunDa__0F975522]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Languages_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Languages] DROP CONSTRAINT [DF_Languages_IsActive]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_MACAddress]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_MACAddress]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IPv4Address]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_IPv4Address]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_AppName]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_AppName]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_Type]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_Type]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IsHandled]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_IsHandled]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrorHost]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrorHost]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrTime]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] DROP CONSTRAINT [DF_ErrorLog_ErrTime]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[CategoriesChilds] DROP CONSTRAINT [DF_CategoriesChilds_IsActive]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_IsActive]
-END
-
-GO
-IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Categories] DROP CONSTRAINT [DF_Categories_LangID]
-END
-
-GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
-DROP INDEX [IX_RssResources] ON [dbo].[RssResources]
-GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
-DROP INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
-GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
-DROP INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
-GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
-DROP INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
-GO
-/****** Object:  Index [IX_RssFeeds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'IX_RssFeeds')
-ALTER TABLE [dbo].[RssFeeds] DROP CONSTRAINT [IX_RssFeeds]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udfv_PortfoliosView]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssResources]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_RssResources]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_RssCategories]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_Portfolios]
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_CheckUserPass]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[fn_CheckUserPass]
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[fn_GetCategoryChilds]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_CategoriesChilds]
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[udft_Categories]
-GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
-DROP TABLE [dbo].[Users]
-GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
-DROP TABLE [dbo].[UserInRoles]
-GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources_ContentProviders]') AND type in (N'U'))
-DROP TABLE [dbo].[RssResources_ContentProviders]
-GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND type in (N'U'))
-DROP TABLE [dbo].[RssResources]
-GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND type in (N'U'))
-DROP TABLE [dbo].[RssFeeds]
-GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssContentProviders]') AND type in (N'U'))
-DROP TABLE [dbo].[RssContentProviders]
-GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssCategories]') AND type in (N'U'))
-DROP TABLE [dbo].[RssCategories]
-GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
-DROP TABLE [dbo].[Roles]
-GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
-DROP TABLE [dbo].[Resources]
-GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfoliosComment]') AND type in (N'U'))
-DROP TABLE [dbo].[PortfoliosComment]
-GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
-DROP TABLE [dbo].[Portfolios]
-GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
-DROP TABLE [dbo].[PortfolioCategories]
-GO
-/****** Object:  Table [dbo].[PolicyType]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyType]') AND type in (N'U'))
-DROP TABLE [dbo].[PolicyType]
-GO
-/****** Object:  Table [dbo].[PolicyQueries]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyQueries]') AND type in (N'U'))
-DROP TABLE [dbo].[PolicyQueries]
-GO
-/****** Object:  Table [dbo].[PolicyDetails]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyDetails]') AND type in (N'U'))
-DROP TABLE [dbo].[PolicyDetails]
-GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
-DROP TABLE [dbo].[LogHistory]
-GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Languages]') AND type in (N'U'))
-DROP TABLE [dbo].[Languages]
-GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
-DROP TABLE [dbo].[ExtraLinks]
-GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
-DROP TABLE [dbo].[ErrorLog]
-GO
-/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
-DROP TABLE [dbo].[CategoriesChilds]
-GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
-DROP TABLE [dbo].[Categories]
-GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AppSetting]') AND type in (N'U'))
-DROP TABLE [dbo].[AppSetting]
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[GetStringHashing]
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[GetSettingByKey]
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[GetResourceLinkByElementID]
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[GetExtraLinkByName]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Users_Insert]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_Users_Insert]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_InsertErrorLog]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Insert_RssItem]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_Insert_RssItem]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Increase_RssScore]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_Increase_RssScore]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_GetPolicyCategory]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_GetPolicyCategory]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_GetPolicyCategory]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/19/2016 1:14:09 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[sp_CatchError]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_CatchError]    Script Date: 2/19/2016 1:14:09 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_CatchError]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-CREATE PROCEDURE [dbo].[sp_CatchError]
-	@UserId UNIQUEIDENTIFIER,
-	@RaisError BIT,
-	@ExtraData NVARCHAR(MAX) = NULL,
-	@ErrorId BIGINT OUTPUT
-AS
-BEGIN
-	DECLARE @DatabaseName NVARCHAR(MAX) = ISNULL(Original_DB_NAME(), DB_NAME()),
-	        @ERROR_NUMBER INT = ERROR_NUMBER(),	-- @@ERROR
-	        @ERROR_STATE INT = ERROR_STATE(),
-	        @ERROR_SEVERITY INT = ERROR_SEVERITY(),
-	        @ERROR_LINE INT = ERROR_LINE(),
-	        @ERROR_Column INT = 0,
-	        @ERROR_PROCEDURE SYSNAME = ISNULL(ERROR_PROCEDURE(), ''New Query''),
-	        @ERROR_MESSAGE NVARCHAR(MAX) = ERROR_MESSAGE(),
-	        @Source NVARCHAR(1024) = @@SERVERNAME,
-	        @IP_Address SYSNAME = (
-	            SELECT client_net_address
-	            FROM   SYS.DM_EXEC_CONNECTIONS
-	            WHERE  SESSION_ID = @@SPID
-	        ),
-	        @MAC_Address SYSNAME = (
-	            SELECT net_address
-	            FROM   sys.sysprocesses
-	            WHERE  spid = @@SPID
-	        ),
-	        @Culture SYSNAME = @@LANGUAGE,
-	        @OS NVARCHAR(MAX) = @@Version,
-	        @ClrVersion SYSNAME = (
-	            SELECT CONVERT(SYSNAME, SERVERPROPERTY(''BuildClrVersion''))
-	        ),
-	        @ErrorDate DATETIME = GETDATE(),
-	        @IsHandled BIT = 1,
-	        @ErrorType SYSNAME = ''SqlException'',
-	        @MemberType SYSNAME = ''Stored Procedure'';
-	
-	IF @ERROR_NUMBER <> 50000
-	    -- Check the error exist or not? if exist then only update that 
-	    IF (
-	           SELECT 1
-	           FROM   [ErrorLog]
-	           WHERE  HResult        = @ERROR_NUMBER
-	                  AND Line       = @ERROR_LINE
-	                  AND Method     = @ERROR_PROCEDURE
-	                  AND UserId     = @UserId
-	       ) > 0
-	        -- Update error object from ErrorLog table 
-	        UPDATE dbo.ErrorLog
-	        SET    DuplicateNo += 1,
-	               @ErrorId = ErrorId
-	        WHERE  HResult = @ERROR_NUMBER
-	               AND Line = @ERROR_LINE
-	               AND Method = @ERROR_PROCEDURE
-	               AND UserId = @UserId; 
-	ELSE 
-	BEGIN
-		INSERT INTO [ErrorLog]
-		  (
-		    [OS],
-		    [UserId],
-		    [CLRVersion],
-		    [ErrorDateTime],
-		    [IsHandled],
-		    [Type],
-		    [Line],
-		    [Column],
-		    [Message],
-		    [HResult],
-		    [Source],
-		    [Method],
-		    [ModuleName],
-		    [IPv4Address],
-		    [MACAddress],
-		    [MemberType],
-		    [CurrentCulture],
-		    [DuplicateNo],
-		    [Data]
-		  )
-		VALUES
-		  (
-		    @OS,
-		    @UserId,
-		    @ClrVersion,
-		    @ErrorDate,
-		    @IsHandled,
-		    @ErrorType,
-		    @ERROR_LINE,
-		    @ERROR_Column,
-		    @ERROR_MESSAGE,
-		    @ERROR_NUMBER,
-		    @Source,
-		    @ERROR_PROCEDURE,
-		    @DatabaseName,
-		    @IP_Address,
-		    @MAC_Address,
-		    @MemberType,
-		    @Culture,
-		    0,
-		    (
-		        SELECT @ExtraData [ExtraData],
-		               @ERROR_SEVERITY [SEVERITY],
-		               @ERROR_STATE [STATE]
-		               FOR 
-		               XML PATH(''''),
-		               ROOT(''Error'')
-		    )
-		  )
-		-- Set AutoId of ErrorLog table to @ErrorLogID for use in Snapshots table         
-		SELECT @ErrorId = SCOPE_IDENTITY()
-	END
-	
-	IF @RaisError = 1
-	    RAISERROR(@ERROR_MESSAGE, 18, 255) 
-	
-	RETURN
-END
-
-' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_GetPolicyCategory]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_GetPolicyCategory]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-
-CREATE PROCEDURE [dbo].[sp_GetPolicyCategory]
-	@LangId int,
- 	@PolicyName NVARCHAR(MAX)  
-AS
-BEGIN
-	 
-	DECLARE @query NVARCHAR(MAX); 
-
-	SELECT TOP 1 @query=  pq.PolicyQuery
-    FROM   PolicyQueries  AS pq,
-           PolicyType   AS pt
-    WHERE  pq.PolicyTypeId = pt.PolicyTypeId
-    AND pt.LangID=pq.LangID 
-           AND pt.LangId = @LangId
-           AND pt.IsAcvite =1
-           AND LOWER(pt.PolicyName) = LOWER(@PolicyName)
-    
-    EXECUTE(@query)
-      
-	RETURN
-END
-
-
-' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Increase_RssScore]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Increase_RssScore]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'-- =============================================
--- Author:		Behzad Khosravifar
--- Create date: 2016/01/18
--- Description:	Increase Rss Feed Score +1
--- =============================================
-CREATE PROCEDURE [dbo].[sp_Increase_RssScore] 
--- Add the parameters for the stored procedure here
-	@Url NVARCHAR(MAX)
-AS
-BEGIN
-	UPDATE [xomorod.com_xomorod].dbo.RssFeeds
-	SET    Score += 1
-	WHERE  [Url] = @Url
-END
-' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Insert_RssItem]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Insert_RssItem]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'-- =============================================
--- Author:		Behzad Khosravifar	
--- Create date: 2016/01/18
--- Description:	Insert one rss feed item''s to RssFeeds table
--- =============================================
-CREATE PROCEDURE [dbo].[sp_Insert_RssItem]
-    @Url NVARCHAR(MAX) ,
-    @Tilte NVARCHAR(MAX) ,
-    @Description NVARCHAR(MAX) ,
-    @ImageUrl NVARCHAR(MAX) ,
-    @PublishDate DATETIME ,
-    @Author NVARCHAR(MAX) ,
-    @ResourceId INT
-AS 
-    BEGIN
-        DECLARE @DashTrimTitle NVARCHAR(MAX) = REPLACE(@Tilte, '' '', ''-'');
-        DECLARE @HashedTitle CHAR(32) = dbo.fn_GetStringHashing(@DashTrimTitle);
-	
-        IF ( SELECT COUNT(1)
-             FROM   RssFeeds rss
-             WHERE  @HashedTitle = rss.TitleHash
-                    AND @Tilte = rss.Title
-                    AND ( ( @Url = rss.[Url] )
-                          OR ( ABS(DATEDIFF(DAY, rss.PublishDate,
-                                            rss.PublishDate)) > 7 )
-                        )
-           ) = 0 
-            BEGIN
-	    -- Insert statements for procedure here
-                INSERT  INTO [xomorod.com_xomorod].dbo.RssFeeds
-                        ( -- ID -- this column value is auto-generated
-                          [Url] ,
-                          Title ,
-                          TitleHash ,
-                          [Description] ,
-                          ThumbnailUrl ,
-                          PublishDate ,
-                          Author ,
-                          ResourceID
-	                    )
-                VALUES  ( @Url ,
-                          @Tilte ,
-                          @hashedTitle ,
-                          @Description ,
-                          @ImageUrl ,
-                          @PublishDate ,
-                          @Author ,
-                          @ResourceId
-	                    )
-            END
-    END' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertErrorLog]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_InsertErrorLog]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-CREATE PROCEDURE [dbo].[sp_InsertErrorLog]
-	@ServerDateTime DATETIME,
-	@Host SYSNAME,
-	@User UNIQUEIDENTIFIER,
-	@IsHandled BIT,
-	@Type VARCHAR(200),
-	@AppName VARCHAR(200),
-	@CurrentCulture SYSNAME = NULL,
-	@CLRVersion SYSNAME = NULL,
-	@Message NVARCHAR(MAX) = NULL,
-	@Source NVARCHAR(MAX) = NULL,
-	@StackTrace NVARCHAR(MAX) = NULL,
-	@ModuleName VARCHAR(200) = NULL,
-	@MemberType SYSNAME = NULL,
-	@Method VARCHAR(500) = NULL,
-	@Processes VARCHAR(MAX) = NULL,
-	@ErrorDateTime DATETIME,
-	@OS VARCHAR(1000) = NULL,
-	@IPv4Address SYSNAME = NULL,
-	@MACAddress SYSNAME = NULL,
-	@HResult INT,
-	@Line INT,
-	@Column INT,
-	@Duplicate INT,
-	@Data XML = NULL
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRANSACTION
-		-- Check the error exist or not? if exist then only update that 
-		IF (
-		       SELECT COUNT(ErrorId)
-		       FROM   [ErrorLog]
-		       WHERE  HResult          = @HResult
-		              AND Line         = @Line
-		              AND Method       = @Method
-		              AND [UserId]     = @User
-		   ) > 0
-		    -- Update error object from ErrorLog table 
-		    UPDATE dbo.ErrorLog
-		    SET    DuplicateNo += 1
-		    WHERE  HResult = @HResult
-		           AND Line = @Line
-		           AND Method = @Method
-		           AND [UserId] = @User
-		ELSE
-		BEGIN
-		    -- Insert error object into ErrorLog table 
-		    INSERT INTO [ErrorLog]
-		      (
-		        [ServerDateTime],
-		        [Host],
-		        [UserId],
-		        [IsHandled],
-		        [Type],
-		        [AppName],
-		        [CurrentCulture],
-		        [CLRVersion],
-		        [Message],
-		        [Source],
-		        [StackTrace],
-		        [ModuleName],
-		        [MemberType],
-		        [Method],
-		        [Processes],
-		        [ErrorDateTime],
-		        [OS],
-		        [IPv4Address],
-		        [MACAddress],
-		        [HResult],
-		        [Line],
-		        [Column],
-		        [DuplicateNo],
-		        [Data]
-		      )
-		    VALUES
-		      (
-		        @ServerDateTime,
-		        @Host,
-		        @User,
-		        @IsHandled,
-		        @Type,
-		        @AppName,
-		        @CurrentCulture,
-		        @CLRVersion,
-		        @Message,
-		        @Source,
-		        @StackTrace,
-		        @ModuleName,
-		        @MemberType,
-		        @Method,
-		        @Processes,
-		        @ErrorDateTime,
-		        @OS,
-		        @IPv4Address,
-		        @MACAddress,
-		        @HResult,
-		        @Line,
-		        @Column,
-		        @Duplicate,
-		        @Data
-		      ) 
-		    -- Set AutoId of ErrorLog table to @ErrorLogID for use in Snapshots table         
-		    SELECT SCOPE_IDENTITY()
-		END 
-		COMMIT TRANSACTION
-	END TRY 
-	BEGIN CATCH
-		-- IF @@TRANCOUNT > 0
-		IF XACT_STATE() <> 0
-		    ROLLBACK TRANSACTION
-		
-		EXEC sp_CatchError
-		     @User,
-		     @RaisError = 0,	-- Do not Raiserror again to client
-		     @ExtraData = NULL,
-		     @ErrorId = NULL
-	END CATCH
-END
-
-' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[sp_Users_Insert]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Users_Insert]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-CREATE PROCEDURE [dbo].[sp_Users_Insert]
-	@Id UNIQUEIDENTIFIER = NULL,
-	@FirstName NVARCHAR(100) = Null,
-	@LastName NVARCHAR(100) = Null,
-	@Username NVARCHAR(100),
-	@Pass VARCHAR(256),
-	@Email VARCHAR(100) = NULL
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRANSACTION
-		
-		SET @Id = ISNULL(@Id, NEWID())
-		
-		INSERT INTO [xomorod.com_xomorod].dbo.Users
-		  (
-		    Id,
-		    FirstName,
-		    LastName,
-		    Username,
-		    [Password],
-		    Email
-		  )
-		VALUES
-		  (
-		    @Id,
-		    @FirstName,
-		    @LastName,
-		    @Username,
-		    CAST(@Pass AS BINARY),
-		    @Email
-		  )
-		
-		SELECT *
-		FROM   [xomorod.com_xomorod].dbo.Users u
-		WHERE  u.Id = @Id
-		
-		COMMIT TRANSACTION
-	END TRY 
-	BEGIN CATCH
-		-- IF @@TRANCOUNT > 0
-		IF XACT_STATE() <> 0
-		    ROLLBACK TRANSACTION
-		
-		EXEC sp_CatchError
-		     @Id,
-		     @RaisError = 0,	-- Do not Raiserror again to client
-		     @ExtraData = NULL,
-		     @ErrorId = NULL
-	END CATCH
-END' 
-END
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetExtraLinkByName]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetExtraLinkByName]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-CREATE FUNCTION [dbo].[GetExtraLinkByName]
-(
-	@PortfolioID     INT,
-	@LinkName        NVARCHAR(255)
-)
-RETURNS NVARCHAR(MAX)
-AS
-BEGIN
-	DECLARE @result NVARCHAR(MAX)
-	
-	SELECT TOP(1) @result = Link
-	FROM   [xomorod.com_xomorod].dbo.[ExtraLinks]
-	WHERE  LOWER(NAME) = lower(@LinkName)
-	       AND PortfolioId = @PortfolioID
-	
-	RETURN @result;
-END
-' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetResourceLinkByElementID]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetResourceLinkByElementID]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-
-CREATE FUNCTION [dbo].[GetResourceLinkByElementID]
-(
-	@ElementUniqueID UNIQUEIDENTIFIER
-)
-RETURNS NVARCHAR(MAX)
-AS
-BEGIN
-	-- Declare the return variable here
-	DECLARE @result NVARCHAR(MAX)
-	
-	-- Add the T-SQL statements to compute the return value here
-	SELECT TOP(1) @result = r.ResourceLink
-	FROM   [xomorod.com_xomorod].dbo.Resources r
-	WHERE  r.ElementUniqueId = @ElementUniqueID
-	
-	-- Return the result of the function
-	RETURN @result;
-END
-' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetSettingByKey]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetSettingByKey]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-
-CREATE FUNCTION [dbo].[GetSettingByKey]
-(
-	@Key NVARCHAR(256)
-)
-RETURNS NVARCHAR(MAX)
-AS
-
-
-BEGIN
-	DECLARE @result NVARCHAR(MAX) = ''''; 
-	
-	SELECT @result = as1.[Value]
-	FROM   [xomorod.com_xomorod].dbo.AppSetting as1
-	WHERE  LOWER(as1.[Key]) = LOWER(@Key)
-	
-	RETURN @result;
-END
-' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[GetStringHashing]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetStringHashing]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date, ,>
--- Description:	<Description, ,>
--- =============================================
-CREATE FUNCTION [dbo].[GetStringHashing]
-(
-	@Content NVARCHAR(MAX)
-)
-RETURNS CHAR(32)
-AS
-BEGIN
-	DECLARE @hash CHAR(32);
-	
-	SELECT @hash = SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES(''MD5'', @Content)), 3, 32)
-	
-	RETURN @hash;
-END
-' 
-END
-
-GO
-/****** Object:  Table [dbo].[AppSetting]    Script Date: 2/19/2016 1:14:10 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AppSetting]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[AppSetting](
-	[Key] [nvarchar](256) NOT NULL,
-	[Value] [nvarchar](max) NOT NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Categories]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Categories]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Categories](
-	[CategoryId] [int] NOT NULL,
-	[LangID] [int] NOT NULL,
-	[Name] [nvarchar](100) NOT NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
-(
-	[CategoryId] ASC,
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[CategoriesChilds]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriesChilds]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[CategoriesChilds](
-	[CategoryID] [int] NOT NULL,
-	[ChildCategoryID] [int] NOT NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_CategoriesChilds] PRIMARY KEY CLUSTERED 
-(
-	[CategoryID] ASC,
-	[ChildCategoryID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[ErrorLog]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ErrorLog]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[ErrorLog](
-	[ErrorId] [bigint] IDENTITY(1,1) NOT NULL,
-	[ServerDateTime] [datetime] NULL,
-	[Host] [nvarchar](200) NULL,
-	[IsHandled] [bit] NULL,
-	[Type] [varchar](200) NULL,
-	[AppName] [nvarchar](200) NULL,
-	[Data] [xml] NULL,
-	[CurrentCulture] [nvarchar](200) NULL,
-	[CLRVersion] [varchar](100) NULL,
-	[Message] [nvarchar](max) NULL,
-	[Source] [nvarchar](max) NULL,
-	[StackTrace] [nvarchar](max) NULL,
-	[ModuleName] [varchar](200) NULL,
-	[MemberType] [varchar](200) NULL,
-	[Method] [varchar](500) NULL,
-	[Processes] [nvarchar](max) NULL,
-	[ErrorDateTime] [datetime] NULL,
-	[OS] [varchar](1000) NULL,
-	[IPv4Address] [varchar](50) NULL,
-	[MACAddress] [varchar](50) NULL,
-	[HResult] [int] NULL,
-	[Line] [int] NULL,
-	[Column] [int] NULL,
-	[DuplicateNo] [int] NULL,
-	[UserId] [uniqueidentifier] NULL,
- CONSTRAINT [PK_ErrorLog] PRIMARY KEY CLUSTERED 
-(
-	[ErrorId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[ExtraLinks]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ExtraLinks]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[ExtraLinks](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[PortfolioID] [int] NOT NULL,
-	[Name] [nvarchar](200) NOT NULL,
-	[Link] [nvarchar](max) NOT NULL,
- CONSTRAINT [PK_ExtraLinks] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC,
-	[PortfolioID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Languages]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Languages]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Languages](
-	[LangID] [int] IDENTITY(1,1) NOT NULL,
-	[LangFullName] [varchar](50) NOT NULL,
-	[Culture] [varchar](5) NOT NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_Languages] PRIMARY KEY CLUSTERED 
-(
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[LogHistory]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogHistory]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[LogHistory](
-	[RunDate] [datetime] NOT NULL,
-	[UserId] [uniqueidentifier] NULL,
-	[Success] [bit] NOT NULL,
-	[TryUsername] [nvarchar](max) NULL,
-	[TryPassword] [nvarchar](max) NULL,
-	[LoginOrLogout] [bit] NOT NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[PolicyDetails]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyDetails]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PolicyDetails](
-	[PolicyDetailsID] [int] NOT NULL,
-	[LangID] [int] NOT NULL,
-	[PolicyDetailsQuery] [nvarchar](max) NULL,
- CONSTRAINT [PK__PolicyDe__460F379A5D247087] PRIMARY KEY CLUSTERED 
-(
-	[PolicyDetailsID] ASC,
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[PolicyQueries]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyQueries]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PolicyQueries](
-	[PolicyID] [int] NOT NULL,
-	[LangID] [int] NOT NULL,
-	[PolicyQuery] [nvarchar](max) NULL,
-	[IsActive] [bit] NULL,
-	[PolicyTypeID] [int] NULL,
- CONSTRAINT [PK__PolicyQu__2E1339A4FCE2889D] PRIMARY KEY CLUSTERED 
-(
-	[PolicyID] ASC,
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[PolicyType]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PolicyType]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PolicyType](
-	[PolicyTypeId] [int] NOT NULL,
-	[PolicyName] [nvarchar](255) NULL,
-	[IsAcvite] [bit] NULL,
-	[LangId] [int] NOT NULL,
- CONSTRAINT [PK__PolicyTy__90DE2D7EE8AA662D] PRIMARY KEY CLUSTERED 
-(
-	[PolicyTypeId] ASC,
-	[LangId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[PortfolioCategories]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfolioCategories]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PortfolioCategories](
-	[PortfolioID] [int] NOT NULL,
-	[CategoryID] [int] NOT NULL,
- CONSTRAINT [PK_PortfolioCategories] PRIMARY KEY CLUSTERED 
-(
-	[PortfolioID] ASC,
-	[CategoryID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Portfolios]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Portfolios]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Portfolios](
-	[PortfolioID] [int] NOT NULL,
-	[LangID] [int] NOT NULL,
-	[Id] [uniqueidentifier] NOT NULL,
-	[ProjectName] [nvarchar](100) NOT NULL,
-	[Summary] [nvarchar](max) NULL,
-	[MarkdownDescription] [nvarchar](max) NULL,
-	[ModifyDate] [date] NOT NULL,
-	[ProjectUrl] [nvarchar](max) NULL,
-	[IconId] [int] NULL,
-	[Rank] [float] NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_Portfolios] PRIMARY KEY CLUSTERED 
-(
-	[PortfolioID] ASC,
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[PortfoliosComment]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PortfoliosComment]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[PortfoliosComment](
-	[CommentID] [int] IDENTITY(1,1) NOT NULL,
-	[PortfoliosID] [int] NOT NULL,
-	[UserID] [int] NOT NULL,
-	[IsConfirmed] [bit] NOT NULL,
-	[Comment] [nvarchar](max) NULL,
-	[Score] [int] NULL,
- CONSTRAINT [PK_PortfoliosComment] PRIMARY KEY CLUSTERED 
-(
-	[CommentID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Resources]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resources]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Resources](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[ElementUniqueId] [uniqueidentifier] NOT NULL,
-	[ResourceName] [nvarchar](100) NOT NULL,
-	[ResourceLink] [nvarchar](max) NULL,
- CONSTRAINT [PK_Resources_1] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Roles]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Roles](
-	[RoleID] [int] IDENTITY(1,1) NOT NULL,
-	[Role] [nvarchar](100) NOT NULL,
-	[RoleType] [nvarchar](50) NOT NULL,
-	[ParentRoleId] [int] NULL,
- CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
-(
-	[RoleID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[RssCategories]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssCategories]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[RssCategories](
-	[CategoryID] [int] NOT NULL,
-	[LangID] [int] NOT NULL,
-	[Name] [nvarchar](max) NULL,
-	[ParentID] [int] NULL,
-	[Description] [nvarchar](max) NULL,
-	[Order] [int] NOT NULL,
-	[IsActive] [bit] NOT NULL,
- CONSTRAINT [PK_NewsCategory] PRIMARY KEY CLUSTERED 
-(
-	[CategoryID] ASC,
-	[LangID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[RssContentProviders]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssContentProviders]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[RssContentProviders](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[CSS] [nvarchar](max) NULL,
-	[JS] [nvarchar](max) NULL,
-	[StartMarkup] [nvarchar](max) NULL,
-	[EndMarkup] [nvarchar](max) NULL,
- CONSTRAINT [PK_RssResourcesContentProvides] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[RssFeeds]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[RssFeeds](
-	[ID] [bigint] IDENTITY(1,1) NOT NULL,
-	[Url] [nvarchar](max) NOT NULL,
-	[Title] [nvarchar](max) NOT NULL,
-	[TitleHash] [char](32) NOT NULL,
-	[Description] [nvarchar](max) NULL,
-	[ThumbnailUrl] [nvarchar](max) NULL,
-	[PublishDate] [datetime] NULL,
-	[Author] [nvarchar](300) NULL,
-	[ResourceID] [int] NOT NULL,
-	[Score] [bigint] NOT NULL,
- CONSTRAINT [PK_RssFeeds] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[RssResources]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[RssResources](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](max) NULL,
-	[Url] [nvarchar](max) NULL,
-	[Language] [nchar](10) NULL,
-	[RssCategoryID] [int] NULL,
-	[IsActive] [bit] NOT NULL,
-	[Favicon] [nvarchar](max) NULL,
-	[Score] [int] NOT NULL,
- CONSTRAINT [PK_RssResources] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[RssResources_ContentProviders]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RssResources_ContentProviders]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[RssResources_ContentProviders](
-	[ResourceID] [int] NOT NULL,
-	[ContentProvideID] [int] NOT NULL,
- CONSTRAINT [PK_RssResourcesRelatedByContentProviders] PRIMARY KEY CLUSTERED 
-(
-	[ResourceID] ASC,
-	[ContentProvideID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[UserInRoles]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserInRoles]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[UserInRoles](
-	[RoleId] [int] NOT NULL,
-	[UserID] [int] NOT NULL,
- CONSTRAINT [PK_UserInRoles] PRIMARY KEY CLUSTERED 
-(
-	[RoleId] ASC,
-	[UserID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Users](
-	[UserID] [int] IDENTITY(1,1) NOT NULL,
-	[Id] [uniqueidentifier] NOT NULL,
-	[Username] [nvarchar](256) NOT NULL,
-	[FirstName] [nvarchar](100) NULL,
-	[LastName] [nvarchar](100) NULL,
-	[ModifyDate] [date] NULL,
-	[Email] [nvarchar](256) NULL,
-	[EmailConfirmed] [bit] NOT NULL,
-	[Password] [varbinary](max) NULL,
-	[SecurityStamp] [nvarchar](max) NULL,
-	[PhoneNumber] [nvarchar](max) NULL,
-	[PhoneNumberConfirmed] [bit] NOT NULL,
-	[TwoFactorEnable] [bit] NOT NULL,
-	[LockoutEndDateUtc] [datetime] NULL,
-	[LockoutEnable] [bit] NOT NULL,
-	[AccessFailedCount] [int] NOT NULL,
- CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
-(
-	[UserID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_Categories]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Categories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-CREATE FUNCTION [dbo].[udft_Categories]
-(
-	@langID INT
-)
-RETURNS TABLE
-AS
-	RETURN 
-	(
-	    SELECT c.CategoryId, c.Name
-	    FROM   [xomorod.com_xomorod].dbo.Categories c
-	    WHERE  c.LangID = @langID
-	           AND c.IsActive = 1
-	)' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_CategoriesChilds]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_CategoriesChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-CREATE FUNCTION [dbo].[udft_CategoriesChilds]
-()
-RETURNS TABLE
-AS
-	RETURN 
-	(
-	    SELECT cc.CategoryID,
-	           cc.ChildCategoryID
-	    FROM   [xomorod.com_xomorod].dbo.CategoriesChilds cc
-	    WHERE  cc.IsActive = 1
-	)' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetCategoryChilds]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_GetCategoryChilds]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-CREATE FUNCTION [dbo].[fn_GetCategoryChilds]
-(
-	@langID     INT,
-	@CateID     INT
-)
-RETURNS TABLE
-AS
-	RETURN 
-	(
-	    SELECT c.CategoryId, c.Name
-	    FROM   dbo.udft_Categories(@langID) c,
-	           dbo.udft_CategoriesChilds() ucc
-	    WHERE  c.CategoryId = ucc.CategoryID
-	           AND ucc.CategoryId = @CateID
-	)' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_CheckUserPass]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fn_CheckUserPass]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		Behzad Khosravifar
--- Create date: 1/3/2016
--- Description:	Check user password
--- =============================================
-CREATE FUNCTION [dbo].[fn_CheckUserPass]
-(
-	@Username     NVARCHAR(100),
-	@Pass         VARCHAR(MAX)
-)
-RETURNS TABLE
-AS
-
-
-
-
-	RETURN 
-(
-    SELECT u.UserID,
-           u.Username,
-           u.FirstName,
-           u.LastName,
-           u.ModifyDate,
-           u.Email,
-           u.PhoneNumber,
-           u.TwoFactorEnable,
-           r.[Role],
-           r.RoleType
-    FROM   [xomorod.com_xomorod].dbo.Users u
-           INNER JOIN UserInRoles ur
-                ON  ur.UserID = u.UserID
-           INNER JOIN Roles r
-                ON  r.RoleID = ur.RoleId
-    WHERE  u.Username = @Username
-           AND u.[Password] = CAST(@Pass AS VARBINARY(MAX))
-)
-' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_Portfolios]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_Portfolios]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE FUNCTION [dbo].[udft_Portfolios]
-(
-	@langID INT
-)
-RETURNS TABLE
-AS
-	RETURN 
-	(
-	    SELECT p.PortfolioID,
-	           p.ProjectName,
-	           p.Summary,
-	           p.MarkdownDescription,
-	           p.ModifyDate,
-	           p.ProjectUrl,
-	           p.IconId,
-	           p.[Rank]
-	    FROM   [xomorod.com_xomorod].dbo.Portfolios p
-	    WHERE  p.LangID = @langID
-	           AND p.IsActive = 1
-	)' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssCategories]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssCategories]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		Behzad Khosravifar
--- Create date: 2016/02/08
--- Description:	
--- =============================================
-CREATE FUNCTION [dbo].[udft_RssCategories]
-(
-	@langID INT
-)
-RETURNS TABLE
-AS
-
-RETURN 
-(
-    SELECT rc.CategoryID,
-           rc.Name,
-           rc.[Description],
-           rc.[Order]
-    FROM   [xomorod.com_xomorod].dbo.RssCategories rc
-    WHERE  rc.LangID = @langID
-           AND rc.IsActive = 1
-)' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[udft_RssResources]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udft_RssResources]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE FUNCTION [dbo].[udft_RssResources]
-(
-)
-RETURNS TABLE
-AS
-	RETURN 
-	(
-	    SELECT rr.ID,
-	           rr.Name,
-	           rr.[Url],
-	           rr.[Language],
-	           rr.RssCategoryID,
-	           rr.Favicon,
-	           rr.Score
-	    FROM   [xomorod.com_xomorod].dbo.RssResources rr
-	    WHERE  rr.IsActive = 1
-	)
-' 
-END
-
-GO
-/****** Object:  UserDefinedFunction [dbo].[udfv_PortfoliosView]    Script Date: 2/19/2016 1:14:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[udfv_PortfoliosView]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-BEGIN
-execute dbo.sp_executesql @statement = N'
-CREATE FUNCTION [dbo].[udfv_PortfoliosView]
-(
-	@langID INT
-)
-RETURNS TABLE
-AS
-
-
-RETURN 
-(
-    SELECT ROW_NUMBER() OVER(ORDER BY RANK DESC) AS RowNo,
-           p.PortfolioID,
-           p.Id,
-           p.ProjectName,
-           p.Summary,
-           p.MarkdownDescription,
-           p.ModifyDate,
-           p.ProjectUrl,
-           p.IconId,
-           p.[Rank],
-           Categories = STUFF(
-               (
-                   SELECT '',   '' + cc.Name
-                   FROM   dbo.PortfolioCategories pc
-                          INNER JOIN dbo.Categories cc
-                               ON  cc.CategoryID = pc.CategoryID
-                   WHERE  pc.PortfolioID = p.PortfolioID
-                          AND cc.IsActive = 1
-                          AND cc.LangID = @langID
-                              FOR XML PATH(''''), TYPE
-               ).value(''.'', ''NVARCHAR(MAX)''),
-               1,
-               1,
-               ''''
-           )
-    FROM   [xomorod.com_xomorod].dbo.Portfolios p
-           INNER JOIN [xomorod.com_xomorod].dbo.PortfolioCategories pc
-                ON  pc.PortfolioID = p.PortfolioID
-           INNER JOIN [xomorod.com_xomorod].dbo.Categories c
-                ON  c.CategoryID = pc.CategoryID
-    WHERE  p.IsActive = 1
-           AND c.IsActive = 1
-           AND p.LangID = @langID
-           AND c.LangID = @langID
-    GROUP BY
-           p.PortfolioID,
-           p.Id,
-           p.ProjectName,
-           p.Summary,
-           p.MarkdownDescription,
-           p.ModifyDate,
-           p.ProjectUrl,
-           p.IconId,
-           p.[Rank]
-)' 
-END
-
-GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleProjectID', N'[xomorod.com_xomorod]-1186')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleProjectID', N'xomorod-1186')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleProjectNumber', N'351044961981')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'ApiAddress', N'http://api.[xomorod.com_xomorod].ir')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'ApiAddress', N'http://api.xomorod.com')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'UnobtrusiveJavaScriptEnabled', N'true')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'ClientValidationEnabled', N'true')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiServiceAccountID', N'[xomorod.com_xomorod]-963')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiServiceAccountID', N'xomorod-963')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_type', N'service_account')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_project_id', N'[xomorod.com_xomorod]-1186')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_project_id', N'xomorod-1186')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_private_key_id', N'106e40788d017b48cb81aa2b38e53d931e75e851')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_private_key', N'-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCnv/UdNA5ISdkS\nHytAzfne1QIpYhaiZwxeU8nFdMPN5Wvk1Y99rNn0Foe8VBQP6RfpIpQysDGaAQGI\n0EalDyBPEWXx13GinGlhG2KErG+fQ/X25ad4xZfFKl+tN4XHncgN4Mj+pLXYb+Uy\n/+2BDlTduZNrKsJn0F0p7V2juyuJV0bsAUdEGCPc4okdQO8JYj4zMJ4cmCZgJXdc\nz6f5Ivf1JegBFTR7nuWKoGicfsqx8F6hw7RygYL9H/w3a1yVt+ve95v8y1oqUQQP\nten5flfLTK9xZ05Lu30Uozbcjwtb80TDiF9Vu0ywFWLUKHTBj0oWi2WAjfiQu88D\nqIB/R8ObAgMBAAECggEAV2IEMkk6o2dsnycDZgemAPDe5mXFOqYJaF2nPqebk/bN\npG+nBqVzB9ZwsKbvqHYY0YYEwv7LZ9jcTsOH+VWO1AFRJJDBDh8COeaFBG2627EQ\nQKPTAHOVosx2+Ilys9A6NRiCOzvbyjpHn7B3rQGlLbcM1wd4K5H75epTHAZVIH4u\n77M9WZteOekRg9Vp1cvooxqkidjkeiDivLPZRVJMEkDArR4P3i+gPXZF6ayAX4r5\nObcpPpizSm1iFzvf3oxJ3mjIDm4ZjjzDBc2vuuL6igdT1vVkU59n1XMRSALHDYS1\nuKxSfka1op1uDbidBPKiBl0K1IuDtdHTAGZY3vTnGQKBgQDxjzB/z6k1vOjxNgl7\nD5aXrEqPEXkpBoym54vrtUlRKfV0rtyYhIRVdufevu2LwJoBoOdtnZkHl2ItI4wa\nNIokJqPCdTWqGxq08NgwA3jPUzQ5oJavu4qjedDDlmwS2RCm+/QVY9si1OavByf4\npnaYPiKgFbgUhy/t8/vvPsksBwKBgQCxxzEKTq/LsEOJEFr2TXQbVb/uJnVSBK2l\nlzyv0No/nTz7Pp0lKR3jmPZe1om1kpxIjnyOLTisr4/HFE6q4vdSMb4Uwr3A8a/q\nF9WfrluytaV11gZac7KTNw1HsMxnlo5lYOvEoKHybjHt5mcVrwMTdOhkGgD79LA4\nLhn29nfuzQKBgQDYJx1rAVOU9porXgNVzzkeN9nv897LS0UJBSE7plkY+8bcxqw2\n/j28jE4oEAlYiNxGoMj2WZPaKyh649g2itUiTEE1fNSshtx7FRkevbyZKQcOmhi8\n38DLT/HzUuMaaopwIfzkNxqcLI7QCENISQzOZqttPIIgPGgzMaQ7DZ/OeQKBgQCK\nEr7P1pVKibeqOH2tVjKbGFpcyJnN/bwwI+oKUxdu2NyH9fVu6yQ/pImU1uNVlmyz\nHZc3hX/C/weYAvmmV2jm+aM71JQzyoJqOeC8iFrHzbSYdIWysrE7DULPL01SFui5\nbDExIeElvNgigRQHD0pATkg/lsK07TIAMC4SVRKI8QKBgFg0iUtTGxl5StAr6Us1\n8BbGuALRbL9vHm5+D3JOsWFWQP0o6/0rAEElCJ7FWgfKBHMCPw8K3BpURlMEkohD\nanneHhJX+TD/Et0MkqqAZJ5UWf2TQ7nelF9S0kvQ6Wkh5/biGo8AHxya73nUQq6T\nYTx8Dp59zhZtg+EhyQdZSLLg\n-----END PRIVATE KEY-----\n')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_email', N'[xomorod.com_xomorod]-963@[xomorod.com_xomorod]-1186.iam.gserviceaccount.com')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_email', N'xomorod-963@xomorod-1186.iam.gserviceaccount.com')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_id', N'105786038631082741140')
 GO
@@ -1727,25 +74,25 @@ INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_token_uri', 
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_auth_provider_x509_cert_url', N'https://www.googleapis.com/oauth2/v1/certs')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_x509_cert_url', N'https://www.googleapis.com/robot/v1/metadata/x509/[xomorod.com_xomorod]-963%40[xomorod.com_xomorod]-1186.iam.gserviceaccount.com')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApi_client_x509_cert_url', N'https://www.googleapis.com/robot/v1/metadata/x509/xomorod-963%40xomorod-1186.iam.gserviceaccount.com')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerAddress', N'[xomorod.com_xomorod].co@gmail.com')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerAddress', N'xomorod.co@gmail.com')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerServicePassword', N'H\,g,d@13')
 GO
-INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerServiceAddress', N'[xomorod.com_xomorod].bugs@gmail.com')
+INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'BugTrackerServiceAddress', N'xomorod.bugs@gmail.com')
 GO
 INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiAccountKeysJson', N'{
   "type": "service_account",
-  "project_id": "[xomorod.com_xomorod]-1186",
+  "project_id": "xomorod-1186",
   "private_key_id": "106e40788d017b48cb81aa2b38e53d931e75e851",
   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCnv/UdNA5ISdkS\nHytAzfne1QIpYhaiZwxeU8nFdMPN5Wvk1Y99rNn0Foe8VBQP6RfpIpQysDGaAQGI\n0EalDyBPEWXx13GinGlhG2KErG+fQ/X25ad4xZfFKl+tN4XHncgN4Mj+pLXYb+Uy\n/+2BDlTduZNrKsJn0F0p7V2juyuJV0bsAUdEGCPc4okdQO8JYj4zMJ4cmCZgJXdc\nz6f5Ivf1JegBFTR7nuWKoGicfsqx8F6hw7RygYL9H/w3a1yVt+ve95v8y1oqUQQP\nten5flfLTK9xZ05Lu30Uozbcjwtb80TDiF9Vu0ywFWLUKHTBj0oWi2WAjfiQu88D\nqIB/R8ObAgMBAAECggEAV2IEMkk6o2dsnycDZgemAPDe5mXFOqYJaF2nPqebk/bN\npG+nBqVzB9ZwsKbvqHYY0YYEwv7LZ9jcTsOH+VWO1AFRJJDBDh8COeaFBG2627EQ\nQKPTAHOVosx2+Ilys9A6NRiCOzvbyjpHn7B3rQGlLbcM1wd4K5H75epTHAZVIH4u\n77M9WZteOekRg9Vp1cvooxqkidjkeiDivLPZRVJMEkDArR4P3i+gPXZF6ayAX4r5\nObcpPpizSm1iFzvf3oxJ3mjIDm4ZjjzDBc2vuuL6igdT1vVkU59n1XMRSALHDYS1\nuKxSfka1op1uDbidBPKiBl0K1IuDtdHTAGZY3vTnGQKBgQDxjzB/z6k1vOjxNgl7\nD5aXrEqPEXkpBoym54vrtUlRKfV0rtyYhIRVdufevu2LwJoBoOdtnZkHl2ItI4wa\nNIokJqPCdTWqGxq08NgwA3jPUzQ5oJavu4qjedDDlmwS2RCm+/QVY9si1OavByf4\npnaYPiKgFbgUhy/t8/vvPsksBwKBgQCxxzEKTq/LsEOJEFr2TXQbVb/uJnVSBK2l\nlzyv0No/nTz7Pp0lKR3jmPZe1om1kpxIjnyOLTisr4/HFE6q4vdSMb4Uwr3A8a/q\nF9WfrluytaV11gZac7KTNw1HsMxnlo5lYOvEoKHybjHt5mcVrwMTdOhkGgD79LA4\nLhn29nfuzQKBgQDYJx1rAVOU9porXgNVzzkeN9nv897LS0UJBSE7plkY+8bcxqw2\n/j28jE4oEAlYiNxGoMj2WZPaKyh649g2itUiTEE1fNSshtx7FRkevbyZKQcOmhi8\n38DLT/HzUuMaaopwIfzkNxqcLI7QCENISQzOZqttPIIgPGgzMaQ7DZ/OeQKBgQCK\nEr7P1pVKibeqOH2tVjKbGFpcyJnN/bwwI+oKUxdu2NyH9fVu6yQ/pImU1uNVlmyz\nHZc3hX/C/weYAvmmV2jm+aM71JQzyoJqOeC8iFrHzbSYdIWysrE7DULPL01SFui5\nbDExIeElvNgigRQHD0pATkg/lsK07TIAMC4SVRKI8QKBgFg0iUtTGxl5StAr6Us1\n8BbGuALRbL9vHm5+D3JOsWFWQP0o6/0rAEElCJ7FWgfKBHMCPw8K3BpURlMEkohD\nanneHhJX+TD/Et0MkqqAZJ5UWf2TQ7nelF9S0kvQ6Wkh5/biGo8AHxya73nUQq6T\nYTx8Dp59zhZtg+EhyQdZSLLg\n-----END PRIVATE KEY-----\n",
-  "client_email": "[xomorod.com_xomorod]-963@[xomorod.com_xomorod]-1186.iam.gserviceaccount.com",
+  "client_email": "xomorod-963@xomorod-1186.iam.gserviceaccount.com",
   "client_id": "105786038631082741140",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://accounts.google.com/o/oauth2/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/[xomorod.com_xomorod]-963%40[xomorod.com_xomorod]-1186.iam.gserviceaccount.com"
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/xomorod-963%40xomorod-1186.iam.gserviceaccount.com"
 }
 ')
 GO
@@ -2112,7 +459,7 @@ GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'Error Control System', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
 <div align="center">
 
-[![Error Control System.png](http://r.[xomorod.com_xomorod].ir/img/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
+[![Error Control System.png](http://resources.xomorod.com/web-applications/products/images/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/lnjusej10c0451xw?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/errorcontrolsystem)
 [![Nuget count](http://img.shields.io/nuget/v/errorcontrolsystem.svg)](https://www.nuget.org/packages/errorcontrolsystem/)
@@ -2316,7 +663,7 @@ GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 2, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'سیستم مدیریت خطا', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
 <div align="center">
 
-[![Error Control System.png](http://r.[xomorod.com_xomorod].ir/img/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
+[![Error Control System.png](http://resources.xomorod.com/web-applications/products/images/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/lnjusej10c0451xw?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/errorcontrolsystem)
 [![Nuget count](http://img.shields.io/nuget/v/errorcontrolsystem.svg)](https://www.nuget.org/packages/errorcontrolsystem/)
@@ -2632,7 +979,7 @@ And if you click on Draw DFA Graph, then this form viewed:
 </div>
 
 -------------------------
-[0]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/screen.png
+[0]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/screen.png
 [1]: https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton	
 [2]: https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 [3]: https://en.wikipedia.org/wiki/Theory_of_computation
@@ -2651,16 +998,16 @@ And if you click on Draw DFA Graph, then this form viewed:
 [16]: https://en.wikipedia.org/wiki/Reflexive_transitive_closure
 [17]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-vannoord-5 
 [18]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-6
-[19]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/LogoNFA-DFA.png
-[20]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f1.png
-[21]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f2.png
+[19]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/LogoNFA-DFA.png
+[20]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f1.png
+[21]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f2.png
 [22]: https://en.wikipedia.org/wiki/Natural_language_processing
 [23]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-7
-[24]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/NFA-powerset-construction-example.svg.png
-[25]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/DFA-powerset-construction-example.svg.png
+[24]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/NFA-powerset-construction-example.svg.png
+[25]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/DFA-powerset-construction-example.svg.png
 [26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
 [27]: https://en.wikipedia.org/wiki/Worst-case_complexity
-[28]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
+[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (2, 2, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'تبدیل کننده ماشین غیر قطعی به قطعی', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
 
@@ -2777,7 +1124,7 @@ And if you click on Draw DFA Graph, then this form viewed:
 </div>
 
 -------------------------
-[0]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/screen.png
+[0]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/screen.png
 [1]: https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton	
 [2]: https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 [3]: https://en.wikipedia.org/wiki/Theory_of_computation
@@ -2796,16 +1143,16 @@ And if you click on Draw DFA Graph, then this form viewed:
 [16]: https://en.wikipedia.org/wiki/Reflexive_transitive_closure
 [17]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-vannoord-5 
 [18]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-6
-[19]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/LogoNFA-DFA.png
-[20]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f1.png
-[21]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f2.png
+[19]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/LogoNFA-DFA.png
+[20]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f1.png
+[21]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f2.png
 [22]: https://en.wikipedia.org/wiki/Natural_language_processing
 [23]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-7
-[24]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/NFA-powerset-construction-example.svg.png
-[25]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/DFA-powerset-construction-example.svg.png
+[24]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/NFA-powerset-construction-example.svg.png
+[25]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/DFA-powerset-construction-example.svg.png
 [26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
 [27]: https://en.wikipedia.org/wiki/Worst-case_complexity
-[28]: http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
+[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (3, 1, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'Room-3D', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
 
@@ -2835,7 +1182,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 <br/>
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/8Queen/appScreen.jpg)
+![Capture](http://resources.xomorod.com/web-applications/products/images/8Queen/appScreen.jpg)
 </div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (4, 2, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 وزیر', N'8 Queen Puzzle application', N'<div align="center">
@@ -2850,14 +1197,14 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 <br/>
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/8Queen/appScreen.jpg)
+![Capture](http://resources.xomorod.com/web-applications/products/images/8Queen/appScreen.jpg)
 </div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (5, 1, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'Fox Robbit', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
 
 Fox Rabbit implemented by Fuzzy Logic algorithm
 
-![icon](http://r.[xomorod.com_xomorod].ir/img/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
+![icon](http://resources.xomorod.com/web-applications/products/images/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
 
 <div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
 GO
@@ -2865,7 +1212,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 
 Fox Rabbit implemented by Fuzzy Logic algorithm
 
-![icon](http://r.[xomorod.com_xomorod].ir/img/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
+![icon](http://resources.xomorod.com/web-applications/products/images/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
 
 <div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
 GO
@@ -2878,7 +1225,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Sudoku 9×9 puzzle application designed in C# winForm.
 
 <div align="center">
-![First Capture](http://r.[xomorod.com_xomorod].ir/img/Sudoku9/appScreenShut.png)
+![First Capture](http://resources.xomorod.com/web-applications/products/images/Sudoku9/appScreenShut.png)
 </div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (6, 2, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'سودوکو 9*9', N'Sudoku 9×9 puzzle application', N'<div align="center">
@@ -2890,7 +1237,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Sudoku 9×9 puzzle application designed in C# winForm.
 
 <div align="center">
-![First Capture](http://r.[xomorod.com_xomorod].ir/img/Sudoku9/appScreenShut.png)
+![First Capture](http://resources.xomorod.com/web-applications/products/images/Sudoku9/appScreenShut.png)
 </div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (7, 1, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'Ping Server', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
@@ -2980,7 +1327,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Whois **several domains** to know are reserved or not!
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/WHOis/screenshut.png)
+![Capture](http://resources.xomorod.com/web-applications/products/images/WHOis/screenshut.png)
 </div>
 
 Click on `Save Whois Result` to export whois data like below text file:
@@ -3007,7 +1354,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Whois **several domains** to know are reserved or not!
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/WHOis/screenshut.png)
+![Capture](http://resources.xomorod.com/web-applications/products/images/WHOis/screenshut.png)
 </div>
 
 Click on `Save Whois Result` to export whois data like below text file:
@@ -3049,7 +1396,7 @@ Snipping Multiple Screen is a WPF application to capture many screen shot and me
 First capture your snapshuts from display screen:
 
 <div align="center">
-![First Capture](http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppScreenShot.jpg)
+![First Capture](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppScreenShot.jpg)
 </div>
 
 <br/>
@@ -3057,7 +1404,7 @@ First capture your snapshuts from display screen:
 After save your output is like this:
 
 <div align="center">
-![After Save](http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppOutput.png)
+![After Save](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppOutput.png)
 </div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (10, 2, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'برش متعدد از دسکتاپ', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
@@ -3074,7 +1421,7 @@ Snipping Multiple Screen is a WPF application to capture many screen shot and me
 First capture your snapshuts from display screen:
 
 <div align="center">
-![First Capture](http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppScreenShot.jpg)
+![First Capture](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppScreenShot.jpg)
 </div>
 
 <br/>
@@ -3082,11 +1429,11 @@ First capture your snapshuts from display screen:
 After save your output is like this:
 
 <div align="center">
-![After Save](http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppOutput.png)
+![After Save](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppOutput.png)
 </div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 1, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'Tic Tac Toe', N'Tic Tac Toe puzzle application', N'<div align="center">
-![ttt](http://r.[xomorod.com_xomorod].ir/img/TicTacToe/TicTacToe.png)
+![ttt](http://resources.xomorod.com/web-applications/products/images/TicTacToe/TicTacToe.png)
 
 <br/>
 
@@ -3099,11 +1446,11 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Tic Tac Toe puzzle application, designed in C# WinForm
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/TicTacToe/screenshut.jpg)
+![Capture](http://resources.xomorod.com/web-applications/products/images/TicTacToe/screenshut.jpg)
 </div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 2, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'تیک تاک تو', N'Tic Tac Toe puzzle application', N'<div align="center">
-![ttt](http://r.[xomorod.com_xomorod].ir/img/TicTacToe/TicTacToe.png)
+![ttt](http://resources.xomorod.com/web-applications/products/images/TicTacToe/TicTacToe.png)
 
 <br/>
 
@@ -3116,7 +1463,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Tic Tac Toe puzzle application, designed in C# WinForm
 
 <div align="center">
-![Capture](http://r.[xomorod.com_xomorod].ir/img/TicTacToe/screenshut.jpg)
+![Capture](http://resources.xomorod.com/web-applications/products/images/TicTacToe/screenshut.jpg)
 </div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 1, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'Make Class Schedule', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
@@ -3174,8 +1521,8 @@ Application main screen:
 
 [1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
 [2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
-[3]: http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/MakeClassSchedule.jpg
-[4]: http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
+[3]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/MakeClassSchedule.jpg
+[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'زمانبندی کلاس های دانشگاه', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
 
@@ -3232,8 +1579,8 @@ Application main screen:
 
 [1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
 [2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
-[3]: http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/MakeClassSchedule.jpg
-[4]: http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
+[3]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/MakeClassSchedule.jpg
+[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 1, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'TSP', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
 
@@ -3251,7 +1598,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Travelling salesman problem (**TSP**) has been already mentioned in one of the previous chapters. To repeat it, there are cities and given distances between them.Travelling salesman has to visit all of them, but he does not to travel very much. Task is to find a sequence of cities to minimize travelled distance. In other words, find a minimal Hamiltonian tour in a complete graph of N nodes.
 
 <div align="center">
-[![screen](http://r.[xomorod.com_xomorod].ir/img/TSP/screenshut.png)][0]
+[![screen](http://resources.xomorod.com/web-applications/products/images/TSP/screenshut.png)][0]
 </div>
 
 **Note**:
@@ -3429,12 +1776,12 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 
 
 [0]: https://github.com/Behzadkhosravifar/TSP
-[1]: http://r.[xomorod.com_xomorod].ir/img/TSP/f1.jpg
-[2]: http://r.[xomorod.com_xomorod].ir/img/TSP/f2.png
-[3]: http://r.[xomorod.com_xomorod].ir/img/TSP/f3.jpg
-[4]: http://r.[xomorod.com_xomorod].ir/img/TSP/f4.jpg
-[5]: http://r.[xomorod.com_xomorod].ir/img/TSP/f5.jpg
-[6]: http://r.[xomorod.com_xomorod].ir/img/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
+[1]: http://resources.xomorod.com/web-applications/products/images/TSP/f1.jpg
+[2]: http://resources.xomorod.com/web-applications/products/images/TSP/f2.png
+[3]: http://resources.xomorod.com/web-applications/products/images/TSP/f3.jpg
+[4]: http://resources.xomorod.com/web-applications/products/images/TSP/f4.jpg
+[5]: http://resources.xomorod.com/web-applications/products/images/TSP/f5.jpg
+[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 2, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'مشکل فروشنده دوره گرد', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
 
@@ -3452,7 +1799,7 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 Travelling salesman problem (**TSP**) has been already mentioned in one of the previous chapters. To repeat it, there are cities and given distances between them.Travelling salesman has to visit all of them, but he does not to travel very much. Task is to find a sequence of cities to minimize travelled distance. In other words, find a minimal Hamiltonian tour in a complete graph of N nodes.
 
 <div align="center">
-[![screen](http://r.[xomorod.com_xomorod].ir/img/TSP/screenshut.png)][0]
+[![screen](http://resources.xomorod.com/web-applications/products/images/TSP/screenshut.png)][0]
 </div>
 
 **Note**:
@@ -3630,12 +1977,12 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 
 
 [0]: https://github.com/Behzadkhosravifar/TSP
-[1]: http://r.[xomorod.com_xomorod].ir/img/TSP/f1.jpg
-[2]: http://r.[xomorod.com_xomorod].ir/img/TSP/f2.png
-[3]: http://r.[xomorod.com_xomorod].ir/img/TSP/f3.jpg
-[4]: http://r.[xomorod.com_xomorod].ir/img/TSP/f4.jpg
-[5]: http://r.[xomorod.com_xomorod].ir/img/TSP/f5.jpg
-[6]: http://r.[xomorod.com_xomorod].ir/img/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
+[1]: http://resources.xomorod.com/web-applications/products/images/TSP/f1.jpg
+[2]: http://resources.xomorod.com/web-applications/products/images/TSP/f2.png
+[3]: http://resources.xomorod.com/web-applications/products/images/TSP/f3.jpg
+[4]: http://resources.xomorod.com/web-applications/products/images/TSP/f4.jpg
+[5]: http://resources.xomorod.com/web-applications/products/images/TSP/f5.jpg
+[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (14, 1, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'Great Maps', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
 
@@ -3713,7 +2060,7 @@ If you want to install or unistall a service for signalR server or just run the 
 	`$ SignalR\Solution Items\RunServiceOnWPF.bat`
 
 <div align="center">
-	![wpfServer](http://r.[xomorod.com_xomorod].ir/img/SignalR/wpfServer.PNG)
+	![wpfServer](http://resources.xomorod.com/web-applications/products/images/SignalR/wpfServer.PNG)
 </div>
 
 --------------------------
@@ -3721,7 +2068,7 @@ If you want to install or unistall a service for signalR server or just run the 
 A sample project in win32 for present signalR client
 
 <div align="center">
-![clients](http://r.[xomorod.com_xomorod].ir/img/SignalR/clients.PNG)
+![clients](http://resources.xomorod.com/web-applications/products/images/SignalR/clients.PNG)
 </div>
 
 ### SignalR Clients Controller
@@ -3730,24 +2077,24 @@ The clients controller in fact is a signalR client, but this project can be cont
 For e.x:
 
 <div align="center">
-![clientsController](http://r.[xomorod.com_xomorod].ir/img/SignalR/clientsController.png)
+![clientsController](http://resources.xomorod.com/web-applications/products/images/SignalR/clientsController.png)
 </div>
 
 In this application you can fetch any events of server from server windows logs by clicking on `Show Server Event Logs`
 
 <div align="center">
-![logViewer](http://r.[xomorod.com_xomorod].ir/img/SignalR/logViewer.png)
+![logViewer](http://resources.xomorod.com/web-applications/products/images/SignalR/logViewer.png)
 </div>
 
 And by selecting one client in from list you can to control that by this form:
 <div align="center">
-![ControlUser](http://r.[xomorod.com_xomorod].ir/img/SignalR/selectedUserController.png)
+![ControlUser](http://resources.xomorod.com/web-applications/products/images/SignalR/selectedUserController.png)
 </div>
 
 In `Control User` form you can to send a message to selected users or execute an stored procedure on that clients. <br/>
 By click on `Custom Procedure` you should see this form:
 <div align="center">
-![dynamicCodeExec](http://r.[xomorod.com_xomorod].ir/img/SignalR/dynamicCodeExec.PNG)
+![dynamicCodeExec](http://resources.xomorod.com/web-applications/products/images/SignalR/dynamicCodeExec.PNG)
 </div>
 
 In `Runtime Dynamic Compiler` form you can type your c# codes to executed on selected users system.
@@ -3806,7 +2153,7 @@ If you want to install or unistall a service for signalR server or just run the 
 	`$ SignalR\Solution Items\RunServiceOnWPF.bat`
 
 <div align="center">
-	![wpfServer](http://r.[xomorod.com_xomorod].ir/img/SignalR/wpfServer.PNG)
+	![wpfServer](http://resources.xomorod.com/web-applications/products/images/SignalR/wpfServer.PNG)
 </div>
 
 --------------------------
@@ -3814,7 +2161,7 @@ If you want to install or unistall a service for signalR server or just run the 
 A sample project in win32 for present signalR client
 
 <div align="center">
-![clients](http://r.[xomorod.com_xomorod].ir/img/SignalR/clients.PNG)
+![clients](http://resources.xomorod.com/web-applications/products/images/SignalR/clients.PNG)
 </div>
 
 ### SignalR Clients Controller
@@ -3823,24 +2170,24 @@ The clients controller in fact is a signalR client, but this project can be cont
 For e.x:
 
 <div align="center">
-![clientsController](http://r.[xomorod.com_xomorod].ir/img/SignalR/clientsController.png)
+![clientsController](http://resources.xomorod.com/web-applications/products/images/SignalR/clientsController.png)
 </div>
 
 In this application you can fetch any events of server from server windows logs by clicking on `Show Server Event Logs`
 
 <div align="center">
-![logViewer](http://r.[xomorod.com_xomorod].ir/img/SignalR/logViewer.png)
+![logViewer](http://resources.xomorod.com/web-applications/products/images/SignalR/logViewer.png)
 </div>
 
 And by selecting one client in from list you can to control that by this form:
 <div align="center">
-![ControlUser](http://r.[xomorod.com_xomorod].ir/img/SignalR/selectedUserController.png)
+![ControlUser](http://resources.xomorod.com/web-applications/products/images/SignalR/selectedUserController.png)
 </div>
 
 In `Control User` form you can to send a message to selected users or execute an stored procedure on that clients. <br/>
 By click on `Custom Procedure` you should see this form:
 <div align="center">
-![dynamicCodeExec](http://r.[xomorod.com_xomorod].ir/img/SignalR/dynamicCodeExec.PNG)
+![dynamicCodeExec](http://resources.xomorod.com/web-applications/products/images/SignalR/dynamicCodeExec.PNG)
 </div>
 
 In `Runtime Dynamic Compiler` form you can type your c# codes to executed on selected users system.
@@ -3863,92 +2210,92 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (16, 2, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'دوربین سلفی', N'یک برنامه جذاب برای گرفتن عکس های سلفی', NULL, CAST(0xBBC40700 AS Date), NULL, 50, 0, 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (17, 1, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'XTech', N'[xomorod.com_xomorod] Tech News', NULL, CAST(0x0B3B0B00 AS Date), NULL, 51, 0, 1)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (17, 1, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'XTech', N'xomorod Tech News', NULL, CAST(0x0B3B0B00 AS Date), NULL, 51, 0, 1)
 GO
 INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (17, 2, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'اکس تکنولوژی', N'اخبار تکنولوژی زمرود', NULL, CAST(0xBBC40700 AS Date), NULL, 51, 0, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Resources] ON 
 
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'ErrorControlSystem.jpg', N'http://r.[xomorod.com_xomorod].ir/img/ErrorControlSystem/ErrorControlSystem.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'ErrorControlSystem.jpg', N'http://resources.xomorod.com/web-applications/products/images/ErrorControlSystem/ErrorControlSystem.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'MakeClassSchedule.jpg', N'http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/MakeClassSchedule.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'MakeClassSchedule.jpg', N'http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/MakeClassSchedule.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (3, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'HelpHeader.png', N'http://r.[xomorod.com_xomorod].ir/img/MakeClassSchedule/HelpHeader.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (3, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'HelpHeader.png', N'http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (4, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'screenshut.png', N'http://r.[xomorod.com_xomorod].ir/img/TSP/screenshut.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (4, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'screenshut.png', N'http://resources.xomorod.com/web-applications/products/images/TSP/screenshut.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (5, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'Netclear.png', N'http://r.[xomorod.com_xomorod].ir/img/TSP/Netclear.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (5, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'Netclear.png', N'http://resources.xomorod.com/web-applications/products/images/TSP/Netclear.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (6, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f1.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f1.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (6, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f1.jpg', N'http://resources.xomorod.com/web-applications/products/images/TSP/f1.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (7, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f2.png', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f2.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (7, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f2.png', N'http://resources.xomorod.com/web-applications/products/images/TSP/f2.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (8, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f3.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f3.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (8, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f3.jpg', N'http://resources.xomorod.com/web-applications/products/images/TSP/f3.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (9, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f4.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f4.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (9, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f4.jpg', N'http://resources.xomorod.com/web-applications/products/images/TSP/f4.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (10, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f5.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f5.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (10, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f5.jpg', N'http://resources.xomorod.com/web-applications/products/images/TSP/f5.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (11, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f6.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TSP/f6.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (11, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'f6.jpg', N'http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (15, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'logo.jpg', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/logo.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (15, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'logo.jpg', N'http://resources.xomorod.com/web-applications/products/images/SignalR/logo.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (16, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'wpfServer.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/wpfServer.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (16, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'wpfServer.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/wpfServer.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (17, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'clients.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/clients.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (17, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'clients.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/clients.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (18, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'clientsController.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/clientsController.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (18, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'clientsController.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/clientsController.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (19, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'dynamicCodeExec.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/dynamicCodeExec.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (19, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'dynamicCodeExec.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/dynamicCodeExec.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (20, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'logViewer.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/logViewer.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (20, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'logViewer.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/logViewer.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (21, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'selectedUserController.png', N'http://r.[xomorod.com_xomorod].ir/img/SignalR/selectedUserController.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (21, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'selectedUserController.png', N'http://resources.xomorod.com/web-applications/products/images/SignalR/selectedUserController.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (22, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'screenshut.png', N'http://r.[xomorod.com_xomorod].ir/img/WHOis/screenshut.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (22, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'screenshut.png', N'http://resources.xomorod.com/web-applications/products/images/WHOis/screenshut.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (24, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'ioan-dzitac-fuzzy-logic.jpg', N'http://r.[xomorod.com_xomorod].ir/img/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (24, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'ioan-dzitac-fuzzy-logic.jpg', N'http://resources.xomorod.com/web-applications/products/images/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (25, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'screenshut.png', N'http://r.[xomorod.com_xomorod].ir/img/GMap/screenshut.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (25, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'screenshut.png', N'http://resources.xomorod.com/web-applications/products/images/GMap/screenshut.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (27, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'AppScreenShot.jpg', N'http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppScreenShot.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (27, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'AppScreenShot.jpg', N'http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppScreenShot.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (29, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'AppOutput.png', N'http://r.[xomorod.com_xomorod].ir/img/SnippingMultipleScreen/AppOutput.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (29, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'AppOutput.png', N'http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppOutput.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (30, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'demo.png', N'http://r.[xomorod.com_xomorod].ir/img/BlurMessageBox/demo.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (30, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'demo.png', N'http://resources.xomorod.com/web-applications/products/images/BlurMessageBox/demo.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (32, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'TicTacToe.png', N'http://r.[xomorod.com_xomorod].ir/img/TicTacToe/TicTacToe.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (32, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'TicTacToe.png', N'http://resources.xomorod.com/web-applications/products/images/TicTacToe/TicTacToe.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (33, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'screenshut.jpg', N'http://r.[xomorod.com_xomorod].ir/img/TicTacToe/screenshut.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (33, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'screenshut.jpg', N'http://resources.xomorod.com/web-applications/products/images/TicTacToe/screenshut.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (34, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'appScreenShut.png', N'http://r.[xomorod.com_xomorod].ir/img/Sudoku9/appScreenShut.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (34, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'appScreenShut.png', N'http://resources.xomorod.com/web-applications/products/images/Sudoku9/appScreenShut.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (36, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'sample.jpg', N'http://r.[xomorod.com_xomorod].ir/img/Room-3D/sample.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (36, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'sample.jpg', N'http://resources.xomorod.com/web-applications/products/images/Room-3D/sample.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (37, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'before.png', N'http://r.[xomorod.com_xomorod].ir/img/PingServer/before.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (37, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'before.png', N'http://resources.xomorod.com/web-applications/products/images/PingServer/before.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (38, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'afterOff.png', N'http://r.[xomorod.com_xomorod].ir/img/PingServer/afterOff.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (38, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'afterOff.png', N'http://resources.xomorod.com/web-applications/products/images/PingServer/afterOff.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (39, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'LogoNFA-DFA.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/LogoNFA-DFA.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (39, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'LogoNFA-DFA.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/LogoNFA-DFA.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (40, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'appScreen.jpg', N'http://r.[xomorod.com_xomorod].ir/img/8Queen/appScreen.jpg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (40, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'appScreen.jpg', N'http://resources.xomorod.com/web-applications/products/images/8Queen/appScreen.jpg')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (41, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'dfa.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/dfa.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (41, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'dfa.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (42, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'screen.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/screen.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (42, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'screen.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/screen.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (43, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'DFA-powerset-construction-example.svg.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/DFA-powerset-construction-example.svg.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (43, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'DFA-powerset-construction-example.svg.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/DFA-powerset-construction-example.svg.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (44, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'f1.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f1.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (44, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'f1.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f1.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (45, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'f2.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/f2.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (45, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'f2.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/f2.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (46, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA-powerset-construction-example.svg.png', N'http://r.[xomorod.com_xomorod].ir/img/NFA2DFA/NFA-powerset-construction-example.svg.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (46, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA-powerset-construction-example.svg.png', N'http://resources.xomorod.com/web-applications/products/images/NFA2DFA/NFA-powerset-construction-example.svg.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (50, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'Self-Camera', N'http://resources.[xomorod.com_xomorod].com/android/images/Products/SelfCamera/main-logo.png')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (50, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'Self-Camera', N'http://resources.xomorod.com/android/images/Products/SelfCamera/main-logo.png')
 GO
-INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (51, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'X-Tech', N'http://resources.[xomorod.com_xomorod].com/android/images/Products/XTech/main-logo.svg')
+INSERT [dbo].[Resources] ([Id], [ElementUniqueId], [ResourceName], [ResourceLink]) VALUES (51, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'X-Tech', N'http://resources.xomorod.com/android/images/Products/XTech/main-logo.svg')
 GO
 SET IDENTITY_INSERT [dbo].[Resources] OFF
 GO
@@ -4067,7 +2414,7 @@ INSERT [dbo].[RssCategories] ([CategoryID], [LangID], [Name], [ParentID], [Descr
 GO
 INSERT [dbo].[RssCategories] ([CategoryID], [LangID], [Name], [ParentID], [Description], [Order], [IsActive]) VALUES (32, 2, N'آموزشی', 21, N'آموزشی', 20, 1)
 GO
-INSERT [dbo].[RssCategories] ([CategoryID], [LangID], [Name], [ParentID], [Description], [Order], [IsActive]) VALUES (34, 1, N'World', 21, N'View [xomorod.com_xomorod] world news today for international news from Europe, Asia, Africa, the Middle East and the Americas', 30, 1)
+INSERT [dbo].[RssCategories] ([CategoryID], [LangID], [Name], [ParentID], [Description], [Order], [IsActive]) VALUES (34, 1, N'World', 21, N'View xomorod world news today for international news from Europe, Asia, Africa, the Middle East and the Americas', 30, 1)
 GO
 INSERT [dbo].[RssCategories] ([CategoryID], [LangID], [Name], [ParentID], [Description], [Order], [IsActive]) VALUES (34, 2, N'جهان', 21, N'اخبار امروز جهان از اروپا، آسیا، آفریقا، خاورمیانه و آمریکا', 30, 1)
 GO
@@ -4266,249 +2613,4 @@ GO
 INSERT [dbo].[Users] ([UserID], [Id], [Username], [FirstName], [LastName], [ModifyDate], [Email], [EmailConfirmed], [Password], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnable], [LockoutEndDateUtc], [LockoutEnable], [AccessFailedCount]) VALUES (4, N'224ed7ce-f213-4461-a03c-942048924dd2', N'anyone', N'any', N'one', CAST(0xFB3A0B00 AS Date), NULL, 0, 0x313233000000000000000000000000000000000000000000000000000000, NULL, NULL, 0, 0, NULL, 0, 0)
 GO
 SET IDENTITY_INSERT [dbo].[Users] OFF
-GO
-/****** Object:  Index [IX_RssFeeds]    Script Date: 2/19/2016 1:14:39 AM ******/
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'IX_RssFeeds')
-ALTER TABLE [dbo].[RssFeeds] ADD  CONSTRAINT [IX_RssFeeds] UNIQUE NONCLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [Au_RssFeeds]    Script Date: 2/19/2016 1:14:39 AM ******/
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Au_RssFeeds')
-CREATE NONCLUSTERED INDEX [Au_RssFeeds] ON [dbo].[RssFeeds]
-(
-	[Author] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-/****** Object:  Index [Rs_RssFeeds]    Script Date: 2/19/2016 1:14:39 AM ******/
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'Rs_RssFeeds')
-CREATE NONCLUSTERED INDEX [Rs_RssFeeds] ON [dbo].[RssFeeds]
-(
-	[ResourceID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [TX_RssFeeds]    Script Date: 2/19/2016 1:14:39 AM ******/
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssFeeds]') AND name = N'TX_RssFeeds')
-CREATE NONCLUSTERED INDEX [TX_RssFeeds] ON [dbo].[RssFeeds]
-(
-	[TitleHash] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_RssResources]    Script Date: 2/19/2016 1:14:39 AM ******/
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RssResources]') AND name = N'IX_RssResources')
-CREATE NONCLUSTERED INDEX [IX_RssResources] ON [dbo].[RssResources]
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_LangID]  DEFAULT ((1)) FOR [LangID]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Categories_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_CategoriesChilds_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[CategoriesChilds] ADD  CONSTRAINT [DF_CategoriesChilds_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrTime]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_ErrTime]  DEFAULT (getdate()) FOR [ServerDateTime]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_ErrorHost]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_ErrorHost]  DEFAULT (host_name()) FOR [Host]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IsHandled]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_IsHandled]  DEFAULT ((0)) FOR [IsHandled]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_Type]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_Type]  DEFAULT ('Exception') FOR [Type]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_AppName]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_AppName]  DEFAULT (app_name()) FOR [AppName]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_IPv4Address]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_IPv4Address]  DEFAULT ('Network Not Available') FOR [IPv4Address]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_ErrorLog_MACAddress]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_MACAddress]  DEFAULT ('Network Not Available') FOR [MACAddress]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Languages_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Languages] ADD  CONSTRAINT [DF_Languages_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__RunDa__0F975522]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__RunDa__0F975522]  DEFAULT (getdate()) FOR [RunDate]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Succe__108B795B]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Succe__108B795B]  DEFAULT ((0)) FOR [Success]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__LogHistor__Login__117F9D94]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[LogHistory] ADD  CONSTRAINT [DF__LogHistor__Login__117F9D94]  DEFAULT ((1)) FOR [LoginOrLogout]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_LangID]  DEFAULT ((1)) FOR [LangID]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_UniqueId]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_UniqueId]  DEFAULT (newid()) FOR [Id]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Portfolio__Modif__15502E78]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF__Portfolio__Modif__15502E78]  DEFAULT (getdate()) FOR [ModifyDate]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_Rank]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_Rank]  DEFAULT ((0)) FOR [Rank]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Portfolios_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Portfolios] ADD  CONSTRAINT [DF_Portfolios_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssCategories_LangID]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] ADD  CONSTRAINT [DF_RssCategories_LangID]  DEFAULT ((1)) FOR [LangID]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_NewsCategory_Order]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] ADD  CONSTRAINT [DF_NewsCategory_Order]  DEFAULT ((0)) FOR [Order]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssCategories_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssCategories] ADD  CONSTRAINT [DF_RssCategories_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssFeeds_PublishDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssFeeds] ADD  CONSTRAINT [DF_RssFeeds_PublishDate]  DEFAULT (getdate()) FOR [PublishDate]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssFeeds_Score]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssFeeds] ADD  CONSTRAINT [DF_RssFeeds_Score]  DEFAULT ((0)) FOR [Score]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_NewsResources_Language]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] ADD  CONSTRAINT [DF_NewsResources_Language]  DEFAULT (N'en') FOR [Language]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssResources_IsActive]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] ADD  CONSTRAINT [DF_RssResources_IsActive]  DEFAULT ((1)) FOR [IsActive]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_RssResources_Score]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[RssResources] ADD  CONSTRAINT [DF_RssResources_Score]  DEFAULT ((1)) FOR [Score]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_UniqueId]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_UniqueId]  DEFAULT (newid()) FOR [Id]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF__Users__ModifyDat__1A14E395]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF__Users__ModifyDat__1A14E395]  DEFAULT (getdate()) FOR [ModifyDate]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_EmailConfirmed]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_EmailConfirmed]  DEFAULT ((0)) FOR [EmailConfirmed]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_PhoneNumberConfirmed]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_PhoneNumberConfirmed]  DEFAULT ((0)) FOR [PhoneNumberConfirmed]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_TwoFactorEnable]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_TwoFactorEnable]  DEFAULT ((0)) FOR [TwoFactorEnable]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_LockoutEnable]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_LockoutEnable]  DEFAULT ((0)) FOR [LockoutEnable]
-END
-
-GO
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[DF_Users_AccessFailedCount]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_AccessFailedCount]  DEFAULT ((0)) FOR [AccessFailedCount]
-END
-
 GO

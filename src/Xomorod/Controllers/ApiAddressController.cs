@@ -24,7 +24,7 @@ namespace Xomorod.Controllers
 
             try
             {
-                apiRout = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>("SELECT xomorod.dbo.GetSettingByKey('ApiAddress')");
+                apiRout = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>("SELECT dbo.GetSettingByKey('ApiAddress')");
 
 #if DEBUG
                 apiRout = "http://localhost:50543";

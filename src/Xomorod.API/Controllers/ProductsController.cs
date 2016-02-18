@@ -144,9 +144,9 @@ namespace Xomorod.API.Controllers
                 portfolio.Row = prod.RowNo;
                 portfolio.ProjectName = prod.ProjectName;
                 portfolio.Id = prod.PortfolioID;
-                portfolio.ImageLink = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT xomorod.dbo.getResourceLinkByElementID('{prod.Id}')");
+                portfolio.ImageLink = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.getResourceLinkByElementID('{prod.Id}')");
                 portfolio.Category = prod.Categories;
-                portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT xomorod.dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')");
+                portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')");
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
                 portfolio.Description = prod.Summary;
                 portfolio.Markdown = prod.MarkdownDescription;

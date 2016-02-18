@@ -18,7 +18,7 @@ namespace Xomorod.News
             //routes.Add(new System.Web.Routing.Route("{resource}.axd/{*pathInfo}",
             //    new System.Web.Routing.StopRoutingHandler()));
 
-            // localization routes e.g:  http://ZNews.Xomorod.com/en/
+            // localization routes e.g:  http://News.Xomorod.com/en/
             routes.MapPageRoute("localRoutes",
                 "{local}",
                 "~/default.aspx", true,
@@ -31,7 +31,7 @@ namespace Xomorod.News
                     {"local", "[a-z]{2}"},
                 });
 
-            // id routes e.g:  http://ZNews.Xomorod.com/News/id/566546
+            // id routes e.g:  http://News.Xomorod.com/News/id/566546
             routes.MapPageRoute("IdRoute",
                 "News/id/{id}",
                 "~/pages/news.aspx", true,

@@ -23,7 +23,7 @@ namespace AdoManager
         {
             var cols = columns.Any() ? string.Join(", ", columns) : "*";
 
-            string query = $"SELECT {cols} FROM Xomorod.dbo.{table} ";
+            string query = $"SELECT {cols} FROM dbo.{table} ";
 
             if (conditions.Any())
             {
@@ -62,7 +62,7 @@ namespace AdoManager
         {
             var cols = columns.Any() ? string.Join(", ", columns) : "*";
 
-            string query = $"SELECT {cols} FROM Xomorod.dbo.{table} ";
+            string query = $"SELECT {cols} FROM dbo.{table} ";
 
             if (conditions.Any())
             {

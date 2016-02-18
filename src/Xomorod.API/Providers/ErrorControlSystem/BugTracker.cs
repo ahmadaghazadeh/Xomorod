@@ -28,9 +28,9 @@ namespace Xomorod.API.Providers.ErrorControlSystem
         {
             try
             {
-                var bugTrackerToAddress = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerAddress')");
-                var bugTrackerFromServicePass = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerServicePassword')");
-                var bugTrackerFromServiceAddress = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerServiceAddress')");
+                var bugTrackerToAddress = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT dbo.GetSettingByKey('BugTrackerAddress')");
+                var bugTrackerFromServicePass = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT dbo.GetSettingByKey('BugTrackerServicePassword')");
+                var bugTrackerFromServiceAddress = await DataAccessObject.ExecuteScalarAsync<string>(@"SELECT dbo.GetSettingByKey('BugTrackerServiceAddress')");
 
                 var mail = ex.GetMailMessage(bugTrackerFromServiceAddress, bugTrackerToAddress);
 
@@ -76,9 +76,9 @@ namespace Xomorod.API.Providers.ErrorControlSystem
         {
             try
             {
-                var bugTrackerToAddress = DataAccessObject.ExecuteScalar<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerAddress')");
-                var bugTrackerFromServicePass = DataAccessObject.ExecuteScalar<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerServicePassword')");
-                var bugTrackerFromServiceAddress = DataAccessObject.ExecuteScalar<string>(@"SELECT Xomorod.dbo.GetSettingByKey('BugTrackerServiceAddress')");
+                var bugTrackerToAddress = DataAccessObject.ExecuteScalar<string>(@"SELECT dbo.GetSettingByKey('BugTrackerAddress')");
+                var bugTrackerFromServicePass = DataAccessObject.ExecuteScalar<string>(@"SELECT dbo.GetSettingByKey('BugTrackerServicePassword')");
+                var bugTrackerFromServiceAddress = DataAccessObject.ExecuteScalar<string>(@"SELECT dbo.GetSettingByKey('BugTrackerServiceAddress')");
 
                 var mail = ex.GetMailMessage(bugTrackerFromServiceAddress, bugTrackerToAddress);
 
