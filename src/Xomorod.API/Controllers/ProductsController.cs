@@ -10,6 +10,9 @@ using System.Web.Http.Cors;
 
 namespace Xomorod.API.Controllers
 {
+    /// <summary>
+    /// Xomorod Products Controller
+    /// </summary>
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : ApiController
     {

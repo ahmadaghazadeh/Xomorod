@@ -24,9 +24,17 @@ namespace Xomorod.API
                 );
 
 
-            routes.MapRoute(
-                name: "APIs",
-                url: "{controller}/{*action}");
+            //routes.MapRoute(
+            //    name: "productAPI",
+            //    url: "{controller}/{language}",
+            //    defaults: new { controller = "products", language = "en" }
+            //    );
+
+            //routes.MapRoute(
+            //    name: "productByCategoryAPI",
+            //    url: "{controller}/{language}/{category}",
+            //    defaults: new { controller = "products", language = "en", category = UrlParameter.Optional }
+            //    );
 
             routes.MapHttpRoute(
                     name: "errors",
