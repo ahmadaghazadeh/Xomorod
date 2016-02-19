@@ -25,9 +25,26 @@ namespace Xomorod.API.Controllers
         [Route("Categories")]
         public async Task<IHttpActionResult> Get()
         {
+            return await Get("en");
+        }
+
+        /// <summary>
+        /// Get all active Categories
+        /// </summary>
+        /// <param name="language"><example>"en" or "fa"</example></param>
+        /// <returns>categories results as <see cref="IEnumerable{dynamic}"/></returns>
+        [Route("Categories/{language}")]
+        public async Task<IHttpActionResult> Get(string language)
+        {
             try
             {
-                var results = await DataAccessObject.GetFromAsync("udft_Categories(1)", true);
+                var langId = ExtensionsHelper.GetLanguageId(language);
+                if (langId == null)
+                {
+                    return BadRequest("Your request language is not exist!");
+                }
+
+                var results = await DataAccessObject.GetFromAsync($"udft_Categories({langId})", true);
 
                 return Ok(results);
             }
@@ -38,25 +55,27 @@ namespace Xomorod.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all categories by language and row number range
+        /// </summary>
+        /// <param name="language">language of data</param>
+        /// <param name="fromRow">from this row no</param>
+        /// <param name="toRow">to this row no</param>
+        /// <returns></returns>
+        [System.Web.Http.Route("Categories/{language}/{fromRow}/{toRow}")]
+        public async Task<IHttpActionResult> GetByRow(string language, int fromRow, int toRow)
+        {
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
+            {
+                return BadRequest("Your request language is not exist!");
+            }
 
-        ///// <summary>
-        ///// Get async data by dynamic query.
-        ///// Restrict by role: Administrators
-        ///// 
-        ///// GET api.xomorod.com/dynamics
-        ///// </summary>
-        ///// <returns>dynamic query results as <see cref="IEnumerable{dynamic}"/></returns>
-        //[ApiAuthorize(Roles = "Administrators")]
-        //[Route("dynamics")]
-        //public async Task<IHttpActionResult> GetDynamics()
-        //{
-        //    var queryParams = this.Request.GetQueryStrings();
+            var categories = await AdoManager.DataAccessObject.GetFromAsync($"udft_Categories({langId})", true);
 
-        //    var query = queryParams["query"] ?? "";
+            categories = categories.GetFromToRow(fromRow, toRow);
 
-        //    var results = await DataAccessObject.GetFromQueryAsync(query);
-
-        //    return Ok(results);
-        //}
+            return Ok(categories);
+        }
     }
 }

@@ -101,11 +101,11 @@ namespace Xomorod.API.Providers
         /// <param name="fromRow">start row</param>
         /// <param name="toRow">end row</param>
         /// <returns>dynamic list result as <see cref="List{dynamic}"/></returns>
-        public static List<dynamic> GetFromToRow(this List<dynamic> lstObjects, int fromRow, int toRow)
+        public static List<dynamic> GetFromToRow(this IEnumerable<dynamic> lstObjects, int fromRow, int toRow)
         {
-            lstObjects = lstObjects.Where(x => x.Row >= fromRow && x.Row <= toRow).ToList();
+            var result = lstObjects.Where(x => x.Row >= fromRow && x.Row <= toRow).ToList();
 
-            return lstObjects;
+            return result;
         }
     }
 }

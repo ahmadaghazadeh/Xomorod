@@ -52,7 +52,7 @@ namespace Xomorod.API.Controllers
         }
 
         /// <summary>
-        /// Get all products by language, row number range
+        /// Get all products by language and row number range
         /// </summary>
         /// <param name="language">language of data</param>
         /// <param name="fromRow">from this row no</param>
@@ -92,7 +92,7 @@ namespace Xomorod.API.Controllers
             }
 
             var products =
-                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like  '%{category}%'", true);
+                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like '%{category}%'", true);
 
             var portfolios = await ConvertToPortfoliosAsync(products);
 

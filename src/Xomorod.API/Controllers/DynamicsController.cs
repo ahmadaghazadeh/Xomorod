@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AdoManager;
@@ -17,7 +18,7 @@ namespace Xomorod.API.Controllers
         /// 
         /// GET api.xomorod.com/dynamics
         /// </summary>
-        /// <returns>dynamic query results as <see cref="IEnumerable{dynamic}"/></returns>
+        /// <returns>dynamic query results as <see cref="IEnumerable{T}"/></returns>
         [ApiAuthorize(Roles = "Administrators")]
         [Route("dynamics")]
         [ApiExplorerSettings(IgnoreApi = true)]

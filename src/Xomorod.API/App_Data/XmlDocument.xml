@@ -492,6 +492,22 @@
             </summary>
             <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
+        <member name="M:Xomorod.API.Controllers.CategoriesController.Get(System.String)">
+            <summary>
+            Get all active Categories
+            </summary>
+            <param name="language"><example>"en" or "fa"</example></param>
+            <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Xomorod.API.Controllers.CategoriesController.GetByRow(System.String,System.Int32,System.Int32)">
+            <summary>
+            Get all categories by language and row number range
+            </summary>
+            <param name="language">language of data</param>
+            <param name="fromRow">from this row no</param>
+            <param name="toRow">to this row no</param>
+            <returns></returns>
+        </member>
         <member name="T:Xomorod.API.Controllers.DynamicsController">
             <summary>
             Run any query in Xomorod database by ?query param
@@ -504,7 +520,7 @@
             
             GET api.xomorod.com/dynamics
             </summary>
-            <returns>dynamic query results as <see cref="!:IEnumerable&lt;dynamic&gt;"/></returns>
+            <returns>dynamic query results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
         <member name="M:Xomorod.API.Controllers.EmailController.ErrorMail(Xomorod.API.Models.ErrorModel)">
             <summary>
@@ -545,7 +561,7 @@
         </member>
         <member name="M:Xomorod.API.Controllers.ProductsController.GetByRow(System.String,System.Int32,System.Int32)">
             <summary>
-            Get all products by language, row number range
+            Get all products by language and row number range
             </summary>
             <param name="language">language of data</param>
             <param name="fromRow">from this row no</param>
@@ -823,7 +839,7 @@
             <param name="lang">culture as <see cref="T:System.String"/></param>
             <returns>language ID as <see cref="T:System.Nullable`1"/></returns>
         </member>
-        <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetFromToRow(System.Collections.Generic.List{System.Object},System.Int32,System.Int32)">
+        <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetFromToRow(System.Collections.Generic.IEnumerable{System.Object},System.Int32,System.Int32)">
             <summary>
             Set row condition for a dynamic lists
             </summary>
