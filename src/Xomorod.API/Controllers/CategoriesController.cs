@@ -22,12 +22,12 @@ namespace Xomorod.API.Controllers
         /// Get all active Categories
         /// </summary>
         /// <returns>categories results as <see cref="IEnumerable{dynamic}"/></returns>
-        [Route("categories")]
+        [Route("Categories")]
         public async Task<IHttpActionResult> Get()
         {
             try
             {
-                var results = await DataAccessObject.GetFromAsync("udft_Categories(1)");
+                var results = await DataAccessObject.GetFromAsync("udft_Categories(1)", true);
 
                 return Ok(results);
             }

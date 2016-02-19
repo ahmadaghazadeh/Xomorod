@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Mvc;
+using Xomorod.API.Providers;
 
 namespace Xomorod.API.Controllers
 {
@@ -21,7 +23,7 @@ namespace Xomorod.API.Controllers
         /// Get all products by default language (en)
         /// </summary>
         /// <returns>list of portfolios</returns>
-        [Route("Products")]
+        [System.Web.Http.Route("Products")]
         public async Task<IHttpActionResult> Get()
         {
             return await Get("en");
@@ -32,19 +34,17 @@ namespace Xomorod.API.Controllers
         /// </summary>
         /// <param name="language"><example>"en" or "fa"</example></param>
         /// <returns>list of portfolios</returns>
-        [Route("Products/{language}")]
+        [System.Web.Http.Route("Products/{language}")]
         public async Task<IHttpActionResult> Get(string language)
         {
-            int langId;
-            if (language.ToLower() == "fa") langId = 2;
-            else if (language.ToLower() == "en") langId = 1;
-            else
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
             {
                 return BadRequest("Your request language is not exist!");
             }
 
             var products =
-                await AdoManager.DataAccessObject.GetFromAsync($"udfv_PortfoliosView({langId})");
+                await AdoManager.DataAccessObject.GetFromAsync($"udfv_PortfoliosView({langId})", true);
 
             var portfolios = await ConvertToPortfoliosAsync(products);
 
@@ -58,21 +58,20 @@ namespace Xomorod.API.Controllers
         /// <param name="fromRow">from this row no</param>
         /// <param name="toRow">to this row no</param>
         /// <returns></returns>
-        [Route("Products/{language}/{fromRow}/{toRow}")]
+        [System.Web.Http.Route("Products/{language}/{fromRow}/{toRow}")]
         public async Task<IHttpActionResult> GetByRow(string language, int fromRow, int toRow)
         {
-            int langId;
-            if (language.ToLower() == "fa") langId = 2;
-            else if (language.ToLower() == "en") langId = 1;
-            else
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
             {
                 return BadRequest("Your request language is not exist!");
             }
 
-            var products =
-                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where RowNo BETWEEN {fromRow} AND {toRow}");
+            var products = await AdoManager.DataAccessObject.GetFromAsync($"udfv_PortfoliosView({langId})", true);
 
             var portfolios = await ConvertToPortfoliosAsync(products);
+
+            portfolios = portfolios.GetFromToRow(fromRow, toRow);
 
             return Ok(portfolios);
         }
@@ -83,19 +82,17 @@ namespace Xomorod.API.Controllers
         /// <param name="language">language of data</param>
         /// <param name="category">include category name of products</param>
         /// <returns></returns>
-        [Route("Products/{language}/{category}")]
+        [System.Web.Http.Route("Products/{language}/{category}")]
         public async Task<IHttpActionResult> GetByCategory(string language, string category)
         {
-            int langId;
-            if (language.ToLower() == "fa") langId = 2;
-            else if (language.ToLower() == "en") langId = 1;
-            else
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
             {
                 return BadRequest("Your request language is not exist!");
             }
 
             var products =
-                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like  '%{category}%' ");
+                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like  '%{category}%'", true);
 
             var portfolios = await ConvertToPortfoliosAsync(products);
 
@@ -110,19 +107,43 @@ namespace Xomorod.API.Controllers
         /// <param name="fromRow">from this row no</param>
         /// <param name="toRow">to this row no</param>
         /// <returns></returns>
-        [Route("Products/{language}/{category}/{fromRow}/{toRow}")]
+        [System.Web.Http.Route("Products/{language}/{category}/{fromRow}/{toRow}")]
         public async Task<IHttpActionResult> GetByCategoryAndRow(string language, string category, int fromRow, int toRow)
         {
-            int langId;
-            if (language.ToLower() == "fa") langId = 2;
-            else if (language.ToLower() == "en") langId = 1;
-            else
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
             {
                 return BadRequest("Your request language is not exist!");
             }
 
             var products =
-                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like  '%{category}%' and RowNo BETWEEN {fromRow} AND {toRow}");
+                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where Categories like '%{category}%'", true);
+
+            var portfolios = await ConvertToPortfoliosAsync(products);
+
+            portfolios = portfolios.GetFromToRow(fromRow, toRow);
+
+            return Ok(portfolios);
+        }
+
+
+        /// <summary>
+        /// Get all products by language, category name
+        /// </summary>
+        /// <param name="language">language of data</param>
+        /// <param name="id">product name</param>
+        /// <returns></returns>
+        [System.Web.Http.Route("Product/{language}/{id}")]
+        public async Task<IHttpActionResult> GetById(string language, string id)
+        {
+            var langId = ExtensionsHelper.GetLanguageId(language);
+            if (langId == null)
+            {
+                return BadRequest("Your request language is not exist!");
+            }
+
+            var products =
+                await AdoManager.DataAccessObject.GetFromQueryAsync($"Select * from udfv_PortfoliosView({langId}) where PortfolioID = {id}", true);
 
             var portfolios = await ConvertToPortfoliosAsync(products);
 
@@ -131,34 +152,38 @@ namespace Xomorod.API.Controllers
 
 
 
-        private async Task<List<object>> ConvertToPortfoliosAsync(IEnumerable<dynamic> products)
+        private async Task<List<dynamic>> ConvertToPortfoliosAsync(IEnumerable<dynamic> products)
         {
             var portfolios = new List<object>();
 
             products = products.OrderByDescending(x => x.Rank);
 
+            int counter = 0;
             foreach (var prod in products)
             {
                 dynamic portfolio = new ExpandoObject();
 
-                portfolio.Row = prod.RowNo;
+                portfolio.Row = counter + 1;
                 portfolio.ProjectName = prod.ProjectName;
                 portfolio.Id = prod.PortfolioID;
-                portfolio.ImageLink = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.getResourceLinkByElementID('{prod.Id}')");
+                portfolio.ImageLink = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.getResourceLinkByElementID('{prod.Id}')", true);
                 portfolio.Category = prod.Categories;
-                portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')");
+                portfolio.ProjectUrl = await AdoManager.DataAccessObject.ExecuteScalarAsync<string>($"SELECT dbo.GetExtraLinkByName({prod.PortfolioID}, 'github')", true);
                 portfolio.OpenSource = portfolio.ProjectUrl != null;
                 portfolio.Description = prod.Summary;
+                portfolio.Price = prod.Price;
                 portfolio.Markdown = prod.MarkdownDescription;
                 portfolio.ModifyDate = prod.ModifyDate.ToString("Y");
 
                 portfolios.Add(portfolio);
+
+                counter++;
             }
 
 
             return portfolios;
         }
 
-
+        
     }
 }

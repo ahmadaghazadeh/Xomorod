@@ -71,6 +71,41 @@ namespace Xomorod.API.Providers
             }
         }
 
-        
+        /// <summary>
+        /// Get language ID for the culture string
+        /// </summary>
+        /// <param name="lang">culture as <see cref="string"/></param>
+        /// <returns>language ID as <see cref="Nullable{Int32}"/></returns>
+        public static int? GetLanguageId(string lang)
+        {
+            int langId;
+            switch (lang.ToLower())
+            {
+                case "fa":
+                    langId = 2;
+                    break;
+                case "en":
+                    langId = 1;
+                    break;
+                default:
+                    return null;
+            }
+
+            return langId;
+        }
+
+        /// <summary>
+        /// Set row condition for a dynamic lists
+        /// </summary>
+        /// <param name="lstObjects"></param>
+        /// <param name="fromRow">start row</param>
+        /// <param name="toRow">end row</param>
+        /// <returns>dynamic list result as <see cref="List{dynamic}"/></returns>
+        public static List<dynamic> GetFromToRow(this List<dynamic> lstObjects, int fromRow, int toRow)
+        {
+            lstObjects = lstObjects.Where(x => x.Row >= fromRow && x.Row <= toRow).ToList();
+
+            return lstObjects;
+        }
     }
 }

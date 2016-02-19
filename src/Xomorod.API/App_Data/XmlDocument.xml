@@ -570,6 +570,14 @@
             <param name="toRow">to this row no</param>
             <returns></returns>
         </member>
+        <member name="M:Xomorod.API.Controllers.ProductsController.GetById(System.String,System.String)">
+            <summary>
+            Get all products by language, category name
+            </summary>
+            <param name="language">language of data</param>
+            <param name="id">product name</param>
+            <returns></returns>
+        </member>
         <member name="T:Xomorod.API.Models.ErrorModel">
             <summary>
             Error Model
@@ -807,6 +815,22 @@
             Get Running library name
             </summary>
             <returns>Name of application or library as <seealso cref="T:System.String"/></returns>
+        </member>
+        <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetLanguageId(System.String)">
+            <summary>
+            Get language ID for the culture string
+            </summary>
+            <param name="lang">culture as <see cref="T:System.String"/></param>
+            <returns>language ID as <see cref="T:System.Nullable`1"/></returns>
+        </member>
+        <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetFromToRow(System.Collections.Generic.List{System.Object},System.Int32,System.Int32)">
+            <summary>
+            Set row condition for a dynamic lists
+            </summary>
+            <param name="lstObjects"></param>
+            <param name="fromRow">start row</param>
+            <param name="toRow">end row</param>
+            <returns>dynamic list result as <see cref="T:System.Collections.Generic.List`1"/></returns>
         </member>
         <member name="T:Xomorod.API.Providers.ViewRenderer">
             <summary>
