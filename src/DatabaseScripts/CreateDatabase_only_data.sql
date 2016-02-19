@@ -96,189 +96,193 @@ INSERT [dbo].[AppSetting] ([Key], [Value]) VALUES (N'GoogleDriveApiAccountKeysJs
 }
 ')
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (1, 1, N'Software', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (1, 1, N'Software', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (1, 2, N'نرم افزار', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (1, 2, N'نرم افزار', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (2, 1, N'Win32 Library', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (2, 1, N'Win32 Library', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (2, 2, N'کتابخوانه ویندوز', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (2, 2, N'کتابخوانه ویندوز', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (3, 1, N'WPF', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (3, 1, N'WPF', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (3, 2, N'WPF', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (3, 2, N'WPF', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (4, 1, N'WinForm', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (4, 1, N'WinForm', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (4, 2, N'ویندوز فرم', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (4, 2, N'ویندوز فرم', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (5, 1, N'WCF', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (5, 1, N'WCF', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (5, 2, N'WCF', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (5, 2, N'WCF', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (6, 1, N'ASP', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (6, 1, N'ASP', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (6, 2, N'وب', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (6, 2, N'وب', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (7, 1, N'ASP.NET', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (7, 1, N'ASP.NET', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (7, 2, N'ASP.NET', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (7, 2, N'ASP.NET', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (8, 1, N'Node.js', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (8, 1, N'Node.js', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (8, 2, N'Node.js', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (8, 2, N'Node.js', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (9, 1, N'JavaScript', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (9, 1, N'JavaScript', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (9, 2, N'جاوااسکریپت', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (9, 2, N'جاوااسکریپت', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (10, 1, N'CSS', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (10, 1, N'CSS', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (10, 2, N'سی اس اس', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (10, 2, N'سی اس اس', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (12, 1, N'HTML', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (12, 1, N'HTML', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (12, 2, N'اچ تی ام ال', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (12, 2, N'اچ تی ام ال', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (13, 1, N'Socket Programming', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (13, 1, N'Socket Programming', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (13, 2, N'برنامه نویسی سوکت', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (13, 2, N'برنامه نویسی سوکت', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (14, 1, N'Console Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (14, 1, N'Console Application', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (14, 2, N'برنامه کنسول ویندوز', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (14, 2, N'برنامه کنسول ویندوز', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (15, 1, N'Web Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (15, 1, N'Web Application', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (15, 2, N'برنامه تحت وب', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (15, 2, N'برنامه تحت وب', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (16, 1, N'Web Site', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (16, 1, N'Web Site', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (16, 2, N'وب سایت', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (16, 2, N'وب سایت', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (17, 1, N'C#', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (17, 1, N'C#', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (17, 2, N'سی شارپ', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (17, 2, N'سی شارپ', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (18, 1, N'C/C++', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (18, 1, N'C/C++', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (18, 2, N'سی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (18, 2, N'سی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (19, 1, N'Python', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (19, 1, N'Python', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (19, 2, N'پایتون', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (19, 2, N'پایتون', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (20, 1, N'Assembly', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (20, 1, N'Assembly', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (20, 2, N'اسمبلی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (20, 2, N'اسمبلی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (21, 1, N'DirectX', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (21, 1, N'DirectX', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (21, 2, N'دایرکت ایکس', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (21, 2, N'دایرکت ایکس', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (22, 1, N'XNA', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (22, 1, N'XNA', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (22, 2, N'ایکس ان ای', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (22, 2, N'ایکس ان ای', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (23, 1, N'OpenGL', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (23, 1, N'OpenGL', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (23, 2, N'اپن جی ال', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (23, 2, N'اپن جی ال', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (24, 1, N'WebGL', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (24, 1, N'WebGL', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (24, 2, N'وب جی ال', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (24, 2, N'وب جی ال', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (25, 1, N'Game Engine', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (25, 1, N'Game Engine', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (25, 2, N'موتور گیم ساز', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (25, 2, N'موتور گیم ساز', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (26, 1, N'Graphic', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (26, 1, N'Graphic', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (26, 2, N'گرافیک', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (26, 2, N'گرافیک', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (27, 1, N'Android', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (27, 1, N'Android', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (27, 2, N'اندروید', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (27, 2, N'اندروید', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (28, 1, N'Mobile Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (28, 1, N'Mobile Application', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (28, 2, N'برنامه موبایل', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (28, 2, N'برنامه موبایل', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (29, 1, N'iOS', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (29, 1, N'iOS', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (29, 2, N'اپل', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (29, 2, N'اپل', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (30, 1, N'iPhone', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (30, 1, N'iPhone', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (30, 2, N'آیفون', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (30, 2, N'آیفون', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (31, 1, N'Windows Application', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (31, 1, N'Windows Application', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (31, 2, N'برنامه تحت ویندوز', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (31, 2, N'برنامه تحت ویندوز', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (32, 1, N'Windows Phone', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (32, 1, N'Windows Phone', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (32, 2, N'ویندوز فون', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (32, 2, N'ویندوز فون', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (35, 1, N'Graphic Engine', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (35, 1, N'Graphic Engine', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (35, 2, N'موتور گرافیک', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (35, 2, N'موتور گرافیک', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (37, 1, N'TDD', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (37, 1, N'TDD', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (37, 2, N'تست', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (37, 2, N'تست', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (38, 1, N'Web Socket', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (38, 1, N'Web Socket', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (38, 2, N'وب سوکت', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (38, 2, N'وب سوکت', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (40, 1, N'Win32', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (40, 1, N'Win32', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (40, 2, N'تحت ویندوز', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (40, 2, N'تحت ویندوز', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (42, 1, N'Unit Test', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (42, 1, N'Unit Test', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (42, 2, N'تست', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (42, 2, N'تست', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (43, 1, N'Unity', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (43, 1, N'Unity', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (43, 2, N'یونیتی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (43, 2, N'یونیتی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (45, 1, N'Genetic Algorithm', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (45, 1, N'Genetic Algorithm', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (45, 2, N'الگوریتم ژنتیک', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (45, 2, N'الگوریتم ژنتیک', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (46, 1, N'AI', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (46, 1, N'AI', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (46, 2, N'هوش مصنوعی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (46, 2, N'هوش مصنوعی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (47, 1, N'Fuzzy Logic', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (47, 1, N'Fuzzy Logic', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (47, 2, N'منطق فازی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (47, 2, N'منطق فازی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (48, 1, N'Win Service', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (48, 1, N'Win Service', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (48, 2, N'ویندوز سرویس', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (48, 2, N'ویندوز سرویس', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (49, 1, N'GIS', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (49, 1, N'GIS', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (49, 2, N'جغرافیایی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (49, 2, N'جغرافیایی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (50, 1, N'Game', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (50, 1, N'Game', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (50, 2, N'بازی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (50, 2, N'بازی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (51, 1, N'Educational Software', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (51, 1, N'Educational Software', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (51, 2, N'نرم افزار آموزشی', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (51, 2, N'نرم افزار آموزشی', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (52, 1, N'Utility', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (52, 1, N'Utility', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (52, 2, N'سودمند', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (52, 2, N'سودمند', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (53, 1, N'News', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (53, 1, N'News', N'#fff', 1)
 GO
-INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [IsActive]) VALUES (53, 2, N'اخبار', 1)
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (53, 2, N'اخبار', N'#fff', 1)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (54, 1, N'Web API', N'#fff', 0)
+GO
+INSERT [dbo].[Categories] ([CategoryId], [LangID], [Name], [Background], [IsActive]) VALUES (54, 2, N'واسط وب', N'#fff', 0)
 GO
 INSERT [dbo].[CategoriesChilds] ([CategoryID], [ChildCategoryID], [IsActive]) VALUES (27, 52, 1)
 GO
@@ -456,7 +460,7 @@ INSERT [dbo].[PortfolioCategories] ([PortfolioID], [CategoryID]) VALUES (16, 52)
 GO
 INSERT [dbo].[PortfolioCategories] ([PortfolioID], [CategoryID]) VALUES (17, 53)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'Error Control System', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (1, 1, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'Error Control System', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
 <div align="center">
 
 [![Error Control System.png](http://resources.xomorod.com/web-applications/products/images/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
@@ -658,9 +662,9 @@ description to find out who it is (if it is not there it has to be on the commen
  
 
 * The task board is at [Huboard](http://huboard.com/BehzadKhosravifar/ErrorControlSystem/).
-* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, 1)
+* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (1, 2, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'سیستم مدیریت خطا', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (1, 2, N'9f5bcfdc-fe12-4532-bb15-31b8f64e6816', N'سیستم مدیریت خطا', N'ErrorControlSystem is a .NET library created to automate handling .NET Windows-Base application exceptions and raise that to a sql server. This exception handler have some features as screen capturing, fetch server date time in exception occurrence time and etc.', N'
 <div align="center">
 
 [![Error Control System.png](http://resources.xomorod.com/web-applications/products/images/ErrorControlSystem/ErrorControlSystem.jpg)](https://www.nuget.org/packages/ErrorControlSystem)
@@ -862,9 +866,9 @@ description to find out who it is (if it is not there it has to be on the commen
  
 
 * The task board is at [Huboard](http://huboard.com/BehzadKhosravifar/ErrorControlSystem/).
-* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, 1)
+* You can also check the [Github backlog](https://github.com/BehzadKhosravifar/ErrorControlSystem/issues) directly.', CAST(0x20390B00 AS Date), N'https://github.com/Behzadkhosravifar/ErrorControlSystem', 1, 10, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (2, 1, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA to DFA', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (2, 1, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'NFA to DFA', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
 
 ![NFA2DFA][19]
 
@@ -1007,9 +1011,9 @@ And if you click on Draw DFA Graph, then this form viewed:
 [25]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/DFA-powerset-construction-example.svg.png
 [26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
 [27]: https://en.wikipedia.org/wiki/Worst-case_complexity
-[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
+[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (2, 2, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'تبدیل کننده ماشین غیر قطعی به قطعی', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (2, 2, N'cb112470-264f-4e72-922d-419a78b1dcf3', N'تبدیل کننده ماشین غیر قطعی به قطعی', N'NFA2DFA is a win32 application for convert a nondeterministic finite state automaton (NFA) to a deterministic finite state automaton (DFA).', N'<div align="center">
 
 ![NFA2DFA][19]
 
@@ -1152,25 +1156,25 @@ And if you click on Draw DFA Graph, then this form viewed:
 [25]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/DFA-powerset-construction-example.svg.png
 [26]: https://en.wikipedia.org/w/index.php?title=Powerset_construction&redirect=no#cite_note-8
 [27]: https://en.wikipedia.org/wiki/Worst-case_complexity
-[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, 0)
+[28]: http://resources.xomorod.com/web-applications/products/images/NFA2DFA/dfa.png', CAST(0xF62F0B00 AS Date), N'https://github.com/Behzadkhosravifar/NFA2DFA', 39, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (3, 1, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'Room-3D', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (3, 1, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'Room-3D', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
 
 <div align="center">
 
 ![sample](https://raw.githubusercontent.com/Behzadkhosravifar/Room-3D/master/img/sample.jpg)
 
-</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, 0)
+</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (3, 2, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'اتاق سه بعدی', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (3, 2, N'62dd0c2c-9094-482b-afa2-56a56cdcd736', N'اتاق سه بعدی', N'The 3D Room designed in DirectX by full effective subjects.', N'The 3D Room designed in DirectX by full effective subjects.
 
 <div align="center">
 
 ![sample](https://raw.githubusercontent.com/Behzadkhosravifar/Room-3D/master/img/sample.jpg)
 
-</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, 0)
+</div>', CAST(0xE9300B00 AS Date), N'https://github.com/Behzadkhosravifar/Room-3D', 36, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (4, 1, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 Queen', N'8 Queen Puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (4, 1, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 Queen', N'8 Queen Puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/pc5fdjxbn6968oyt?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/8queen)
 </div>
 
@@ -1183,9 +1187,9 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 
 <div align="center">
 ![Capture](http://resources.xomorod.com/web-applications/products/images/8Queen/appScreen.jpg)
-</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
+</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (4, 2, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 وزیر', N'8 Queen Puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (4, 2, N'8169aab3-3c71-4102-9e42-5884e1d8cc41', N'8 وزیر', N'8 Queen Puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/pc5fdjxbn6968oyt?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/8queen)
 </div>
 
@@ -1198,25 +1202,25 @@ INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summar
 
 <div align="center">
 ![Capture](http://resources.xomorod.com/web-applications/products/images/8Queen/appScreen.jpg)
-</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, 0)
+</div>', CAST(0x6E2C0B00 AS Date), N'https://github.com/Behzadkhosravifar/8Queen', 40, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (5, 1, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'Fox Robbit', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (5, 1, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'Fox Robbit', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
 
 Fox Rabbit implemented by Fuzzy Logic algorithm
 
 ![icon](http://resources.xomorod.com/web-applications/products/images/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
 
-<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
+<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (5, 2, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'منطق فازی در تعقیب روباه و خرگوش', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (5, 2, N'534f0928-d944-414e-b68b-5a0bc2d9e015', N'منطق فازی در تعقیب روباه و خرگوش', N'Fox Rabbit implemented by Fuzzy Logic algorithm', N'<div align="center">
 
 Fox Rabbit implemented by Fuzzy Logic algorithm
 
 ![icon](http://resources.xomorod.com/web-applications/products/images/FoxRabbit/ioan-dzitac-fuzzy-logic.jpg)
 
-<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, 1)
+<div align="center">', CAST(0x42320B00 AS Date), N'https://github.com/Behzadkhosravifar/FoxRabbit', 24, 6, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (6, 1, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'Sudoku 9×9', N'Sudoku 9×9 puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (6, 1, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'Sudoku 9×9', N'Sudoku 9×9 puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/7742cq7k7pfydwat?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/sudoku)
 </div>
 
@@ -1226,9 +1230,9 @@ Sudoku 9×9 puzzle application designed in C# winForm.
 
 <div align="center">
 ![First Capture](http://resources.xomorod.com/web-applications/products/images/Sudoku9/appScreenShut.png)
-</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
+</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (6, 2, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'سودوکو 9*9', N'Sudoku 9×9 puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (6, 2, N'c1095b18-93d2-4689-89bf-5bc30b14f25e', N'سودوکو 9*9', N'Sudoku 9×9 puzzle application', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/7742cq7k7pfydwat?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/sudoku)
 </div>
 
@@ -1238,9 +1242,9 @@ Sudoku 9×9 puzzle application designed in C# winForm.
 
 <div align="center">
 ![First Capture](http://resources.xomorod.com/web-applications/products/images/Sudoku9/appScreenShut.png)
-</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, 1)
+</div>', CAST(0x162F0B00 AS Date), N'https://github.com/Behzadkhosravifar/Sudoku#sudoku-99', 34, 2, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (7, 1, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'Ping Server', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (7, 1, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'Ping Server', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
 
 --------------------
 [![Build status](https://ci.appveyor.com/api/projects/status/9kxoig7qqna1yypq?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/pingserver)
@@ -1277,9 +1281,9 @@ either version 1.0.1 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, 0)
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (7, 2, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'پینگ سرور', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (7, 2, N'addcbfed-6296-42a4-933b-5c9fff21451d', N'پینگ سرور', N'Ping an address in a periodic time to know your internet is on or off. Or for another ping jobs.', N'# [PingServer](https://github.com/Behzadkhosravifar/PingServer)
 
 --------------------
 [![Build status](https://ci.appveyor.com/api/projects/status/9kxoig7qqna1yypq?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/pingserver)
@@ -1316,9 +1320,9 @@ either version 1.0.1 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, 0)
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.', CAST(0x2F370B00 AS Date), N'https://github.com/Behzadkhosravifar/PingServer', 37, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (8, 1, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'WHOis', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (8, 1, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'WHOis', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/t1k1cklv1q6ndymg?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/whois)
 </div>
 
@@ -1343,9 +1347,9 @@ Click on `Save Whois Result` to export whois data like below text file:
 |│|  Abbetina   |│|  Free        |│|  Free         |│|  Free |│|           
 |│|  Abbie      |│|  Reserved    |│|  Reserved     |│|  Free |│|           
 |│|  Abbigail   |│|  Reserved    |│|  Reserved     |│|  Free |│|           
-', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, 1)
+', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (8, 2, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'چک کردن رزرو دامنه ها', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (8, 2, N'02d7282c-f0a4-4320-aae0-695113a73f24', N'چک کردن رزرو دامنه ها', N'Whois Online Domain Database for check several domains are reserved or not', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/t1k1cklv1q6ndymg?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/whois)
 </div>
 
@@ -1370,19 +1374,19 @@ Click on `Save Whois Result` to export whois data like below text file:
 |│|  Abbetina   |│|  Free        |│|  Free         |│|  Free |│|           
 |│|  Abbie      |│|  Reserved    |│|  Reserved     |│|  Free |│|           
 |│|  Abbigail   |│|  Reserved    |│|  Reserved     |│|  Free |│|           
-', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, 1)
+', CAST(0x8C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/WHOis', 22, 5, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (9, 1, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'Blur MessageBox', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (9, 1, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'Blur MessageBox', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
 The MessageBox form for WPF and WinForms application by ability to blurring that parent form
 
-![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, 0)
+![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (9, 2, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'پنجره پیغام', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (9, 2, N'89cd9b41-59df-42b4-b1a1-747102c70afa', N'پنجره پیغام', N'The MessageBox for WPF and WinForms application by ability to blurring that parent form', N'# BlurMessageBox
 The MessageBox form for WPF and WinForms application by ability to blurring that parent form
 
-![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, 0)
+![ScreenShot.png](https://raw.githubusercontent.com/Behzadkhosravifar/BlurMessageBox/master/image/ScreenShot.PNG)', CAST(0x78390B00 AS Date), N'https://github.com/Behzadkhosravifar/BlurMessageBox', 30, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (10, 1, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'Snipping Multiple Screen', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (10, 1, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'Snipping Multiple Screen', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/3ysq6ujt1lcmll26?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/snippingmultiplescreen)
 </div>
 
@@ -1405,9 +1409,9 @@ After save your output is like this:
 
 <div align="center">
 ![After Save](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppOutput.png)
-</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
+</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (10, 2, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'برش متعدد از دسکتاپ', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (10, 2, N'1464fd98-8cef-4a76-b52a-9f2de053d1f9', N'برش متعدد از دسکتاپ', N'Snipping Multiple Screen is a WPF application to capture many screen shot and merging that''s to a picture and save it for you on Windows.', N'<div align="center">
 [![Build status](https://ci.appveyor.com/api/projects/status/3ysq6ujt1lcmll26?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/snippingmultiplescreen)
 </div>
 
@@ -1430,9 +1434,9 @@ After save your output is like this:
 
 <div align="center">
 ![After Save](http://resources.xomorod.com/web-applications/products/images/SnippingMultipleScreen/AppOutput.png)
-</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, 1)
+</div>', CAST(0xDA320B00 AS Date), N'https://github.com/Behzadkhosravifar/SnippingMultipleScreen', 27, 4, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 1, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'Tic Tac Toe', N'Tic Tac Toe puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (11, 1, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'Tic Tac Toe', N'Tic Tac Toe puzzle application', N'<div align="center">
 ![ttt](http://resources.xomorod.com/web-applications/products/images/TicTacToe/TicTacToe.png)
 
 <br/>
@@ -1447,9 +1451,9 @@ Tic Tac Toe puzzle application, designed in C# WinForm
 
 <div align="center">
 ![Capture](http://resources.xomorod.com/web-applications/products/images/TicTacToe/screenshut.jpg)
-</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
+</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (11, 2, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'تیک تاک تو', N'Tic Tac Toe puzzle application', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (11, 2, N'036f9439-c8f4-4ae1-b176-a78661fc78f0', N'تیک تاک تو', N'Tic Tac Toe puzzle application', N'<div align="center">
 ![ttt](http://resources.xomorod.com/web-applications/products/images/TicTacToe/TicTacToe.png)
 
 <br/>
@@ -1464,9 +1468,9 @@ Tic Tac Toe puzzle application, designed in C# WinForm
 
 <div align="center">
 ![Capture](http://resources.xomorod.com/web-applications/products/images/TicTacToe/screenshut.jpg)
-</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, 1)
+</div>', CAST(0x34300B00 AS Date), N'https://github.com/Behzadkhosravifar/TicTacToe', 32, 3, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 1, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'Make Class Schedule', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (12, 1, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'Make Class Schedule', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
 
 [![Make Class Schedule][4]][1]
 
@@ -1522,9 +1526,9 @@ Application main screen:
 [1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
 [2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
 [3]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/MakeClassSchedule.jpg
-[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
+[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (12, 2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'زمانبندی کلاس های دانشگاه', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (12, 2, N'c062ff5b-9fc3-4236-890c-c207b89efc0e', N'زمانبندی کلاس های دانشگاه', N'Make university class schedule by Parallel Genetic Algorithm', N'<div align="center">
 
 [![Make Class Schedule][4]][1]
 
@@ -1580,9 +1584,9 @@ Application main screen:
 [1]: http://behzadkhosravifar.github.io/MakeClassSchedule/
 [2]: https://github.com/Behzadkhosravifar/MakeClassSchedule/wiki/Welcome-to-the-Make-Class-Schedule
 [3]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/MakeClassSchedule.jpg
-[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, 1)
+[4]: http://resources.xomorod.com/web-applications/products/images/MakeClassSchedule/HelpHeader.png', CAST(0xEA320B00 AS Date), N'https://github.com/Behzadkhosravifar/MakeClassSchedule', 2, 9.5, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 1, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'TSP', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (13, 1, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'TSP', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
 
 [![TSP](https://raw.githubusercontent.com/Behzadkhosravifar/TSP/master/src/TSP/Netclear.ico)][0]
 
@@ -1781,9 +1785,9 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 [3]: http://resources.xomorod.com/web-applications/products/images/TSP/f3.jpg
 [4]: http://resources.xomorod.com/web-applications/products/images/TSP/f4.jpg
 [5]: http://resources.xomorod.com/web-applications/products/images/TSP/f5.jpg
-[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
+[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (13, 2, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'مشکل فروشنده دوره گرد', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (13, 2, N'9bb37f41-1535-40b5-9bc2-c6a7385a2214', N'مشکل فروشنده دوره گرد', N'Traveling Salesman Problem Using Parallel Genetic Algorithms', N'<div align="center">
 
 [![TSP](https://raw.githubusercontent.com/Behzadkhosravifar/TSP/master/src/TSP/Netclear.ico)][0]
 
@@ -1982,9 +1986,9 @@ Based on the evaluation and comparison can be proved  that the mutual exclusivit
 [3]: http://resources.xomorod.com/web-applications/products/images/TSP/f3.jpg
 [4]: http://resources.xomorod.com/web-applications/products/images/TSP/f4.jpg
 [5]: http://resources.xomorod.com/web-applications/products/images/TSP/f5.jpg
-[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, 1)
+[6]: http://resources.xomorod.com/web-applications/products/images/TSP/f6.jpg', CAST(0x9A310B00 AS Date), N'https://github.com/Behzadkhosravifar/TSP', 4, 9, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (14, 1, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'Great Maps', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (14, 1, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'Great Maps', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
 
 GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
@@ -2000,9 +2004,9 @@ GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
 ### Map Print Preview
 
-![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, 0)
+![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (14, 2, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'نقشه های ماهواره ای با قابلیت چاپ', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (14, 2, N'b612100f-ecde-4c89-959d-dd650fd27ab6', N'نقشه های ماهواره ای با قابلیت چاپ', N'GMap.NET - Great Maps for Windows Forms & Presentation', N'# Great Maps
 
 GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
@@ -2018,9 +2022,9 @@ GMap.NET - Great Maps for Windows Forms &amp; Presentation
 
 ### Map Print Preview
 
-![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, 0)
+![screen](https://raw.githubusercontent.com/Behzadkhosravifar/greatmaps/master/Info/screenshut.png)', CAST(0x523A0B00 AS Date), N'https://github.com/Behzadkhosravifar/greatmaps', 25, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (15, 1, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'SignalR', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (15, 1, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'SignalR', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qs8hglln9b55nyk4?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/signalr)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/SignalR/blob/master/LICENSE)
@@ -2111,9 +2115,9 @@ Install Nuget packages for server project:
 
 Install Nuget packages for clients project:
 
-	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, 1)
+	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (15, 2, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'سیگنال آر', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (15, 2, N'979a6b7b-a6b3-4ddc-bcca-eb6672f0eee1', N'سیگنال آر', N'A reusable win32 API for connect any client to server or each other clients. Send data or code from one client to other clients included.', N'<div align="center">
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qs8hglln9b55nyk4?svg=true)](https://ci.appveyor.com/project/Behzadkhosravifar/signalr)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Behzadkhosravifar/SignalR/blob/master/LICENSE)
@@ -2204,15 +2208,15 @@ Install Nuget packages for server project:
 
 Install Nuget packages for clients project:
 
-	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, 1)
+	PM> Install-Package Microsoft.AspNet.SignalR.Client', CAST(0x3C3A0B00 AS Date), N'https://github.com/Behzadkhosravifar/SignalR', 15, 8, CAST(0 AS Numeric(18, 0)), 1)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (16, 1, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'Self Camera', N'Self Camera ', NULL, CAST(0x0B3B0B00 AS Date), NULL, 50, 0, 1)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (16, 1, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'Self Camera', N'Self Camera ', NULL, CAST(0x0B3B0B00 AS Date), NULL, 50, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (16, 2, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'دوربین سلفی', N'یک برنامه جذاب برای گرفتن عکس های سلفی', NULL, CAST(0xBBC40700 AS Date), NULL, 50, 0, 1)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (16, 2, N'75ca31a0-544f-4dd3-94bd-b7b395701a5a', N'دوربین سلفی', N'یک برنامه جذاب برای گرفتن عکس های سلفی', NULL, CAST(0xBBC40700 AS Date), NULL, 50, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (17, 1, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'XTech', N'xomorod Tech News', NULL, CAST(0x0B3B0B00 AS Date), NULL, 51, 0, 1)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (17, 1, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'XTech', N'xomorod Tech News', NULL, CAST(0x0B3B0B00 AS Date), NULL, 51, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
-INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [IsActive]) VALUES (17, 2, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'اکس تکنولوژی', N'اخبار تکنولوژی زمرود', NULL, CAST(0xBBC40700 AS Date), NULL, 51, 0, 1)
+INSERT [dbo].[Portfolios] ([PortfolioID], [LangID], [Id], [ProjectName], [Summary], [MarkdownDescription], [ModifyDate], [ProjectUrl], [IconId], [Rank], [Price], [IsActive]) VALUES (17, 2, N'69bc6192-4c3d-4451-a3d7-d73944cabb85', N'اکس تکنولوژی', N'اخبار تکنولوژی زمرود', NULL, CAST(0xBBC40700 AS Date), NULL, 51, 0, CAST(0 AS Numeric(18, 0)), 0)
 GO
 SET IDENTITY_INSERT [dbo].[Resources] ON 
 
