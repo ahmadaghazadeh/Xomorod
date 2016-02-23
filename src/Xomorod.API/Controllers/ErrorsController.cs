@@ -58,5 +58,24 @@ namespace Xomorod.API.Controllers
         }
 
 
+        /// <summary>
+        /// Send an error to send host mail
+        /// </summary>
+        /// <param name="value">Error Model Object</param>
+        public async Task<ActionResult> PostByAck([FromBody]ErrorModel value)
+        {
+            try
+            {
+                await value.RaiseErrorAsync();
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+            return Json("Error Created");
+        }
+
+
     }
 }
