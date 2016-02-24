@@ -10,6 +10,7 @@ namespace Xomorod.com.Controllers
     {
         public ActionResult Index()
         {
+            // helpfull link: http://demo.themeisle.com/zerif-pro/
             return View();
         }
 

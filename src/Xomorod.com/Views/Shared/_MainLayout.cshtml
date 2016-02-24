@@ -10,12 +10,12 @@
     <meta name="robots" content="noodp" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Xomorod Corporation"/>
+    <meta property="og:title" content="Xomorod Corporation" />
     <meta property="og:description" content="Another lovely WordPress theme by Themeisle" />
     <meta property="og:site_name" content="Xomorod" />
-    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="Another lovely WordPress theme by Themeisle" />
-    <meta name="twitter:title" content="Xomorod Corporation"/>
+    <meta name="twitter:title" content="Xomorod Corporation" />
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Feed" href="http://demo.themeisle.com/zerif-pro/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Comments Feed" href="http://demo.themeisle.com/zerif-pro/comments/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Blog Comments Feed" href="http://demo.themeisle.com/zerif-pro/blog/feed/" />
@@ -63,174 +63,169 @@
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = "@Url.Content("~/Scripts/lazyload.1.0.2.min.js")"; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
 <body class="home blog">
-@RenderSection("Poster", false)
-<div class="preloader">
-    <div class="status">&nbsp;</div>
-</div>
-<header id="home" class="header" role="banner">
-    <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
+    @RenderSection("Poster", required: false) <!-- index action of home controller -->
+    <header id="home" class="header" role="banner">
+        <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
+            <div class="container">
+                <div class="navbar-header responsive-logo">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://xomorod.com" class="navbar-brand"><img src="images/logo.png" alt="Zerif Pro"></a>
+                </div>
+                <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" id="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+                    <ul id="menu-zerif" class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+                        <li id="menu-item-7737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737"><a href="/#focus">Features</a></li>
+                        <li id="menu-item-7738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7738"><a href="/#works">Portfolio</a></li>
+                        <li id="menu-item-7739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7739"><a href="/#aboutus">About</a></li>
+                        <li id="menu-item-7740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7740"><a href="/#team">Team</a></li>
+                        <li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>
+                        <li id="menu-item-7742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7742"><a href="/#subscribe">Newsletter</a></li>
+                        <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="/#testimonials">Testimonials</a></li>
+                        <li id="menu-item-7744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7744"><a href="/#contact">Contact</a></li>
+                        <li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new {area = ""}, new {@class = "menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7745"})</li>
+                        <li >&nbsp;</li>
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        @RenderSection("Header", required: false)
+    </header>
+    <div id="content" class="site-content">
+
+        @RenderBody()
+
+    </div>
+    <footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
         <div class="container">
-            <div class="navbar-header responsive-logo">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://xomorod.com" class="navbar-brand"><img src="images/logo.png" alt="Zerif Pro"></a>
-            </div>
-            <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" id="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-                <ul id="menu-zerif" class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-                    <li id="menu-item-7737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737"><a href="/#focus">Features</a></li>
-                    <li id="menu-item-7738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7738"><a href="/#works">Portfolio</a></li>
-                    <li id="menu-item-7739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7739"><a href="/#aboutus">About</a></li>
-                    <li id="menu-item-7740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7740"><a href="/#team">Team</a></li>
-                    <li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>
-                    <li id="menu-item-7742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7742"><a href="/#subscribe">Newsletter</a></li>
-                    <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="/#testimonials">Testimonials</a></li>
-                    <li id="menu-item-7744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7744"><a href="/#contact">Contact</a></li>
-                    <li id="">@Html.ActionLink("Blog", "Blog", "Home", new {area = ""}, new {@class = "menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7745"})</li>
-                    <li id="menu-item-7746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7746">
-                        <a href="http://demo.themeisle.com/zerif-pro/shop/">Shop</a><ul class="sub-menu">
-                            <li id="menu-item-9830" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-9830"><a href="http://demo.themeisle.com/zerif-pro/product/test-product-1/">Product 1</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    @RenderSection("Header", false)
-</header>
-<div id="content" class="site-content">
-
-    @RenderBody()
-
-</div>
-<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-    <div class="container">
-        <div class="footer-box-wrap">
-            <div class="col-md-3 footer-box four-cell company-details">
-                <div class="icon-top red-text">
-                    <img src="../../images/map25-redish.png" alt=""/>
+            <div class="footer-box-wrap">
+                <div class="col-md-3 footer-box four-cell company-details">
+                    <div class="icon-top red-text">
+                        <img src="../../images/map25-redish.png" alt="" />
+                    </div>
+                    <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
                 </div>
-                <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
-            </div>
-            <div class="col-md-3 footer-box four-cell company-details">
-                <div class="icon-top green-text">
-                    <img src="../../images/envelope4-green.png" alt=""/>
+                <div class="col-md-3 footer-box four-cell company-details">
+                    <div class="icon-top green-text">
+                        <img src="../../images/envelope4-green.png" alt="" />
+                    </div>
+                    <div class="zerif-footer-email">feedback@xomorod.com</div>
                 </div>
-                <div class="zerif-footer-email">feedback@xomorod.com</div>
-            </div>
-            <div class="col-md-3 footer-box four-cell copyright">
-                <ul class="social">
-                    <li><a target="_blank" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a target="_blank" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a target="_blank" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a target="_blank" title="Behance" href="#"><i class="fa fa-behance"></i></a></li>
-                    <li><a target="_blank" title="Dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a target="_blank" title="Google Plus" href="#"><i class="fa fa-google"></i></a></li>
-                    <li><a target="_blank" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a target="_blank" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
-                    <li><a target="_blank" title="Reddit" href="#"><i class="fa fa-reddit"></i></a></li>
-                    <li><a target="_blank" title="YouTube" href="#"><i class="fa fa-youtube"></i></a></li>
-                </ul>
-                <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
+                <div class="col-md-3 footer-box four-cell copyright">
+                    <ul class="social">
+                        <li><a target="_blank" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a target="_blank" title="Behance" href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a target="_blank" title="Dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a target="_blank" title="Google Plus" href="#"><i class="fa fa-google"></i></a></li>
+                        <li><a target="_blank" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a target="_blank" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
+                        <li><a target="_blank" title="Reddit" href="#"><i class="fa fa-reddit"></i></a></li>
+                        <li><a target="_blank" title="YouTube" href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                    <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<style type="text/css">
-    .big-title-container .red-btn:hover {
-        color: #fff !important;
-    }
+    </footer>
+    <style type="text/css">
+        .big-title-container .red-btn:hover {
+            color: #fff !important;
+        }
 
-    .big-title-container .green-btn:hover {
-        color: #fff !important;
-    }
+        .big-title-container .green-btn:hover {
+            color: #fff !important;
+        }
 
-    .works .red-border-bottom:before {
-        background: #e96656 !important;
-    }
+        .works .red-border-bottom:before {
+            background: #e96656 !important;
+        }
 
-    .about-us .skills input {
-        color: #fff !important;
-    }
+        .about-us .skills input {
+            color: #fff !important;
+        }
 
-    .about-us .our-clients .section-footer-title {
-        color: #fff !important;
-    }
+        .about-us .our-clients .section-footer-title {
+            color: #fff !important;
+        }
 
-    .team-member:hover .details {
-        background: #333 !important;
-    }
+        .team-member:hover .details {
+            background: #333 !important;
+        }
 
-    .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
-        background: #e96656;
-    }
+        .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
+            background: #e96656;
+        }
 
-    .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
-        background: #34d293;
-    }
+        .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
+            background: #34d293;
+        }
 
-    .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
-        background: #3ab0e2;
-    }
+        .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
+            background: #3ab0e2;
+        }
 
-    .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
-        background: #f7d861;
-    }
+        .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
+            background: #f7d861;
+        }
 
-    .testimonial .feedback-box {
-        background: #FFFFFF !important;
-    }
+        .testimonial .feedback-box {
+            background: #FFFFFF !important;
+        }
 
-    .separator-one .green-btn {
-        color: #fff !important;
-    }
+        .separator-one .green-btn {
+            color: #fff !important;
+        }
 
-    .separator-one .green-btn:hover {
-        color: #fff !important;
-    }
+            .separator-one .green-btn:hover {
+                color: #fff !important;
+            }
 
-    .purchase-now .red-btn {
-        color: #fff !important;
-    }
+        .purchase-now .red-btn {
+            color: #fff !important;
+        }
 
-    .purchase-now .red-btn:hover {
-        color: #fff !important;
-    }
+            .purchase-now .red-btn:hover {
+                color: #fff !important;
+            }
 
-    .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
-        color: #fff !important;
-    }
+        .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
+            color: #fff !important;
+        }
 
-    .packages {
-        background: rgba(0, 0, 0, 0.5);
-    }
+        .packages {
+            background: rgba(0, 0, 0, 0.5);
+        }
 
-    #latestnews {
-        background: #fff;
-    }
+        #latestnews {
+            background: #fff;
+        }
 
-    #latestnews .section-header h2 {
-        color: #404040;
-    }
+            #latestnews .section-header h2 {
+                color: #404040;
+            }
 
-    #latestnews .section-header h6 {
-        color: #808080;
-    }
+            #latestnews .section-header h6 {
+                color: #808080;
+            }
 
-    section#subscribe {
-        background: rgba(0, 0, 0, 0.5) !important;
-    }
+        section#subscribe {
+            background: rgba(0, 0, 0, 0.5) !important;
+        }
 
-    #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
-        color: #e96656 !important;
-    }
+        #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
+            color: #e96656 !important;
+        }
 
-    #footer .footer-widget h1 {
-        color: #fff !important;
-    }
+        #footer .footer-widget h1 {
+            color: #fff !important;
+        }
 
-    #footer .footer-widget h1:before {
-        background: #e96656 !important;
-    }
-</style>
-@Scripts.Render("~/bundles/mainLayoutBottom")
+            #footer .footer-widget h1:before {
+                background: #e96656 !important;
+            }
+    </style>
+    @Scripts.Render("~/bundles/mainLayoutBottom")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 <!-- This website is like a Rocket, isn't it ? Performance optimized by WP Rocket. Learn more: http://wp-rocket.me - Debug: cached@1456250584 -->

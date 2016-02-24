@@ -34,6 +34,7 @@ namespace Xomorod.com
                         "~/Scripts/woocommerce.min.js",
                         "~/Scripts/jquery.cookie.min.js",
                         "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/jquery.knob.min.js",
                         "~/Scripts/scrollReveal.min.js",
                         "~/Scripts/parallax.js",
                         "~/Scripts/zerif.js",
