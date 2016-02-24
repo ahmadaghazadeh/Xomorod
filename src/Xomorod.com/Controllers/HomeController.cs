@@ -26,5 +26,13 @@ namespace Xomorod.com.Controllers
 
             return View();
         }
+
+
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your blog page.";
+
+            return View();
+        }
     }
 }

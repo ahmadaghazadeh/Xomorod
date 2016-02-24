@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]> <script src="http://demo.themeisle.com/zerif-pro/wp-content/themes/zerif-pro/js/html5.js"></script> <link rel="stylesheet" href="http://demo.themeisle.com/zerif-pro/wp-content/themes/zerif-pro/css/ie.css" type="text/css"> <![endif]-->
-    <title>Blog - Zerif Pro</title>
-    <meta name="robots" content="noindex,follow" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="Another lovely WordPress theme by Themeisle" />
+    <meta name="robots" content="noodp" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Blog - Zerif Pro" />
-    <meta property="og:site_name" content="Zerif Pro" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Blog - Zerif Pro" />
-    <link rel="alternate" type="application/rss+xml" title="Zerif Pro &raquo; Feed" href="http://demo.themeisle.com/zerif-pro/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Zerif Pro &raquo; Comments Feed" href="http://demo.themeisle.com/zerif-pro/comments/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Zerif Pro &raquo; Blog Comments Feed" href="http://demo.themeisle.com/zerif-pro/blog/feed/" />
+    <meta property="og:title" content="Xomorod Corporation"/>
+    <meta property="og:description" content="Another lovely WordPress theme by Themeisle" />
+    <meta property="og:site_name" content="Xomorod" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="Another lovely WordPress theme by Themeisle" />
+    <meta name="twitter:title" content="Xomorod Corporation"/>
+    <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Feed" href="http://demo.themeisle.com/zerif-pro/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Comments Feed" href="http://demo.themeisle.com/zerif-pro/comments/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Blog Comments Feed" href="http://demo.themeisle.com/zerif-pro/blog/feed/" />
     <script type="text/javascript">
-window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "Scripts\/wp-emoji-release.min.js" } };
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "..\/..\/Scripts\/wp-emoji-release.min.js" } };
         !function (a, b, c) { function d(a) { var c, d = b.createElement("canvas"), e = d.getContext && d.getContext("2d"), f = String.fromCharCode; return e && e.fillText ? (e.textBaseline = "top", e.font = "600 32px Arial", "flag" === a ? (e.fillText(f(55356, 56806, 55356, 56826), 0, 0), d.toDataURL().length > 3e3) : "diversity" === a ? (e.fillText(f(55356, 57221), 0, 0), c = e.getImageData(16, 16, 1, 1).data.toString(), e.fillText(f(55356, 57221, 55356, 57343), 0, 0), c !== e.getImageData(16, 16, 1, 1).data.toString()) : ("simple" === a ? e.fillText(f(55357, 56835), 0, 0) : e.fillText(f(55356, 57135), 0, 0), 0 !== e.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);</script>
     <style type="text/css">
         img.wp-smiley,
@@ -33,18 +36,15 @@ window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='pirate_forms_front_styles-css' href='Content/front.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='select2-css' href='Content/select2.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-layout-css' href='Content/woocommerce-layout.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='Content/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
-    <link rel='stylesheet' id='woocommerce-general-css' href='Content/woocommerce.css' type='text/css' media='all' />
     <link rel='stylesheet' id='zerif_font-css' href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic%7CMontserrat%3A700%7CHomemade+Apple' type='text/css' media='all' />
     <link rel='stylesheet' id='zerif_font_all-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C300italic%2C400italic%2C600italic%2C600%2C700%2C700italic%2C800%2C800italic' type='text/css' media='all' />
-    <link rel='stylesheet' id='zerif_bootstrap_style-css' href='Content/bootstrap.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='zerif_font-awesome_style-css' href='Content/font-awesome.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='zerif_style-css' href='Content/style.css' type='text/css' media='all' />
+    @Styles.Render("~/Content/mainLayoutTop")
     <script type='text/javascript' src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        var pirateFormsObject = { "error": "" };
+    </script>
     @Scripts.Render("~/bundles/mainLayoutTop")
+    <link rel="canonical" href="https://xomorod.com/" />
     <style type="text/css">
         .recentcomments a {
             display: inline !important;
@@ -54,409 +54,183 @@ window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/
     </style>
     <style type="text/css" id="custom-background-css">
         body.custom-background {
-            background-image: url('images/bg21.jpg');
+            background-image: url('@Url.Content("~/images/bg21.jpg")');
             background-repeat: repeat;
             background-position: top center;
             background-attachment: fixed;
         }
     </style>
-    <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = "Scripts/lazyload.1.0.2.min.js"; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
+    <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = "@Url.Content("~/Scripts/lazyload.1.0.2.min.js")"; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
-<body class="page page-id-1371 page-template page-template-template-blog-large page-template-template-blog-large-php">
-    <header id="home" class="header" role="banner">
-        <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
-            <div class="container">
-                <div class="navbar-header responsive-logo">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://xomorod.com" class="navbar-brand"><img src="images/logo.png" alt="Zerif Pro"></a>
-                </div>
-                <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" id="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-                    <ul id="menu-zerif" class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-                        <li id="menu-item-7737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737"><a href="/#focus">Features</a></li>
-                        <li id="menu-item-7738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7738"><a href="/#works">Portfolio</a></li>
-                        <li id="menu-item-7739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7739"><a href="/#aboutus">About</a></li>
-                        <li id="menu-item-7740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7740"><a href="/#team">Team</a></li>
-                        <li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>
-                        <li id="menu-item-7742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7742"><a href="/#subscribe">Newsletter</a></li>
-                        <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="/#testimonials">Testimonials</a></li>
-                        <li id="menu-item-7744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7744"><a href="http://xomorod.com/#contact">Contact</a></li>
-                        <li id="menu-item-7745" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7745"><a href="blog.aspx">Blog</a></li>
-                        <li id="menu-item-7746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7746">
-                            <a href="http://demo.themeisle.com/zerif-pro/shop/">Shop</a><ul class="sub-menu">
-                                <li id="menu-item-9830" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-9830"><a href="http://demo.themeisle.com/zerif-pro/product/test-product-1/">Product 1</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </header>
-    <div id="content" class="site-content">
+<body class="home blog">
+@RenderSection("Poster", false)
+<div class="preloader">
+    <div class="status">&nbsp;</div>
+</div>
+<header id="home" class="header" role="banner">
+    <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
         <div class="container">
-            <div class="content-left-wrap col-md-9">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main" role="main">
-                        <article class="large-container" id="post-5558" class="post-5558 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/everything-mobile-friendly-and-responsive/" title="Everything Mobile-Friendly and Responsive">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_200,w_400/v1451479731/photo-1429041966141-44d228a42775-825x510_wgrte6.jpg"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_300,w_600/v1451479731/photo-1429041966141-44d228a42775-825x510_wgrte6.jpg"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_510,w_765,x_30,y_0/h_500,w_750/v1451479731/photo-1429041966141-44d228a42775-825x510_wgrte6.jpg" alt="Everything Mobile-Friendly and Responsive"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/everything-mobile-friendly-and-responsive/" rel="bookmark">Everything Mobile-Friendly and Responsive</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>Go ahead and try resizing the browser window. Things are going to continue looking great!</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2015-04-23T11:43:57+00:00">April 23, 2015</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/uncategorized/" rel="category tag">Uncategorized</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/everything-mobile-friendly-and-responsive/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <article class="large-container" id="post-5555" class="post-5555 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/change-the-order-of-sections/" title="Change the Order of Sections">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_200,w_400/v1451479699/Louis_Armstrong_restored-825x510_j11dvy.jpg"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_300,w_600/v1451479699/Louis_Armstrong_restored-825x510_j11dvy.jpg"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_510,w_765,x_30,y_0/h_500,w_750/v1451479699/Louis_Armstrong_restored-825x510_j11dvy.jpg" alt="Change the Order of Sections"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/change-the-order-of-sections/" rel="bookmark">Change the Order of Sections</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>The order of the sections is easily adjustable from the WordPress Customizer so you can display where is needed.</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2015-04-23T11:42:56+00:00">April 23, 2015</time><time class="updated" datetime="2015-12-30T12:53:37+00:00">December 30, 2015</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/uncategorized/" rel="category tag">Uncategorized</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/change-the-order-of-sections/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <article class="large-container" id="post-5553" class="post-5553 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/unlimited-color-schemes/" title="Unlimited Color Schemes For You Site">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_200,w_400/v1451479684/photo-1429000263672-1b8b4008d2f7-825x510_cceneb.jpg"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_300,w_600/v1451479684/photo-1429000263672-1b8b4008d2f7-825x510_cceneb.jpg"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_510,w_765,x_30,y_0/h_500,w_750/v1451479684/photo-1429000263672-1b8b4008d2f7-825x510_cceneb.jpg" alt="Unlimited Color Schemes For You Site"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/unlimited-color-schemes/" rel="bookmark">Unlimited Color Schemes For You Site</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>Use the theme options panel to customize any given element with the exact color that you desire.</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2015/04/23/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2015-04-23T11:42:05+00:00">April 23, 2015</time><time class="updated" datetime="2015-12-30T12:53:36+00:00">December 30, 2015</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/uncategorized/" rel="category tag">Uncategorized</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/unlimited-color-schemes/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <article class="large-container" id="post-1623" class="post-1623 post type-post status-publish format-standard has-post-thumbnail hentry category-embeds category-excerpt category-featured-images category-formatting category-post-format-gallery category-images category-jetpack category-more-tag category-twitter tag-design-zerif tag-zerif-wordpress-theme" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2015/04/05/excellent-support/" title="Excellent Support And Timely Updates">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_200,w_400/v1451479687/photo-1428856472086-8674d9cbd6bc-825x510_abkoxx.jpg"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_413,w_825,x_0,y_48/h_300,w_600/v1451479687/photo-1428856472086-8674d9cbd6bc-825x510_abkoxx.jpg"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_510,w_765,x_30,y_0/h_500,w_750/v1451479687/photo-1428856472086-8674d9cbd6bc-825x510_abkoxx.jpg" alt="Excellent Support And Timely Updates"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2015/04/05/excellent-support/" rel="bookmark">Excellent Support And Timely Updates</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>Mauris tempor varius enim bibendum pellentesque. Pellentesque malesuada at velit et congue.</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2015/04/05/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2015-04-05T18:28:12+00:00">April 5, 2015</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/embeds/" rel="category tag">Embeds</a>, <a href="http://demo.themeisle.com/zerif-pro/category/excerpt/" rel="category tag">Excerpt</a>, <a href="http://demo.themeisle.com/zerif-pro/category/featured-images/" rel="category tag">Featured Images</a>, <a href="http://demo.themeisle.com/zerif-pro/category/formatting/" rel="category tag">Formatting</a>, <a href="http://demo.themeisle.com/zerif-pro/category/post-format-gallery/" rel="category tag">Gallery</a>, <a href="http://demo.themeisle.com/zerif-pro/category/images/" rel="category tag">Images</a>, <a href="http://demo.themeisle.com/zerif-pro/category/jetpack/" rel="category tag">Jetpack</a>, <a href="http://demo.themeisle.com/zerif-pro/category/more-tag/" rel="category tag">More Tag</a>, <a href="http://demo.themeisle.com/zerif-pro/category/twitter/" rel="category tag">Twitter</a> </span><span class="tags-links">Tagged <a href="http://demo.themeisle.com/zerif-pro/tag/design-zerif/" rel="tag">Design Zerif</a>, <a href="http://demo.themeisle.com/zerif-pro/tag/zerif-wordpress-theme/" rel="tag">Zerif WordPress Theme</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2015/04/05/excellent-support/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <article class="large-container" id="post-1626" class="post-1626 post type-post status-publish format-standard has-post-thumbnail hentry category-alignment category-captions category-codex category-content category-formatting category-post-format-gallery category-lists category-markup tag-design-zerif tag-zerif-wordpress-theme" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2014/08/05/easy-to-contact/" title="Fast And Great Support">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_400,w_800,x_0,y_100/h_200,w_400/v1451480038/jibjabprocess_yiid73.png"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_400,w_800,x_0,y_100/h_300,w_600/v1451480038/jibjabprocess_yiid73.png"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_533,w_800,x_0,y_33/h_500,w_750/v1451480038/jibjabprocess_yiid73.png" alt="Fast And Great Support"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2014/08/05/easy-to-contact/" rel="bookmark">Fast And Great Support</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at placerat lacus, vitae feugiat erat. In blandit velit ut consequat bibendum.</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2014/08/05/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2014-08-05T18:29:38+00:00">August 5, 2014</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/alignment/" rel="category tag">Alignment</a>, <a href="http://demo.themeisle.com/zerif-pro/category/captions/" rel="category tag">Captions</a>, <a href="http://demo.themeisle.com/zerif-pro/category/codex/" rel="category tag">Codex</a>, <a href="http://demo.themeisle.com/zerif-pro/category/content/" rel="category tag">Content</a>, <a href="http://demo.themeisle.com/zerif-pro/category/formatting/" rel="category tag">Formatting</a>, <a href="http://demo.themeisle.com/zerif-pro/category/post-format-gallery/" rel="category tag">Gallery</a>, <a href="http://demo.themeisle.com/zerif-pro/category/lists/" rel="category tag">Lists</a>, <a href="http://demo.themeisle.com/zerif-pro/category/markup/" rel="category tag">Markup</a> </span><span class="tags-links">Tagged <a href="http://demo.themeisle.com/zerif-pro/tag/design-zerif/" rel="tag">Design Zerif</a>, <a href="http://demo.themeisle.com/zerif-pro/tag/zerif-wordpress-theme/" rel="tag">Zerif WordPress Theme</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2014/08/05/easy-to-contact/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <article class="large-container" id="post-1678" class="post-1678 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized" itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
-                            <div class="post-img-wrap-large" itemprop="image">
-                                <a href="http://demo.themeisle.com/zerif-pro/2014/07/15/thank-you/" title="Thank You!">
-                                    <picture> <source media="(max-width: 600px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_300,w_600,x_0,y_50/h_200,w_400/v1451480017/Thank-you1-e1405429544670_df94ru.jpg"> <source media="(max-width: 768px)" srcset="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_300,w_600,x_0,y_50/v1451480017/Thank-you1-e1405429544670_df94ru.jpg"> <img src="http://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto/v1451480017/Thank-you1-e1405429544670_df94ru.jpg" alt="Thank You!"> </picture>
-                                </a>
-                            </div>
-                            <div class="listpost-content-wrap-large">
-                                <div class="list-post-top">
-                                    <header class="entry-header">
-                                        <h1 class="entry-title" itemprop="headline"><a href="http://demo.themeisle.com/zerif-pro/2014/07/15/thank-you/" rel="bookmark">Thank You!</a></h1>
-                                    </header>
-                                    <div class="entry-content" itemprop="text">
-                                        <p>We wish to thank the following people for the images: Fora do Eixo, RL Johnson, Daniele Zedda, Daniele Zedda, John Steven Fernandez, xvire1969, AllansBrain, Sara Cimino, soundman1024, Gagilas, Symic, rolands.lakis, rolands.lakis, Mike, alicjacolon, Michael Sevilla, Meng To, FireArt Studio.</p>
-                                    </div>
-                                </div>
-                                <footer class="entry-footer-large">
-                                    <div class="entry-meta-large"><span class="posted-on">Posted on <a href="http://demo.themeisle.com/zerif-pro/2014/07/15/" rel="bookmark"><time class="entry-date published" itemprop="datePublished" datetime="2014-07-15T14:14:58+00:00">July 15, 2014</time></a></span><span class="byline"> by <span class="author vcard" itemprop="name"><a href="http://demo.themeisle.com/zerif-pro/author/codeinwp/" class="url fn n author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author">codeinwp</a></span></span></div>
-                                    <div class="entry-footer-large-left"><span class="cat-links">Posted in <a href="http://demo.themeisle.com/zerif-pro/category/uncategorized/" rel="category tag">Uncategorized</a> </span><span class="comments-link"><a href="http://demo.themeisle.com/zerif-pro/2014/07/15/thank-you/#respond">Leave a comment</a></span></div>
-                                </footer>
-                            </div>
-                        </article>
-                        <div class="clear"></div>
-                        <nav class="navigation paging-navigation" role="navigation">
-                            <h1 class="screen-reader-text">Posts navigation</h1>
-                            <div class="nav-links">
-                                <div class="nav-previous"><a href="http://demo.themeisle.com/zerif-pro/blog/page/2/"><span class="meta-nav">&larr;</span> Older posts</a></div>
-                            </div>
-                        </nav>
-                    </main>
-                </div>
+            <div class="navbar-header responsive-logo">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://xomorod.com" class="navbar-brand"><img src="images/logo.png" alt="Zerif Pro"></a>
             </div>
-            <div class="sidebar-wrap col-md-3 content-left-wrap">
-                <div id="secondary" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-                    <aside id="search-2" class="widget widget_search">
-                        <form role="search" method="get" class="search-form" action="http://demo.themeisle.com/zerif-pro/">
-                            <label>
-                                <span class="screen-reader-text">Search for:</span>
-                                <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
-                            </label>
-                            <input type="submit" class="search-submit" value="Search" />
-                        </form>
-                    </aside>
-                    <aside id="recent-posts-2" class="widget widget_recent_entries">
-                        <h1 class="widget-title">Recent Posts</h1>
-                        <ul>
-                            <li><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/everything-mobile-friendly-and-responsive/">Everything Mobile-Friendly and Responsive</a></li>
-                            <li><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/change-the-order-of-sections/">Change the Order of Sections</a></li>
-                            <li><a href="http://demo.themeisle.com/zerif-pro/2015/04/23/unlimited-color-schemes/">Unlimited Color Schemes For You Site</a></li>
-                            <li><a href="http://demo.themeisle.com/zerif-pro/2015/04/05/excellent-support/">Excellent Support And Timely Updates</a></li>
-                            <li><a href="http://demo.themeisle.com/zerif-pro/2014/08/05/easy-to-contact/">Fast And Great Support</a></li>
+            <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" id="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+                <ul id="menu-zerif" class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+                    <li id="menu-item-7737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737"><a href="/#focus">Features</a></li>
+                    <li id="menu-item-7738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7738"><a href="/#works">Portfolio</a></li>
+                    <li id="menu-item-7739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7739"><a href="/#aboutus">About</a></li>
+                    <li id="menu-item-7740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7740"><a href="/#team">Team</a></li>
+                    <li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>
+                    <li id="menu-item-7742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7742"><a href="/#subscribe">Newsletter</a></li>
+                    <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="/#testimonials">Testimonials</a></li>
+                    <li id="menu-item-7744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7744"><a href="/#contact">Contact</a></li>
+                    <li id="">@Html.ActionLink("Blog", "Blog", "Home", new {area = ""}, new {@class = "menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7745"})</li>
+                    <li id="menu-item-7746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7746">
+                        <a href="http://demo.themeisle.com/zerif-pro/shop/">Shop</a><ul class="sub-menu">
+                            <li id="menu-item-9830" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-9830"><a href="http://demo.themeisle.com/zerif-pro/product/test-product-1/">Product 1</a></li>
                         </ul>
-                    </aside>
-                    <aside id="recent-comments-2" class="widget widget_recent_comments">
-                        <h1 class="widget-title">Recent Comments</h1>
-                        <ul id="recentcomments"></ul>
-                    </aside>
-                    <aside id="archives-2" class="widget widget_archive">
-                        <h1 class="widget-title">Archives</h1>
-                        <ul>
-                            <li><a href='http://demo.themeisle.com/zerif-pro/2015/04/'>April 2015</a></li>
-                            <li><a href='http://demo.themeisle.com/zerif-pro/2014/08/'>August 2014</a></li>
-                            <li><a href='http://demo.themeisle.com/zerif-pro/2014/07/'>July 2014</a></li>
-                            <li><a href='http://demo.themeisle.com/zerif-pro/2014/06/'>June 2014</a></li>
-                        </ul>
-                    </aside>
-                    <aside id="categories-2" class="widget widget_categories">
-                        <h1 class="widget-title">Categories</h1>
-                        <ul>
-                            <li class="cat-item cat-item-6"><a href="http://demo.themeisle.com/zerif-pro/category/alignment/">Alignment</a></li>
-                            <li class="cat-item cat-item-7"><a href="http://demo.themeisle.com/zerif-pro/category/captions/">Captions</a></li>
-                            <li class="cat-item cat-item-8"><a href="http://demo.themeisle.com/zerif-pro/category/codex/">Codex</a></li>
-                            <li class="cat-item cat-item-9"><a href="http://demo.themeisle.com/zerif-pro/category/content/">Content</a></li>
-                            <li class="cat-item cat-item-10"><a href="http://demo.themeisle.com/zerif-pro/category/corner-case/">Corner Case</a></li>
-                            <li class="cat-item cat-item-11"><a href="http://demo.themeisle.com/zerif-pro/category/embeds/">Embeds</a></li>
-                            <li class="cat-item cat-item-12"><a href="http://demo.themeisle.com/zerif-pro/category/excerpt/">Excerpt</a></li>
-                            <li class="cat-item cat-item-13"><a href="http://demo.themeisle.com/zerif-pro/category/featured-images/">Featured Images</a></li>
-                            <li class="cat-item cat-item-14"><a href="http://demo.themeisle.com/zerif-pro/category/formatting/">Formatting</a></li>
-                            <li class="cat-item cat-item-15"><a href="http://demo.themeisle.com/zerif-pro/category/post-format-gallery/">Gallery</a></li>
-                            <li class="cat-item cat-item-16"><a href="http://demo.themeisle.com/zerif-pro/category/images/">Images</a></li>
-                            <li class="cat-item cat-item-17"><a href="http://demo.themeisle.com/zerif-pro/category/jetpack/">Jetpack</a></li>
-                            <li class="cat-item cat-item-18"><a href="http://demo.themeisle.com/zerif-pro/category/post-format-link/">Link</a></li>
-                            <li class="cat-item cat-item-19"><a href="http://demo.themeisle.com/zerif-pro/category/lists/">Lists</a></li>
-                            <li class="cat-item cat-item-20"><a href="http://demo.themeisle.com/zerif-pro/category/markup/">Markup</a></li>
-                            <li class="cat-item cat-item-21"><a href="http://demo.themeisle.com/zerif-pro/category/more-tag/">More Tag</a></li>
-                            <li class="cat-item cat-item-23"><a href="http://demo.themeisle.com/zerif-pro/category/twitter/">Twitter</a></li>
-                            <li class="cat-item cat-item-1"><a href="http://demo.themeisle.com/zerif-pro/category/uncategorized/">Uncategorized</a></li>
-                            <li class="cat-item cat-item-24"><a href="http://demo.themeisle.com/zerif-pro/category/web-design/">Web Design</a></li>
-                            <li class="cat-item cat-item-25"><a href="http://demo.themeisle.com/zerif-pro/category/your-category/">Your category</a></li>
-                            <li class="cat-item cat-item-26"><a href="http://demo.themeisle.com/zerif-pro/category/zerif/">Zerif</a></li>
-                        </ul>
-                    </aside>
-                    <aside id="meta-2" class="widget widget_meta">
-                        <h1 class="widget-title">Meta</h1>
-                        <ul>
-                            <li><a rel="nofollow" href="http://demo.themeisle.com/zerif-pro/wp-login.php?action=register">Register</a></li>
-                            <li><a rel="nofollow" href="http://demo.themeisle.com/zerif-pro/wp-login.php">Log in</a></li>
-                            <li>
-                                <a href="http://demo.themeisle.com/zerif-pro/feed/">
-                                    Entries
-                                    <abbr title="Really Simple Syndication">RSS</abbr>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://demo.themeisle.com/zerif-pro/comments/feed/">
-                                    Comments
-                                    <abbr title="Really Simple Syndication">RSS</abbr>
-                                </a>
-                            </li>
-                            <li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
-                        </ul>
-                    </aside>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    @RenderSection("Header", false)
+</header>
+<div id="content" class="site-content">
+
+    @RenderBody()
+
+</div>
+<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+    <div class="container">
+        <div class="footer-box-wrap">
+            <div class="col-md-3 footer-box four-cell company-details">
+                <div class="icon-top red-text">
+                    <img src="../../images/map25-redish.png" alt=""/>
                 </div>
+                <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
+            </div>
+            <div class="col-md-3 footer-box four-cell company-details">
+                <div class="icon-top green-text">
+                    <img src="../../images/envelope4-green.png" alt=""/>
+                </div>
+                <div class="zerif-footer-email">feedback@xomorod.com</div>
+            </div>
+            <div class="col-md-3 footer-box four-cell copyright">
+                <ul class="social">
+                    <li><a target="_blank" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a target="_blank" title="Behance" href="#"><i class="fa fa-behance"></i></a></li>
+                    <li><a target="_blank" title="Dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a target="_blank" title="Google Plus" href="#"><i class="fa fa-google"></i></a></li>
+                    <li><a target="_blank" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a target="_blank" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
+                    <li><a target="_blank" title="Reddit" href="#"><i class="fa fa-reddit"></i></a></li>
+                    <li><a target="_blank" title="YouTube" href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+                <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
             </div>
         </div>
-        <footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-            <div class="container">
-                <div class="footer-box-wrap">
-                    <div class="col-md-3 footer-box four-cell company-details">
-                        <div class="icon-top red-text">
-                            <img src="images/map25-redish.png" alt="" />
-                        </div>
-                        <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
-                    </div>
-                    <div class="col-md-3 footer-box four-cell company-details">
-                        <div class="icon-top green-text">
-                            <img src="images/envelope4-green.png" alt="" />
-                        </div>
-                        <div class="zerif-footer-email">friends@themeisle.com</div>
-                    </div>
-                    <div class="col-md-3 footer-box four-cell copyright">
-                        <ul class="social">
-                            <li><a target="_blank" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a target="_blank" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a target="_blank" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a target="_blank" title="Behance" href="#"><i class="fa fa-behance"></i></a></li>
-                            <li><a target="_blank" title="Dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a target="_blank" title="Google Plus" href="#"><i class="fa fa-google"></i></a></li>
-                            <li><a target="_blank" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a target="_blank" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
-                            <li><a target="_blank" title="Reddit" href="#"><i class="fa fa-reddit"></i></a></li>
-                            <li><a target="_blank" title="YouTube" href="#"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                        <p id="zerif-copyright">© Themeisle</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <style type="text/css">
-            .big-title-container .red-btn:hover {
-                color: #fff !important;
-            }
-
-            .big-title-container .green-btn:hover {
-                color: #fff !important;
-            }
-
-            .works .red-border-bottom:before {
-                background: #e96656 !important;
-            }
-
-            .about-us .skills input {
-                color: #fff !important;
-            }
-
-            .about-us .our-clients .section-footer-title {
-                color: #fff !important;
-            }
-
-            .team-member:hover .details {
-                background: #333 !important;
-            }
-
-            .our-team .row > div:nth-child(4n+1) .red-border-bottom:before {
-                background: #e96656;
-            }
-
-            .our-team .row > div:nth-child(4n+2) .red-border-bottom:before {
-                background: #34d293;
-            }
-
-            .our-team .row > div:nth-child(4n+3) .red-border-bottom:before {
-                background: #3ab0e2;
-            }
-
-            .our-team .row > div:nth-child(4n+4) .red-border-bottom:before {
-                background: #f7d861;
-            }
-
-            .testimonial .feedback-box {
-                background: #FFFFFF !important;
-            }
-
-            .separator-one .green-btn {
-                color: #fff !important;
-            }
-
-                .separator-one .green-btn:hover {
-                    color: #fff !important;
-                }
-
-            .purchase-now .red-btn {
-                color: #fff !important;
-            }
-
-                .purchase-now .red-btn:hover {
-                    color: #fff !important;
-                }
-
-            .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
-                color: #fff !important;
-            }
-
-            .packages {
-                background: rgba(0, 0, 0, 0.5);
-            }
-
-            #latestnews {
-                background: #fff;
-            }
-
-                #latestnews .section-header h2 {
-                    color: #404040;
-                }
-
-                #latestnews .section-header h6 {
-                    color: #808080;
-                }
-
-            section#subscribe {
-                background: rgba(0, 0, 0, 0.5) !important;
-            }
-
-            #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
-                color: #e96656 !important;
-            }
-
-            #footer .footer-widget h1 {
-                color: #fff !important;
-            }
-
-                #footer .footer-widget h1:before {
-                    background: #e96656 !important;
-                }
-        </style>
-        <script type='text/javascript' src='Scripts/add-to-cart.min.js'></script>
-        <script type='text/javascript' src='Scripts/select2.min.js'></script>
-        <script type='text/javascript' src='Scripts/jquery.blockUI.min.js'></script>
-        <script type='text/javascript' src='Scripts/woocommerce.min.js'></script>
-        <script type='text/javascript' src='Scripts/jquery.cookie.min.js'></script>
-        <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
-        <script type='text/javascript' src='Scripts/scrollReveal.min.js'></script>
-        <script type='text/javascript' src='Scripts/parallax.js'></script>
-        <script type='text/javascript' src='Scripts/zerif.js'></script>
-        <script type='text/javascript' src='Scripts/comment-reply.min.js'></script>
-        <script type='text/javascript' src='Scripts/wp-embed.min.js'></script>
     </div>
+</footer>
+<style type="text/css">
+    .big-title-container .red-btn:hover {
+        color: #fff !important;
+    }
+
+    .big-title-container .green-btn:hover {
+        color: #fff !important;
+    }
+
+    .works .red-border-bottom:before {
+        background: #e96656 !important;
+    }
+
+    .about-us .skills input {
+        color: #fff !important;
+    }
+
+    .about-us .our-clients .section-footer-title {
+        color: #fff !important;
+    }
+
+    .team-member:hover .details {
+        background: #333 !important;
+    }
+
+    .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
+        background: #e96656;
+    }
+
+    .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
+        background: #34d293;
+    }
+
+    .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
+        background: #3ab0e2;
+    }
+
+    .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
+        background: #f7d861;
+    }
+
+    .testimonial .feedback-box {
+        background: #FFFFFF !important;
+    }
+
+    .separator-one .green-btn {
+        color: #fff !important;
+    }
+
+    .separator-one .green-btn:hover {
+        color: #fff !important;
+    }
+
+    .purchase-now .red-btn {
+        color: #fff !important;
+    }
+
+    .purchase-now .red-btn:hover {
+        color: #fff !important;
+    }
+
+    .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
+        color: #fff !important;
+    }
+
+    .packages {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #latestnews {
+        background: #fff;
+    }
+
+    #latestnews .section-header h2 {
+        color: #404040;
+    }
+
+    #latestnews .section-header h6 {
+        color: #808080;
+    }
+
+    section#subscribe {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
+        color: #e96656 !important;
+    }
+
+    #footer .footer-widget h1 {
+        color: #fff !important;
+    }
+
+    #footer .footer-widget h1:before {
+        background: #e96656 !important;
+    }
+</style>
+@Scripts.Render("~/bundles/mainLayoutBottom")
 </body>
 </html>
 <!-- This website is like a Rocket, isn't it ? Performance optimized by WP Rocket. Learn more: http://wp-rocket.me - Debug: cached@1456250584 -->
