@@ -52,17 +52,9 @@
             margin: 0 !important;
         }
     </style>
-    <style type="text/css" id="custom-background-css">
-        body.custom-background {
-            background-image: url('@Url.Content("~/Content/images/bg21.jpg")');
-            background-repeat: repeat;
-            background-position: top center;
-            background-attachment: fixed;
-        }
-    </style>
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
-<body class="home blog">
+<body class="home blog custom-background">
     @RenderSection("Poster", required: false) <!-- index action of home controller -->
     <header id="home" class="header" role="banner">
         <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
