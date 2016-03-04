@@ -11,6 +11,8 @@ namespace Xomorod.com.Controllers
         public ActionResult Index()
         {
             // helpfull link: http://demo.themeisle.com/zerif-pro/
+            ViewBag.BodyClass = "custom-background";
+
             return View();
         }
 

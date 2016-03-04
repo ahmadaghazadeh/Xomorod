@@ -54,8 +54,8 @@
     </style>
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
-<body class="home blog custom-background">
-    @RenderSection("Poster", required: false) <!-- index action of home controller -->
+<body class="home blog @ViewBag.BodyClass">
+    @RenderSection("Preloader", required: false) <!-- index action of home controller -->
     <header id="home" class="header" role="banner">
         <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
             <div class="container">
