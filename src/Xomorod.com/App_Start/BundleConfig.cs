@@ -90,6 +90,9 @@ namespace Xomorod.com
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recaptcha", "https://www.google.com/recaptcha/api.js").Include("~/Scripts/api.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/chart", "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js").Include(
+                "~/Scripts/chart.min.js"));
         }
     }
 }

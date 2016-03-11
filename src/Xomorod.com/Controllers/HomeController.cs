@@ -37,5 +37,13 @@ namespace Xomorod.com.Controllers
 
             return View();
         }
+
+        public ActionResult Ranking()
+        {
+            ViewBag.GlobalRanking = 1500000;
+            ViewBag.IranRanking = 17000;
+
+            return View();
+        }
     }
 }

@@ -1,0 +1,52 @@
+﻿@using Chart.Mvc.ComplexChart
+@using Chart.Mvc.Extensions
+
+@{
+    ViewBag.Title = "Xomorod Ranking";
+}
+
+@section Preloader{
+    <div class="preloader">
+        <div class="status">&nbsp;</div>
+    </div>
+}
+
+@Scripts.Render("~/bundles/chart")
+
+<iframe name="minisiteinfo" src="http://www.alexa.com/minisiteinfo/developers.xomorod.com?offset=5&amp;version=alxg_20100607" style="padding:0px; overflow:hidden;" width="400px" height="350px" marginwidth="5px" marginheight="5px" frameborder="0" scrolling="no"></iframe>
+
+
+@{
+    var lineChart = new LineChart();
+    lineChart.ComplexData.Labels.AddRange(new[] { "January", "February", "March", "April", "May", "June", "July" });
+    lineChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
+            {
+            new ComplexDataset
+                {
+                    Data = new List<double> { 65, 59, 80, 81, 56, 55, 40 },
+                    Label = "My First dataset",
+                    FillColor = "rgba(220,220,220,0.2)",
+                    StrokeColor = "rgba(220,220,220,1)",
+                    PointColor = "rgba(220,220,220,1)",
+                    PointStrokeColor = "#fff",
+                    PointHighlightFill = "#fff",
+                    PointHighlightStroke = "rgba(220,220,220,1)",
+                },
+            new ComplexDataset
+                {
+                    Data = new List<double> { 28, 48, 40, 19, 86, 27, 90 },
+                    Label = "My Second dataset",
+                    FillColor = "rgba(151,187,205,0.2)",
+                    StrokeColor = "rgba(151,187,205,1)",
+                    PointColor = "rgba(151,187,205,1)",
+                    PointStrokeColor = "#fff",
+                    PointHighlightFill = "#fff",
+                    PointHighlightStroke = "rgba(151,187,205,1)",
+                }
+        });
+}
+<br/>
+<canvas id="myCanvas" width="600" height="400"></canvas>
+<canvas id="myCanvas2" width="600" height="400"></canvas>
+@Html.CreateChart("myCanvas", lineChart)
+@Html.CreateChart("myCanvas2", lineChart)
