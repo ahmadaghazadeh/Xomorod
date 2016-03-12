@@ -1,5 +1,6 @@
 ﻿@using Chart.Mvc.ComplexChart
 @using Chart.Mvc.Extensions
+@using Xomorod.Helper
 
 @{
     ViewBag.Title = "Xomorod Ranking";
@@ -17,6 +18,8 @@
 
 
 @{
+    var alexa = new Alexa("xomorod.com");
+
     var lineChart = new LineChart();
     lineChart.ComplexData.Labels.AddRange(new[] { "January", "February", "March", "April", "May", "June", "July" });
     lineChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
@@ -44,9 +47,16 @@
                     PointHighlightStroke = "rgba(151,187,205,1)",
                 }
         });
+
+    
 }
 <br/>
 <canvas id="myCanvas" width="600" height="400"></canvas>
 <canvas id="myCanvas2" width="600" height="400"></canvas>
 @Html.CreateChart("myCanvas", lineChart)
 @Html.CreateChart("myCanvas2", lineChart)
+@Html.LocalRanking(alexa);
+<br/>
+@Html.GlobalRanking(alexa);
+<br />
+@Html.Linksin(alexa);
