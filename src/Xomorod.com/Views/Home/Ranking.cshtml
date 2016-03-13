@@ -1,4 +1,6 @@
-﻿@using Chart.Mvc.ComplexChart
+﻿@using System.Runtime.CompilerServices
+@using AdoManager
+@using Chart.Mvc.ComplexChart
 @using Chart.Mvc.Extensions
 @using Xomorod.Helper
 
@@ -14,49 +16,89 @@
 
 @Scripts.Render("~/bundles/chart")
 
-<iframe name="minisiteinfo" src="http://www.alexa.com/minisiteinfo/developers.xomorod.com?offset=5&amp;version=alxg_20100607" style="padding:0px; overflow:hidden;" width="400px" height="350px" marginwidth="5px" marginheight="5px" frameborder="0" scrolling="no"></iframe>
-
-
 @{
-    var alexa = new Alexa("xomorod.com");
+    var alexa = new Alexa("xomorod.com", ConnectionManager.GetDefaultConnection());
+    var trends = alexa.GetHistoricalTrafficTrends();
+    var labels = trends.Select(x => ((DateTime)x.ModifyDate).ToString("yyyy-MM-dd")).ToList();
+    var globalData = trends.Select(x => (double)x.GlobalRanking).ToList();
+    var iranData = trends.Select(x => (double)x.IranRanking).ToList();
 
-    var lineChart = new LineChart();
-    lineChart.ComplexData.Labels.AddRange(new[] { "January", "February", "March", "April", "May", "June", "July" });
-    lineChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
+    var globalLineChart = new LineChart();
+    globalLineChart.ComplexData.Labels.AddRange(labels); //new[] { "January", "February", "March", "April", "May", "June", "July" });
+    globalLineChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
             {
             new ComplexDataset
                 {
-                    Data = new List<double> { 65, 59, 80, 81, 56, 55, 40 },
-                    Label = "My First dataset",
+                    Data = globalData, //new List<double> { 65, 59, 80, 81, 56, 55, 40 },
+                    Label = "Xomorod.com Global Ranking",
                     FillColor = "rgba(220,220,220,0.2)",
                     StrokeColor = "rgba(220,220,220,1)",
                     PointColor = "rgba(220,220,220,1)",
                     PointStrokeColor = "#fff",
-                    PointHighlightFill = "#fff",
+                    PointHighlightFill = "#ffab00",
                     PointHighlightStroke = "rgba(220,220,220,1)",
-                },
-            new ComplexDataset
-                {
-                    Data = new List<double> { 28, 48, 40, 19, 86, 27, 90 },
-                    Label = "My Second dataset",
-                    FillColor = "rgba(151,187,205,0.2)",
-                    StrokeColor = "rgba(151,187,205,1)",
-                    PointColor = "rgba(151,187,205,1)",
-                    PointStrokeColor = "#fff",
-                    PointHighlightFill = "#fff",
-                    PointHighlightStroke = "rgba(151,187,205,1)",
                 }
         });
 
-    
+    var iranLineChart = new LineChart();
+    iranLineChart.ComplexData.Labels.AddRange(labels); //new[] { "January", "February", "March", "April", "May", "June", "July" });
+    iranLineChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
+            {
+            new ComplexDataset
+                {
+                    Data = iranData, //new List<double> { 65, 59, 80, 81, 56, 55, 40 },
+                    Label = "Xomorod.com Global Ranking",
+                    FillColor = "rgba(110,220,220,0.2)",
+                    StrokeColor = "rgba(110,220,220,1)",
+                    PointColor = "rgba(110,220,220,1)",
+                    PointStrokeColor = "#fff",
+                    PointHighlightFill = "#ffab00",
+                    PointHighlightStroke = "rgba(220,220,220,1)",
+                }
+        });
+
+
 }
-<br/>
-<canvas id="myCanvas" width="600" height="400"></canvas>
-<canvas id="myCanvas2" width="600" height="400"></canvas>
-@Html.CreateChart("myCanvas", lineChart)
-@Html.CreateChart("myCanvas2", lineChart)
-@Html.LocalRanking(alexa);
-<br/>
-@Html.GlobalRanking(alexa);
+
+<section class="focus" id="focus">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="dark-text">Xomorod Ranking</h2>
+            <h6>I browse Alexa every day seeking relative intelligence of our performance against our peers. It’s a benchmark that we use to judge our marketing initiatives. As a goal oriented CEO.</h6>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true" data-sr-complete="true">
+                <div class="service-icon">
+                    <a target="_self" href="http://www.alexa.com/siteinfo/xomorod.com#trafficstats"><i class="pixeden our-focus-widget-image" style="background: url('/Content/images/global.png') no-repeat center;"></i></a>
+                </div>
+                <h5 class="red-border-bottom">@Html.GlobalRanking(alexa)</h5>
+                <p>Global Ranking for Today</p>
+            </div>
+            <div class="col-lg-4 col-sm-4 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true" data-sr-complete="true">
+                <div class="service-icon">
+                    <a target="_self" href="http://www.alexa.com/siteinfo/xomorod.com#trafficstats"><i class="pixeden our-focus-widget-image" style="background: url('/Content/images/iran.png') no-repeat center;"></i></a>
+                </div>
+                <h5 class="red-border-bottom">@Html.LocalRanking(alexa)</h5>
+                <p>Website Ranking in Iranian websites for Today</p>
+            </div>
+            <div class="col-lg-4 col-sm-4 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true" data-sr-complete="true">
+                <div class="service-icon">
+                    <a target="_self" href="http://www.alexa.com/site/linksin/xomorod.com"><i class="pixeden our-focus-widget-image" style="background: url('/Content/images/links.png') no-repeat center;"></i></a>
+                </div>
+                <h5 class="red-border-bottom">@Html.Linksin(alexa)</h5>
+                <p>Sites Linking In</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <br />
-@Html.Linksin(alexa);
+<h2>Global Historical Traffic Trends</h2>
+<canvas id="globalRankingsCanvas" width="800" height="400"></canvas>
+<br /><br /><br />
+<h2>Iran Historical Traffic Trends</h2>
+<canvas id="iranRankingsCanvas" width="800" height="400"></canvas>
+<br /><br /><br />
+
+@Html.CreateChart("globalRankingsCanvas", globalLineChart)
+    @Html.CreateChart("iranRankingsCanvas", iranLineChart)

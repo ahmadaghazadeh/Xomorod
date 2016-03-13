@@ -61,7 +61,7 @@ namespace Xomorod.Helper {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (&lt;div class=&quot;data up&quot;&gt;&lt;)[\w*\=? ?\&quot;?\.?\(?\&apos;?\:?\/?\#?\,?\)?\;?\&gt;?\&lt;?\-?]*(\/&gt;) ?(?&lt;number&gt;[\d\,]*).
+        ///   Looks up a localized string similar to (alt=&apos;Global rank icon&apos;&gt;&lt;strong class=&quot;metrics-data align-vmiddle&quot;&gt;[\s?]*&lt;!-- [\s?\w?\W?]* --&gt;)[\s?]*(?&lt;number&gt;[\d\,?]*).
         /// </summary>
         internal static string AlexaGlobalRank {
             get {
@@ -70,20 +70,20 @@ namespace Xomorod.Helper {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http:\/\/\w*.?alexa.com\/site\/linksin\/.*(?&lt;number&gt;\d+).
+        ///   Looks up a localized string similar to (alt=&apos;Iran Flag&apos;&gt;&lt;strong class=&quot;metrics-data align-vmiddle&quot;&gt;)[\s?]*(?&lt;number&gt;[\d\,]*).
         /// </summary>
-        internal static string AlexaLinksin {
+        internal static string AlexaIranRank {
             get {
-                return ResourceManager.GetString("AlexaLinksin", resourceCulture);
+                return ResourceManager.GetString("AlexaIranRank", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (&lt;div class=&quot;data&quot;&gt;&lt;)[\w*\=? ?\&quot;?\.?\(?\&apos;?\:?\/?\#?\,?\)?\;?\&gt;?\&lt;?\-?]*(\/&gt;) ?(?&lt;number&gt;[\d\,]*).
+        ///   Looks up a localized string similar to (&gt;Total Sites Linking In&lt;\/h5&gt;\s*&lt;span class=[\&quot;\w\-\s]*&gt;)[\s?]*(?&lt;number&gt;[\d\,?]*).
         /// </summary>
-        internal static string AlexaLocalRank {
+        internal static string AlexaLinksin {
             get {
-                return ResourceManager.GetString("AlexaLocalRank", resourceCulture);
+                return ResourceManager.GetString("AlexaLinksin", resourceCulture);
             }
         }
     }

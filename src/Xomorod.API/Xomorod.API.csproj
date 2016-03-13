@@ -314,6 +314,10 @@
       <Project>{c6a52698-9c02-49f4-b848-cdffc6562215}</Project>
       <Name>AdoManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xomorod.Helper\Xomorod.Helper.csproj">
+      <Project>{2dd4bcc5-ec5c-4a9d-b4a9-1578f50e98b7}</Project>
+      <Name>Xomorod.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

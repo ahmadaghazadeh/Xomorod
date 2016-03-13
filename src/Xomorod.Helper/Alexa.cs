@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using AdoManager;
+using Dapper;
 
 namespace Xomorod.Helper
 {
     public class Alexa
     {
+        #region Properties
+        
         protected string AlexaGlobalPattern { get; set; }
         protected string AlexaLocalPattern { get; set; }
         protected string AlexaLinksin { get; set; }
@@ -16,11 +21,31 @@ namespace Xomorod.Helper
 
         public string WebSite { get; set; }
 
+        protected ConnectionManager ConnManager { get; set; }
+
+        #endregion
+
+        #region Constructors
+
         public Alexa(string url)
         {
-            WebSite = $"http://www.alexa.com/minisiteinfo/{url}?offset=5&amp;version=alxg_20100607";
+            WebSite = $"http://www.alexa.com/siteinfo/{url}";
             RefreshData();
         }
+
+        public Alexa(string url, ConnectionManager cm)
+        {
+            //WebSite = $"http://www.alexa.com/minisiteinfo/{url}?offset=5&amp;version=alxg_20100607";
+            WebSite = $"http://www.alexa.com/siteinfo/{url}";
+            RefreshData();
+
+            ConnManager = cm;
+        }
+
+        #endregion
+
+        #region Methods
+
 
         private static async Task<string> FetchUrlAsync(string url)
         {
@@ -175,7 +200,7 @@ namespace Xomorod.Helper
                 await RefreshDataAsync();
             }
 
-            AlexaLocalPattern = Patterns.AlexaLocalRank;
+            AlexaLocalPattern = Patterns.AlexaIranRank;
             // fetch ranking:
             return GetNumber(AlexaLocalPattern);
         }
@@ -187,7 +212,7 @@ namespace Xomorod.Helper
                 RefreshData();
             }
 
-            AlexaLocalPattern = Patterns.AlexaLocalRank;
+            AlexaLocalPattern = Patterns.AlexaIranRank;
             // fetch ranking:
             return GetNumber(AlexaLocalPattern);
         }
@@ -227,59 +252,14 @@ namespace Xomorod.Helper
 
             return rankNo;
         }
-    }
 
-    public static class AlexaExtensions
-    {
-        public static MvcHtmlString GlobalRanking(this HtmlHelper helper, Alexa alexa)
+        public IEnumerable<dynamic> GetHistoricalTrafficTrends()
         {
-            var globalRank = alexa.GetGlobalRanking();
+            var result = ConnManager?.SqlConn.Query("Select * From dbo.udft_TrafficRankings()");
 
-            var html =
-                "<div class='data up'>" +
-               $"<a href='http://www.alexa.com/siteinfo/{alexa.WebSite}#trafficstats' target='_blank'>" +
-               $"<img src='http://www.alexa.com/images/icons/globe-sm.png' alt='Global' style='margin-bottom:-2px;'> {globalRank}</a></div>";
-
-            return new MvcHtmlString(html);
-        }
-        public static MvcHtmlString GlobalRanking(this HtmlHelper helper, string domain)
-        {
-            var alexa = new Alexa(domain);
-
-            return GlobalRanking(helper, alexa);
+            return result;
         }
 
-        public static MvcHtmlString LocalRanking(this HtmlHelper helper, string domain)
-        {
-            var alexa = new Alexa(domain);
-            return LocalRanking(helper, alexa);
-        }
-        public static MvcHtmlString LocalRanking(this HtmlHelper helper, Alexa alexa)
-        {
-            var localRank = alexa.GetLocalRanking();
-
-            var html =
-                "<div class='data'>" +
-               $"<a href='http://www.alexa.com/siteinfo/{alexa.WebSite}#trafficstats' title='Iran' target='_blank'>" +
-               $"<img class='dynamic-icon' src='http://pcache.alexa.com/images/flags/ir.2ac099e190547501704d309d59831d2b.png' alt='Iran Flag'> {localRank}</a></div>";
-
-            return new MvcHtmlString(html);
-        }
-
-        public static MvcHtmlString Linksin(this HtmlHelper helper, Alexa alexa)
-        {
-            var links = alexa.GetLinksin();
-
-            var html =
-                "<td class='start' colspan='2'>" +
-                $"<div class='data'><a href = 'http://www.alexa.com/site/linksin/{alexa.WebSite}' target='_blank'>{links}</a></div><div class='label'>Sites Linking In</div></td>";
-
-            return new MvcHtmlString(html);
-        }
-        public static MvcHtmlString Linksin(this HtmlHelper helper, string domain)
-        {
-            var alexa = new Alexa(domain);
-            return Linksin(helper, alexa);
-        }
+        #endregion
     }
 }

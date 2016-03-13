@@ -306,6 +306,10 @@
       <Project>{588B75B9-D7AA-474E-AEC4-E371C97C2395}</Project>
       <Name>Xomorod.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xomorod.Helper\Xomorod.Helper.csproj">
+      <Project>{2dd4bcc5-ec5c-4a9d-b4a9-1578f50e98b7}</Project>
+      <Name>Xomorod.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlexaGlobalRank" xml:space="preserve">
-    <value>(&lt;div class="data up"&gt;&lt;)[\w*\=? ?\"?\.?\(?\'?\:?\/?\#?\,?\)?\;?\&gt;?\&lt;?\-?]*(\/&gt;) ?(?&lt;number&gt;[\d\,]*)</value>
+    <value>(alt='Global rank icon'&gt;&lt;strong class="metrics-data align-vmiddle"&gt;[\s?]*&lt;!-- [\s?\w?\W?]* --&gt;)[\s?]*(?&lt;number&gt;[\d\,?]*)</value>
+  </data>
+  <data name="AlexaIranRank" xml:space="preserve">
+    <value>(alt='Iran Flag'&gt;&lt;strong class="metrics-data align-vmiddle"&gt;)[\s?]*(?&lt;number&gt;[\d\,]*)</value>
   </data>
   <data name="AlexaLinksin" xml:space="preserve">
-    <value>http:\/\/\w*.?alexa.com\/site\/linksin\/.*(?&lt;number&gt;\d+)</value>
-  </data>
-  <data name="AlexaLocalRank" xml:space="preserve">
-    <value>(&lt;div class="data"&gt;&lt;)[\w*\=? ?\"?\.?\(?\'?\:?\/?\#?\,?\)?\;?\&gt;?\&lt;?\-?]*(\/&gt;) ?(?&lt;number&gt;[\d\,]*)</value>
+    <value>(&gt;Total Sites Linking In&lt;\/h5&gt;\s*&lt;span class=[\"\w\-\s]*&gt;)[\s?]*(?&lt;number&gt;[\d\,?]*)</value>
   </data>
 </root>
