@@ -4,13 +4,12 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using AdoManager;
 using Dapper;
 
 namespace Xomorod.Helper
 {
-    public class Alexa
+    public class Alexa: IDisposable
     {
         #region Properties
         
@@ -261,5 +260,17 @@ namespace Xomorod.Helper
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            this.ConnManager.Dispose();
+            this.AlexaData = null;
+            this.AlexaGlobalPattern = null;
+            this.AlexaLinksin = null;
+            this.AlexaLocalPattern = null;
+            this.WebSite = null;
+
+            GC.SuppressFinalize(this);
+        }
     }
 }

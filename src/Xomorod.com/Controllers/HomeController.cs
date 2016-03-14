@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AdoManager;
+using Xomorod.Helper;
 
 namespace Xomorod.com.Controllers
 {
@@ -40,9 +42,6 @@ namespace Xomorod.com.Controllers
 
         public ActionResult Ranking()
         {
-            ViewBag.GlobalRanking = 1500000;
-            ViewBag.IranRanking = 17000;
-
             return View();
         }
     }

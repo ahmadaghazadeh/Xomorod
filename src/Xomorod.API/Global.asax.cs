@@ -13,6 +13,7 @@ using System.Web.Routing;
 using AdoManager;
 using Xomorod.API.Providers;
 using Xomorod.API.Providers.ErrorControlSystem;
+using Xomorod.Helper;
 
 namespace Xomorod.API
 {
@@ -36,6 +37,9 @@ namespace Xomorod.API
 #endif
 
             Error += Application_Error;
+
+            // Read site ranking
+            ReadWebSiteRanking();
         }
 
         void Application_Error(object sender, EventArgs e)
@@ -73,6 +77,17 @@ namespace Xomorod.API
             Response.Redirect("~/home");
         }
 
-
+        void ReadWebSiteRanking()
+        {
+            var alexaHistoricalStoreJob = new Job(1000 * 3600 * 8);// every 8h
+            alexaHistoricalStoreJob.WorkAction = () =>
+            {
+                using (var alexa = new Alexa("xomorod.com"))
+                {
+                    AdoManager.DataAccessObject.GetFromQuery($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
+                }
+            };
+            Job.Add(alexaHistoricalStoreJob);
+        }
     }
 }
