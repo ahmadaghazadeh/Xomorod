@@ -32,8 +32,8 @@
                     Data = globalData, //new List<double> { 65, 59, 80, 81, 56, 55, 40 },
                     Label = "Xomorod.com Global Ranking",
                     FillColor = "rgba(220,220,220,0.2)",
-                    StrokeColor = "rgba(220,220,220,1)",
-                    PointColor = "rgba(220,220,220,1)",
+                    StrokeColor = "rgba(200,200,200,1)",
+                    PointColor = "rgba(200,200,200,1)",
                     PointStrokeColor = "#fff",
                     PointHighlightFill = "#ffab00",
                     PointHighlightStroke = "rgba(220,220,220,1)",
@@ -56,8 +56,6 @@
                     PointHighlightStroke = "rgba(220,220,220,1)",
                 }
         });
-
-
 }
 
 <section class="focus" id="focus">
@@ -101,4 +99,4 @@
 <br /><br /><br />
 
 @Html.CreateChart("globalRankingsCanvas", globalLineChart)
-    @Html.CreateChart("iranRankingsCanvas", iranLineChart)
+@Html.CreateChart("iranRankingsCanvas", iranLineChart)
