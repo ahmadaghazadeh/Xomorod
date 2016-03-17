@@ -35,7 +35,7 @@ namespace Xomorod.API
             Error += Application_Error;
 
             // Read site ranking
-            AddTask("DoStuff", 50); // every 3h
+            AddTask("DoStuff", 3600 * 3); // every 3h
         }
 
         void Application_Error(object sender, EventArgs e)
