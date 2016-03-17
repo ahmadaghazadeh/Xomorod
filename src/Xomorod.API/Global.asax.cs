@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
-using Xomorod.API.Providers;
 using Xomorod.API.Providers.ErrorControlSystem;
 using Xomorod.Helper;
 
@@ -27,7 +23,7 @@ namespace Xomorod.API
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Set Database Connetion from [Web.config]
+            // Set Database Connection from [Web.config]
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
             ConnectionManager.LoadFromXml(data);
 #if DEBUG
@@ -39,7 +35,7 @@ namespace Xomorod.API
             Error += Application_Error;
 
             // Read site ranking
-            ReadWebSiteRanking();
+            AddTask("DoStuff", 50); // every 3h
         }
 
         void Application_Error(object sender, EventArgs e)
@@ -79,15 +75,34 @@ namespace Xomorod.API
 
         void ReadWebSiteRanking()
         {
-            var alexaHistoricalStoreJob = new Job(1000 * 3600 * 8);// every 8h
-            alexaHistoricalStoreJob.WorkAction = () =>
+            using (var alexa = new Alexa("xomorod.com"))
             {
-                using (var alexa = new Alexa("xomorod.com"))
-                {
-                    AdoManager.DataAccessObject.GetFromQuery($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
-                }
-            };
-            Job.Add(alexaHistoricalStoreJob);
+                AdoManager.DataAccessObject.GetFromQuery($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
+            }
         }
+
+
+
+        #region Backgroud Schedule Task
+
+        private static CacheItemRemovedCallback _onCacheRemove = null;
+        private void AddTask(string name, int seconds)
+        {
+            _onCacheRemove = new CacheItemRemovedCallback(CacheItemRemoved);
+            HttpRuntime.Cache.Insert(name, seconds, null,
+                DateTime.Now.AddSeconds(seconds), Cache.NoSlidingExpiration,
+                CacheItemPriority.NotRemovable, _onCacheRemove);
+        }
+
+        public void CacheItemRemoved(string key, object value, CacheItemRemovedReason r)
+        {
+            // do stuff here if it matches our taskname, like WebRequest
+            ReadWebSiteRanking();
+
+            // re-add our task so it recurs
+            AddTask(key, Convert.ToInt32(value));
+        }
+
+        #endregion
     }
 }
