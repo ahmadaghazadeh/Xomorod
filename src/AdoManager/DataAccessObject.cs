@@ -35,12 +35,16 @@ namespace AdoManager
 
         public static IEnumerable<dynamic> GetFromQuery(string query, bool caching = false)
         {
-            if (!(caching && _cachingQueryResults.ContainsKey(query)))
+            if (caching)
             {
-                _cachingQueryResults[query] = Conn.SqlConn.Query<dynamic>(query);
+                if (!_cachingQueryResults.ContainsKey(query))
+                {
+                    _cachingQueryResults[query] = Conn.SqlConn.Query<dynamic>(query);
+                }
+                return (IEnumerable<dynamic>)_cachingQueryResults[query];
             }
 
-            return (IEnumerable<dynamic>)_cachingQueryResults[query];
+            return Conn.SqlConn.Query<dynamic>(query);
         }
 
         public static T ExecuteScalar<T>(string query, ExpandoObject param)
@@ -52,12 +56,16 @@ namespace AdoManager
 
         public static T ExecuteScalar<T>(string query, bool caching = false)
         {
-            if (!(caching && _cachingQueryResults.ContainsKey(query)))
+            if (caching)
             {
-                _cachingQueryResults[query] = Conn.SqlConn.ExecuteScalar<T>(query);
+                if (!_cachingQueryResults.ContainsKey(query))
+                {
+                    _cachingQueryResults[query] = Conn.SqlConn.ExecuteScalar<T>(query);
+                }
+                return (T)_cachingQueryResults[query];
             }
 
-            return (T)_cachingQueryResults[query];
+            return Conn.SqlConn.ExecuteScalar<T>(query);
         }
 
         #endregion
@@ -85,12 +93,16 @@ namespace AdoManager
 
         public static async Task<IEnumerable<dynamic>> GetFromQueryAsync(string query, bool caching = false)
         {
-            if (!(caching && _cachingQueryResults.ContainsKey(query)))
+            if (caching)
             {
-                _cachingQueryResults[query] = await Conn.SqlConn.QueryAsync<dynamic>(query);
+                if (!_cachingQueryResults.ContainsKey(query))
+                {
+                    _cachingQueryResults[query] = await Conn.SqlConn.QueryAsync<dynamic>(query);
+                }
+                return (IEnumerable<dynamic>)_cachingQueryResults[query];
             }
 
-            return (IEnumerable<dynamic>)_cachingQueryResults[query];
+            return await Conn.SqlConn.QueryAsync<dynamic>(query);
         }
 
         public static async Task<T> ExecuteScalarAsync<T>(string query, ExpandoObject param)
@@ -102,12 +114,16 @@ namespace AdoManager
 
         public static async Task<T> ExecuteScalarAsync<T>(string query, bool caching = false)
         {
-            if (!(caching && _cachingQueryResults.ContainsKey(query)))
+            if (caching)
             {
-                _cachingQueryResults[query] = await Conn.SqlConn.ExecuteScalarAsync<T>(query);
+                if (!_cachingQueryResults.ContainsKey(query))
+                {
+                    _cachingQueryResults[query] = await Conn.SqlConn.ExecuteScalarAsync<T>(query);
+                }
+                return (T)_cachingQueryResults[query];
             }
 
-            return (T)_cachingQueryResults[query];
+            return await Conn.SqlConn.ExecuteScalarAsync<T>(query);
         }
 
         #endregion

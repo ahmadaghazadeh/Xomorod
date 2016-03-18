@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Http;
@@ -35,7 +35,7 @@ namespace Xomorod.API
             Error += Application_Error;
 
             // Read site ranking
-            AddTask("DoStuff", 3600 * 3); // every 3h
+            AddTask("ReadAlexa", 3600 * 4); // every 4h
         }
 
         void Application_Error(object sender, EventArgs e)
@@ -73,14 +73,20 @@ namespace Xomorod.API
             Response.Redirect("~/home");
         }
 
-        void ReadWebSiteRanking()
+        static async Task ReadWebSiteRanking()
         {
-            using (var alexa = new Alexa("xomorod.com"))
+            try
             {
-                AdoManager.DataAccessObject.GetFromQuery($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
+                using (var alexa = new Alexa("xomorod.com"))
+                {
+                    await AdoManager.DataAccessObject.GetFromQueryAsync($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
+                }
+            }
+            catch (Exception ex)
+            {
+                await ex.RaiseErrorAsync("API.Xomorod.com");
             }
         }
-
 
 
         #region Backgroud Schedule Task
@@ -94,13 +100,13 @@ namespace Xomorod.API
                 CacheItemPriority.NotRemovable, _onCacheRemove);
         }
 
-        public void CacheItemRemoved(string key, object value, CacheItemRemovedReason r)
+        public async void CacheItemRemoved(string key, object value, CacheItemRemovedReason r)
         {
-            // do stuff here if it matches our taskname, like WebRequest
-            ReadWebSiteRanking();
-
             // re-add our task so it recurs
             AddTask(key, Convert.ToInt32(value));
+
+            // do stuff here if it matches our taskname, like WebRequest
+            await ReadWebSiteRanking();
         }
 
         #endregion

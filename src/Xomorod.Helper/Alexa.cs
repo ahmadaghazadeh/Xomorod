@@ -263,7 +263,7 @@ namespace Xomorod.Helper
 
         public void Dispose()
         {
-            this.ConnManager.Dispose();
+            this.ConnManager?.Dispose();
             this.AlexaData = null;
             this.AlexaGlobalPattern = null;
             this.AlexaLinksin = null;
