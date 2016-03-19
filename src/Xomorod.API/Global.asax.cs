@@ -1,15 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using System.Web;
-using System.Web.Caching;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
 using Xomorod.API.Providers.ErrorControlSystem;
-using Xomorod.Helper;
+using GlobalConfiguration = System.Web.Http.GlobalConfiguration;
 
 namespace Xomorod.API
 {
@@ -33,9 +30,6 @@ namespace Xomorod.API
 #endif
 
             Error += Application_Error;
-
-            // Read site ranking
-            AddTask("ReadAlexa", 3600 * 4); // every 4h
         }
 
         void Application_Error(object sender, EventArgs e)
@@ -72,43 +66,5 @@ namespace Xomorod.API
             // Redirect to a landing page
             Response.Redirect("~/home");
         }
-
-        static async Task ReadWebSiteRanking()
-        {
-            try
-            {
-                using (var alexa = new Alexa("xomorod.com"))
-                {
-                    await AdoManager.DataAccessObject.GetFromQueryAsync($"EXEC sp_TrafficRankings_Insert @GlobalRank = {alexa.GetGlobalRanking()}, @IranRank = {alexa.GetLocalRanking()}");
-                }
-            }
-            catch (Exception ex)
-            {
-                await ex.RaiseErrorAsync("API.Xomorod.com");
-            }
-        }
-
-
-        #region Backgroud Schedule Task
-
-        private static CacheItemRemovedCallback _onCacheRemove = null;
-        private void AddTask(string name, int seconds)
-        {
-            _onCacheRemove = new CacheItemRemovedCallback(CacheItemRemoved);
-            HttpRuntime.Cache.Insert(name, seconds, null,
-                DateTime.Now.AddSeconds(seconds), Cache.NoSlidingExpiration,
-                CacheItemPriority.NotRemovable, _onCacheRemove);
-        }
-
-        public async void CacheItemRemoved(string key, object value, CacheItemRemovedReason r)
-        {
-            // re-add our task so it recurs
-            AddTask(key, Convert.ToInt32(value));
-
-            // do stuff here if it matches our taskname, like WebRequest
-            await ReadWebSiteRanking();
-        }
-
-        #endregion
     }
 }
