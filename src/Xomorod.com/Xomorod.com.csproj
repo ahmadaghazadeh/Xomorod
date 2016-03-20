@@ -46,7 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chart.Mvc">
+    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
