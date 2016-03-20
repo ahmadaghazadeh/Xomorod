@@ -29,7 +29,7 @@ namespace Xomorod.API
             app.UseCookieAuthentication(new CookieAuthenticationOptions() { AuthenticationMode = AuthenticationMode.Active }); // Authentication - first
             var opt = new DashboardOptions
             {
-                //AuthorizationFilters = new[] { new HangfireRestrictiveAuthorizationFilter() },
+                AuthorizationFilters = new[] { new HangfireRestrictiveAuthorizationFilter() },
                 AppPath = "http://xomorod.com"
             };
             app.UseHangfireDashboard("/BackgroundJobs", opt);

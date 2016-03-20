@@ -13,7 +13,7 @@ namespace Xomorod.API.Providers
             var context = new OwinContext(owinEnvironment);
 
             // Allow all authenticated users to see the Dashboard (potentially dangerous).
-            return context.Authentication.User.Identity.IsAuthenticated;
+            return true;//context.Authentication.User.Identity.IsAuthenticated;
         }
     }
 }
