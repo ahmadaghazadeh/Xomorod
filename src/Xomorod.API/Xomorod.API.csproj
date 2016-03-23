@@ -352,7 +352,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50543</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50543/</IISUrl>
+          <IISUrl>http://localhost:10101/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
