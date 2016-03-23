@@ -7,7 +7,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
 
-namespace Xomorod.com
+namespace Xomorod.Demo2
 {
     public class MvcApplication : System.Web.HttpApplication
     {
