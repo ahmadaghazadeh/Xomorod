@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Xomorod.Demo2.Models
+namespace Xomorod.com.Models
 {
     public class IndexViewModel
     {

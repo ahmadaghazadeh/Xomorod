@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4FB36E64-BB1C-4224-821B-864A09B6F75F}</ProjectGuid>
+    <ProjectGuid>{26925B58-06EA-464B-8B26-F7A22F23EF02}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -34,6 +34,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,7 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chart.Mvc">
+    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -53,6 +56,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -116,9 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\Packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -201,14 +206,25 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\front.css" />
     <Content Include="Content\Homemade_Apple.css" />
-    <Content Include="Content\images\bg21.jpg" />
-    <Content Include="Content\images\envelope4-green.png" />
     <Content Include="Content\images\global.png" />
     <Content Include="Content\images\iran.png" />
+    <Content Include="Content\images\links.png" />
+    <Content Include="Content\OpenSans.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\woocommerce-layout.css" />
+    <Content Include="Content\woocommerce-smallscreen.css" />
+    <Content Include="Content\woocommerce.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\images\bg21.jpg" />
+    <Content Include="Content\images\envelope4-green.png" />
     <Content Include="Content\images\left-arrow.png" />
     <Content Include="Content\images\lines-dark.png" />
     <Content Include="Content\images\lines.png" />
-    <Content Include="Content\images\links.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\map25-redish.png" />
@@ -226,28 +242,17 @@
     <Content Include="Content\images\Unknown1.png" />
     <Content Include="Content\images\woo.png" />
     <Content Include="Content\images\woostars.png" />
-    <Content Include="Content\OpenSans.css" />
-    <Content Include="Content\select2.css" />
-    <Content Include="Content\style.css" />
-    <Content Include="Content\woocommerce-layout.css" />
-    <Content Include="Content\woocommerce-smallscreen.css" />
-    <Content Include="Content\woocommerce.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="favicon.white.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\add-to-cart.min.js" />
     <Content Include="Scripts\api.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="favicon.white.ico" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <None Include="Properties\PublishProfiles\Xomorod.pubxml" />
+    <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cart-fragments.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -280,6 +285,7 @@
     <Content Include="Scripts\wp-emoji-release.min.js" />
     <Content Include="Scripts\zerif.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -293,7 +299,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -314,13 +319,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\Ranking.cshtml" />
-    <Content Include="Views\Shared\_MainLayout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -335,7 +339,7 @@
       <Name>AdoManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\Xomorod.Helper\Xomorod.Helper.csproj">
-      <Project>{2dd4bcc5-ec5c-4a9d-b4a9-1578f50e98b7}</Project>
+      <Project>{2DD4BCC5-EC5C-4A9D-B4A9-1578F50E98B7}</Project>
       <Name>Xomorod.Helper</Name>
     </ProjectReference>
   </ItemGroup>
@@ -355,9 +359,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51662</DevelopmentServerPort>
+          <DevelopmentServerPort>52490</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8012/</IISUrl>
+          <IISUrl>http://localhost:8010/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

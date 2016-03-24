@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Xomorod.Demo2.Models;
+using Xomorod.com.Models;
 
-namespace Xomorod.Demo2
+namespace Xomorod.com
 {
     public partial class Startup
     {

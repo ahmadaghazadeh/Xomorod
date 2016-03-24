@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Xomorod.Demo2
+namespace Xomorod.com
 {
     public class BundleConfig
     {

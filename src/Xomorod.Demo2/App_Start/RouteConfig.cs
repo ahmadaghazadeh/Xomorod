@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Xomorod.Demo2
+namespace Xomorod.com
 {
     public class RouteConfig
     {

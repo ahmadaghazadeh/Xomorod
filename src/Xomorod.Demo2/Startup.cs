@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Xomorod.Demo2.Startup))]
-namespace Xomorod.Demo2
+[assembly: OwinStartupAttribute(typeof(Xomorod.com.Startup))]
+namespace Xomorod.com
 {
     public partial class Startup
     {

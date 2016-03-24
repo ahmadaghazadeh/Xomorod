@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Xomorod.Demo2.Models
+namespace Xomorod.com.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

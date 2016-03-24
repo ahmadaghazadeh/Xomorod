@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Xomorod.Demo2.Models;
+using Xomorod.com.Models;
 
-namespace Xomorod.Demo2
+namespace Xomorod.com
 {
     public class EmailService : IIdentityMessageService
     {

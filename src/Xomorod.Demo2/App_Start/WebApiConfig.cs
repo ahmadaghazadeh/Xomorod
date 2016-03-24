@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Xomorod.Demo2
+namespace Xomorod.com
 {
     public static class WebApiConfig
     {

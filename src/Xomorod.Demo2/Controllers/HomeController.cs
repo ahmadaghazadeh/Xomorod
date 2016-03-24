@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AdoManager;
+using Xomorod.Helper;
 
-namespace Xomorod.Demo2.Controllers
+namespace Xomorod.com.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            // helpfull link: http://demo.themeisle.com/zerif-pro/
+            ViewBag.BodyClass = "custom-background";
+
             return View();
         }
 
@@ -24,6 +29,19 @@ namespace Xomorod.Demo2.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your blog page.";
+
+            return View();
+        }
+
+        public ActionResult Ranking()
+        {
             return View();
         }
     }

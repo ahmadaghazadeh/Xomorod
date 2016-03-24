@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Xomorod.Demo2.Models;
+using Xomorod.com.Models;
 
-namespace Xomorod.Demo2.Controllers
+namespace Xomorod.com.Controllers
 {
     [Authorize]
     public class ManageController : Controller

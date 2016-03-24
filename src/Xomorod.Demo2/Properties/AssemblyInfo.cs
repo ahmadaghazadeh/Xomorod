@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Xomorod.Demo2")]
+[assembly: AssemblyTitle("Xomorod.com")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Xomorod.Demo2")]
+[assembly: AssemblyProduct("Xomorod.com")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9706b5f2-e4e6-4973-8ba1-2e6faa1d7b75")]
+[assembly: Guid("a9636433-8c8b-4395-a844-7e6de0ea97d5")]
 
 // Version information for an assembly consists of the following four values:
 //
