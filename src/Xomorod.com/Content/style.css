@@ -1925,11 +1925,15 @@ ul.nav > li.current_page_item.current > a:before {
 .intro-text {
     text-align: center;
     color: #FFF;
-    line-height: 65px;
+    line-height: 85px;
     z-index: 0;
     text-transform: uppercase;
-    font-size: 55px;
+    font-family: 'Merkur';
+    font-size: 85px;
+    font-weight: 200;
+    letter-spacing: 0.1em;
     float: none;
+    text-shadow: white 0px 0px 100px;
 }
 /* Short Messages */
 .bottom-message-section {
@@ -6836,8 +6840,8 @@ ul.nav > li.current_page_item > a:before, .nav > li.current-menu-item > a:before
     }
 
     .intro-text {
-        font-size: 45px;
-        line-height: 55px;
+        font-size: 65px;
+        line-height: 65px;
     }
 
     .section-header h2 {
@@ -7019,7 +7023,7 @@ ul.nav > li.current_page_item > a:before, .nav > li.current-menu-item > a:before
     }
 
     .intro-text {
-        font-size: 41px;
+        font-size: 51px;
         line-height: 49px;
     }
 
@@ -7146,7 +7150,7 @@ ul.nav > li.current_page_item > a:before, .nav > li.current-menu-item > a:before
     }
 
     .intro-text {
-        font-size: 32px;
+        font-size: 42px;
         line-height: 37px;
     }
 
@@ -7247,7 +7251,7 @@ ul.nav > li.current_page_item > a:before, .nav > li.current-menu-item > a:before
     }
 
     .intro-text {
-        font-size: 22px;
+        font-size: 25px;
         line-height: 30px;
     }
 

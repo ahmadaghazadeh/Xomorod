@@ -206,9 +206,11 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\front.css" />
     <Content Include="Content\Homemade_Apple.css" />
+    <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\global.png" />
     <Content Include="Content\images\iran.png" />
     <Content Include="Content\images\links.png" />
+    <Content Include="Content\images\xomorod.svg" />
     <Content Include="Content\OpenSans.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\style.css" />
@@ -252,6 +254,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\Merkur.otf" />
+    <Content Include="fonts\iransans.ttf" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cart-fragments.min.js" />
@@ -361,7 +365,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52490</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8011/</IISUrl>
+          <IISUrl>http://localhost:8018/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
