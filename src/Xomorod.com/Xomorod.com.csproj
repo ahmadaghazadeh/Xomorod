@@ -46,9 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
+    <Reference Include="DotNet.Highstock">
+      <HintPath>..\Packages\DotNet.Highstock.1.1.3.35983\lib\net45\DotNet.Highstock.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -214,6 +213,7 @@
     <Content Include="Content\OpenSans.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\ToTop.css" />
     <Content Include="Content\woocommerce-layout.css" />
     <Content Include="Content\woocommerce-smallscreen.css" />
     <Content Include="Content\woocommerce.css" />
@@ -259,9 +259,10 @@
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cart-fragments.min.js" />
-    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\comment-reply.min.js" />
+    <Content Include="Scripts\exporting.js" />
+    <Content Include="Scripts\highstock.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -275,6 +276,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lazyload.1.0.2.min.js" />
+    <Content Include="Scripts\loadedMainLayout.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\parallax.js" />
     <Content Include="Scripts\respond.js" />

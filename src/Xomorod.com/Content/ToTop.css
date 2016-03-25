@@ -1,0 +1,45 @@
+﻿.toTop {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    line-height: 56px;
+    color: #fff;
+    background: #fed136;
+    border-radius: 50%;
+    -webkit-box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: none;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    z-index: 20;
+    -ms-text-rendering: auto;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+
+    .toTop:hover {
+        background: #fec503;
+        text-decoration: none;
+    }
+
+    .toTop:link, .toTop:visited {
+        color: #ffffff;
+        text-decoration: none;
+        cursor: auto;
+    }
+
+        .toTop:link:active, .toTop:visited:active {
+            color: #ffffff;
+        }

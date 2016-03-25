@@ -37,10 +37,11 @@
             padding: 0 !important;
         }
     </style>
-
     @Styles.Render("~/Content/mainLayoutT")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/recaptcha")
-    <script type='text/javascript'>/*  */
+    <script type='text/javascript'>
+        /*  */
         var pirateFormsObject = { "errors": "" };
         /*  */</script>
     @Scripts.Render("~/bundles/mainLayoutT")
@@ -60,18 +61,18 @@
         <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
             <div class="container">
                 <div class="navbar-header responsive-logo">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="http://xomorod.com" class="navbar-brand"><img src='@Url.Content("~/Content/images/logo.png")' alt="Zerif Pro"></a>
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="~/" class="navbar-brand"><img src='@Url.Content("~/Content/images/logo.png")' alt="Zerif Pro"></a>
                 </div>
                 <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" id="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
                     <ul id="menu-zerif" class="nav navbar-nav navbar-right responsive-nav main-nav-list">
                         <li id="menu-item-7737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737"><a href="/#focus">Features</a></li>
                         <li id="menu-item-7738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7738"><a href="/#works">Portfolio</a></li>
                         <li id="menu-item-7739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7739"><a href="/#aboutus">About</a></li>
-                        <li id="menu-item-7740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7740"><a href="/#team">Team</a></li>
-                        <li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>
+                        @*<li id="menu-item-7741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7741"><a href="/#pricingtable">Packages</a></li>*@
                         <li id="menu-item-7742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7742"><a href="/#subscribe">Newsletter</a></li>
-                        <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="/#testimonials">Testimonials</a></li>
                         <li id="menu-item-7744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7744"><a href="/#contact">Contact</a></li>
+                        <li id="menu-item-7743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7743"><a href="http://news.xomorod.com">News</a></li>
+                        <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7740" })</li>
                         <li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new { area = "" }, new { @class = "menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1371 current_page_item menu-item-7745" })</li>
                         <li>&nbsp;</li>
                         @Html.Partial("_LoginPartial")
@@ -103,16 +104,15 @@
                 </div>
                 <div class="col-md-3 footer-box four-cell copyright">
                     <ul class="social">
-                        <li><a target="_blank" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a target="_blank" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a target="_blank" title="LinkedIn" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a target="_blank" title="Behance" href="#"><i class="fa fa-behance"></i></a></li>
-                        <li><a target="_blank" title="Dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a target="_blank" title="Google Plus" href="#"><i class="fa fa-google"></i></a></li>
-                        <li><a target="_blank" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a target="_blank" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
-                        <li><a target="_blank" title="Reddit" href="#"><i class="fa fa-reddit"></i></a></li>
-                        <li><a target="_blank" title="YouTube" href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a target="_blank" title="Telegram" href="http://telegram.me/xomorod"><i class="fa fa-paper-plane"></i></a></li>
+                        <li><a target="_blank" title="Twitter" href="https://twitter.com/xomorod"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" title="Facebook" href="https://www.facebook.com/Xomorod/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" title="Instagram" href="https://instagram.com/xomorod"><i class="fa fa-instagram"></i></a></li>
+                        <li><a target="_blank" title="Google Plus" href="https://plus.google.com/112166949009339498430"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a target="_blank" title="LinkedIn" href="https://ir.linkedin.com/in/xomorod-corporation-155017115"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a target="_blank" title="Stack Overflow" href="http://stackoverflow.com/jobs/companies/Xomorod"><i class="fa fa-stack-overflow"></i></a></li>
+                        <li><a target="_blank" title="GitHub" href="https://github.com/Xomorod"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" title="RSS" href="#"><i class="fa fa-rss"></i></a></li>
                     </ul>
                     <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
                 </div>
@@ -218,6 +218,14 @@
     </style>
     @Scripts.Render("~/bundles/mainLayoutB")
     @RenderSection("scripts", required: false)
+
+    @Styles.Render("~/Content/toTop")
+    <a href="#" id="toTop" class="toTop hidden-xs hidden-sm page-scroll menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737" style="display: none;">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+    @Scripts.Render("~/bundles/loadedMainLayout")
+
 </body>
 </html>
 <!-- This website is like a Rocket, isn't it ? Performance optimized by WP Rocket. Learn more: http://wp-rocket.me - Debug: cached@1456250584 -->

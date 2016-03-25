@@ -110,9 +110,9 @@ blockquote, q {
     quotes: "" "";
 }
 
-a:focus {
+/*a:focus {
     outline: thin dotted;
-}
+}*/
 
 a:hover,
 a:active {
@@ -124,7 +124,7 @@ a img {
 }
 
 body {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Roboto', 'Lato', sans-serif !important;
     font-size: 14px;
     color: #808080;
     font-weight: normal;
@@ -313,8 +313,11 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
 }
 
+h2 {
+     font-family: 'Montserrat', 'Lato', sans-serif !important;
+}
+
 h1, h2 {
-    font-family: 'Montserrat', 'sans-serif';
     font-weight: 700;
     line-height: 35px;
 }
