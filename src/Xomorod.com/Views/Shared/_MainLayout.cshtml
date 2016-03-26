@@ -37,7 +37,11 @@
             padding: 0 !important;
         }
     </style>
-    @Styles.Render("~/Content/mainLayoutT")
+    @Styles.Render("~/Content/front")
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/font-awesome")
+    @Styles.Render("~/Content/style")
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/recaptcha")
     <script type='text/javascript'>
@@ -219,12 +223,13 @@
     @Scripts.Render("~/bundles/mainLayoutB")
     @RenderSection("scripts", required: false)
 
-    @Styles.Render("~/Content/toTop")
-    <a href="#" id="toTop" class="toTop hidden-xs hidden-sm page-scroll menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7737" style="display: none;">
-        <i class="fa fa-angle-up"></i>
-    </a>
+    @Styles.Render("~/Content/ScrollTop")
 
-    @Scripts.Render("~/bundles/loadedMainLayout")
+    <A class="scroll-top fa fa-angle-up"
+       id="scroll-top" href="#"></A>
+
+    @Scripts.Render("~/bundles/ScrollTop")
+    @Scripts.Render("~/bundles/SmoothScroll")
 
 </body>
 </html>

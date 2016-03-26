@@ -213,10 +213,7 @@
     <Content Include="Content\OpenSans.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\ToTop.css" />
-    <Content Include="Content\woocommerce-layout.css" />
-    <Content Include="Content\woocommerce-smallscreen.css" />
-    <Content Include="Content\woocommerce.css" />
+    <Content Include="Content\ScrollTop.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -244,7 +241,6 @@
     <Content Include="Content\images\Unknown1.png" />
     <Content Include="Content\images\woo.png" />
     <Content Include="Content\images\woostars.png" />
-    <Content Include="Scripts\add-to-cart.min.js" />
     <Content Include="Scripts\api.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -276,7 +272,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lazyload.1.0.2.min.js" />
-    <Content Include="Scripts\loadedMainLayout.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\parallax.js" />
     <Content Include="Scripts\respond.js" />
@@ -284,6 +279,7 @@
     <Content Include="Scripts\scripts-general.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\scrollReveal.min.js" />
+    <Content Include="Scripts\ScrollTop.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\smoothscroll.min.js" />
     <Content Include="Scripts\woocommerce.min.js" />

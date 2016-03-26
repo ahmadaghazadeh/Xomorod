@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Xomorod.com
 {
@@ -10,14 +9,12 @@ namespace Xomorod.com
         {
             RegisterScriptBundles(bundles);
             RegisterStyleBundles(bundles);
-            
+
             BundleTable.EnableOptimizations = true;
         }
 
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/font").Include("~/Content/front.css"));
-
             bundles.Add(new StyleBundle("~/Content/Homemade_Apple",
                 @"//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic%7CMontserrat%3A700%7CHomemade+Apple").Include(
                 "~/Content/Homemade_Apple.css"));
@@ -26,29 +23,12 @@ namespace Xomorod.com
                 @"//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C300italic%2C400italic%2C600italic%2C600%2C700%2C700italic%2C800%2C800italic").Include(
                 "~/Content/OpenSans.css"));
 
-
-            //bundles.Add(new StyleBundle("~/Content/woocommerce").Include(
-            //          "~/Content/woocommerce-layout.css",
-            //          "~/Content/woocommerce-smallscreen.css",
-            //          "~/Content/woocommerce.css"));
-
-
-            bundles.Add(new StyleBundle("~/Content/bootstrap", @"http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css").Include(
-                      "~/Content/bootstrap.min.css"));
-
-            bundles.Add(new StyleBundle("~/Content/font_awesome").Include("~/Content/font-awesome.min.cs"));
-
-            bundles.Add(new StyleBundle("~/Content/style").Include("~/Content/style.cs"));
-
+            bundles.Add(new StyleBundle("~/Content/bootstrap", @"http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css").Include("~/Content/bootstrap.min.css"));
             bundles.Add(new StyleBundle("~/Content/blog").Include("~/Content/select2.css"));
-
-            bundles.Add(new StyleBundle("~/Content/mainLayoutT").Include(
-                      "~/Content/front.css",
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/font-awesome.min.css",
-                      "~/Content/style.css"));
-
-            bundles.Add(new StyleBundle("~/Content/toTop").Include("~/Content/ToTop.css"));
+            bundles.Add(new StyleBundle("~/Content/front").Include("~/Content/front.css"));
+            bundles.Add(new StyleBundle("~/Content/font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css").Include("~/Content/font-awesome.min.css"));
+            bundles.Add(new StyleBundle("~/Content/style").Include("~/Content/style.css"));
+            bundles.Add(new StyleBundle("~/Content/scrollTop").Include("~/Content/scrollTop.css"));
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -64,14 +44,11 @@ namespace Xomorod.com
 
             bundles.Add(new ScriptBundle("~/bundles/mainLayoutB").Include(
                         "~/Scripts/jquery.blockUI.min.js",
-                        //"~/Scripts/woocommerce.min.js",
                         "~/Scripts/jquery.cookie.min.js",
                         "~/Scripts/bootstrap.min.js",
                         "~/Scripts/jquery.knob.min.js",
                         "~/Scripts/scrollReveal.min.js",
-                        //"~/Scripts/parallax.js",
                         "~/Scripts/zerif.js"
-                        //"~/Scripts/wp-embed.min.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -97,7 +74,10 @@ namespace Xomorod.com
                 "~/Scripts/exporting.js"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/loadedMainLayout").Include("~/Scripts/loadedMainLayout.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ScrollTop").Include("~/Scripts/ScrollTop.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/SmoothScroll").Include("~/Scripts/smoothscroll.js"));
+
         }
     }
 }
