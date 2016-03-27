@@ -24,6 +24,12 @@
 /*--------------------------------------------------------------
 1.0 - Reset
 --------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Merkur';
+    src: url('../fonts/Merkur.otf') format('truetype');
+}
+
 html {
     font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 }
@@ -311,6 +317,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
     display: block;
     clear: both;
+}
+
+h1 .intro-text {
+     font-family: 'Merkur', sans-serif !important;
 }
 
 h2 {
