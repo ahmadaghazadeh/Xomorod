@@ -29,6 +29,8 @@ namespace Xomorod.com
             bundles.Add(new StyleBundle("~/Content/font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css").Include("~/Content/font-awesome.min.css"));
             bundles.Add(new StyleBundle("~/Content/style").Include("~/Content/style.css"));
             bundles.Add(new StyleBundle("~/Content/scrollTop").Include("~/Content/scrollTop.css"));
+            bundles.Add(new StyleBundle("~/Content/ie").Include("~/Content/ie.css"));
+            bundles.Add(new StyleBundle("~/Content/layoutStyle").Include("~/Content/layoutStyle.css"));
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -62,6 +64,7 @@ namespace Xomorod.com
             bundles.Add(new ScriptBundle("~/bundles/exporting", "https://code.highcharts.com/stock/modules/exporting.js").Include("~/Scripts/exporting.js"));
             bundles.Add(new ScriptBundle("~/bundles/ScrollTop").Include("~/Scripts/ScrollTop.js"));
             bundles.Add(new ScriptBundle("~/bundles/SmoothScroll").Include("~/Scripts/smoothscroll.js"));
+            bundles.Add(new ScriptBundle("~/bundles/html5").Include("~/Scripts/html5.js"));
 
         }
     }

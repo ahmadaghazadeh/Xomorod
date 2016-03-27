@@ -205,6 +205,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\front.css" />
     <Content Include="Content\Homemade_Apple.css" />
+    <Content Include="Content\ie.css" />
     <Content Include="Content\images\bwShonizEn.png" />
     <Content Include="Content\images\bwShonizFa.png" />
     <Content Include="Content\images\logo.jpg" />
@@ -212,6 +213,7 @@
     <Content Include="Content\images\iran.png" />
     <Content Include="Content\images\links.png" />
     <Content Include="Content\images\xomorod.svg" />
+    <Content Include="Content\layoutStyle.css" />
     <Content Include="Content\OpenSans.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\style.css" />
@@ -259,6 +261,7 @@
     <Content Include="Scripts\comment-reply.min.js" />
     <Content Include="Scripts\exporting.js" />
     <Content Include="Scripts\highstock.js" />
+    <Content Include="Scripts\html5.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />

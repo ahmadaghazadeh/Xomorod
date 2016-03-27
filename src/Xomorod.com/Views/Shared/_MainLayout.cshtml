@@ -1,29 +1,117 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewBag.TwitterSite = "@xomorod";
+    ViewBag.TwitterCreator = "@xomorod";
+    ViewBag.Description = @"Xomorod Co. is an Iranian multinational technology company specializing in Internet-related services and products.
+        These include online advertising technologies, learning, cloud books, tech news, and system or phone software.";
+}
+
+<!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
     <!--[if IE]><![endif]-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--[if lt IE 9]> <script src="http://demo.themeisle.com/zerif-pro/wp-content/themes/zerif-pro/js/html5.js"></script> <link rel="stylesheet" href="http://demo.themeisle.com/zerif-pro/wp-content/themes/zerif-pro/css/ie.css" type="text/css"> <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
-    <meta name="description" content="Another lovely WordPress theme by Themeisle" />
-    <meta name="robots" content="noodp" />
+    <!--[if lt IE 9]> @Scripts.Render("~/bundles/html5") @Styles.Render("~/Content/ie") <![endif]-->
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="author" content="Mr. Behzad Khosravifar" />
+
+    <!-- WOT SEO -->
+    <meta name="wot-verification" content="f56ce249532f51527774" />
+    <meta name="keywords" content="xomorod, zoomorod, form, software, company, business,
+        znews, development, download, free, technology, zomorod, fast book,
+        ErrorControlSystem, ErrorLog, WPF, Win32, WinForm, Error Control System, Make Class Schedule,
+        TSP, Genetic, GA, SignalR, Fox Robbit, Fuzzy Logic,
+        WHOis, who is, tic tac toe, snipping multiple screen, sudoku,
+        Amazing Team, Lets Get In Touch, f56ce249532f51527774"/>
+    <!-- /WOT SEO -->
+
+    <!-- Google SEO -->
+    <meta name="google-site-verification" content="AYP4KxNMI1VaPP5CRwnX7IGbL7ZmNWlspzwCHYlDgrw" />
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            }; if (!f._fbq) f._fbq = n;
+            n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window,
+        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '972946692759497');
+        fbq('track', "PageView");</script>
+    <noscript>
+        <img height="1" width="1" style="display: none"
+             src="https://www.facebook.com/tr?id=972946692759497&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-73834244-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+
+    <!-- Bing SEO -->
+    <meta name="msvalidate.01" content="27A3B78838E7E315F07577745A289624" />
+
+    <!-- Alexa SEO -->
+    <meta name="alexaVerifyID" content="xiqiCcGPB3tysfNYAwTR4myLH8Q" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index" />
+
+    <link rel="canonical" href="http://xomorod.com/" />
+    <link rel="amphtml" href="https://www.xomorod.com" />
+
+    <!-- International Targeting by hreflang tags -->
+    <link rel="alternate" hreflang="x-default" href="http://xomorod.com" />
+    <link rel="alternate" href="http://xomorod.com/fa" hreflang="fa" />
+    <link rel="alternate" href="http://xomorod.com/en" hreflang="en" />
+
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/logo.jpg")">
+
+    <!-- Open Graph Meta Tags (https://blog.kissmetrics.com/open-graph-meta-tags/) -->
     <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Xomorod Corporation" />
-    <meta property="og:description" content="Another xomorod website by Behzad Khosravifar" />
+    <meta property="og:type" content="company" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:description" content="@ViewBag.Description" />
     <meta property="og:site_name" content="Xomorod" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="Another lovely WordPress theme by Themeisle" />
-    <meta name="twitter:title" content="Xomorod Corporation" />
+    <meta property="og:image" content="@Url.Content("~/Content/images/logo.jpg")">
+    <meta property="og:url" content="http://www.xomorod.com">
+
+    <!-- Add Twitter Cards to Website (http://www.paulund.co.uk/add-twitter-cards-to-your-website) -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ViewBag.TwitterSite">
+    <meta name="twitter:creator" content="@ViewBag.TwitterCreator">
+    <meta name="twitter:url" content="http://www.xomorod.com">
+    <meta name="twitter:title" content="@ViewBag.Title">
+    <meta name="twitter:description" content="@ViewBag.Description">
+    <meta name="twitter:image" content="@Url.Content("~/Content/images/logo.jpg")">
 
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Feed" href="http://demo.themeisle.com/zerif-pro/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Comments Feed" href="http://demo.themeisle.com/zerif-pro/comments/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Xomorod Corporation &raquo; Blog Comments Feed" href="http://demo.themeisle.com/zerif-pro/blog/feed/" />
+
     <script type="text/javascript">
         window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "@Url.Content("~/Scripts/wp-emoji-release.min.js")" } };
-        !function (a, b, c) { function d(a) { var c, d = b.createElement("canvas"), e = d.getContext && d.getContext("2d"), f = String.fromCharCode; return e && e.fillText ? (e.textBaseline = "top", e.font = "600 32px Arial", "flag" === a ? (e.fillText(f(55356, 56806, 55356, 56826), 0, 0), d.toDataURL().length > 3e3) : "diversity" === a ? (e.fillText(f(55356, 57221), 0, 0), c = e.getImageData(16, 16, 1, 1).data.toString(), e.fillText(f(55356, 57221, 55356, 57343), 0, 0), c !== e.getImageData(16, 16, 1, 1).data.toString()) : ("simple" === a ? e.fillText(f(55357, 56835), 0, 0) : e.fillText(f(55356, 57135), 0, 0), 0 !== e.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);</script>
-    <link rel="canonical" href="https://xomorod.com/"/>
+        !function (a, b, c) { function d(a) { var c, d = b.createElement("canvas"), e = d.getContext && d.getContext("2d"), f = String.fromCharCode; return e && e.fillText ? (e.textBaseline = "top", e.font = "600 32px Arial", "flag" === a ? (e.fillText(f(55356, 56806, 55356, 56826), 0, 0), d.toDataURL().length > 3e3) : "diversity" === a ? (e.fillText(f(55356, 57221), 0, 0), c = e.getImageData(16, 16, 1, 1).data.toString(), e.fillText(f(55356, 57221, 55356, 57343), 0, 0), c !== e.getImageData(16, 16, 1, 1).data.toString()) : ("simple" === a ? e.fillText(f(55357, 56835), 0, 0) : e.fillText(f(55356, 57135), 0, 0), 0 !== e.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
 
     @Styles.Render("~/Content/front")
     @Styles.Render("~/Content/bootstrap")
@@ -44,7 +132,9 @@
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
 <body class="home blog @ViewBag.BodyClass">
+
     @RenderSection("Preloader", required: false) <!-- index action of home controller -->
+
     <header id="home" class="header" role="banner">
         <div id="main-nav" class="navbar navbar-inverse bs-docs-nav">
             <div class="container">
@@ -70,140 +160,45 @@
         </div>
         @RenderSection("Header", required: false)
     </header>
+
     <div id="content" class="site-content">
-
         @RenderBody()
-
     </div>
-    <footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-        <div class="container">
-            <div class="footer-box-wrap">
-                <div class="col-md-3 footer-box four-cell company-details">
-                    <div class="icon-top red-text">
-                        <img src='@Url.Content("~/Content/images/map25-redish.png")' alt="" />
-                    </div>
-                    <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
+
+<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+    <div class="container">
+        <div class="footer-box-wrap">
+            <div class="col-md-3 footer-box four-cell company-details">
+                <div class="icon-top red-text">
+                    <img src='@Url.Content("~/Content/images/map25-redish.png")' alt=""/>
                 </div>
-                <div class="col-md-3 footer-box four-cell company-details">
-                    <div class="icon-top green-text">
-                        <img src='@Url.Content("~/Content/images/envelope4-green.png")' alt="" />
-                    </div>
-                    <div class="zerif-footer-email">feedback@xomorod.com</div>
+                <div class="zerif-footer-address">San Francisco - Address - 128 California Street 3200.</div>
+            </div>
+            <div class="col-md-3 footer-box four-cell company-details">
+                <div class="icon-top green-text">
+                    <img src='@Url.Content("~/Content/images/envelope4-green.png")' alt=""/>
                 </div>
-                <div class="col-md-3 footer-box four-cell copyright">
-                    <ul class="social">
-                        <li><a target="_blank" title="Telegram" href="http://telegram.me/xomorod"><i class="fa fa-paper-plane"></i></a></li>
-                        <li><a target="_blank" title="Twitter" href="https://twitter.com/xomorod"><i class="fa fa-twitter"></i></a></li>
-                        <li><a target="_blank" title="Facebook" href="https://www.facebook.com/Xomorod/"><i class="fa fa-facebook"></i></a></li>
-                        <li><a target="_blank" title="Instagram" href="https://instagram.com/xomorod"><i class="fa fa-instagram"></i></a></li>
-                        <li><a target="_blank" title="Google Plus" href="https://plus.google.com/112166949009339498430"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a target="_blank" title="LinkedIn" href="https://ir.linkedin.com/in/xomorod-corporation-155017115"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a target="_blank" title="Stack Overflow" href="http://stackoverflow.com/jobs/companies/Xomorod"><i class="fa fa-stack-overflow"></i></a></li>
-                        <li><a target="_blank" title="GitHub" href="https://github.com/Xomorod"><i class="fa fa-github"></i></a></li>
-                        <li><a target="_blank" title="RSS" href="#"><i class="fa fa-rss"></i></a></li>
-                    </ul>
-                    <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
-                </div>
+                <div class="zerif-footer-email">feedback@xomorod.com</div>
+            </div>
+            <div class="col-md-3 footer-box four-cell copyright">
+                <ul class="social">
+                    <li><a target="_blank" title="Telegram" href="http://telegram.me/xomorod"><i class="fa fa-paper-plane"></i></a></li>
+                    <li><a target="_blank" title="Twitter" href="https://twitter.com/xomorod"><i class="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" title="Facebook" href="https://www.facebook.com/Xomorod/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" title="Instagram" href="https://instagram.com/xomorod"><i class="fa fa-instagram"></i></a></li>
+                    <li><a target="_blank" title="Google Plus" href="https://plus.google.com/112166949009339498430"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a target="_blank" title="LinkedIn" href="https://ir.linkedin.com/in/xomorod-corporation-155017115"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a target="_blank" title="Stack Overflow" href="http://stackoverflow.com/jobs/companies/Xomorod"><i class="fa fa-stack-overflow"></i></a></li>
+                    <li><a target="_blank" title="GitHub" href="https://github.com/Xomorod"><i class="fa fa-github"></i></a></li>
+                    <li><a target="_blank" title="RSS" href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+                <p id="zerif-copyright">&copy; @DateTime.Now.Year - Xomorod Corporation</p>
             </div>
         </div>
-    </footer>
-<style type="text/css">
-    .big-title-container .red-btn:hover {
-        color: #fff !important;
-    }
+    </div>
+</footer>
 
-    .big-title-container .green-btn:hover {
-        color: #fff !important;
-    }
-
-    .works .red-border-bottom:before {
-        background: #e96656 !important;
-    }
-
-    .about-us .skills input {
-        color: #fff !important;
-    }
-
-    .about-us .our-clients .section-footer-title {
-        color: #fff !important;
-    }
-
-    .team-member:hover .details {
-        background: #333 !important;
-    }
-
-    .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
-        background: #e96656;
-    }
-
-    .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
-        background: #34d293;
-    }
-
-    .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
-        background: #3ab0e2;
-    }
-
-    .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
-        background: #f7d861;
-    }
-
-    .testimonial .feedback-box {
-        background: #FFFFFF !important;
-    }
-
-    .separator-one .green-btn {
-        color: #fff !important;
-    }
-
-    .separator-one .green-btn:hover {
-        color: #fff !important;
-    }
-
-    .purchase-now .red-btn {
-        color: #fff !important;
-    }
-
-    .purchase-now .red-btn:hover {
-        color: #fff !important;
-    }
-
-    .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
-        color: #fff !important;
-    }
-
-    .packages {
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    #latestnews {
-        background: #fff;
-    }
-
-    #latestnews .section-header h2 {
-        color: #404040;
-    }
-
-    #latestnews .section-header h6 {
-        color: #808080;
-    }
-
-    section#subscribe {
-        background: rgba(0, 0, 0, 0.5) !important;
-    }
-
-    #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
-        color: #e96656 !important;
-    }
-
-    #footer .footer-widget h1 {
-        color: #fff !important;
-    }
-
-    #footer .footer-widget h1:before {
-        background: #e96656 !important;
-    }
-</style>
+    @Styles.Render("~/Content/layoutStyle")
 
     @Scripts.Render("~/bundles/jquery-blockUI")
     @Scripts.Render("~/bundles/jquery-cookie")
@@ -213,7 +208,6 @@
     @Scripts.Render("~/bundles/zerif")
     @Scripts.Render("~/bundles/SmoothScroll")
     
-
     @RenderSection("scripts", required: false)
 
     <A class="scroll-top fa fa-angle-up"
