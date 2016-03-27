@@ -255,20 +255,19 @@
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cart-fragments.min.js" />
-    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\comment-reply.min.js" />
     <Content Include="Scripts\exporting.js" />
     <Content Include="Scripts\highstock.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.1.js" />
+    <Content Include="Scripts\jquery-2.2.1.min.js" />
+    <Content Include="Scripts\jquery-2.2.1.min.map" />
     <Content Include="Scripts\jquery-migrate.min.js" />
     <Content Include="Scripts\jquery.blockUI.min.js" />
     <Content Include="Scripts\jquery.cookie.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.knob.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -279,12 +278,11 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scripts-general.js" />
-    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\recaptcha.js" />
     <Content Include="Scripts\scrollReveal.min.js" />
     <Content Include="Scripts\ScrollTop.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\smoothscroll.min.js" />
-    <Content Include="Scripts\woocommerce.min.js" />
     <Content Include="Scripts\wp-embed.min.js" />
     <Content Include="Scripts\wp-emoji-release.min.js" />
     <Content Include="Scripts\zerif.js" />
@@ -335,7 +333,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdoManager\AdoManager.csproj">

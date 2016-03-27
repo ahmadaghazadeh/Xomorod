@@ -33,49 +33,34 @@ namespace Xomorod.com
 
         private static void RegisterScriptBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/mainLayoutT").Include(
-                        "~/Scripts/jquery.js",
-                        "~/Scripts/jquery-migrate.min.js",
-                        "~/Scripts/scripts.js",
-                        "~/Scripts/scripts-general.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/blog").Include(
-                        "~/Scripts/select2.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/mainLayoutB").Include(
-                        "~/Scripts/jquery.blockUI.min.js",
-                        "~/Scripts/jquery.cookie.min.js",
-                        "~/Scripts/bootstrap.min.js",
-                        "~/Scripts/jquery.knob.min.js",
-                        "~/Scripts/scrollReveal.min.js",
-                        "~/Scripts/zerif.js"
-                        ));
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-migrate.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/recaptcha").Include("~/Scripts/recaptcha.js"));
+            bundles.Add(new ScriptBundle("~/bundles/scripts-general").Include("~/Scripts/scripts-general.js"));
+            bundles.Add(new ScriptBundle("~/bundles/blog").Include("~/Scripts/select2.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-blockUI").Include("~/Scripts/jquery.blockUI.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery-cookie").Include("~/Scripts/jquery.cookie.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                                      "~/Scripts/bootstrap.min.js",
+                                      "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-knob").Include("~/Scripts/jquery.knob.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/scrollReveal").Include("~/Scripts/scrollReveal.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/zerif").Include("~/Scripts/zerif.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/recaptcha", "https://www.google.com/recaptcha/api.js").Include("~/Scripts/api.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/highstock", "https://code.highcharts.com/stock/highstock.js").Include(
-                "~/Scripts/highstock.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/exporting", "https://code.highcharts.com/stock/modules/exporting.js").Include(
-                "~/Scripts/exporting.js"));
-
-
+            bundles.Add(new ScriptBundle("~/bundles/recaptchaApi", "https://www.google.com/recaptcha/api.js").Include("~/Scripts/api.js"));
+            bundles.Add(new ScriptBundle("~/bundles/highstock", "https://code.highcharts.com/stock/highstock.js").Include("~/Scripts/highstock.js"));
+            bundles.Add(new ScriptBundle("~/bundles/exporting", "https://code.highcharts.com/stock/modules/exporting.js").Include("~/Scripts/exporting.js"));
             bundles.Add(new ScriptBundle("~/bundles/ScrollTop").Include("~/Scripts/ScrollTop.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/SmoothScroll").Include("~/Scripts/smoothscroll.js"));
 
         }

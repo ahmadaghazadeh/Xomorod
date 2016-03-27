@@ -11,7 +11,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Xomorod Corporation" />
-    <meta property="og:description" content="Another lovely WordPress theme by Themeisle" />
+    <meta property="og:description" content="Another xomorod website by Behzad Khosravifar" />
     <meta property="og:site_name" content="Xomorod" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="Another lovely WordPress theme by Themeisle" />
@@ -23,40 +23,24 @@
     <script type="text/javascript">
         window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "@Url.Content("~/Scripts/wp-emoji-release.min.js")" } };
         !function (a, b, c) { function d(a) { var c, d = b.createElement("canvas"), e = d.getContext && d.getContext("2d"), f = String.fromCharCode; return e && e.fillText ? (e.textBaseline = "top", e.font = "600 32px Arial", "flag" === a ? (e.fillText(f(55356, 56806, 55356, 56826), 0, 0), d.toDataURL().length > 3e3) : "diversity" === a ? (e.fillText(f(55356, 57221), 0, 0), c = e.getImageData(16, 16, 1, 1).data.toString(), e.fillText(f(55356, 57221, 55356, 57343), 0, 0), c !== e.getImageData(16, 16, 1, 1).data.toString()) : ("simple" === a ? e.fillText(f(55357, 56835), 0, 0) : e.fillText(f(55356, 57135), 0, 0), 0 !== e.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);</script>
-    <style type="text/css">
-        img.wp-smiley,
-        img.emoji {
-            display: inline !important;
-            border: none !important;
-            box-shadow: none !important;
-            height: 1em !important;
-            width: 1em !important;
-            margin: 0 .07em !important;
-            vertical-align: -0.1em !important;
-            background: none !important;
-            padding: 0 !important;
-        }
-    </style>
+    <link rel="canonical" href="https://xomorod.com/"/>
+
     @Styles.Render("~/Content/front")
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/font-awesome")
     @Styles.Render("~/Content/style")
+    @Styles.Render("~/Content/ScrollTop")
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/recaptcha")
+    @Scripts.Render("~/bundles/recaptchaApi")
     <script type='text/javascript'>
         /*  */
         var pirateFormsObject = { "errors": "" };
-        /*  */</script>
-    @Scripts.Render("~/bundles/mainLayoutT")
-    <link rel="canonical" href="https://xomorod.com/" />
-    <style type="text/css">
-        .recentcomments a {
-            display: inline !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-    </style>
+        /*  */
+    </script>
+    @Scripts.Render("~/bundles/recaptcha")
+    @Scripts.Render("~/bundles/scripts-general")
+
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
 <body class="home blog @ViewBag.BodyClass">
@@ -123,113 +107,119 @@
             </div>
         </div>
     </footer>
-    <style type="text/css">
-        .big-title-container .red-btn:hover {
-            color: #fff !important;
-        }
+<style type="text/css">
+    .big-title-container .red-btn:hover {
+        color: #fff !important;
+    }
 
-        .big-title-container .green-btn:hover {
-            color: #fff !important;
-        }
+    .big-title-container .green-btn:hover {
+        color: #fff !important;
+    }
 
-        .works .red-border-bottom:before {
-            background: #e96656 !important;
-        }
+    .works .red-border-bottom:before {
+        background: #e96656 !important;
+    }
 
-        .about-us .skills input {
-            color: #fff !important;
-        }
+    .about-us .skills input {
+        color: #fff !important;
+    }
 
-        .about-us .our-clients .section-footer-title {
-            color: #fff !important;
-        }
+    .about-us .our-clients .section-footer-title {
+        color: #fff !important;
+    }
 
-        .team-member:hover .details {
-            background: #333 !important;
-        }
+    .team-member:hover .details {
+        background: #333 !important;
+    }
 
-        .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
-            background: #e96656;
-        }
+    .our-team .row > div:nth-child(4n + 1) .red-border-bottom:before {
+        background: #e96656;
+    }
 
-        .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
-            background: #34d293;
-        }
+    .our-team .row > div:nth-child(4n + 2) .red-border-bottom:before {
+        background: #34d293;
+    }
 
-        .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
-            background: #3ab0e2;
-        }
+    .our-team .row > div:nth-child(4n + 3) .red-border-bottom:before {
+        background: #3ab0e2;
+    }
 
-        .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
-            background: #f7d861;
-        }
+    .our-team .row > div:nth-child(4n + 4) .red-border-bottom:before {
+        background: #f7d861;
+    }
 
-        .testimonial .feedback-box {
-            background: #FFFFFF !important;
-        }
+    .testimonial .feedback-box {
+        background: #FFFFFF !important;
+    }
 
-        .separator-one .green-btn {
-            color: #fff !important;
-        }
+    .separator-one .green-btn {
+        color: #fff !important;
+    }
 
-            .separator-one .green-btn:hover {
-                color: #fff !important;
-            }
+    .separator-one .green-btn:hover {
+        color: #fff !important;
+    }
 
-        .purchase-now .red-btn {
-            color: #fff !important;
-        }
+    .purchase-now .red-btn {
+        color: #fff !important;
+    }
 
-            .purchase-now .red-btn:hover {
-                color: #fff !important;
-            }
+    .purchase-now .red-btn:hover {
+        color: #fff !important;
+    }
 
-        .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
-            color: #fff !important;
-        }
+    .contact-us button:hover, .pirate_forms .pirate-forms-submit-button:hover {
+        color: #fff !important;
+    }
 
-        .packages {
-            background: rgba(0, 0, 0, 0.5);
-        }
+    .packages {
+        background: rgba(0, 0, 0, 0.5);
+    }
 
-        #latestnews {
-            background: #fff;
-        }
+    #latestnews {
+        background: #fff;
+    }
 
-            #latestnews .section-header h2 {
-                color: #404040;
-            }
+    #latestnews .section-header h2 {
+        color: #404040;
+    }
 
-            #latestnews .section-header h6 {
-                color: #808080;
-            }
+    #latestnews .section-header h6 {
+        color: #808080;
+    }
 
-        section#subscribe {
-            background: rgba(0, 0, 0, 0.5) !important;
-        }
+    section#subscribe {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
 
-        #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
-            color: #e96656 !important;
-        }
+    #footer .company-details:hover, #footer .company-details a:hover, #footer .footer-widget a:hover {
+        color: #e96656 !important;
+    }
 
-        #footer .footer-widget h1 {
-            color: #fff !important;
-        }
+    #footer .footer-widget h1 {
+        color: #fff !important;
+    }
 
-            #footer .footer-widget h1:before {
-                background: #e96656 !important;
-            }
-    </style>
-    @Scripts.Render("~/bundles/mainLayoutB")
+    #footer .footer-widget h1:before {
+        background: #e96656 !important;
+    }
+</style>
+
+    @Scripts.Render("~/bundles/jquery-blockUI")
+    @Scripts.Render("~/bundles/jquery-cookie")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery-knob")
+    @Scripts.Render("~/bundles/scrollReveal")
+    @Scripts.Render("~/bundles/zerif")
+    @Scripts.Render("~/bundles/SmoothScroll")
+    
+
     @RenderSection("scripts", required: false)
-
-    @Styles.Render("~/Content/ScrollTop")
 
     <A class="scroll-top fa fa-angle-up"
        id="scroll-top" href="#"></A>
 
     @Scripts.Render("~/bundles/ScrollTop")
-    @Scripts.Render("~/bundles/SmoothScroll")
 
 </body>
 </html>
