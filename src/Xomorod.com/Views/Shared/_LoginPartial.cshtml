@@ -6,7 +6,7 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-        <li id="menu-item-7746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7746">
+        <li id="menu-item-7746" class="menu-item   menu-item-home menu-item-7746">
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
@@ -16,10 +16,10 @@
 else
 {
     <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-        <li id="menu-item-7746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7746">
+        <li id="menu-item-7746" class="menu-item   menu-item-home menu-item-7746">
             @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
         </li>
-        <li id="menu-item-7747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7747">
+        <li id="menu-item-7747" class="menu-item   menu-item-home menu-item-7747">
             @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})
         </li>
     </ul>
