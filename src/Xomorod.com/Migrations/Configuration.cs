@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Data.Entity.Migrations.Model;
 using System.Data.Entity.SqlServer;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Xomorod.com.Models;
 
 namespace Xomorod.com.Migrations
@@ -37,7 +39,16 @@ namespace Xomorod.com.Migrations
 
         private void ContextRoles(ApplicationDbContext context)
         {
-            //context.Roles.Create()
+            //  This method will be called after migrating to the latest version.
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            if (!roleManager.Roles.Any())
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
+                roleManager.Create(new IdentityRole { Name = "Common" });
+                roleManager.Create(new IdentityRole { Name = "NoAccess" });
+            }
         }
     }
 
