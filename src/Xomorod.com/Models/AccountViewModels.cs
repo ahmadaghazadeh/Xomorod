@@ -64,6 +64,9 @@ namespace Xomorod.com.Models
 
     public class RegisterViewModel
     {
+        //[Display(Name = "Username")]
+        //public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
