@@ -37,7 +37,7 @@ namespace Xomorod.com.Migrations
 
         private void ContextRoles(ApplicationDbContext context)
         {
-            context.Roles.Create()
+            //context.Roles.Create()
         }
     }
 
