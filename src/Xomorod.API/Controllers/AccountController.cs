@@ -321,7 +321,7 @@ namespace Xomorod.API.Controllers
         }
 
         // POST api/Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
@@ -343,7 +343,7 @@ namespace Xomorod.API.Controllers
         }
 
         // POST api/Account/RegisterExternal
-        [OverrideAuthentication]
+        [Authorize(Roles = "Admin")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]
         public async Task<IHttpActionResult> RegisterExternal(RegisterExternalBindingModel model)

@@ -42,6 +42,7 @@ namespace Xomorod.com.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Ranking()
         {
             var alexa = new Alexa("xomorod.com", ConnectionManager.GetDefaultConnection());
