@@ -1,38 +1,35 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using AdoManager;
 using DotNet.Highstock.Enums;
 using DotNet.Highstock.Helpers;
 using DotNet.Highstock.Options;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Xomorod.com.Models;
 using Xomorod.Helper;
 
 namespace Xomorod.com.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
         {
-            // helpfull link: http://demo.themeisle.com/zerif-pro/
-            ViewBag.BodyClass = "custom-background";
-
-            return View();
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
+        public ApplicationUser CurrentUser => UserManager.FindById(User.Identity.GetUserId());
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
 
         public ActionResult Blog()
@@ -112,6 +109,52 @@ namespace Xomorod.com.Controllers
             ViewData.Add("IranChart", iChart);
 
             return View(alexa);
+        }
+
+
+        public ActionResult Index()
+        {
+            // helpfull link: http://demo.themeisle.com/zerif-pro/
+            ViewBag.BodyClass = "custom-background";
+
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            return PartialView("Services");
+        }
+        public ActionResult GreenSeparator()
+        {
+            return PartialView("GreenSeparator");
+        }
+        public ActionResult Portfolios()
+        {
+            return PartialView("Portfolios");
+        }
+        public ActionResult About()
+        {
+            return PartialView("About");
+        }
+        public ActionResult RedSeparator()
+        {
+            return PartialView("RedSeparator");
+        }
+        public ActionResult Subscribe()
+        {
+            return PartialView("Subscribe");
+        }
+        public ActionResult Map()
+        {
+            return PartialView("Map");
+        }
+        public ActionResult Contact()
+        {
+            return PartialView("Contact");
+        }
+        public ActionResult LatestNews()
+        {
+            return PartialView("LatestNews");
         }
     }
 }

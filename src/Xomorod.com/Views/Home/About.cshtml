@@ -1,7 +1,77 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+﻿<section class="about-us" id="aboutus">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="white-text">About</h2>
+            <h6 class="white-text">
+                Xomorod Co. is an Iranian multinational technology company specializing in Internet-related services and products.
+                These include online advertising technologies, learning, cloud books, tech news, and system or phone software.
+            </h6>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 column zerif-rtl-big-title">
+                <div class="big-intro" data-scrollreveal="enter left after 0s over 1s">Live More Intelligent</div>
+            </div>
+            <div class="col-lg-4 col-md-4 column zerif_about_us_center text_and_skills" data-scrollreveal="enter bottom after 0s over 1s">
+                <p>
+                    At Xomorod, it's about using the right tool for the job. If it's not a nail, we won't use a hammer. Different teams have different needs, and we let them dictate how they solve their problems, and what technologies they use.
+                    <br />
+                    <br />
+                    Come join a fun team at a fast growing start-up and be part of the mobile revolution. You will work with some of the best leaders and technical minds in the mobile space.
+                    <br />
+                    <br />
+                    We provide a highly competitive package with excellent compensation, bonuses, employee benefits, stock options and a friendly, supportive culture.
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-4 column zerif-rtl-skills">
+                <ul class="skills" data-scrollreveal="enter right after 0s over 1s">
+                    <li class="skill skill_1">
+                        <div class="skill-count">
+                            <input type="text" value="90" data-thickness=".2" class="skill1">
+                        </div>
+                        <h6>Use High Technology</h6>
+                    </li>
+                    <li class="skill skill_2">
+                        <div class="skill-count">
+                            <input type="text" value="95" data-thickness=".2" class="skill2">
+                        </div>
+                        <h6>Create Windows Applications</h6>
+                    </li>
+                    <li class="skill skill_3">
+                        <div class="skill-count">
+                            <input type="text" value="75" data-thickness=".2" class="skill3">
+                        </div>
+                        <h6>Developing Web Projects</h6>
+                    </li>
+                    <li class="skill skill_4">
+                        <div class="skill-count">
+                            <input type="text" value="60" data-thickness=".2" class="skill4">
+                        </div>
+                        <h6>Deploying learning and mobile applications</h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="our-clients">
+            <h5><span class="section-footer-title">SHOWCASE YOUR CLIENTS THERE</span></h5>
+        </div>
+        <div class="client-list">
+            <div data-scrollreveal="enter right move 60px after 0.00s over 2.5s">
+                <a target="_blank" href="#">
+                    <img src='@Url.Content("~/Content/images/Unknown1.png")' alt="">
+                </a>
+                <a target="_blank" href="#">
+                    <img src='@Url.Content("~/Content/images/Unknown-3.png")' alt="">
+                </a>
+                <a target="_blank" href="http://www.shoniz.com/">
+                    <img src='@Url.Content("~/Content/images/bwShonizEn.png")' alt="">
+                </a>
+                <a target="_blank" href="#">
+                    <img src='@Url.Content("~/Content/images/Unknown-5.png")' alt="">
+                </a>
+                <a target="_blank" href="#">
+                    <img src='@Url.Content("~/Content/images/Unknown-6.png")' alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
