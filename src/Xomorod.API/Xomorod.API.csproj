@@ -46,6 +46,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdoManager, Version=1.0.3.34588, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\AdoManager.1.0.3\lib\net45\AdoManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Hangfire.Core, Version=1.5.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Hangfire.Core.1.5.5\lib\net45\Hangfire.Core.dll</HintPath>
@@ -327,10 +337,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdoManager\AdoManager.csproj">
-      <Project>{c6a52698-9c02-49f4-b848-cdffc6562215}</Project>
-      <Name>AdoManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xomorod.Helper\Xomorod.Helper.csproj">
       <Project>{2dd4bcc5-ec5c-4a9d-b4a9-1578f50e98b7}</Project>
       <Name>Xomorod.Helper</Name>

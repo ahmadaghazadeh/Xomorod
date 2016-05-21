@@ -64,6 +64,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdoManager, Version=1.0.3.34588, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\AdoManager.1.0.3\lib\net45\AdoManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http" />
@@ -298,10 +308,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdoManager\AdoManager.csproj">
-      <Project>{c6a52698-9c02-49f4-b848-cdffc6562215}</Project>
-      <Name>AdoManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xomorod.API\Xomorod.API.csproj">
       <Project>{588B75B9-D7AA-474E-AEC4-E371C97C2395}</Project>
       <Name>Xomorod.API</Name>

@@ -8,8 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3B716B
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoManager", "AdoManager\AdoManager.csproj", "{C6A52698-9C02-49F4-B848-CDFFC6562215}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.News", "Xomorod.News\Xomorod.News.csproj", "{F3B06021-853F-4E90-87E2-A99DAEF26FB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.API", "Xomorod.API\Xomorod.API.csproj", "{588B75B9-D7AA-474E-AEC4-E371C97C2395}"
@@ -41,10 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6A52698-9C02-49F4-B848-CDFFC6562215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6A52698-9C02-49F4-B848-CDFFC6562215}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6A52698-9C02-49F4-B848-CDFFC6562215}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6A52698-9C02-49F4-B848-CDFFC6562215}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F3B06021-853F-4E90-87E2-A99DAEF26FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3B06021-853F-4E90-87E2-A99DAEF26FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3B06021-853F-4E90-87E2-A99DAEF26FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
