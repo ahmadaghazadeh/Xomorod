@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -21,6 +22,7 @@ namespace Xomorod.com
 
             // Set Database Connetion from [Web.config]
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            
             ConnectionManager.LoadFromXml(data);
 #if DEBUG
             ConnectionManager.SetToDefaultConnection("Xomorod"); // local
