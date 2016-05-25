@@ -21,13 +21,13 @@ namespace Xomorod.com
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Set Database Connetion from [Web.config]
-            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            //var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            //ConnectionManager.LoadFromXml(data);
             
-            ConnectionManager.LoadFromXml(data);
 #if DEBUG
-            ConnectionManager.SetToDefaultConnection("Xomorod"); // local
+            ConnectionManager.SetToDefaultConnection(Connections.Xomorod.Connection.Name); // local
 #else
-            ConnectionManager.SetToDefaultConnection("XomorodServerSide"); // server
+            ConnectionManager.SetToDefaultConnection(Connections.XomorodServerSide.Connection.Name); // server
 #endif
 
             Error += Application_Error;
