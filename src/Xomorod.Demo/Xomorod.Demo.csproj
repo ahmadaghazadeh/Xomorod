@@ -64,9 +64,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdoManager, Version=1.0.3.34588, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AdoManager, Version=1.1.21.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\AdoManager.1.0.3\lib\net45\AdoManager.dll</HintPath>
+      <HintPath>..\Packages\AdoManager.1.1.21\lib\net45\AdoManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -119,6 +119,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Connections.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Connections.cs</LastGenOutput>
+    </Content>
     <Content Include="css\errorPages\404.css" />
     <Content Include="css\loader.css" />
     <Content Include="css\local_resources\animate-3.4.0.min.css" />
@@ -175,6 +179,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Connections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Connections.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ApiAddressController.cs" />
@@ -306,6 +315,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xomorod.API\Xomorod.API.csproj">
@@ -342,6 +352,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets" Condition="Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

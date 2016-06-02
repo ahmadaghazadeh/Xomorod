@@ -46,9 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdoManager, Version=1.0.3.34588, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AdoManager, Version=1.1.21.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\AdoManager.1.0.3\lib\net45\AdoManager.dll</HintPath>
+      <HintPath>..\Packages\AdoManager.1.1.21\lib\net45\AdoManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -205,6 +205,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Connections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Connections.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -267,6 +272,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Connections.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Connections.cs</LastGenOutput>
+    </Content>
     <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\404.css" />
@@ -328,7 +337,9 @@
     <Content Include="Views\Errors\Index.cshtml" />
     <Content Include="Views\Email\ErrorMail.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -376,7 +387,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\Packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\Packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets'))" />
   </Target>
+  <Import Project="..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets" Condition="Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

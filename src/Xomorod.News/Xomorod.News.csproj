@@ -43,9 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdoManager, Version=1.0.3.34588, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AdoManager, Version=1.1.21.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\AdoManager.1.0.3\lib\net45\AdoManager.dll</HintPath>
+      <HintPath>..\Packages\AdoManager.1.1.21\lib\net45\AdoManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Antlr3.Runtime">
@@ -126,6 +126,10 @@
     <Content Include="..\..\.gitignore">
       <Link>SolutionsItem\.gitignore</Link>
     </Content>
+    <Content Include="App_Data\Connections.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Connections.cs</LastGenOutput>
+    </Content>
     <Content Include="css\errorPages\404.css" />
     <Content Include="css\ihover.min.css" />
     <Content Include="css\main.css" />
@@ -160,6 +164,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Connections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Connections.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -227,7 +236,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="js\main\" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +253,9 @@
       <Project>{588b75b9-d7aa-474e-aec4-e371c97c2395}</Project>
       <Name>Xomorod.API</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -277,7 +288,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets'))" />
   </Target>
+  <Import Project="..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets" Condition="Exists('..\Packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

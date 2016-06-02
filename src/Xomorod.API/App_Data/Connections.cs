@@ -28,6 +28,8 @@ internal static partial class Connections
 		}
 
 		 
+		public static AdoManager.ConnectionManager DefaultConnection { get { return ConnectionManager.Find("DefaultConnection"); } }
+		 
 		public static AdoManager.ConnectionManager Xomorod { get { return ConnectionManager.Find("Xomorod"); } }
 		 
 		public static AdoManager.ConnectionManager XomorodServerSide { get { return ConnectionManager.Find("XomorodServerSide"); } }
