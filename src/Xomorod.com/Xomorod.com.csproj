@@ -230,6 +230,10 @@
     <Content Include="Content\images\global.png" />
     <Content Include="Content\images\iran.png" />
     <Content Include="Content\images\links.png" />
+    <Content Include="Content\images\logo\Logo.svg" />
+    <Content Include="Content\images\logo\LogoXomorod.png" />
+    <Content Include="Content\images\logo\LogoXomorod.svg" />
+    <Content Include="Content\images\logo\Logo.png" />
     <Content Include="Content\images\xomorod.svg" />
     <Content Include="Content\layoutStyle.css" />
     <Content Include="Content\OpenSans.css" />
@@ -247,7 +251,6 @@
     <Content Include="Content\images\lines-dark.png" />
     <Content Include="Content\images\lines.png" />
     <Content Include="Content\images\loading.gif" />
-    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\map25-redish.png" />
     <Content Include="Content\images\menu-icon.png" />
     <Content Include="Content\images\right-arrow.png" />
@@ -274,6 +277,8 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\Merkur.otf" />
     <Content Include="fonts\iransans.ttf" />
+    <Content Include="Content\images\logo\Xomorod.ldsg" />
+    <Content Include="Content\images\logo\Xomorod.ldsv" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <Content Include="Scripts\cart-fragments.min.js" />
     <Content Include="Scripts\comment-reply.min.js" />
@@ -374,6 +379,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
