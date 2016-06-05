@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Xomorod.API
 {
@@ -26,7 +25,6 @@ namespace Xomorod.API
 
             bundles.Add(new StyleBundle("~/Content/error").Include(
                       "~/Content/404.css"));
-
         }
     }
 }

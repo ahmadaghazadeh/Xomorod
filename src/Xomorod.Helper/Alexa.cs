@@ -4,8 +4,6 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using AdoManager;
-using Dapper;
 
 namespace Xomorod.Helper
 {
@@ -17,28 +15,16 @@ namespace Xomorod.Helper
         protected string AlexaLocalPattern { get; set; }
         protected string AlexaLinksin { get; set; }
         protected string AlexaData { get; set; }
-
         public string WebSite { get; set; }
-
-        protected ConnectionManager ConnManager { get; set; }
-
         #endregion
 
         #region Constructors
 
         public Alexa(string url)
         {
-            WebSite = $"http://www.alexa.com/siteinfo/{url}";
-            RefreshData();
-        }
-
-        public Alexa(string url, ConnectionManager cm)
-        {
             //WebSite = $"http://www.alexa.com/minisiteinfo/{url}?offset=5&amp;version=alxg_20100607";
             WebSite = $"http://www.alexa.com/siteinfo/{url}";
             RefreshData();
-
-            ConnManager = cm;
         }
 
         #endregion
@@ -251,19 +237,11 @@ namespace Xomorod.Helper
 
             return rankNo;
         }
-
-        public IEnumerable<dynamic> GetHistoricalTrafficTrends()
-        {
-            var result = ConnManager?.SqlConn.Query("Select * From dbo.udft_TrafficRankings()");
-
-            return result;
-        }
-
+        
         #endregion
 
         public void Dispose()
         {
-            this.ConnManager?.Dispose();
             this.AlexaData = null;
             this.AlexaGlobalPattern = null;
             this.AlexaLinksin = null;

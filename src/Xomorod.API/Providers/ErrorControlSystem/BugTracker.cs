@@ -40,7 +40,7 @@ namespace Xomorod.API.Providers.ErrorControlSystem
             }
             catch (Exception exp)
             {
-                // TODO store in local DB
+                Elmah.ErrorSignal.FromCurrentContext().Raise(exp);
             }
         }
 
@@ -88,7 +88,7 @@ namespace Xomorod.API.Providers.ErrorControlSystem
             }
             catch (Exception exp)
             {
-                // TODO store in local DB
+                Elmah.ErrorSignal.FromCurrentContext().Raise(exp);
             }
         }
 

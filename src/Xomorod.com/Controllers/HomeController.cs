@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AdoManager;
+using Dapper;
 using DotNet.Highstock.Enums;
 using DotNet.Highstock.Helpers;
 using DotNet.Highstock.Options;
@@ -42,8 +43,8 @@ namespace Xomorod.com.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Ranking()
         {
-            var alexa = new Alexa("xomorod.com", ConnectionManager.GetDefaultConnection());
-            var trends = alexa.GetHistoricalTrafficTrends().ToList();
+            var alexa = new Alexa("xomorod.com");
+            var trends = ConnectionManager.GetDefaultConnection().SqlConn.Query("Select * From dbo.udft_TrafficRankings()").ToList();// alexa.GetHistoricalTrafficTrends().ToList();
 
             var gData = new object[trends.Count(), 2]; // global ranking data
             var iData = new object[trends.Count(), 2];  // iran ranking data
@@ -120,6 +121,15 @@ namespace Xomorod.com.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult AllIndex()
+        {
+            // helpfull link: http://demo.themeisle.com/zerif-pro/
+            ViewBag.BodyClass = "custom-background";
+
+            return View();
+        }
+
         public ActionResult Services()
         {
             return PartialView("Services");
@@ -155,6 +165,18 @@ namespace Xomorod.com.Controllers
         public ActionResult LatestNews()
         {
             return PartialView("LatestNews");
+        }
+        public ActionResult Team()
+        {
+            return PartialView("Team");
+        }
+        public ActionResult Testimonials()
+        {
+            return PartialView("Testimonials");
+        }
+        public ActionResult Packages()
+        {
+            return PartialView("Packages");
         }
     }
 }

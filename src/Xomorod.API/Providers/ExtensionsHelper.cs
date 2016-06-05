@@ -43,7 +43,7 @@ namespace Xomorod.API.Providers
             }
             catch (Exception exp)
             {
-                // ignored
+                Elmah.ErrorSignal.FromCurrentContext().Raise(exp);
                 return null;
             }
         }
@@ -66,7 +66,7 @@ namespace Xomorod.API.Providers
             }
             catch (Exception exp)
             {
-                // ignored
+                Elmah.ErrorSignal.FromCurrentContext().Raise(exp);
                 return null;
             }
         }

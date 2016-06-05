@@ -19,9 +19,10 @@ namespace Xomorod.News.Core
 
                 return feed;
             }
-            catch (Exception ex)
+            catch (Exception exp)
             {
                 // log ex in db
+                Elmah.ErrorSignal.FromCurrentContext().Raise(exp);
                 return null;
             }
 

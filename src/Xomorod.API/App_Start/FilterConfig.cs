@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Xomorod.API
 {
@@ -7,6 +6,7 @@ namespace Xomorod.API
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new ElmahHandleErrorAttribute());
             filters.Add(new HandleErrorAttribute());
         }
     }

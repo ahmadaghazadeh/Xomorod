@@ -21,7 +21,7 @@ namespace Xomorod.API.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("XomorodServerSide", throwIfV1Schema: false)
         {
         }
         

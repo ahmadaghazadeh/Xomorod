@@ -6,15 +6,15 @@
     <members>
         <member name="M:Xomorod.API.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
-            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription" />. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
             </summary>
-            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <returns>The ID as a string.</returns>
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.HelpPageConfig">
             <summary>
             Use this class to customize the Help Page.
-            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider" /> to supply the documentation
             or you can provide the samples for the requests/responses.
             </summary>
         </member>
@@ -27,21 +27,21 @@
             <summary>
             Sets the documentation provider for help page.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="documentationProvider">The documentation provider.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
             <summary>
             Sets the objects that will be used by the formatters to produce sample requests/responses.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sampleObjects">The sample objects.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
             <summary>
             Sets the sample request directly for the specified media type and action.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample request.</param>
             <param name="mediaType">The media type.</param>
             <param name="controllerName">Name of the controller.</param>
@@ -51,7 +51,7 @@
             <summary>
             Sets the sample request directly for the specified media type and action with parameters.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample request.</param>
             <param name="mediaType">The media type.</param>
             <param name="controllerName">Name of the controller.</param>
@@ -62,7 +62,7 @@
             <summary>
             Sets the sample request directly for the specified media type of the action.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample response.</param>
             <param name="mediaType">The media type.</param>
             <param name="controllerName">Name of the controller.</param>
@@ -72,7 +72,7 @@
             <summary>
             Sets the sample response directly for the specified media type of the action with specific parameters.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample response.</param>
             <param name="mediaType">The media type.</param>
             <param name="controllerName">Name of the controller.</param>
@@ -83,7 +83,7 @@
             <summary>
             Sets the sample directly for all actions with the specified media type.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample.</param>
             <param name="mediaType">The media type.</param>
         </member>
@@ -91,27 +91,27 @@
             <summary>
             Sets the sample directly for all actions with the specified type and media type.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sample">The sample.</param>
             <param name="mediaType">The media type.</param>
             <param name="type">The parameter type or return type of an action.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> passed to the <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
             The help page will use this information to produce more accurate request samples.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="type">The type.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> passed to the <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
             The help page will use this information to produce more accurate request samples.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="type">The type.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
@@ -119,20 +119,20 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
             The help page will use this information to produce more accurate response samples.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="type">The type.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
             The help page will use this information to produce more accurate response samples.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="type">The type.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
@@ -142,14 +142,14 @@
             <summary>
             Gets the help page sample generator.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <returns>The help page sample generator.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator)">
             <summary>
             Sets the help page sample generator.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
             <param name="sampleGenerator">The help page sample generator.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
@@ -157,16 +157,16 @@
             Gets the model description generator.
             </summary>
             <param name="config">The configuration.</param>
-            <returns>The <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+            <returns>The <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator" /></returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
             <summary>
             Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
             </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription" /> ID.</param>
             <returns>
-            An <see cref="T:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel"/>
+            An <see cref="T:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel" />
             </returns>
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription">
@@ -181,7 +181,7 @@
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
             <summary>
-            Use this attribute to change the name of the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            Use this attribute to change the name of the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription" /> generated for a type.
             </summary>
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel">
@@ -191,17 +191,17 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel" /> class.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
             <summary>
-            Gets or sets the <see cref="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            Gets or sets the <see cref="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription" /> that describes the API.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
             <summary>
-            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ParameterDescription" /> collection that describes the URI parameters for the API.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
@@ -211,7 +211,7 @@
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
             <summary>
-            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription" /> that describes the request body.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
@@ -221,7 +221,7 @@
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
             <summary>
-            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            Gets or sets the <see cref="T:Xomorod.API.Areas.HelpPage.ModelDescriptions.ModelDescription" /> that describes the resource.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
@@ -251,12 +251,12 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator" /> class.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
             <summary>
-            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage" /> or <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
@@ -272,38 +272,38 @@
         <member name="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
             <summary>
             Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
-            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            stopping when the factory successfully returns a non-<see langref="null" /> object.
             </summary>
             <remarks>
-            Collection includes just <see cref="M:Xomorod.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            Collection includes just <see cref="M:Xomorod.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)" /> initially. Use
             <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
             <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
             <summary>
-            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription" />.
             </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <returns>The samples keyed by media type.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
             <summary>
-            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription" />.
             </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <returns>The samples keyed by media type.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,Xomorod.API.Areas.HelpPage.SampleDirection)">
             <summary>
             Gets the request or response body samples.
             </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
             <returns>The samples keyed by media type.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,Xomorod.API.Areas.HelpPage.SampleDirection)">
             <summary>
-            Search for samples that are provided directly through <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            Search for samples that are provided directly through <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples" />.
             </summary>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
@@ -316,26 +316,26 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
             <summary>
-            Gets the sample object that will be serialized by the formatters. 
-            First, it will look at the <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
-            one using <see cref="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:Xomorod.API.Areas.HelpPage.ObjectGenerator"/>) and other
-            factories in <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            Gets the sample object that will be serialized by the formatters.
+            First, it will look at the <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects" />. If no sample object is found, it will try to create
+            one using <see cref="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator,System.Type)" /> (which wraps an <see cref="T:Xomorod.API.Areas.HelpPage.ObjectGenerator" />) and other
+            factories in <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories" />.
             </summary>
             <param name="type">The type.</param>
             <returns>The sample object.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
             <summary>
-            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> passed to the <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
             </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <returns>The type.</returns>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Xomorod.API.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
             <summary>
-            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage" /> or <see cref="T:System.Net.Http.HttpResponseMessage" /> is used.
             </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
             <param name="parameterNames">The parameter names.</param>
@@ -359,32 +359,32 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
             <summary>
-            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey" /> based on media type.
             </summary>
             <param name="mediaType">The media type.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
             <summary>
-            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey" /> based on media type and CLR type.
             </summary>
             <param name="mediaType">The media type.</param>
             <param name="type">The CLR type.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.#ctor(Xomorod.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey" /> based on <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection" />, controller name, action name and parameter names.
             </summary>
-            <param name="sampleDirection">The <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="sampleDirection">The <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection" />.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
             <param name="parameterNames">The parameter names.</param>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,Xomorod.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            Creates a new <see cref="T:Xomorod.API.Areas.HelpPage.HelpPageSampleKey" /> based on media type, <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection" />, controller name, action name and parameter names.
             </summary>
             <param name="mediaType">The media type.</param>
-            <param name="sampleDirection">The <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="sampleDirection">The <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection" />.</param>
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
             <param name="parameterNames">The parameter names.</param>
@@ -420,7 +420,7 @@
         </member>
         <member name="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
             <summary>
-            Gets the <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            Gets the <see cref="P:Xomorod.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection" />.
             </summary>
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.ImageSample">
@@ -430,7 +430,7 @@
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.ImageSample.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.ImageSample"/> class.
+            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.ImageSample" /> class.
             </summary>
             <param name="src">The URL of an image.</param>
         </member>
@@ -447,15 +447,15 @@
         <member name="M:Xomorod.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
             <summary>
             Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
-            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Simple types: <see cref="T:System.Int32" />, <see cref="T:System.String" />, <see cref="T:System.Enum" />, <see cref="T:System.DateTime" />, <see cref="T:System.Uri" />, etc.
             Complex types: POCO types.
-            Nullables: <see cref="T:System.Nullable`1"/>.
+            Nullables: <see cref="T:System.Nullable`1" />.
             Arrays: arrays of simple types or complex types.
-            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
-            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
-            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
-            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
-            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2" />
+            Tuples: <see cref="T:System.Tuple`1" />, <see cref="T:System.Tuple`2" />, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2" /> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            Collections: <see cref="T:System.Collections.Generic.IList`1" />, <see cref="T:System.Collections.Generic.IEnumerable`1" />, <see cref="T:System.Collections.Generic.ICollection`1" />, <see cref="T:System.Collections.IList" />, <see cref="T:System.Collections.IEnumerable" />, <see cref="T:System.Collections.ICollection" /> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1" /> or <see cref="T:System.Collections.IList" />.
+            Queryables: <see cref="T:System.Linq.IQueryable" />, <see cref="T:System.Linq.IQueryable`1" />.
             </summary>
             <param name="type">The type.</param>
             <returns>An object of the given type.</returns>
@@ -472,12 +472,12 @@
         </member>
         <member name="T:Xomorod.API.Areas.HelpPage.XmlDocumentationProvider">
             <summary>
-            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider" /> that reads the API documentation from an XML documentation file.
             </summary>
         </member>
         <member name="M:Xomorod.API.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            Initializes a new instance of the <see cref="T:Xomorod.API.Areas.HelpPage.XmlDocumentationProvider" /> class.
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
@@ -490,14 +490,14 @@
             <summary>
             Get all active Categories
             </summary>
-            <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+            <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1" /></returns>
         </member>
         <member name="M:Xomorod.API.Controllers.CategoriesController.Get(System.String)">
             <summary>
             Get all active Categories
             </summary>
             <param name="language"><example>"en" or "fa"</example></param>
-            <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+            <returns>categories results as <see cref="T:System.Collections.Generic.IEnumerable`1" /></returns>
         </member>
         <member name="M:Xomorod.API.Controllers.CategoriesController.GetByRow(System.String,System.Int32,System.Int32)">
             <summary>
@@ -517,16 +517,16 @@
             <summary>
             Get async data by dynamic query.
             Restrict by role: Administrators
-            
+
             GET api.xomorod.com/dynamics
             </summary>
-            <returns>dynamic query results as <see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+            <returns>dynamic query results as <see cref="T:System.Collections.Generic.IEnumerable`1" /></returns>
         </member>
         <member name="M:Xomorod.API.Controllers.EmailController.ErrorMail(Xomorod.API.Models.ErrorModel)">
             <summary>
             Create email view by error model
             </summary>
-            <param name="model"><seealso cref="T:Xomorod.API.Models.ErrorModel"/> object</param>
+            <param name="model"><seealso cref="T:Xomorod.API.Models.ErrorModel" /> object</param>
             <returns>Rendered email view</returns>
         </member>
         <member name="M:Xomorod.API.Controllers.ErrorsController.Index">
@@ -637,25 +637,25 @@
         </member>
         <member name="F:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Empty">
             <devdoc>
-               Creates a new instance of the <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> class
+               Creates a new instance of the <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' /> class
                with member data left uninitialized.
             </devdoc>
         </member>
         <member name="P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Line">
             <devdoc>
-               Gets the line-coordinate of this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>.
+               Gets the line-coordinate of this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />.
             </devdoc>
         </member>
         <member name="P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Column">
             <devdoc>
                <para>
-                  Gets the column-coordinate of this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>.
+                  Gets the column-coordinate of this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />.
                </para>
             </devdoc>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.#ctor(System.String,System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/> class
+            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /> class
             with the specified exception data to file code line and column from that stack trace.
             </summary>
             <param name="assemblyName">Name of the assembly.</param>
@@ -665,7 +665,7 @@
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/> class
+            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /> class
             with the specified exception data to file code line and column from that stack trace.
             </summary>
             <param name="assemblyName">Name of the assembly.</param>
@@ -678,7 +678,7 @@
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.#ctor(System.Int32,System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/> class
+            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /> class
             with the specified exception data to file code line and column from that stack trace.
             </summary>
             <param name="lineNo">The line no.</param>
@@ -686,30 +686,30 @@
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.#ctor(System.Diagnostics.StackFrame)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/> class
+            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /> class
             with the specified exception data to file code line and column from that stack trace.
             </summary>
             <param name="frame">The stack frame to fetch assembly, class, method and etc names from that's.</param>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.#ctor(System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/> class
+            Initializes a new instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /> class
             with the specified exception data to file code line and column from that stack trace.
             </summary>
-            <param name="exp">The <see cref="T:System.Exception"/> to fetch assembly, class, method and etc names from that's stack trace.</param>
+            <param name="exp">The <see cref="T:System.Exception" /> to fetch assembly, class, method and etc names from that's stack trace.</param>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.IsCallFromThisPlace(System.Collections.Generic.IEnumerable{System.Diagnostics.StackFrame})">
             <summary>
             Is call method from this code place.
             </summary>
             <param name="frames">The frames of call methods or exception stackTrace frames.</param>
-            <returns><see cref="T:System.Boolean"/></returns>
+            <returns><see cref="T:System.Boolean" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Equals(System.Object)">
             <devdoc>
                <para>
-                  Specifies whether this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> contains
-                  the same coordinates as the specified <see cref='T:System.Object'/>.
+                  Specifies whether this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' /> contains
+                  the same coordinates as the specified <see cref='T:System.Object' />.
                </para>
             </devdoc>
         </member>
@@ -723,36 +723,36 @@
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.ToString(Xomorod.API.Providers.ErrorControlSystem.CodeScopeStringFormat)">
             <devdoc>
                <para>
-                  Converts this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>
+                  Converts this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />
                   to a human readable
                   string.
                </para>
             </devdoc>
-            <param name="format">Return value by specified <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScopeStringFormat"/> format</param>
+            <param name="format">Return value by specified <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScopeStringFormat" /> format</param>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Parse(System.Diagnostics.StackFrame)">
             <summary>
             Parses the specified frame.
             </summary>
             <param name="frame">The stack frame to fetch assembly, class, method and etc names from that's.</param>
-            <returns>Instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/></returns>
+            <returns>Instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.op_Explicit(System.Diagnostics.StackFrame)~Xomorod.API.Providers.ErrorControlSystem.CodeScope">
             <summary>
-            Performs an explicit conversion from <see cref="T:System.Diagnostics.StackFrame"/> to <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/>.
+            Performs an explicit conversion from <see cref="T:System.Diagnostics.StackFrame" /> to <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" />.
             </summary>
             <param name="frame">The stack frame to fetch assembly, class, method and etc names from that's.</param>
             <returns>
-            The result of the conversion is a instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope"/>
+            The result of the conversion is a instance of the <see cref="T:Xomorod.API.Providers.ErrorControlSystem.CodeScope" />
             </returns>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.op_Equality(Xomorod.API.Providers.ErrorControlSystem.CodeScope,Xomorod.API.Providers.ErrorControlSystem.CodeScope)">
             <devdoc>
                <para>
-                  Compares two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> objects. The result specifies
-                  whether the values of the <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Line'/> and 
-                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Column'/> and <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Namespace'/> and
-                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Class'/> and <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Method'/> properties of the two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>
+                  Compares two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' /> objects. The result specifies
+                  whether the values of the <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Line' /> and
+                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Column' /> and <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Namespace' /> and
+                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Class' /> and <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Method' /> properties of the two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />
                   objects are equal.
                </para>
             </devdoc>
@@ -760,11 +760,11 @@
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.op_Inequality(Xomorod.API.Providers.ErrorControlSystem.CodeScope,Xomorod.API.Providers.ErrorControlSystem.CodeScope)">
             <devdoc>
                <para>
-                  Compares two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> objects. The result specifies whether the values
-                  of the <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Line'/> or 
-                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Column'/> or <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Namespace'/> or
-                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Class'/> or <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Method'/> properties of the two
-               <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> 
+                  Compares two <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' /> objects. The result specifies whether the values
+                  of the <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Line' /> or
+                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Column' /> or <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Namespace' /> or
+                  <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Class' /> or <see cref='P:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Method' /> properties of the two
+               <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />
                objects are unequal.
             </para>
             </devdoc>
@@ -773,7 +773,7 @@
             <devdoc>
                <para>
                   Converts a human readable
-                  string to this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>
+                  string to this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />
                </para>
             </devdoc>
         </member>
@@ -781,7 +781,7 @@
             <devdoc>
                <para>
                   Try to Converts a human readable
-                  string to this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>
+                  string to this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />
                </para>
             </devdoc>
         </member>
@@ -794,14 +794,14 @@
             Reference: http://referencesource.microsoft.com/mscorlib/system/diagnostics/stacktrace.cs.html#f4bbb1fa2df8ea1f
                </para>
             </devdoc>
-            <param name="frames">The array of <see cref="T:System.Diagnostics.StackFrame"/></param>
-            <returns><see cref="T:System.String"/></returns>
+            <param name="frames">The array of <see cref="T:System.Diagnostics.StackFrame" /></param>
+            <returns><see cref="T:System.String" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ErrorControlSystem.CodeScope.Equals(Xomorod.API.Providers.ErrorControlSystem.CodeScope)">
             <devdoc>
                <para>
-                  Specifies whether this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/> contains
-                  the same coordinates as the specified <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope'/>.
+                  Specifies whether this <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' /> contains
+                  the same coordinates as the specified <see cref='T:Xomorod.API.Providers.ErrorControlSystem.CodeScope' />.
                </para>
             </devdoc>
         </member>
@@ -812,32 +812,32 @@
         </member>
         <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetQueryStrings(System.Net.Http.HttpRequestMessage)">
             <summary>
-            Returns a dictionary of QueryStrings that's easier to work with 
+            Returns a dictionary of QueryStrings that's easier to work with
             than GetQueryNameValuePairs KeyValuePairs collection.
-            
+
             If you need to pull a few single values use GetQueryString instead.
             </summary>
-            <param name="request"><seealso cref="T:System.Net.Http.HttpRequestMessage"/></param>
-            <returns><see cref="T:System.Collections.Generic.Dictionary`2"/></returns>
+            <param name="request"><seealso cref="T:System.Net.Http.HttpRequestMessage" /></param>
+            <returns><see cref="T:System.Collections.Generic.Dictionary`2" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetRunningAppVersion">
             <summary>
             Get Running library version
             </summary>
-            <returns>Version of application or library as <seealso cref="T:System.String"/></returns>
+            <returns>Version of application or library as <seealso cref="T:System.String" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetRunningAppName">
             <summary>
             Get Running library name
             </summary>
-            <returns>Name of application or library as <seealso cref="T:System.String"/></returns>
+            <returns>Name of application or library as <seealso cref="T:System.String" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetLanguageId(System.String)">
             <summary>
             Get language ID for the culture string
             </summary>
-            <param name="lang">culture as <see cref="T:System.String"/></param>
-            <returns>language ID as <see cref="T:System.Nullable`1"/></returns>
+            <param name="lang">culture as <see cref="T:System.String" /></param>
+            <returns>language ID as <see cref="T:System.Nullable`1" /></returns>
         </member>
         <member name="M:Xomorod.API.Providers.ExtensionsHelper.GetFromToRow(System.Collections.Generic.IEnumerable{System.Object},System.Int32,System.Int32)">
             <summary>
@@ -846,18 +846,18 @@
             <param name="lstObjects"></param>
             <param name="fromRow">start row</param>
             <param name="toRow">end row</param>
-            <returns>dynamic list result as <see cref="T:System.Collections.Generic.List`1"/></returns>
+            <returns>dynamic list result as <see cref="T:System.Collections.Generic.List`1" /></returns>
         </member>
         <member name="T:Xomorod.API.Providers.ViewRenderer">
             <summary>
             Class that renders MVC views to a string using the
-            standard MVC View Engine to render the view. 
-            
+            standard MVC View Engine to render the view.
+
             Requires that ASP.NET HttpContext is present to
             work, but works outside of the context of MVC
-            
+
             Ref:
-            http://weblog.west-wind.com/posts/2013/Jul/15/Rendering-ASPNET-MVC-Razor-Views-outside-of-MVC-revisited     
+            http://weblog.west-wind.com/posts/2013/Jul/15/Rendering-ASPNET-MVC-Razor-Views-outside-of-MVC-revisited
             https://github.com/RickStrahl/WestwindToolkit/blob/master/Westwind.Web.Mvc/Utils/ViewRenderer.cs
             </summary>
         </member>
@@ -872,17 +872,17 @@
             </summary>
             <param name="controllerContext">
             If you are running within the context of an ASP.NET MVC request pass in
-            the controller's context. 
+            the controller's context.
             Only leave out the context if no context is otherwise available.
             </param>
         </member>
         <member name="M:Xomorod.API.Providers.ViewRenderer.RenderViewToString(System.String,System.Object)">
             <summary>
             Renders a full MVC view to a string. Will render with the full MVC
-            View engine including running _ViewStart and merging into _Layout        
+            View engine including running _ViewStart and merging into _Layout
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to render the view with</param>
@@ -891,10 +891,10 @@
         <member name="M:Xomorod.API.Providers.ViewRenderer.RenderView(System.String,System.Object,System.IO.TextWriter)">
             <summary>
             Renders a full MVC view to a writer. Will render with the full MVC
-            View engine including running _ViewStart and merging into _Layout        
+            View engine including running _ViewStart and merging into _Layout
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to render the view with</param>
@@ -907,7 +907,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -920,7 +920,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -933,7 +933,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -947,7 +947,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -962,7 +962,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -977,7 +977,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -993,7 +993,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -1007,7 +1007,7 @@
             _ViewStart.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">The model to pass to the viewRenderer</param>
@@ -1017,11 +1017,11 @@
         </member>
         <member name="M:Xomorod.API.Providers.ViewRenderer.RenderViewToWriterInternal(System.String,System.IO.TextWriter,System.Object,System.Boolean)">
             <summary>
-            Internal method that handles rendering of either partial or 
+            Internal method that handles rendering of either partial or
             or full views.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">Model to render the view with</param>
@@ -1030,11 +1030,11 @@
         </member>
         <member name="M:Xomorod.API.Providers.ViewRenderer.RenderViewToStringInternal(System.String,System.Object,System.Boolean)">
             <summary>
-            Internal method that handles rendering of either partial or 
+            Internal method that handles rendering of either partial or
             or full views.
             </summary>
             <param name="viewPath">
-            The path to the view to render. Either in same controller, shared by 
+            The path to the view to render. Either in same controller, shared by
             name or as fully qualified ~/ path including extension
             </param>
             <param name="model">Model to render the view with</param>
@@ -1043,8 +1043,8 @@
         </member>
         <member name="M:Xomorod.API.Providers.ViewRenderer.CreateController``1(System.Web.Routing.RouteData)">
             <summary>
-            Creates an instance of an MVC controller from scratch 
-            when no existing ControllerContext is present       
+            Creates an instance of an MVC controller from scratch
+            when no existing ControllerContext is present
             </summary>
             <typeparam name="T">Type of the controller to create</typeparam>
             <returns>Controller Context for T</returns>
@@ -1052,7 +1052,7 @@
         </member>
         <member name="T:Xomorod.API.Providers.EmptyController">
             <summary>
-            Empty MVC Controller instance used to 
+            Empty MVC Controller instance used to
             instantiate and provide a new ControllerContext
             for the ViewRenderer
             </summary>

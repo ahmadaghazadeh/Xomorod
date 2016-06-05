@@ -19,10 +19,6 @@ namespace Xomorod.com
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            // Set Database Connetion from [Web.config]
-            //var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
-            //ConnectionManager.LoadFromXml(data);
             
 #if DEBUG
             ConnectionManager.SetToDefaultConnection(Connections.Xomorod.Connection.Name); // local
