@@ -1,4 +1,8 @@
-﻿@{
+﻿@using System.Reflection
+
+@{
+    string dir = ViewData["dir"]?.ToString() ?? "rtl";
+    var version = "v" + Assembly.GetAssembly(typeof(Xomorod.com.MvcApplication))?.GetName()?.Version?.ToString(3);
     ViewBag.TwitterSite = "@xomorod";
     ViewBag.TwitterCreator = "@xomorod";
     ViewBag.Description = @"Xomorod Co. is an Iranian multinational technology company specializing in Internet-related services and products.
@@ -191,7 +195,7 @@
                         <li><a target="_blank" title="GitHub" href="https://github.com/Xomorod"><i class="fa fa-github"></i></a></li>
                         <li><a target="_blank" title="RSS" href="#"><i class="fa fa-rss"></i></a></li>
                     </ul>
-                    <p id="zerif-copyright">&copy; 2015-@DateTime.Now.Year Xomorod Corporation</p>
+                    <p id="zerif-copyright">&copy; 2015-@DateTime.Now.Year Xomorod Corporation @version</p>
                 </div>
             </div>
         </div>
