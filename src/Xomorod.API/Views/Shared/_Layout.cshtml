@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Reflection
+@{
+    string dir = ViewData["dir"]?.ToString() ?? "rtl";
+    var version = "v" + Assembly.GetAssembly(typeof(Xomorod.API.WebApiApplication))?.GetName()?.Version?.ToString(3);
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Xomorod Corporation</p>
+            <p>&copy; @DateTime.Now.Year - Xomorod Corporation API @version</p>
         </footer>
     </div>
 
