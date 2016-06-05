@@ -31,7 +31,7 @@ namespace Xomorod.API.Models
         [Required]
         public string Version { get; set; }
 
-        public string HeaderIcon { get; set; } = "http://xomorod.com/images/favicon.jpg";
+        public string HeaderIcon { get; set; } = "http://xomorod.com/favicon.ico";
 
         public string ErrorTime { get; set; } = DateTime.Now.ToString(CultureInfo.InvariantCulture);
     }

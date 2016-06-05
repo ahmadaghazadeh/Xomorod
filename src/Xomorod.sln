@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3B716B01-F3A3-42D6-A024-AEAE246C9107}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.News", "Xomorod.News\Xomorod.News.csproj", "{F3B06021-853F-4E90-87E2-A99DAEF26FB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xomorod.API", "Xomorod.API\Xomorod.API.csproj", "{588B75B9-D7AA-474E-AEC4-E371C97C2395}"
