@@ -247,13 +247,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dashicons.min.css" />
+    <Content Include="Content\errors.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\front.css" />
     <Content Include="Content\Homemade_Apple.css" />
     <Content Include="Content\ie.css" />
+    <Content Include="Content\images\404.jpg" />
     <Content Include="Content\images\bwShonizEn.png" />
     <Content Include="Content\images\bwShonizFa.png" />
-    <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\global.png" />
     <Content Include="Content\images\iran.png" />
     <Content Include="Content\images\links.png" />
@@ -261,7 +262,6 @@
     <Content Include="Content\images\logo\LogoXomorod.png" />
     <Content Include="Content\images\logo\LogoXomorod.svg" />
     <Content Include="Content\images\logo\Logo.png" />
-    <Content Include="Content\images\xomorod.svg" />
     <Content Include="Content\layoutStyle.css" />
     <Content Include="Content\OpenSans.css" />
     <Content Include="Content\select2.css" />
@@ -311,8 +311,11 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="app.config" />
+    <Content Include="fonts\eurb.woff" />
+    <Content Include="fonts\eurWebfont.woff" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <Content Include="Scripts\cart-fragments.min.js" />
+    <Content Include="Scripts\clipboard.min.js" />
     <Content Include="Scripts\comment-reply.min.js" />
     <Content Include="Scripts\exporting.js" />
     <Content Include="Scripts\highstock.js" />

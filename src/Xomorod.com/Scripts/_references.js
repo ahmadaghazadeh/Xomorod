@@ -2,6 +2,7 @@
 /// <reference path="api.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="cart-fragments.min.js" />
+/// <reference path="clipboard.min.js" />
 /// <reference path="comment-reply.min.js" />
 /// <reference path="exporting.js" />
 /// <reference path="highstock.js" />

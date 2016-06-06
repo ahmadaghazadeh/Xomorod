@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
+using Xomorod.com.Controllers;
 
 namespace Xomorod.com
 {
@@ -19,7 +20,7 @@ namespace Xomorod.com
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
+
 #if DEBUG
             ConnectionManager.SetToDefaultConnection(Connections.Xomorod.Connection.Name); // local
 #else
@@ -27,12 +28,25 @@ namespace Xomorod.com
 #endif
         }
 
-        void Application_Error(object sender, EventArgs e)
+        protected void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
+            var context = new HttpContextWrapper(Context); //((MvcApplication)sender).Context;
+            var action = "Index";
+            var statusCode = 500;
+
+            var currentController = " ";
+            var currentAction = " ";
+            var currentRouteData = RouteTable.Routes.GetRouteData(context);
+
+            if (currentRouteData != null)
+            {
+                currentController = currentRouteData.Values["controller"]?.ToString() ?? " ";
+                currentAction = currentRouteData.Values["action"]?.ToString() ?? " ";
+            }
 
             // Get the exception object.
-            Exception exc = Server.GetLastError();
+            var exc = Server.GetLastError();
 
             if (exc == null)
                 return;
@@ -51,55 +65,39 @@ namespace Xomorod.com
                     return;
 
                 //Redirect HTTP errors to HttpError page
-                //Server.Transfer("~/Views/Errors");
+                var httpEx = exc as HttpException;
 
-                if (exc.Message.Contains("was not found"))
-                {
-                    //Response.Redirect("~/errors/NotFound");
-                    // Redirect to 404:
-                    Response.RedirectToRoute(
-                        new RouteValueDictionary
-                        {
-                        {"Controller", "Errors"},
-                        {"Action", "NotFound"}
-                        });
-                    return;
-                }
-
-
-                // Redirect to error page:
-                Response.RedirectToRoute(
-                    new RouteValueDictionary
+                if (httpEx != null)
+                    switch (httpEx.GetHttpCode())
                     {
-                        {"Controller", "Errors"},
-                        {"Action", "Index"}
-                    });
-                //Response.Redirect("~/errors/index");
+                        case 404: // Redirect to 404:
+                            action = "NotFound";
+                            statusCode = 404;
+                            break;
 
-                //Add controller name
-                //RouteData routeData = new RouteData();
-                //routeData.Values.Add("controller", "Errors");
-
-                ////we will add controller's action name 
-                //routeData.Values.Add("action", "e404");
-
-                //// Pass exception details to the target error View.
-                //routeData.Values.Add("error", exc.Message);
-
-                //// Clear the error on server.
-                //Server.ClearError();
-
-                //// Call target Controller and pass the routeData.
-                //IController errorController = new ErrorsController();
-                //errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
-
-                return;
+                        // others if any
+                        default:
+                            statusCode = httpEx.GetHttpCode();
+                            break;
+                    }
             }
 
+            context.ClearError();
+            context.Response.Clear();
+            context.Response.StatusCode = statusCode;
+            context.Response.TrySkipIisCustomErrors = true;
+            if (!context.Request.IsAjaxRequest())
+            {
+                context.Response.ContentType = "text/html";
+            }
 
+            var controller = new ErrorsController();
+            var routeData = new RouteData();
+            routeData.Values["controller"] = "Errors";
+            routeData.Values["action"] = action;
 
-            // Redirect to a landing page
-            Response.Redirect("~/home");
+            controller.ViewData.Model = new HandleErrorInfo(exc, currentController, currentAction);
+            ((IController)controller).Execute(new RequestContext(context, routeData));
         }
     }
 }

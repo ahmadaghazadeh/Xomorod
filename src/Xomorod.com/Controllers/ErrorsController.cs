@@ -12,9 +12,8 @@ namespace Xomorod.com.Controllers
             return View("Index");
         }
 
-        public ViewResult NotFound()
+        public ActionResult NotFound()
         {
-            Response.StatusCode = 404;  //you may want to set this to 200
             return View("NotFound");
         }
     }

@@ -1,16 +1,35 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 @{
     ViewData["dir"] = "ltr";
-    ViewBag.Title = "NotFound";
+    ViewBag.Title = "Xomorod - NotFound";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-danger">Error 404 - Page Not Found!</h1>
-<h2 class="text-danger">
-    Your request page is not found on server!
-</h2>
+@section scripts{
+    @Styles.Render("~/Content/errors")
+}
+
 <br />
 <br />
-<h4>
-    Maybe your entry address is invalid!
-</h4>
+<br />
+<br />
+
+<img src="@Url.Content("~/Content/images/404.jpg")" alt="Page Not Found (404).">
+
+<br />
+<br />
+
+<div class="error_box">
+    <p class="error-number">404</p>
+    <p class="error-text">… Oops! Something is missing</p>
+    <p class="go-home">
+        <a href="/">Home</a>
+    </p>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -31,6 +31,7 @@ namespace Xomorod.com
             bundles.Add(new StyleBundle("~/Content/scrollTop").Include("~/Content/scrollTop.css"));
             bundles.Add(new StyleBundle("~/Content/ie").Include("~/Content/ie.css"));
             bundles.Add(new StyleBundle("~/Content/layoutStyle").Include("~/Content/layoutStyle.css"));
+            bundles.Add(new StyleBundle("~/Content/errors").Include("~/Content/errors.css"));
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -65,7 +66,7 @@ namespace Xomorod.com
             bundles.Add(new ScriptBundle("~/bundles/ScrollTop").Include("~/Scripts/ScrollTop.js"));
             bundles.Add(new ScriptBundle("~/bundles/SmoothScroll").Include("~/Scripts/smoothscroll.js"));
             bundles.Add(new ScriptBundle("~/bundles/html5").Include("~/Scripts/html5.js"));
-
+            bundles.Add(new ScriptBundle("~/bundles/clipboard", "https://cdn.jsdelivr.net/clipboard.js/1.5.10/clipboard.min.js").Include("~/Scripts/clipboard.min.js"));
         }
     }
 }
