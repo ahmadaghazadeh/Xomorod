@@ -120,13 +120,6 @@
     @Styles.Render("~/Content/ScrollTop")
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/recaptchaApi")
-    <script type='text/javascript'>
-        /*  */
-        var pirateFormsObject = { "errors": "" };
-        /*  */
-    </script>
-    @Scripts.Render("~/bundles/recaptcha")
     @Scripts.Render("~/bundles/scripts-general")
 
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>

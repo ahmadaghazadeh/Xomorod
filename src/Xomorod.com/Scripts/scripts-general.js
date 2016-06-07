@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {
-
+    /*  */
+    var pirateFormsObject = { "errors": "" };
+    /*  */
     var session_var = pirateFormsObject.errors;
 
     if( (typeof session_var != undefined) && (session_var != '') && (typeof jQuery('#contact') != undefined) ) {

@@ -46,9 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdoManager, Version=1.1.24.0, Culture=neutral, PublicKeyToken=0e2a67056de461d9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\AdoManager.1.1.24\lib\net45\AdoManager.dll</HintPath>
+    <Reference Include="AdoManager, Version=1.1.50.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AdoManager.1.1.50\lib\net45\AdoManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">

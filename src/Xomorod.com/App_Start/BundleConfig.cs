@@ -38,7 +38,8 @@ namespace Xomorod.com
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-migrate.min.js"));
+                        "~/Scripts/jquery-migrate.min.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recaptcha").Include("~/Scripts/recaptcha.js"));
             bundles.Add(new ScriptBundle("~/bundles/scripts-general").Include("~/Scripts/scripts-general.js"));
@@ -59,8 +60,7 @@ namespace Xomorod.com
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/recaptchaApi", "https://www.google.com/recaptcha/api.js").Include("~/Scripts/api.js"));
+            
             bundles.Add(new ScriptBundle("~/bundles/highstock", "https://code.highcharts.com/stock/highstock.js").Include("~/Scripts/highstock.js"));
             bundles.Add(new ScriptBundle("~/bundles/exporting", "https://code.highcharts.com/stock/modules/exporting.js").Include("~/Scripts/exporting.js"));
             bundles.Add(new ScriptBundle("~/bundles/ScrollTop").Include("~/Scripts/ScrollTop.js"));

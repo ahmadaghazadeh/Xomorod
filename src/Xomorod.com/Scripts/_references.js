@@ -1,5 +1,4 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="api.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="cart-fragments.min.js" />
 /// <reference path="clipboard.min.js" />
