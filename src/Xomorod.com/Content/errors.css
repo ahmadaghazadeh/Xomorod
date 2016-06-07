@@ -12,13 +12,20 @@
     font-style: normal;
 }
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
     background: #fff;
     font: 14px/14px Arial, Helvetica, sans-serif;
     color: #666;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    height: 100%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 p {
@@ -127,9 +134,9 @@ code {
     border-radius: 0 4px 0 4px;
 }
 
-.btn-clipboard:hover {
-    background-color: #07a36e;
-}
+    .btn-clipboard:hover {
+        background-color: #07a36e;
+    }
 
 
 .highlight pre {

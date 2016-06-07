@@ -11,6 +11,7 @@
 /// <reference path="jquery.cookie.min.js" />
 /// <reference path="jquery.js" />
 /// <reference path="jquery.knob.min.js" />
+/// <reference path="jquery.unobtrusive-ajax.min.js" />
 /// <reference path="jquery.validate.min.js" />
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery-2.2.3.js" />
