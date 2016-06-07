@@ -155,14 +155,14 @@
                         <li id="menu-item-7737" class="menu-item menu-item-home"><a href="/#focus">Features</a></li>
                         <li id="menu-item-7738" class="menu-item menu-item-home"><a href="/#works">Portfolio</a></li>
                         <li id="menu-item-7739" class="menu-item menu-item-home"><a href="/#aboutus">About</a></li>
-                        <li id="menu-item-7742" class="menu-item menu-item-home"><a href="/#subscribe">Newsletter</a></li>
+                        @*<li id="menu-item-7742" class="menu-item menu-item-home"><a href="/#subscribe">Newsletter</a></li>*@
                         <li id="menu-item-7744" class="menu-item menu-item-home"><a href="/#contact">Contact</a></li>
-                        <li id="menu-item-7743" class="menu-item menu-item-home"><a href="http://news.xomorod.com">News</a></li>
+                        @*<li id="menu-item-7743" class="menu-item menu-item-home"><a href="http://news.xomorod.com">News</a></li>*@
+                        @*<li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>*@
                         @if (User.IsInRole("Admin"))
                         {
                             <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
                         }
-                        <li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
                         <li>&nbsp;</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
