@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AdoManager;
@@ -121,15 +123,6 @@ namespace Xomorod.com.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
-        public ActionResult AllIndex()
-        {
-            // helpfull link: http://demo.themeisle.com/zerif-pro/
-            ViewBag.BodyClass = "custom-background";
-
-            return View();
-        }
-
         public ActionResult Services()
         {
             return PartialView("Services");
@@ -152,6 +145,7 @@ namespace Xomorod.com.Controllers
         }
         public ActionResult Subscribe()
         {
+            Thread.Sleep(3000);
             return PartialView("Subscribe");
         }
         public ActionResult Map()

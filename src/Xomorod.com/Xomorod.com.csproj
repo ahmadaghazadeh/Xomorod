@@ -252,6 +252,7 @@
     <Content Include="Content\Homemade_Apple.css" />
     <Content Include="Content\ie.css" />
     <Content Include="Content\images\404.jpg" />
+    <Content Include="Content\images\Ajaxloading.gif" />
     <Content Include="Content\images\bwShonizEn.png" />
     <Content Include="Content\images\bwShonizFa.png" />
     <Content Include="Content\images\global.png" />
