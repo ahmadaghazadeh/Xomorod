@@ -27,6 +27,7 @@
 /// <reference path="scrollReveal.min.js" />
 /// <reference path="ScrollTop.js" />
 /// <reference path="select2.min.js" />
+/// <reference path="site.js" />
 /// <reference path="smoothscroll.min.js" />
 /// <reference path="wp-embed.min.js" />
 /// <reference path="wp-emoji-release.min.js" />

@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Bootstrap Message Alert */
+#MessagePanel {
+    position: fixed;
+    top: 90px;
+    right: 30px;
+    z-index: 1;
+}

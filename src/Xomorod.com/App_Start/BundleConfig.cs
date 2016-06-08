@@ -54,6 +54,7 @@ namespace Xomorod.com
             bundles.Add(new ScriptBundle("~/bundles/jquery-knob").Include("~/Scripts/jquery.knob.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/scrollReveal").Include("~/Scripts/scrollReveal.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/zerif").Include("~/Scripts/zerif.js"));
+            bundles.Add(new ScriptBundle("~/bundles/site").Include("~/Scripts/site.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
 

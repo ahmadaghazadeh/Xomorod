@@ -121,6 +121,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/scripts-general")
+    @Scripts.Render("~/bundles/site")
+
 
     <script data-no-minify="1" data-cfasync="false">(function (w, d) { function a() { var b = d.createElement("script"); b.async = !0; b.src = '@Url.Content("~/Scripts/lazyload.1.0.2.min.js")'; var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(b, a) } w.attachEvent ? w.attachEvent("onload", a) : w.addEventListener("load", a, !1) })(window, document);</script>
 </head>
@@ -154,7 +156,7 @@
                         @*<li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>*@
                         @if (User.IsInRole("Admin"))
                         {
-                            <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
+                        <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
                         }
                         <li>&nbsp;</li>
                     </ul>
@@ -165,7 +167,11 @@
         @RenderSection("Header", required: false)
     </header>
 
+        <div id="MessagePanel">
+            
+        </div>
     <div id="content" class="site-content">
+
         @RenderBody()
     </div>
 

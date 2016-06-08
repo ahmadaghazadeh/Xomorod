@@ -347,6 +347,7 @@
     <Content Include="Scripts\scrollReveal.min.js" />
     <Content Include="Scripts\ScrollTop.js" />
     <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\smoothscroll.min.js" />
     <Content Include="Scripts\wp-embed.min.js" />
     <Content Include="Scripts\wp-emoji-release.min.js" />

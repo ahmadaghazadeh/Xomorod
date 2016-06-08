@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
@@ -143,9 +144,15 @@ namespace Xomorod.com.Controllers
         {
             return PartialView("RedSeparator");
         }
-        public ActionResult Subscribe()
+        public ActionResult Subscribe(string email)
         {
             Thread.Sleep(3000);
+            if (!string.IsNullOrEmpty(email))
+            {
+                var result = ConnectionManager.GetDefaultConnection().SqlConn.Execute("sp_Insert_NewsletterSubscribeEmails", new { Email = email },
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+
             return PartialView("Subscribe");
         }
         public ActionResult Map()
