@@ -267,6 +267,8 @@
     <Content Include="Content\select2.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\ScrollTop.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -312,6 +314,8 @@
     <None Include="app.config" />
     <Content Include="fonts\eurb.woff" />
     <Content Include="fonts\eurWebfont.woff" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <Content Include="Scripts\cart-fragments.min.js" />
     <Content Include="Scripts\clipboard.min.js" />
@@ -349,6 +353,8 @@
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\smoothscroll.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\wp-embed.min.js" />
     <Content Include="Scripts\wp-emoji-release.min.js" />
     <Content Include="Scripts\zerif.js" />

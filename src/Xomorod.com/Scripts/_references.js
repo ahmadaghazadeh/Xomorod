@@ -29,6 +29,7 @@
 /// <reference path="select2.min.js" />
 /// <reference path="site.js" />
 /// <reference path="smoothscroll.min.js" />
+/// <reference path="toastr.min.js" />
 /// <reference path="wp-embed.min.js" />
 /// <reference path="wp-emoji-release.min.js" />
 /// <reference path="zerif.js" />

@@ -2,7 +2,18 @@
 
 /* LOADER */
 jQuery(document).ready(function () {
-    
+
+    /* set toastr options */
+    toastr.options.timeOut = 10000;
+    toastr.options.closeMethod = "fadeOut";
+    toastr.options.closeEasing = "swing";
+    toastr.options.closeDuration = 300;
+    toastr.options.newestOnTop = true;
+    toastr.options.showEasing = "swing";
+    toastr.options.hideEasing = "linear";
+    toastr.options.extendedTimeOut = 60; // How long the toast will display after a user hovers over it
+    toastr.options.progressBar = true;
+
     /* Detect Mobile or Desktop */
     // device detection
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
@@ -18,16 +29,23 @@ jQuery(document).ready(function () {
     $.ajaxSetup({
         error: function (xhr, status, error) {
             var err = JSON.parse(xhr.responseText);
-            //jAlert("Error " + err.ExceptionType + ":    " + err.ExceptionMessage, "danger", 15000);
-            jAlert(err.ExceptionMessage, "danger", 15000);
+            //toastr.error(err.ExceptionMessage, err.ExceptionType, 15000); // by error type for toaster title
+            toastr.error(err.ExceptionMessage);
+        },
+        success: function (result) {
+            toastr.success(result);
+        },
+        complete: function () {
+            toastr.info("Request complete.");
+            console.log("Request complete.");
         }
     });
-    jQuery(".status").fadeOut("slow");
-
-    $(".close").click(function () {
-        $(".alert").alert();
-    });
+    //jQuery(".status").fadeOut("slow");
 });
+
+ function OnFailure(xhr, status) {
+     toastr.error(xhr.responseText, xhr.statusText);
+    }
 
 function getAsync(url, params) {
     if (url === null) {
@@ -81,8 +99,7 @@ function checkCookie() {
 
 
 /* Jquery function to create guids.
- * Guid code from 
- * http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+ * Guid code from
  */
 function generateGUID() {
     var d = new Date().getTime();
@@ -93,24 +110,6 @@ function generateGUID() {
     });
     return uuid;
 };
-
-
-/* Alert Bootstrap MessageBox */
-function jAlert(msg, type, timeout) {
-    var id = "alert_" + generateGUID();
-
-    var b = "<div id='" + id + "' class='alert alert-" + type.toLowerCase() + " fade in'>" +
-               "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
-               "&nbsp;&nbsp;" + msg + "&nbsp;&nbsp;</div>";
-
-    $("#MessagePanel").append(b);
-
-    setTimeout(function () { jCloseAlert(id) }, timeout);
-}
-
-function jCloseAlert(id) {
-    $("#" + id).alert("close");
-}
 
 function numberWithCommas(x) {
     var parts = x.toString().split(".");

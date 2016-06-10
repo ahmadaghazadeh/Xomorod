@@ -118,9 +118,11 @@
     @Styles.Render("~/Content/font-awesome")
     @Styles.Render("~/Content/style")
     @Styles.Render("~/Content/ScrollTop")
+    @Styles.Render("~/Content/toastr")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/scripts-general")
+    @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/site")
 
 
@@ -156,7 +158,7 @@
                         @*<li id="menu-item-7745">@Html.ActionLink("Blog", "Blog", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>*@
                         @if (User.IsInRole("Admin"))
                         {
-                        <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
+                            <li id="menu-item-7740">@Html.ActionLink("Ranking", "Ranking", "Home", new { area = "" }, new { @class = "menu-item menu-item-home" })</li>
                         }
                         <li>&nbsp;</li>
                     </ul>
@@ -167,9 +169,6 @@
         @RenderSection("Header", required: false)
     </header>
 
-        <div id="MessagePanel">
-            
-        </div>
     <div id="content" class="site-content">
 
         @RenderBody()

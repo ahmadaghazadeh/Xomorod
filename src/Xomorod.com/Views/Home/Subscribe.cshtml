@@ -5,7 +5,10 @@
     {
         UpdateTargetId = "ajax_subscribe_updates",
         LoadingElementId = "Ajaxloading",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "toastr.info('Requesting to Subscribe','', {timeOut: 1500});",
+        OnFailure = "OnFailure",
+        OnSuccess = "toastr.success('Your email subscribe successfull.');"
     };
 }
 

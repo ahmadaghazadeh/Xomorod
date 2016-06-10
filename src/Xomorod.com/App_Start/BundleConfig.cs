@@ -10,7 +10,7 @@ namespace Xomorod.com
             RegisterScriptBundles(bundles);
             RegisterStyleBundles(bundles);
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
 
         private static void RegisterStyleBundles(BundleCollection bundles)
@@ -32,6 +32,7 @@ namespace Xomorod.com
             bundles.Add(new StyleBundle("~/Content/ie").Include("~/Content/ie.css"));
             bundles.Add(new StyleBundle("~/Content/layoutStyle").Include("~/Content/layoutStyle.css"));
             bundles.Add(new StyleBundle("~/Content/errors").Include("~/Content/errors.css"));
+            bundles.Add(new StyleBundle("~/Content/toastr", "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css").Include("~/Content/toastr.min.css"));
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -55,6 +56,7 @@ namespace Xomorod.com
             bundles.Add(new ScriptBundle("~/bundles/scrollReveal").Include("~/Scripts/scrollReveal.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/zerif").Include("~/Scripts/zerif.js"));
             bundles.Add(new ScriptBundle("~/bundles/site").Include("~/Scripts/site.js"));
+            bundles.Add(new ScriptBundle("~/bundles/toastr", "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js").Include("~/Scripts/toastr.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
 
