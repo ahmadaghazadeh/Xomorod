@@ -293,7 +293,6 @@
     <Content Include="Content\images\Unknown-8.png" />
     <Content Include="Content\images\Unknown-9.png" />
     <Content Include="Content\images\Unknown1.png" />
-    <Content Include="Content\images\woo.png" />
     <Content Include="Content\images\woostars.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
