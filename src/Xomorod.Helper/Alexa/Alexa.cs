@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -161,7 +160,7 @@ namespace Xomorod.Helper
                 await RefreshDataAsync();
             }
 
-            AlexaGlobalPattern = Patterns.AlexaGlobalRank;
+            AlexaGlobalPattern = AlexaResources.AlexaGlobalRank;
             // fetch ranking:
             return GetNumber(AlexaGlobalPattern);
         }
@@ -173,7 +172,7 @@ namespace Xomorod.Helper
                 RefreshData();
             }
 
-            AlexaGlobalPattern = Patterns.AlexaGlobalRank;
+            AlexaGlobalPattern = AlexaResources.AlexaGlobalRank;
             // fetch ranking:
             return GetNumber(AlexaGlobalPattern);
         }
@@ -185,7 +184,7 @@ namespace Xomorod.Helper
                 await RefreshDataAsync();
             }
 
-            AlexaLocalPattern = Patterns.AlexaIranRank;
+            AlexaLocalPattern = AlexaResources.AlexaIranRank;
             // fetch ranking:
             return GetNumber(AlexaLocalPattern);
         }
@@ -197,7 +196,7 @@ namespace Xomorod.Helper
                 RefreshData();
             }
 
-            AlexaLocalPattern = Patterns.AlexaIranRank;
+            AlexaLocalPattern = AlexaResources.AlexaIranRank;
             // fetch ranking:
             return GetNumber(AlexaLocalPattern);
         }
@@ -209,7 +208,7 @@ namespace Xomorod.Helper
                 RefreshData();
             }
 
-            AlexaLinksin = Patterns.AlexaLinksin;
+            AlexaLinksin = AlexaResources.AlexaLinksin;
             // fetch ranking:
             return GetNumber(AlexaLinksin);
         }
@@ -221,7 +220,7 @@ namespace Xomorod.Helper
                 await RefreshDataAsync();
             }
 
-            AlexaLinksin = Patterns.AlexaLinksin;
+            AlexaLinksin = AlexaResources.AlexaLinksin;
             // fetch ranking:
             return GetNumber(AlexaLinksin);
         }

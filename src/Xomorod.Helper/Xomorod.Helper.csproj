@@ -78,20 +78,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alexa.cs" />
-    <Compile Include="AlexaExtensions.cs" />
-    <Compile Include="Patterns.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Patterns.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Alexa\Alexa.cs" />
+    <Compile Include="Alexa\AlexaExtensions.cs" />
+    <Compile Include="Alexa\AlexaResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Patterns.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Patterns.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
