@@ -1,5 +1,5 @@
 
-## Xomorod.com   [![Xomorod.xom Favicon](http://xomorod.com/images/favicon.jpg)](http://xomorod.com) 
+## Xomorod.com   [![Xomorod.xom Favicon](https://raw.githubusercontent.com/Xomorod/Xomorod/master/src/Xomorod.com/Content/images/logo/Logo.png)](http://xomorod.com) 
 -----------------------------------
 [![Official Site](https://img.shields.io/badge/Official%20Site-xomorod.com-blue.svg)](http://xomorod.com)
 [![API Site](https://img.shields.io/badge/API-api.xomorod.com-green.svg)](http://api.xomorod.com)
