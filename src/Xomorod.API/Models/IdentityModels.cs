@@ -24,7 +24,7 @@ namespace Xomorod.API.Models
             : base("XomorodServerSide", throwIfV1Schema: false)
         {
         }
-        
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

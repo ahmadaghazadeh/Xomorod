@@ -29,11 +29,11 @@ namespace Xomorod.com.Models
 
 #if DEBUG 
         public ApplicationDbContext() // local
-          : base("Xomorod", throwIfV1Schema: false)
+          : base(Connections.Xomorod.Connection.Name, throwIfV1Schema: false)
         { }
 #else
             public ApplicationDbContext() // local
-          : base("XomorodServerSide", throwIfV1Schema: false)
+          : base(Connections.XomorodServerSide.Connection.Name, throwIfV1Schema: false)
         { } 
 #endif
 
