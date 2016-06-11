@@ -310,7 +310,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="app.config" />
+    <None Include="Views\app.config" />
     <Content Include="fonts\eurb.woff" />
     <Content Include="fonts\eurWebfont.woff" />
     <Content Include="Content\toastr.scss" />

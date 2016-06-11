@@ -1,12 +1,11 @@
 ﻿using System;
-using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AdoManager;
-using Xomorod.API.Providers.ErrorControlSystem;
 using GlobalConfiguration = System.Web.Http.GlobalConfiguration;
+using Xomorod.API.Controllers;
 
 namespace Xomorod.API
 {
@@ -20,27 +19,38 @@ namespace Xomorod.API
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Set Database Connection from [Web.config]
-            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
-            ConnectionManager.LoadFromXml(data);
 #if DEBUG
-            ConnectionManager.SetToDefaultConnection("Xomorod"); // local
+            ConnectionManager.SetToDefaultConnection(Connections.Xomorod.Connection.Name); // local
 #else
-            ConnectionManager.SetToDefaultConnection("XomorodServerSide"); // server
+            ConnectionManager.SetToDefaultConnection(Connections.XomorodServerSide.Connection.Name); // server
 #endif
-
-            Error += Application_Error;
         }
 
-        void Application_Error(object sender, EventArgs e)
+        protected void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
+            var context = new HttpContextWrapper(Context); //((MvcApplication)sender).Context;
+            var action = "Index";
+            var statusCode = 500;
+
+            var currentController = " ";
+            var currentAction = " ";
+            var currentRouteData = RouteTable.Routes.GetRouteData(context);
+
+            if (currentRouteData != null)
+            {
+                currentController = currentRouteData.Values["controller"]?.ToString() ?? " ";
+                currentAction = currentRouteData.Values["action"]?.ToString() ?? " ";
+            }
 
             // Get the exception object.
-            Exception exc = Server.GetLastError();
+            var exc = Server.GetLastError();
 
             if (exc == null)
                 return;
+
+            // Clear the error from the server
+            Server.ClearError();
 
             // Handle HTTP errors
             if (exc.GetType() == typeof(HttpException))
@@ -53,18 +63,39 @@ namespace Xomorod.API
                     return;
 
                 //Redirect HTTP errors to HttpError page
-                //Server.Transfer("~/Views/Errors");
-                Response.Redirect("~/errors");
-                return;
+                var httpEx = exc as HttpException;
+
+                if (httpEx != null)
+                    switch (httpEx.GetHttpCode())
+                    {
+                        case 404: // Redirect to 404:
+                            action = "NotFound";
+                            statusCode = 404;
+                            break;
+
+                        // others if any
+                        default:
+                            statusCode = httpEx.GetHttpCode();
+                            break;
+                    }
             }
 
-            exc.RaiseError("Xomorod.API");
+            context.ClearError();
+            context.Response.Clear();
+            context.Response.StatusCode = statusCode;
+            context.Response.TrySkipIisCustomErrors = true;
+            if (!context.Request.IsAjaxRequest())
+            {
+                context.Response.ContentType = "text/html";
+            }
 
-            // Clear the error from the server
-            Server.ClearError();
+            var controller = new ErrorsController();
+            var routeData = new RouteData();
+            routeData.Values["controller"] = "Errors";
+            routeData.Values["action"] = action;
 
-            // Redirect to a landing page
-            Response.Redirect("~/home");
+            controller.ViewData.Model = new HandleErrorInfo(exc, currentController, currentAction);
+            ((IController)controller).Execute(new RequestContext(context, routeData));
         }
     }
 }

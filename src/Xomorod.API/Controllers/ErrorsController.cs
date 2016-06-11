@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Mail;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
-using System.Web.Http.Results;
 using System.Web.Mvc;
-using AdoManager;
 using Xomorod.API.Models;
-using Xomorod.API.Providers;
 using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod.API.Controllers
@@ -25,18 +17,15 @@ namespace Xomorod.API.Controllers
         /// Default Error: HTTP Error 404
         /// </summary>
         /// <returns>A designed html page for error 404 Page Not Found</returns>
+        // GET: Errors
         public ActionResult Index()
         {
-            ViewBag.Title = "Xomorod: Error";
-
-            return View();
+            return View("Index");
         }
 
-        public ActionResult err404()
+        public ActionResult NotFound()
         {
-            ViewBag.Title = "Xomorod: Error 404";
-
-            return View();
+            return View("NotFound");
         }
 
         /// <summary>

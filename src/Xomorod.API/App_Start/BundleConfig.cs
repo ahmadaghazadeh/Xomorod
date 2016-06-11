@@ -19,12 +19,14 @@ namespace Xomorod.API
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/clipboard", "https://cdn.jsdelivr.net/clipboard.js/1.5.10/clipboard.min.js").Include("~/Scripts/clipboard.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/error").Include(
-                      "~/Content/404.css"));
+            bundles.Add(new StyleBundle("~/Content/errors").Include("~/Content/errors.css"));
+
         }
     }
 }

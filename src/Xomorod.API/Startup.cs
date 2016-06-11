@@ -22,8 +22,8 @@ namespace Xomorod.API
 
         private void SetHangfireBackgroundJobs(IAppBuilder app)
         {
-            GlobalConfiguration.Configuration
-               .UseSqlServerStorage(ConnectionManager.GetDefaultConnection().ConnectionString);
+            GlobalConfiguration.Configuration.UseSqlServerStorage(
+                ConnectionManager.GetDefaultConnection().ConnectionString);
 
             app.UseHangfireServer();
             app.UseCookieAuthentication(new CookieAuthenticationOptions() { AuthenticationMode = AuthenticationMode.Active }); // Authentication - first

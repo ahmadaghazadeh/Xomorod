@@ -2,6 +2,15 @@
 @using Microsoft.AspNet.Identity.EntityFramework
 @using Xomorod.com.Models
 
+@{
+    string hangfireDashboardUrl = "";
+#if DEBUG
+    hangfireDashboardUrl = @"http://localhost:7911/BackgroundJobs";
+#else
+    hangfireDashboardUrl = @"http://api.xomorod.com/BackgroundJobs";
+#endif
+}
+
 @if (Request.IsAuthenticated)
 {
     var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
@@ -30,6 +39,12 @@
                         <li>
                             <a id="settingLink" href="@Url.Content(@"~/errorsmanager")">
                                 <span class="glyphicon glyphicon-exclamation-sign">&nbsp;Errors</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a id="settingLink" href="@Url.Content(hangfireDashboardUrl)">
+                                <span class="glyphicon glyphicon-fire">&nbsp;Background Jobs</span>
                             </a>
                         </li>
                     }
