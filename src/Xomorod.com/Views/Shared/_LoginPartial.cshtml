@@ -2,15 +2,6 @@
 @using Microsoft.AspNet.Identity.EntityFramework
 @using Xomorod.com.Models
 
-@{
-    string hangfireDashboardUrl = "";
-#if DEBUG
-    hangfireDashboardUrl = @"http://localhost:7911/BackgroundJobs";
-#else
-    hangfireDashboardUrl = @"http://api.xomorod.com/BackgroundJobs";
-#endif
-}
-
 @if (Request.IsAuthenticated)
 {
     var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
@@ -43,7 +34,7 @@
                         </li>
                         
                         <li>
-                            <a id="settingLink" href="@Url.Content(hangfireDashboardUrl)">
+                            <a id="settingLink" href="http://api.xomorod.com/BackgroundJobs">
                                 <span class="glyphicon glyphicon-fire">&nbsp;Background Jobs</span>
                             </a>
                         </li>
