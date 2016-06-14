@@ -9,16 +9,7 @@ namespace Xomorod.API.Controllers
 {
     public class PurchaseController : ApiController
     {
-        // POST: api/ApiPurchase
-        [HttpPost]
-        [Route("Purchase")]
-        public IHttpActionResult Post(JObject jsonData)
-        {
-            var va = jsonData.ToString();
-
-            return Ok();
-        }
-
+       
         [HttpPost]
         [Route("Purchase/GetDeveloperPayload")]
         public async Task<IHttpActionResult> GetDeveloperPayload(JObject jsonData)
