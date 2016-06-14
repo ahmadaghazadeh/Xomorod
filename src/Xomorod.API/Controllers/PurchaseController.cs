@@ -35,8 +35,8 @@ namespace Xomorod.API.Controllers
         }
 
         [HttpPost]
-        [Route("Purchase/SetCafeBazaarPurchase")]
-        public async Task<IHttpActionResult> SetCafeBazaarPurchase(JObject jsonData)
+        [Route("Purchase/SetPurchase")]
+        public async Task<IHttpActionResult> SetPurchase(JObject jsonData)
         {
             try
             {
