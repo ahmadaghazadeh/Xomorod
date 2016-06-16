@@ -10,11 +10,7 @@ namespace Xomorod.com
             RegisterScriptBundles(bundles);
             RegisterStyleBundles(bundles);
 
-#if DEBUG
-            BundleTable.EnableOptimizations = false;
-#else
-            BundleTable.EnableOptimizations = true;
-#endif
+            BundleTable.EnableOptimizations = !Debugger.IsAttached;
         }
 
         private static void RegisterStyleBundles(BundleCollection bundles)
