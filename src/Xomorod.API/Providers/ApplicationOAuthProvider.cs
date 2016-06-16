@@ -67,6 +67,11 @@ namespace Xomorod.API.Providers
             {
                 context.Validated();
             }
+            else
+            {
+                context.SetError("invalid_client", "Client credentials could not be retrieved from the Authorization header");
+                context.Rejected();
+            }
 
             return Task.FromResult<object>(null);
         }

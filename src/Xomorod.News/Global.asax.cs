@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
 using System.Web.Http;
@@ -16,15 +17,9 @@ namespace Xomorod.News
             GlobalConfiguration.Configure(WebApiConfig.Register); // Register WebAPI Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes); // Register Pages Routes
 
-            // Set Database Connetion from [Web.config]
-            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
-            ConnectionManager.LoadFromXml(data);
-#if DEBUG
-            ConnectionManager.SetToDefaultConnection("Xomorod"); // local
-#else
-            ConnectionManager.SetToDefaultConnection("XomorodServerSide"); // server
-#endif
-
+            ConnectionManager.SetToDefaultConnection(Debugger.IsAttached
+                ? Connections.Xomorod.Connection.Name // local
+                : Connections.XomorodServerSide.Connection.Name); // server
 
             Error += Application_Error;
         }

@@ -26,7 +26,7 @@ namespace Xomorod.API
                 ConnectionManager.GetDefaultConnection().ConnectionString);
 
             app.UseHangfireServer();
-            app.UseCookieAuthentication(new CookieAuthenticationOptions() { AuthenticationMode = AuthenticationMode.Active }); // Authentication - first
+            app.UseCookieAuthentication(new CookieAuthenticationOptions() { AuthenticationMode = AuthenticationMode.Passive }); // Authentication - first
             var opt = new DashboardOptions
             {
                 AuthorizationFilters = new[] { new HangfireRestrictiveAuthorizationFilter() },

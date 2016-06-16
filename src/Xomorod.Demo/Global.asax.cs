@@ -1,10 +1,9 @@
 ﻿using System;
-using System.IO;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 using AdoManager;
-using Xomorod.API.Providers;
 using Xomorod.API.Providers.ErrorControlSystem;
 
 namespace Xomorod
@@ -16,14 +15,9 @@ namespace Xomorod
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes); // Register Pages Routes
 
-            // Set Database Connetion from [Web.config]
-            var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
-            ConnectionManager.LoadFromXml(data);
-#if DEBUG
-            ConnectionManager.SetToDefaultConnection("Xomorod"); // local
-#else
-            ConnectionManager.SetToDefaultConnection("XomorodServerSide"); // server
-#endif
+            ConnectionManager.SetToDefaultConnection(Debugger.IsAttached
+                ? Connections.Xomorod.Connection.Name // local
+                : Connections.XomorodServerSide.Connection.Name); // server
 
             Error += Application_Error;
         }

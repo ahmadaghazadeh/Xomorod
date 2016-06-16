@@ -310,11 +310,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Scripts\toastr.js.map" />
+    <Content Include="Scripts\toastr.min.js.map" />
     <None Include="Views\app.config" />
     <Content Include="fonts\eurb.woff" />
     <Content Include="fonts\eurWebfont.woff" />
-    <Content Include="Content\toastr.scss" />
-    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Xomorod.com.pubxml" />
     <Content Include="Scripts\cart-fragments.min.js" />
     <Content Include="Scripts\clipboard.min.js" />

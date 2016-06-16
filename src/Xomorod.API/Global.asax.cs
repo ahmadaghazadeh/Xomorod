@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,11 +20,9 @@ namespace Xomorod.API
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-#if DEBUG
-            ConnectionManager.SetToDefaultConnection(Connections.Xomorod.Connection.Name); // local
-#else
-            ConnectionManager.SetToDefaultConnection(Connections.XomorodServerSide.Connection.Name); // server
-#endif
+            ConnectionManager.SetToDefaultConnection(Debugger.IsAttached
+                ? Connections.Xomorod.Connection.Name // local
+                : Connections.XomorodServerSide.Connection.Name); // server
         }
 
         protected void Application_Error(object sender, EventArgs e)
