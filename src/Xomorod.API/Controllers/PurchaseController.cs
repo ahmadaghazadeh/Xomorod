@@ -10,6 +10,30 @@ namespace Xomorod.API.Controllers
     public class PurchaseController : ApiController
     {
        
+       
+        [HttpPost]
+        [Route("Purchase/GetAllowCoin")]
+        public async Task<IHttpActionResult> GetAllowCoin(JObject jsonData)
+        {
+            try
+            {
+                var param = new
+                {
+                    packageName = jsonData.GetValue("packageName").ToString(),
+                    productId = jsonData.GetValue("deviceID").ToString()
+                };
+
+                var result = await ConnectionManager.GetDefaultConnection().SqlConn.QueryAsync("sp_GetAllowCoin",
+                    param,
+                    commandType: System.Data.CommandType.StoredProcedure);
+                return Ok(result);
+            }
+            catch (Exception exp)
+            {
+                return InternalServerError(exp);
+            }
+        }
+        
         [HttpPost]
         [Route("Purchase/GetDeveloperPayload")]
         public async Task<IHttpActionResult> GetDeveloperPayload(JObject jsonData)
