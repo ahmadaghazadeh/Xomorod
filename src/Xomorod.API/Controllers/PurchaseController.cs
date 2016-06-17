@@ -20,7 +20,7 @@ namespace Xomorod.API.Controllers
                 var param = new
                 {
                     packageName = jsonData.GetValue("packageName").ToString(),
-                    productId = jsonData.GetValue("deviceID").ToString()
+                    deviceID = jsonData.GetValue("deviceID").ToString()
                 };
 
                 var result = await ConnectionManager.GetDefaultConnection().SqlConn.QueryAsync("sp_GetAllowCoin",
